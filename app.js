@@ -1,4 +1,4 @@
-/* ========= Habit Tracker — Main App ========= */
+/* ========= Habit Tracker — Main App v2 (Identity Enhanced) ========= */
 (function () {
   'use strict';
 
@@ -12,40 +12,40 @@
   ];
 
   const ROUTINES = {
-    0: [ // 월
+    0: [
       { id: 'english', name: '영어 (스픽)', icon: '🇺🇸' },
       { id: 'wife', name: '와이프와 시간', icon: '❤️' },
     ],
-    1: [ // 화
+    1: [
       { id: 'english', name: '영어 (스픽)', icon: '🇺🇸' },
       { id: 'run', name: '달리기', icon: '🏃' },
       { id: 'wife', name: '와이프와 시간', icon: '❤️' },
       { id: 'research', name: '연구 작업', icon: '✍️' },
     ],
-    2: [ // 수
+    2: [
       { id: 'english', name: '영어 (스픽)', icon: '🇺🇸' },
       { id: 'research', name: '연구 작업', icon: '✍️' },
       { id: 'run', name: '달리기', icon: '🏃' },
       { id: 'golf', name: '골프 연습', icon: '⛳' },
       { id: 'wife', name: '와이프와 저녁', icon: '❤️' },
     ],
-    3: [ // 목
+    3: [
       { id: 'english', name: '영어 (스픽)', icon: '🇺🇸' },
       { id: 'gym', name: '헬스', icon: '💪' },
       { id: 'wife', name: '와이프와 시간', icon: '❤️' },
       { id: 'research', name: '연구 작업', icon: '✍️' },
     ],
-    4: [ // 금
+    4: [
       { id: 'english', name: '영어 (스픽)', icon: '🇺🇸' },
       { id: 'run', name: '달리기', icon: '🏃' },
       { id: 'date', name: '와이프 데이트', icon: '🎉' },
     ],
-    5: [ // 토
+    5: [
       { id: 'golf_or_run', name: '골프/달리기', icon: '⛳🏃' },
       { id: 'wife', name: '와이프와 시간', icon: '❤️' },
       { id: 'research', name: '연구 작업 (여유시)', icon: '✍️' },
     ],
-    6: [ // 일
+    6: [
       { id: 'church', name: '교회', icon: '⛪' },
       { id: 'family', name: '가족 시간', icon: '👨‍👩‍👧' },
       { id: 'research', name: '연구 작업', icon: '✍️' },
@@ -59,177 +59,223 @@
     { id: 'move', label: '매일 움직이는 사람', class: 'move', routineIds: ['run', 'gym', 'golf', 'golf_or_run'] },
   ];
 
-  const MILESTONES = [
-    { days: 7, label: '1주 완주', emoji: '🌱' },
-    { days: 14, label: '2주 챌린지', emoji: '🌿' },
-    { days: 30, label: '한 달!', emoji: '🌳' },
-    { days: 66, label: '습관 형성 중간값', emoji: '⭐' },
-    { days: 100, label: '100일 달성', emoji: '🏆' },
-    { days: 365, label: '1년!', emoji: '👑' },
+  // Identity-specific completion messages per habit
+  const IDENTITY_FEEDBACK = {
+    supplements: [
+      '💊 간을 지키는 사람으로 한 표!',
+      '💊 오늘도 간에게 선물을 줬습니다',
+      '💊 우루사+비타민+양배추환+프로바이오틱스 — 간이 감사합니다',
+      '💊 아침 영양제 완료! 간을 지키는 습관이 뿌리내리고 있어요',
+    ],
+    water: [
+      '💧 깨끗한 피부를 가진 사람답네요!',
+      '💧 물 한 잔이 피부 세포를 살립니다',
+      '💧 수분 충전 완료! 피부가 기뻐하고 있어요',
+      '💧 물은 가장 싼 피부 관리입니다',
+    ],
+    veggies: [
+      '🥗 간을 지키는 사람은 채소를 먼저 먹습니다',
+      '🥗 식이섬유가 간의 해독을 돕고 있어요',
+      '🥗 채소 먼저 → 혈당 스파이크 방지 → 간 부담 감소',
+      '🥗 좋은 선택! 간과 피부 모두에게 이로운 한 끼',
+    ],
+    sleep: [
+      '😴 깨끗한 피부는 밤에 만들어집니다',
+      '😴 수면 중 성장호르몬이 피부를 재생합니다',
+      '😴 11시 전 취침 — 간 재생의 골든타임을 잡았습니다',
+      '😴 충분한 수면이 내일의 피부를 결정합니다',
+    ],
+    no_alcohol: [
+      '🚫 간을 지키는 사람으로 강력한 한 표!',
+      '🚫 오늘 간이 쉴 수 있게 해줬습니다. 48시간 재생 시작!',
+      '🚫 술 없는 하루 — 간세포가 회복 중입니다',
+      '🚫 매일의 금주가 간경변을 예방합니다',
+      '🚫 대단합니다! 이게 가장 어려운 습관인데 해냈어요',
+    ],
+  };
+
+  // Messages when unchecking (drinking, missing sleep, etc.)
+  const UNCHECK_FEEDBACK = {
+    no_alcohol: [
+      '괜찮아요. 한 번은 사고입니다. 내일 다시 투표하면 됩니다.',
+      '오늘은 쉬어가는 날. 두 번 연속만 아니면 괜찮습니다.',
+    ],
+    sleep: [
+      '오늘은 늦었지만, 내일은 11시 전에 도전해봐요.',
+    ],
+  };
+
+  // Streak milestone messages
+  const STREAK_MESSAGES = {
+    1: '첫 날을 시작했습니다! 모든 여정은 첫 걸음부터 🌱',
+    3: '3일 연속! 뇌가 패턴을 인식하기 시작합니다 🧠',
+    7: '🌱 1주 완주! 당신은 "시작하는 사람"에서 "지속하는 사람"으로 변하고 있습니다',
+    14: '🌿 2주! 주변 사람들이 변화를 눈치채기 시작할 때입니다',
+    21: '21일 — 옛날 사람들이 습관이 된다고 했지만, 실제로는 66일. 아직 갈 길이 있지만 잘하고 있어요!',
+    30: '🌳 한 달! 이제 새 습관을 1개 추가할 수 있는 자격이 생겼습니다',
+    50: '50일! 절반 넘었습니다. 이제 안 하면 오히려 불편하지 않나요?',
+    66: '⭐ 66일! 연구 기준 습관 형성 중간값을 돌파했습니다. 이제 자동화 단계로 진입 중!',
+    100: '🏆 100일 달성! 당신은 이미 변했습니다. 처음의 나와 지금의 나는 다른 사람입니다',
+    200: '200일! 이 정도면 이건 습관이 아니라 정체성입니다 👑',
+    365: '👑 1년! 인생이 바뀌었습니다. 당신은 증명했습니다',
+  };
+
+  // "Never miss twice" messages
+  const MISS_MESSAGES = {
+    1: [
+      '어제 하루 쉬었군요. 괜찮습니다 — 한 번 빠지는 건 사고예요.',
+      '실수는 누구나 합니다. 중요한 건 오늘 다시 나타나는 것입니다.',
+      '어제의 미스가 당신의 정체성을 바꾸지 않습니다. 오늘 다시 투표하세요.',
+    ],
+    2: [
+      '⚠️ 이틀 연속 빠졌습니다. "두 번 빠지면 새 습관의 시작"입니다.',
+      '⚠️ 지금이 중요한 순간입니다. 오늘 돌아오면 모든 게 괜찮습니다.',
+      '⚠️ 2일 빠졌지만, 그 전에 쌓은 것은 사라지지 않습니다. 습관 강도가 아직 남아있어요.',
+    ],
+    3: [
+      '🚨 3일 연속입니다. 혹시 무리한 목표는 아닌지 점검해볼까요?',
+      '🚨 괜찮으세요? 항목을 줄이는 것도 방법입니다. 작게라도 다시 시작해보세요.',
+    ],
+  };
+
+  // Phase messages (2-minute rule progression)
+  const PHASE_LABELS = {
+    1: { name: '나타나기', desc: '2분 버전만 해도 성공!' },
+    2: { name: '확장하기', desc: '조금 더 해보세요' },
+    3: { name: '목표의 절반', desc: '절반까지 왔습니다!' },
+    4: { name: '최종 목표', desc: '완전체! 습관의 달인' },
+  };
+
+  // Weekly reflection questions
+  const REFLECTION_QUESTIONS = [
+    '이번 주 가장 뿌듯했던 순간은?',
+    '가장 어려웠던 습관은 무엇이었나요?',
+    '다음 주 한 가지만 더 잘한다면?',
+    '이번 주 당신의 정체성 중 가장 강해진 것은?',
+    '환경에서 바꿀 수 있는 것이 있나요?',
   ];
 
-  const IDENTITY_MESSAGES = [
-    '매일의 체크가 새로운 나를 만듭니다.',
-    '당신이 하는 모든 행동은 되고 싶은 사람에게 투표하는 것입니다.',
-    '오늘도 한 표를 던져주세요.',
-    '두 번 연속 빠지지 않는 것이 핵심입니다.',
-    '완벽하지 않아도 괜찮습니다. 나타나는 것이 중요합니다.',
-    '2분만 시작하세요. 시작이 반입니다.',
-    '어제보다 1%만 나아지면 됩니다.',
-    '습관은 의지가 아니라 시스템입니다.',
-    '작은 습관이 큰 변화를 만듭니다.',
+  const MILESTONES = [
+    { days: 3, label: '3일 시작', emoji: '🌱' },
+    { days: 7, label: '1주 완주', emoji: '🌿' },
+    { days: 14, label: '2주 챌린지', emoji: '☘️' },
+    { days: 21, label: '3주 (옛 기준)', emoji: '🍀' },
+    { days: 30, label: '한 달!', emoji: '🌳' },
+    { days: 50, label: '50일', emoji: '🔥' },
+    { days: 66, label: '습관 형성 중간값', emoji: '⭐' },
+    { days: 100, label: '100일 달성', emoji: '🏆' },
+    { days: 200, label: '200일', emoji: '💎' },
+    { days: 365, label: '1년!', emoji: '👑' },
   ];
 
   const DAYS_KO = ['일', '월', '화', '수', '목', '금', '토'];
   const STORAGE_KEY = 'habit_tracker_data';
+  const META_KEY = 'habit_tracker_meta';
 
   // ====== State ======
   let currentDate = todayStr();
   let data = loadData();
+  let meta = loadMeta();
 
   // ====== Helpers ======
-  function todayStr() {
-    return formatDate(new Date());
-  }
-
+  function todayStr() { return formatDate(new Date()); }
   function formatDate(d) {
-    const y = d.getFullYear();
-    const m = String(d.getMonth() + 1).padStart(2, '0');
-    const day = String(d.getDate()).padStart(2, '0');
-    return `${y}-${m}-${day}`;
+    return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
   }
-
-  function parseDate(str) {
-    const [y, m, d] = str.split('-').map(Number);
-    return new Date(y, m - 1, d);
-  }
-
-  function addDays(str, n) {
-    const d = parseDate(str);
-    d.setDate(d.getDate() + n);
-    return formatDate(d);
-  }
-
-  function getWeekday(str) {
-    return parseDate(str).getDay(); // 0=Sun
-  }
-
-  function getWeekdayIdx(str) {
-    // Convert to Mon=0 format for ROUTINES
-    const d = getWeekday(str);
-    return d === 0 ? 6 : d - 1;
-  }
-
-  function formatDisplayDate(str) {
-    const d = parseDate(str);
-    const m = d.getMonth() + 1;
-    const day = d.getDate();
-    const dow = DAYS_KO[d.getDay()];
-    const isToday = str === todayStr();
-    return `${m}/${day} (${dow})${isToday ? ' 오늘' : ''}`;
-  }
-
-  function diffDays(a, b) {
-    return Math.round((parseDate(b) - parseDate(a)) / 86400000);
+  function parseDate(s) { const [y,m,d] = s.split('-').map(Number); return new Date(y,m-1,d); }
+  function addDays(s, n) { const d = parseDate(s); d.setDate(d.getDate()+n); return formatDate(d); }
+  function getWeekday(s) { return parseDate(s).getDay(); }
+  function getWeekdayIdx(s) { const d = getWeekday(s); return d===0?6:d-1; }
+  function formatDisplayDate(s) {
+    const d = parseDate(s);
+    return `${d.getMonth()+1}/${d.getDate()} (${DAYS_KO[d.getDay()]})${s===todayStr()?' 오늘':''}`;
   }
 
   // ====== Data ======
-  function loadData() {
-    try {
-      const raw = localStorage.getItem(STORAGE_KEY);
-      return raw ? JSON.parse(raw) : {};
-    } catch { return {}; }
-  }
+  function loadData() { try { return JSON.parse(localStorage.getItem(STORAGE_KEY)||'{}'); } catch { return {}; } }
+  function saveData() { localStorage.setItem(STORAGE_KEY, JSON.stringify(data)); }
+  function loadMeta() { try { return JSON.parse(localStorage.getItem(META_KEY)||'{}'); } catch { return {}; } }
+  function saveMeta() { localStorage.setItem(META_KEY, JSON.stringify(meta)); }
+  function getDayData(ds) { if (!data[ds]) data[ds]={health:{},routine:{},mood:null,reflection:null}; return data[ds]; }
 
-  function saveData() {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
-  }
-
-  function getDayData(dateStr) {
-    if (!data[dateStr]) data[dateStr] = { health: {}, routine: {} };
-    return data[dateStr];
-  }
-
-  function toggleHabit(dateStr, type, habitId) {
-    const day = getDayData(dateStr);
-    day[type][habitId] = !day[type][habitId];
+  function toggleHabit(ds, type, id) {
+    const day = getDayData(ds);
+    day[type][id] = !day[type][id];
     saveData();
+    return day[type][id];
   }
 
-  // ====== Streak & Strength ======
+  // ====== Calculations ======
+  function getHealthDoneCount(ds) {
+    const d = data[ds]; if (!d||!d.health) return 0;
+    return HEALTH_HABITS.filter(h=>d.health[h.id]).length;
+  }
+  function getRoutineDoneCount(ds) {
+    const d = data[ds]; if (!d||!d.routine) return 0;
+    const r = ROUTINES[getWeekdayIdx(ds)]||[];
+    return r.filter(x=>d.routine[x.id]).length;
+  }
+  function getTotalDoneCount(ds) { return getHealthDoneCount(ds)+getRoutineDoneCount(ds); }
+  function getTotalCount(ds) { return HEALTH_HABITS.length+(ROUTINES[getWeekdayIdx(ds)]||[]).length; }
+
   function calcStreak() {
-    let streak = 0;
-    let d = todayStr();
-    // Check today first
-    const todayDone = getHealthDoneCount(d);
-    const todayTotal = HEALTH_HABITS.length;
-    if (todayDone < todayTotal) {
-      // Check yesterday
-      d = addDays(d, -1);
-    }
-    while (true) {
-      const done = getHealthDoneCount(d);
-      const total = HEALTH_HABITS.length;
-      if (done >= Math.ceil(total * 0.6)) { // 60%+ counts as done
-        streak++;
-        d = addDays(d, -1);
-      } else {
-        break;
-      }
+    let streak=0, d=todayStr();
+    if (getHealthDoneCount(d) < HEALTH_HABITS.length) d = addDays(d,-1);
+    while(true) {
+      if (getHealthDoneCount(d)>=Math.ceil(HEALTH_HABITS.length*0.6)) { streak++; d=addDays(d,-1); }
+      else break;
     }
     return streak;
   }
 
   function calcStrength() {
-    // Gradual decay model: each day contributes, recent days matter more
-    let strength = 0;
-    const today = todayStr();
-    const lookback = 30;
-    for (let i = 0; i < lookback; i++) {
-      const d = addDays(today, -i);
-      const done = getHealthDoneCount(d);
-      const total = HEALTH_HABITS.length;
-      const pct = total > 0 ? done / total : 0;
-      const weight = 1 - (i / lookback) * 0.7; // recent days weighted more
-      strength += pct * weight;
+    let str=0; const t=todayStr(), lb=30;
+    for (let i=0;i<lb;i++) {
+      const d=addDays(t,-i), done=getHealthDoneCount(d), total=HEALTH_HABITS.length;
+      const pct=total>0?done/total:0, w=1-(i/lb)*0.7;
+      str+=pct*w;
     }
-    const maxStrength = Array.from({ length: lookback }, (_, i) => 1 - (i / lookback) * 0.7)
-      .reduce((a, b) => a + b, 0);
-    return Math.round((strength / maxStrength) * 100);
+    const max=Array.from({length:lb},(_,i)=>1-(i/lb)*0.7).reduce((a,b)=>a+b,0);
+    return Math.round((str/max)*100);
   }
 
-  function getHealthDoneCount(dateStr) {
-    const day = data[dateStr];
-    if (!day || !day.health) return 0;
-    return HEALTH_HABITS.filter(h => day.health[h.id]).length;
+  function calcConsecutiveMisses() {
+    let misses=0, d=addDays(todayStr(),-1);
+    while(misses<7) {
+      if (getHealthDoneCount(d)===0 && data[d]) { misses++; d=addDays(d,-1); }
+      else break;
+    }
+    return misses;
   }
 
-  function getRoutineDoneCount(dateStr) {
-    const day = data[dateStr];
-    if (!day || !day.routine) return 0;
-    const wdi = getWeekdayIdx(dateStr);
-    const routines = ROUTINES[wdi] || [];
-    return routines.filter(r => day.routine[r.id]).length;
-  }
-
-  function getTotalDoneCount(dateStr) {
-    return getHealthDoneCount(dateStr) + getRoutineDoneCount(dateStr);
-  }
-
-  function getTotalCount(dateStr) {
-    const wdi = getWeekdayIdx(dateStr);
-    return HEALTH_HABITS.length + (ROUTINES[wdi] || []).length;
+  function getIdentityScore(identity, days=7) {
+    let votes=0, total=0; const t=todayStr();
+    for (let i=0;i<days;i++) {
+      const d=addDays(t,-i), dd=data[d];
+      if (identity.habitIds) {
+        identity.habitIds.forEach(hid => {
+          total++; if (dd&&dd.health&&dd.health[hid]) votes++;
+        });
+      }
+      if (identity.routineIds) {
+        const r=ROUTINES[getWeekdayIdx(d)]||[];
+        identity.routineIds.forEach(rid => {
+          if (r.find(x=>x.id===rid)) { total++; if (dd&&dd.routine&&dd.routine[rid]) votes++; }
+        });
+      }
+    }
+    return { votes, total, pct: total>0?Math.round(votes/total*100):0 };
   }
 
   // ====== Render: Tabs ======
   function initTabs() {
     document.querySelectorAll('.tab').forEach(tab => {
       tab.addEventListener('click', () => {
-        document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-        document.querySelectorAll('.tab-content').forEach(tc => tc.classList.remove('active'));
+        document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+        document.querySelectorAll('.tab-content').forEach(tc=>tc.classList.remove('active'));
         tab.classList.add('active');
         document.getElementById(`tab-${tab.dataset.tab}`).classList.add('active');
-        if (tab.dataset.tab === 'dashboard') renderDashboard();
+        if (tab.dataset.tab==='dashboard') renderDashboard();
       });
     });
   }
@@ -238,14 +284,24 @@
   function renderHealth() {
     const container = document.getElementById('healthHabits');
     const dayData = getDayData(currentDate);
-    const isToday = currentDate === todayStr();
-    const isFuture = currentDate > todayStr();
+    const isToday = currentDate===todayStr();
+    const isFuture = currentDate>todayStr();
 
-    container.innerHTML = HEALTH_HABITS.map(h => {
+    // Show miss warning if applicable and today
+    let missWarning = '';
+    if (isToday) {
+      const misses = calcConsecutiveMisses();
+      if (misses > 0 && misses <= 3) {
+        const msgs = MISS_MESSAGES[Math.min(misses,3)];
+        missWarning = `<div class="miss-warning fade-in">${msgs[Math.floor(Math.random()*msgs.length)]}</div>`;
+      }
+    }
+
+    container.innerHTML = missWarning + HEALTH_HABITS.map(h => {
       const done = dayData.health[h.id];
       return `
-        <div class="habit-item ${done ? 'done' : ''} fade-in" data-id="${h.id}" data-type="health" ${isFuture ? 'style="opacity:0.4;pointer-events:none"' : ''}>
-          <div class="habit-check">${done ? '✓' : ''}</div>
+        <div class="habit-item ${done?'done':''} fade-in" data-id="${h.id}" data-type="health" ${isFuture?'style="opacity:0.4;pointer-events:none"':''}>
+          <div class="habit-check">${done?'✓':''}</div>
           <div class="habit-info">
             <div class="habit-name">${h.name}</div>
             <div class="habit-stack">${h.stack}</div>
@@ -255,15 +311,7 @@
       `;
     }).join('');
 
-    // Stats
-    const done = getHealthDoneCount(currentDate);
-    const total = HEALTH_HABITS.length;
-    const pct = total > 0 ? Math.round(done / total * 100) : 0;
-    document.getElementById('healthStats').innerHTML = `
-      <div class="stats-text"><strong>${done}/${total}</strong> 완료 (${pct}%)</div>
-      <div class="progress-bar"><div class="progress-fill" style="width:${pct}%"></div></div>
-    `;
-
+    renderHealthStats();
     document.getElementById('currentDate').textContent = formatDisplayDate(currentDate);
 
     // Click handlers
@@ -271,15 +319,27 @@
       el.addEventListener('click', () => {
         if (isFuture) return;
         const id = el.dataset.id;
-        toggleHabit(currentDate, 'health', id);
-        el.classList.toggle('done');
+        const nowDone = toggleHabit(currentDate, 'health', id);
+        el.classList.toggle('done', nowDone);
         const check = el.querySelector('.habit-check');
-        check.textContent = el.classList.contains('done') ? '✓' : '';
+        check.textContent = nowDone ? '✓' : '';
         check.classList.add('pop');
-        setTimeout(() => check.classList.remove('pop'), 300);
+        setTimeout(()=>check.classList.remove('pop'), 300);
         renderHealthStats();
         updateHeader();
-        if (el.classList.contains('done')) showToast(getCompletionMsg());
+
+        // Identity feedback
+        if (nowDone) {
+          const msgs = IDENTITY_FEEDBACK[id];
+          if (msgs) showToast(msgs[Math.floor(Math.random()*msgs.length)]);
+          // Check if all done
+          if (getHealthDoneCount(currentDate) === HEALTH_HABITS.length) {
+            setTimeout(()=>showToast('🎉 오늘 건강습관 올클리어! 모든 정체성에 투표 완료!'), 2500);
+          }
+        } else {
+          const msgs = UNCHECK_FEEDBACK[id];
+          if (msgs) showToast(msgs[Math.floor(Math.random()*msgs.length)]);
+        }
       });
     });
   }
@@ -287,7 +347,7 @@
   function renderHealthStats() {
     const done = getHealthDoneCount(currentDate);
     const total = HEALTH_HABITS.length;
-    const pct = total > 0 ? Math.round(done / total * 100) : 0;
+    const pct = total>0?Math.round(done/total*100):0;
     document.getElementById('healthStats').innerHTML = `
       <div class="stats-text"><strong>${done}/${total}</strong> 완료 (${pct}%)</div>
       <div class="progress-bar"><div class="progress-fill" style="width:${pct}%"></div></div>
@@ -298,7 +358,7 @@
   function renderRoutine() {
     const today = todayStr();
     const wdi = getWeekdayIdx(today);
-    const routines = ROUTINES[wdi] || [];
+    const routines = ROUTINES[wdi]||[];
     const dayData = getDayData(today);
     const container = document.getElementById('routineHabits');
 
@@ -307,113 +367,128 @@
     container.innerHTML = routines.map(r => {
       const done = dayData.routine[r.id];
       return `
-        <div class="habit-item ${done ? 'done' : ''} fade-in" data-id="${r.id}" data-type="routine">
-          <div class="habit-check">${done ? '✓' : ''}</div>
-          <div class="habit-info">
-            <div class="habit-name">${r.name}</div>
-          </div>
+        <div class="habit-item ${done?'done':''} fade-in" data-id="${r.id}" data-type="routine">
+          <div class="habit-check">${done?'✓':''}</div>
+          <div class="habit-info"><div class="habit-name">${r.name}</div></div>
           <div class="habit-icon">${r.icon}</div>
         </div>
       `;
     }).join('');
 
-    // Stats
-    const done = getRoutineDoneCount(today);
-    const total = routines.length;
-    const pct = total > 0 ? Math.round(done / total * 100) : 0;
+    const done = getRoutineDoneCount(today), total = routines.length;
+    const pct = total>0?Math.round(done/total*100):0;
     document.getElementById('routineStats').innerHTML = `
       <div class="stats-text"><strong>${done}/${total}</strong> 완료 (${pct}%)</div>
       <div class="progress-bar"><div class="progress-fill" style="width:${pct}%"></div></div>
     `;
 
-    // Click handlers
     container.querySelectorAll('.habit-item').forEach(el => {
       el.addEventListener('click', () => {
         const id = el.dataset.id;
-        toggleHabit(today, 'routine', id);
-        el.classList.toggle('done');
+        const nowDone = toggleHabit(today, 'routine', id);
+        el.classList.toggle('done', nowDone);
         const check = el.querySelector('.habit-check');
-        check.textContent = el.classList.contains('done') ? '✓' : '';
+        check.textContent = nowDone ? '✓' : '';
         check.classList.add('pop');
-        setTimeout(() => check.classList.remove('pop'), 300);
+        setTimeout(()=>check.classList.remove('pop'), 300);
         // Update stats
-        const doneN = getRoutineDoneCount(today);
-        const totalN = routines.length;
-        const pctN = totalN > 0 ? Math.round(doneN / totalN * 100) : 0;
+        const doneN = getRoutineDoneCount(today), totalN = routines.length;
+        const pctN = totalN>0?Math.round(doneN/totalN*100):0;
         document.getElementById('routineStats').innerHTML = `
           <div class="stats-text"><strong>${doneN}/${totalN}</strong> 완료 (${pctN}%)</div>
           <div class="progress-bar"><div class="progress-fill" style="width:${pctN}%"></div></div>
         `;
         updateHeader();
-        if (el.classList.contains('done')) showToast(getCompletionMsg());
+        if (nowDone) {
+          // Movement identity
+          if (['run','gym','golf','golf_or_run'].includes(id)) {
+            showToast('💪 매일 움직이는 사람으로 한 표!');
+          } else {
+            showToast(getRoutineMsg(id));
+          }
+          if (getRoutineDoneCount(today)===routines.length) {
+            setTimeout(()=>showToast('🎉 오늘 루틴 올클리어! 완벽한 하루!'), 2500);
+          }
+        }
       });
     });
+  }
+
+  function getRoutineMsg(id) {
+    const msgs = {
+      english: ['🇺🇸 영어 완료! 글로벌 연구자로 한 걸음', '🇺🇸 스픽 끝! 꾸준함이 유창함을 만듭니다'],
+      research: ['✍️ 연구 한 걸음! 논문은 매일의 작은 작업에서 완성됩니다', '✍️ 오늘의 연구가 내일의 논문이 됩니다'],
+      wife: ['❤️ 소중한 시간! 관계도 매일의 투자입니다', '❤️ 함께하는 시간은 최고의 투자입니다'],
+      date: ['🎉 데이트 완료! 행복한 금요일!'],
+      church: ['⛪ 감사한 하루의 시작'],
+      family: ['👨‍👩‍👧 가족과 함께하는 소중한 시간'],
+      plan: ['📋 계획 세우기 완료! 준비된 한 주가 될 거예요'],
+    };
+    const m = msgs[id] || ['잘했어요! 👍'];
+    return m[Math.floor(Math.random()*m.length)];
   }
 
   // ====== Render: Dashboard ======
   function renderDashboard() {
     renderStrength();
+    renderStreakInfo();
     renderHeatmap();
     renderWeeklyChart();
     renderMilestones();
     renderIdentityVotes();
+    renderMoodTracker();
+    renderWeeklyReflection();
+    renderPhaseProgress();
   }
 
   function renderStrength() {
-    const strength = calcStrength();
-    document.getElementById('strengthFill').style.width = `${strength}%`;
-    document.getElementById('strengthText').textContent = `${strength}%`;
+    const s = calcStrength();
+    document.getElementById('strengthFill').style.width = `${s}%`;
+    document.getElementById('strengthText').textContent = `${s}%`;
     let label = '';
-    if (strength < 20) label = '시작 단계 — 의식적 노력이 필요합니다';
-    else if (strength < 40) label = '형성 중 — 조금씩 자동화되고 있습니다';
-    else if (strength < 60) label = '발전 중 — 좋은 흐름입니다!';
-    else if (strength < 80) label = '안정 단계 — 거의 습관이 되었습니다';
-    else label = '자동화 — 습관이 당신의 일부입니다!';
+    if (s<20) label='시작 단계 — 의식적 노력이 필요합니다';
+    else if (s<40) label='형성 중 — 조금씩 자동화되고 있습니다';
+    else if (s<60) label='발전 중 — 좋은 흐름입니다!';
+    else if (s<80) label='안정 단계 — 거의 습관이 되었습니다';
+    else label='🌟 자동화 — 이건 이제 당신의 일부입니다!';
     document.getElementById('strengthLabel').textContent = label;
+  }
+
+  function renderStreakInfo() {
+    const streak = calcStreak();
+    const el = document.getElementById('streakInfo');
+    if (!el) return;
+    let msg = '';
+    // Find highest achieved milestone message
+    const keys = Object.keys(STREAK_MESSAGES).map(Number).sort((a,b)=>b-a);
+    for (const k of keys) { if (streak >= k) { msg = STREAK_MESSAGES[k]; break; } }
+    el.innerHTML = msg ? `<p class="streak-msg">${msg}</p>` : '';
   }
 
   function renderHeatmap() {
     const container = document.getElementById('heatmap');
-    const monthsContainer = document.getElementById('heatmapMonths');
     const today = new Date();
-    const cells = [];
-
-    // Go back 12 weeks (84 days)
     const startDate = new Date(today);
-    startDate.setDate(startDate.getDate() - 83);
-    // Align to Sunday
-    startDate.setDate(startDate.getDate() - startDate.getDay());
-
+    startDate.setDate(startDate.getDate()-83);
+    startDate.setDate(startDate.getDate()-startDate.getDay());
     const endDate = new Date(today);
-    endDate.setDate(endDate.getDate() + (6 - endDate.getDay())); // to Saturday
+    endDate.setDate(endDate.getDate()+(6-endDate.getDay()));
 
-    let d = new Date(startDate);
-    const months = new Set();
-
-    while (d <= endDate) {
-      const dateStr = formatDate(d);
-      const isFuture = dateStr > todayStr();
-      const done = getTotalDoneCount(dateStr);
-      const total = getTotalCount(dateStr);
-      const pct = total > 0 ? done / total : 0;
-
-      let lvl = '';
-      if (isFuture) lvl = 'future';
-      else if (pct === 0 && !data[dateStr]) lvl = '';
-      else if (pct <= 0.25) lvl = 'l1';
-      else if (pct <= 0.5) lvl = 'l2';
-      else if (pct <= 0.8) lvl = 'l3';
-      else lvl = 'l4';
-
-      cells.push(`<div class="heatmap-cell ${lvl}" title="${dateStr}: ${Math.round(pct * 100)}%"></div>`);
-
-      if (d.getDate() <= 7 && d.getDay() === 0) {
-        months.add(d.toLocaleDateString('ko', { month: 'short' }));
-      }
-
-      d.setDate(d.getDate() + 1);
+    let d=new Date(startDate); const cells=[];
+    while(d<=endDate) {
+      const ds=formatDate(d), isFuture=ds>todayStr();
+      const done=getTotalDoneCount(ds), total=getTotalCount(ds);
+      const pct=total>0?done/total:0;
+      let lvl='';
+      if (isFuture) lvl='future';
+      else if (pct===0&&!data[ds]) lvl='';
+      else if (pct<=0.25) lvl='l1';
+      else if (pct<=0.5) lvl='l2';
+      else if (pct<=0.8) lvl='l3';
+      else lvl='l4';
+      cells.push(`<div class="heatmap-cell ${lvl}" title="${ds}: ${Math.round(pct*100)}%"></div>`);
+      d.setDate(d.getDate()+1);
     }
-
     container.innerHTML = cells.join('');
   }
 
@@ -421,27 +496,21 @@
     const container = document.getElementById('weeklyChart');
     const today = todayStr();
     const weeks = [];
-
-    for (let w = 6; w >= 0; w--) {
-      const weekStart = addDays(today, -((diffDays(addDays(today, 0), today) % 7) + w * 7));
-      let totalDone = 0, totalAll = 0;
-
-      for (let i = 0; i < 7; i++) {
-        const d = addDays(today, -(w * 7 + (6 - i)));
-        if (d > today) continue;
-        totalDone += getHealthDoneCount(d);
-        totalAll += HEALTH_HABITS.length;
+    for (let w=6;w>=0;w--) {
+      let totalDone=0, totalAll=0;
+      for (let i=0;i<7;i++) {
+        const d=addDays(today,-(w*7+(6-i)));
+        if (d>today) continue;
+        totalDone+=getHealthDoneCount(d);
+        totalAll+=HEALTH_HABITS.length;
       }
-
-      const pct = totalAll > 0 ? Math.round(totalDone / totalAll * 100) : 0;
-      const isCurrent = w === 0;
-      weeks.push({ pct, isCurrent, label: w === 0 ? '이번주' : `${w}주전` });
+      const pct=totalAll>0?Math.round(totalDone/totalAll*100):0;
+      weeks.push({pct, isCurrent:w===0, label:w===0?'이번주':`${w}주전`});
     }
-
-    container.innerHTML = weeks.map(w => `
+    container.innerHTML = weeks.map(w=>`
       <div class="week-bar-container">
         <div class="week-bar-pct">${w.pct}%</div>
-        <div class="week-bar ${w.isCurrent ? 'current' : ''}" style="height:${Math.max(4, w.pct)}px"></div>
+        <div class="week-bar ${w.isCurrent?'current':''}" style="height:${Math.max(4,w.pct)}px"></div>
         <div class="week-bar-label">${w.label}</div>
       </div>
     `).join('');
@@ -449,51 +518,111 @@
 
   function renderMilestones() {
     const streak = calcStreak();
-    const container = document.getElementById('milestones');
-    container.innerHTML = MILESTONES.map(m => {
-      const achieved = streak >= m.days;
-      return `<div class="milestone ${achieved ? 'achieved' : 'pending'}">${m.emoji} ${m.label} (${m.days}일)${achieved ? ' ✓' : ''}</div>`;
+    document.getElementById('milestones').innerHTML = MILESTONES.map(m=>{
+      const achieved = streak>=m.days;
+      return `<div class="milestone ${achieved?'achieved':'pending'}">${m.emoji} ${m.label} (${m.days}일)${achieved?' ✓':''}</div>`;
     }).join('');
   }
 
   function renderIdentityVotes() {
     const container = document.getElementById('identityVotes');
-    const today = todayStr();
-    const lookback = 7;
-
     container.innerHTML = IDENTITIES.map(identity => {
-      let votes = 0, total = 0;
+      const s7 = getIdentityScore(identity, 7);
+      const s30 = getIdentityScore(identity, 30);
+      const trend = s7.pct > s30.pct ? '📈' : s7.pct < s30.pct ? '📉' : '➡️';
+      let level = '';
+      if (s7.pct >= 90) level = '🏆 마스터';
+      else if (s7.pct >= 70) level = '⭐ 안정';
+      else if (s7.pct >= 50) level = '🌿 성장 중';
+      else if (s7.pct >= 30) level = '🌱 시작';
+      else level = '💤 아직';
 
-      for (let i = 0; i < lookback; i++) {
-        const d = addDays(today, -i);
-        const dayData = data[d];
-
-        if (identity.habitIds) {
-          identity.habitIds.forEach(hid => {
-            total++;
-            if (dayData && dayData.health && dayData.health[hid]) votes++;
-          });
-        }
-        if (identity.routineIds) {
-          const wdi = getWeekdayIdx(d);
-          const routines = ROUTINES[wdi] || [];
-          identity.routineIds.forEach(rid => {
-            if (routines.find(r => r.id === rid)) {
-              total++;
-              if (dayData && dayData.routine && dayData.routine[rid]) votes++;
-            }
-          });
-        }
-      }
-
-      const pct = total > 0 ? Math.round(votes / total * 100) : 0;
       return `
         <div class="identity-item">
-          <div class="identity-label">"나는 ${identity.label}이다" — ${votes}/${total} 투표</div>
+          <div class="identity-label">"나는 ${identity.label}이다" ${level}</div>
           <div class="identity-bar-bg">
-            <div class="identity-bar-fill ${identity.class}" style="width:${pct}%"></div>
+            <div class="identity-bar-fill ${identity.class}" style="width:${s7.pct}%"></div>
           </div>
-          <div class="identity-pct">${pct}% 일치</div>
+          <div class="identity-pct">이번 주 ${s7.votes}/${s7.total} (${s7.pct}%) ${trend} 월간 ${s30.pct}%</div>
+        </div>
+      `;
+    }).join('');
+  }
+
+  // ====== Mood Tracker ======
+  function renderMoodTracker() {
+    const el = document.getElementById('moodTracker');
+    if (!el) return;
+    const dayData = getDayData(todayStr());
+    const moods = ['😫','😟','😐','🙂','😄'];
+    const selected = dayData.mood;
+
+    el.innerHTML = `
+      <div class="mood-row">
+        ${moods.map((m,i)=>`<span class="mood-btn ${selected===i?'selected':''}" data-mood="${i}">${m}</span>`).join('')}
+      </div>
+      <div class="mood-label">${selected!==null&&selected!==undefined ? '오늘 기분: '+moods[selected] : '오늘 기분은 어떠세요?'}</div>
+    `;
+
+    el.querySelectorAll('.mood-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const mood = parseInt(btn.dataset.mood);
+        dayData.mood = mood;
+        saveData();
+        renderMoodTracker();
+        showToast(`기분 기록 완료 ${moods[mood]}`);
+      });
+    });
+  }
+
+  // ====== Weekly Reflection ======
+  function renderWeeklyReflection() {
+    const el = document.getElementById('weeklyReflection');
+    if (!el) return;
+    const today = new Date();
+    if (today.getDay() !== 0) { // Sunday only
+      el.innerHTML = '<div class="reflection-note">일요일에 주간 회고가 열립니다</div>';
+      return;
+    }
+    const dayData = getDayData(todayStr());
+    const q = REFLECTION_QUESTIONS[Math.floor(Date.now()/604800000) % REFLECTION_QUESTIONS.length];
+
+    el.innerHTML = `
+      <div class="reflection-q">${q}</div>
+      <textarea class="reflection-input" placeholder="한 줄이라도 적어보세요...">${dayData.reflection||''}</textarea>
+      <button class="reflection-save">저장</button>
+    `;
+
+    el.querySelector('.reflection-save').addEventListener('click', () => {
+      dayData.reflection = el.querySelector('.reflection-input').value;
+      saveData();
+      showToast('회고 저장 완료 📝');
+    });
+  }
+
+  // ====== Phase Progress (2-minute rule) ======
+  function renderPhaseProgress() {
+    const el = document.getElementById('phaseProgress');
+    if (!el) return;
+    if (!meta.phases) meta.phases = {};
+    const streak = calcStreak();
+
+    // Auto-advance phases based on streak
+    HEALTH_HABITS.forEach(h => {
+      if (!meta.phases[h.id]) meta.phases[h.id] = 1;
+      if (streak >= 14 && meta.phases[h.id] < 2) meta.phases[h.id] = 2;
+      if (streak >= 30 && meta.phases[h.id] < 3) meta.phases[h.id] = 3;
+      if (streak >= 66 && meta.phases[h.id] < 4) meta.phases[h.id] = 4;
+    });
+    saveMeta();
+
+    el.innerHTML = HEALTH_HABITS.map(h => {
+      const phase = meta.phases[h.id] || 1;
+      const p = PHASE_LABELS[phase];
+      return `
+        <div class="phase-item">
+          <span class="phase-habit">${h.icon} ${h.name}</span>
+          <span class="phase-badge phase-${phase}">Phase ${phase}: ${p.name}</span>
         </div>
       `;
     }).join('');
@@ -502,47 +631,56 @@
   // ====== Header ======
   function updateHeader() {
     const streak = calcStreak();
-    document.getElementById('streakBadge').textContent = streak;
-    document.getElementById('identityMsg').textContent =
-      IDENTITY_MESSAGES[Math.floor(Math.random() * IDENTITY_MESSAGES.length)];
+    const badge = document.getElementById('streakBadge');
+    badge.textContent = streak;
+
+    // Check for new milestone
+    if (STREAK_MESSAGES[streak] && meta.lastMilestone !== streak) {
+      meta.lastMilestone = streak;
+      saveMeta();
+      setTimeout(() => showToast(STREAK_MESSAGES[streak]), 1000);
+    }
+
+    // Rotate identity messages with context
+    const strength = calcStrength();
+    let msg = '';
+    if (strength >= 80) {
+      msg = '🌟 당신의 습관은 이제 정체성입니다';
+    } else if (strength >= 60) {
+      const best = IDENTITIES.reduce((a,b) => getIdentityScore(a).pct > getIdentityScore(b).pct ? a : b);
+      msg = `가장 강한 정체성: "${best.label}" (${getIdentityScore(best).pct}%)`;
+    } else {
+      const msgs = [
+        '매일의 체크가 새로운 나를 만듭니다',
+        '당신이 하는 모든 행동은 되고 싶은 사람에게 투표하는 것입니다',
+        '두 번 연속 빠지지 않는 것이 핵심입니다',
+        '완벽하지 않아도 괜찮습니다. 나타나는 것이 중요합니다',
+        '2분만 시작하세요. 시작이 반입니다',
+        `현재 습관 강도: ${strength}% — ${strength<40?'조금씩 쌓이고 있어요':'좋은 흐름입니다!'}`,
+      ];
+      msg = msgs[Math.floor(Math.random()*msgs.length)];
+    }
+    document.getElementById('identityMsg').textContent = msg;
   }
 
   // ====== Toast ======
   function showToast(msg) {
     let toast = document.querySelector('.toast');
-    if (!toast) {
-      toast = document.createElement('div');
-      toast.className = 'toast';
-      document.body.appendChild(toast);
-    }
+    if (!toast) { toast=document.createElement('div'); toast.className='toast'; document.body.appendChild(toast); }
     toast.textContent = msg;
     toast.classList.add('show');
-    setTimeout(() => toast.classList.remove('show'), 2000);
-  }
-
-  function getCompletionMsg() {
-    const msgs = [
-      '한 표 투표 완료! 👍',
-      '좋아요! 계속 가세요! 💪',
-      '나타나는 것이 가장 중요합니다 ✨',
-      '오늘도 한 걸음 더! 🚀',
-      '잘하고 계세요! 🌟',
-      '습관이 되어가고 있어요! 🌱',
-    ];
-    return msgs[Math.floor(Math.random() * msgs.length)];
+    clearTimeout(toast._timeout);
+    toast._timeout = setTimeout(()=>toast.classList.remove('show'), 3000);
   }
 
   // ====== Date Navigation ======
   function initDateNav() {
     document.getElementById('prevDay').addEventListener('click', () => {
-      currentDate = addDays(currentDate, -1);
+      currentDate = addDays(currentDate,-1);
       renderHealth();
     });
     document.getElementById('nextDay').addEventListener('click', () => {
-      if (currentDate < todayStr()) {
-        currentDate = addDays(currentDate, 1);
-        renderHealth();
-      }
+      if (currentDate < todayStr()) { currentDate = addDays(currentDate,1); renderHealth(); }
     });
   }
 
@@ -555,10 +693,6 @@
     renderRoutine();
   }
 
-  // Wait for DOM
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init);
-  } else {
-    init();
-  }
+  if (document.readyState==='loading') document.addEventListener('DOMContentLoaded', init);
+  else init();
 })();
