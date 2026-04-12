@@ -33,10 +33,12 @@ body {
 .baby-top {
   display: flex; align-items: center; justify-content: center; gap: 12px;
 }
-.baby-emoji {
-  font-size: 48px;
-  line-height: 1;
-  filter: drop-shadow(0 2px 8px rgba(78,204,163,0.3));
+.baby-illust {
+  flex-shrink: 0;
+  filter: drop-shadow(0 2px 8px rgba(255,182,193,0.4));
+}
+.baby-illust svg {
+  display: block;
 }
 .baby-info {
   text-align: left;

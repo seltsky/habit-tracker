@@ -778,10 +778,12 @@
       if (clampedWeek >= k) { dadTip = BABY_DAD_TIPS[k]; break; }
     }
 
+    const svg = typeof getBabySvg === 'function' ? getBabySvg(clampedWeek) : `<span style="font-size:48px">${weekData.emoji}</span>`;
+
     if (weeks < 4) {
       el.innerHTML = `
         <div class="baby-top">
-          <div class="baby-emoji">🤰</div>
+          <div class="baby-illust">${svg}</div>
           <div class="baby-info">
             <div class="baby-week">임신 ${weeks}주 ${days}일</div>
             <div class="baby-size">아직 아주 작은 생명이에요</div>
@@ -796,10 +798,10 @@
 
     el.innerHTML = `
       <div class="baby-top">
-        <div class="baby-emoji">${weekData.emoji}</div>
+        <div class="baby-illust">${svg}</div>
         <div class="baby-info">
           <div class="baby-week">임신 ${weeks}주 ${days}일</div>
-          <div class="baby-size">아기 크기: ${weekData.size} (${weekData.length}${weekData.weight !== '-' ? ', ' + weekData.weight : ''})</div>
+          <div class="baby-size">${weekData.emoji} 아기 크기: ${weekData.size} (${weekData.length}${weekData.weight !== '-' ? ', ' + weekData.weight : ''})</div>
           <div class="baby-dday">D-${daysLeft} | 출산예정일 12월 8일</div>
         </div>
       </div>
