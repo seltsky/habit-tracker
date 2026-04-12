@@ -168,6 +168,67 @@
     { days: 365, label: '1년!', emoji: '👑' },
   ];
 
+  // ====== Baby / Pregnancy ======
+  const DUE_DATE = '2026-12-08';
+  const LMP_DATE = '2026-03-03'; // estimated from due date (40 weeks back)
+
+  const BABY_WEEKS = {
+    4:  { emoji: '🌰', size: '양귀비 씨', length: '1mm', weight: '-', dev: '심장이 뛰기 시작합니다' },
+    5:  { emoji: '🫘', size: '참깨', length: '2mm', weight: '-', dev: '뇌와 척수가 형성되기 시작합니다' },
+    6:  { emoji: '🫐', size: '렌즈콩', length: '4mm', weight: '-', dev: '코, 입, 귀가 형태를 잡기 시작합니다' },
+    7:  { emoji: '🫐', size: '블루베리', length: '1cm', weight: '-', dev: '손과 발이 생기기 시작합니다' },
+    8:  { emoji: '🍇', size: '라즈베리', length: '1.6cm', weight: '1g', dev: '손가락과 발가락이 구분됩니다' },
+    9:  { emoji: '🍒', size: '체리', length: '2.3cm', weight: '2g', dev: '근육이 생기고 움직이기 시작합니다' },
+    10: { emoji: '🍓', size: '딸기', length: '3.1cm', weight: '4g', dev: '모든 주요 장기가 형성되었습니다' },
+    11: { emoji: '🍋', size: '무화과', length: '4.1cm', weight: '7g', dev: '손톱이 자라기 시작합니다' },
+    12: { emoji: '🍑', size: '라임', length: '5.4cm', weight: '14g', dev: '반사 작용이 시작됩니다. 안정기 진입!' },
+    13: { emoji: '🍋', size: '레몬', length: '7.4cm', weight: '23g', dev: '지문이 형성되기 시작합니다' },
+    14: { emoji: '🍊', size: '복숭아', length: '8.7cm', weight: '43g', dev: '표정을 지을 수 있게 됩니다' },
+    15: { emoji: '🍎', size: '사과', length: '10.1cm', weight: '70g', dev: '맛을 느끼기 시작합니다' },
+    16: { emoji: '🥑', size: '아보카도', length: '11.6cm', weight: '100g', dev: '태동을 느낄 수 있습니다!' },
+    17: { emoji: '🍐', size: '배', length: '13cm', weight: '140g', dev: '지방이 축적되기 시작합니다' },
+    18: { emoji: '🫑', size: '피망', length: '14.2cm', weight: '190g', dev: '청각이 발달하여 소리를 듣습니다' },
+    19: { emoji: '🥭', size: '망고', length: '15.3cm', weight: '240g', dev: '태지가 피부를 보호합니다' },
+    20: { emoji: '🍌', size: '바나나', length: '16.4cm', weight: '300g', dev: '절반 왔습니다! 성별 확인 가능' },
+    21: { emoji: '🥕', size: '당근', length: '26.7cm', weight: '360g', dev: '눈썹과 속눈썹이 자랍니다' },
+    22: { emoji: '🌽', size: '옥수수', length: '27.8cm', weight: '430g', dev: '눈을 뜨기 시작합니다' },
+    23: { emoji: '🥝', size: '참외', length: '28.9cm', weight: '500g', dev: '빠르게 체중이 늘고 있습니다' },
+    24: { emoji: '🌶️', size: '큰 옥수수', length: '30cm', weight: '600g', dev: '폐가 발달 중, 생존 가능성 시작' },
+    25: { emoji: '🥬', size: '콜라비', length: '34.6cm', weight: '660g', dev: '뇌가 빠르게 발달합니다' },
+    26: { emoji: '🥒', size: '큰 파', length: '35.6cm', weight: '760g', dev: '눈을 뜨고 감을 수 있습니다' },
+    27: { emoji: '🥦', size: '콜리플라워', length: '36.6cm', weight: '875g', dev: '수면/각성 패턴이 생깁니다' },
+    28: { emoji: '🍆', size: '가지', length: '37.6cm', weight: '1kg', dev: '꿈을 꾸기 시작합니다' },
+    29: { emoji: '🎃', size: '애호박', length: '38.6cm', weight: '1.15kg', dev: '뼈가 단단해집니다' },
+    30: { emoji: '🥥', size: '큰 양배추', length: '39.9cm', weight: '1.3kg', dev: '적혈구를 스스로 만듭니다' },
+    31: { emoji: '🥥', size: '코코넛', length: '41.1cm', weight: '1.5kg', dev: '체온 조절 능력이 발달합니다' },
+    32: { emoji: '🍈', size: '참외', length: '42.4cm', weight: '1.7kg', dev: '발톱이 자랍니다' },
+    33: { emoji: '🍍', size: '파인애플', length: '43.7cm', weight: '1.9kg', dev: '면역 시스템이 발달합니다' },
+    34: { emoji: '🍈', size: '멜론', length: '45cm', weight: '2.1kg', dev: '폐 발달이 거의 완성됩니다' },
+    35: { emoji: '🍈', size: '허니듀 멜론', length: '46.2cm', weight: '2.4kg', dev: '대부분의 장기 발달이 완료됩니다' },
+    36: { emoji: '🥬', size: '로메인 상추', length: '47.4cm', weight: '2.6kg', dev: '머리가 아래로 내려갑니다' },
+    37: { emoji: '🥬', size: '근대', length: '48.6cm', weight: '2.9kg', dev: '만삭! 언제든 나올 수 있습니다' },
+    38: { emoji: '🍉', size: '리크(대파)', length: '49.8cm', weight: '3.1kg', dev: '장기 기능이 모두 준비되었습니다' },
+    39: { emoji: '🍉', size: '작은 수박', length: '50.7cm', weight: '3.3kg', dev: '폐에서 계면활성제를 만듭니다' },
+    40: { emoji: '🍉', size: '수박', length: '51.2cm', weight: '3.5kg', dev: '만나러 갈 준비 완료! 🎉' },
+  };
+
+  const BABY_DAD_TIPS = {
+    5:  '초음파에서 아기집이 보이기 시작해요. 와이프가 입덧이 시작될 수 있어요.',
+    6:  '입덧이 심할 수 있어요. 레몬물, 생강차가 도움됩니다. 냄새에 민감해질 거예요.',
+    7:  '피로감이 심한 시기예요. 집안일을 더 도와주세요.',
+    8:  '첫 심장소리를 들을 수 있어요! 병원 같이 가세요.',
+    10: '유산 위험이 줄어드는 시기. 주변에 알려도 괜찮아요.',
+    12: '안정기 진입! 입덧이 줄어들기 시작합니다. 태교여행 계획 세워보세요.',
+    16: '태동을 처음 느낄 수 있어요. 와이프가 "뭔가 움직인다"고 하면 같이 기뻐해주세요!',
+    20: '정밀 초음파 시기. 성별도 알 수 있어요! 반환점 통과!',
+    24: '배가 눈에 띄게 커집니다. 임산부석 양보 받을 때가 되었어요.',
+    28: '아이 이름 정하셨나요? 출산 준비물 목록 확인할 시기예요.',
+    32: '출산 준비 교실 등록하세요. 호흡법을 배워두면 도움됩니다.',
+    36: '출산 가방 싸두세요. 카시트도 미리 설치하세요.',
+    37: '만삭! 항상 연락 가능하게 해두세요. 병원까지 동선 확인!',
+    40: '곧 만나요! 진통 시작하면 침착하게. 파이팅! 🎉',
+  };
+
   const DAYS_KO = ['일', '월', '화', '수', '목', '금', '토'];
   const STORAGE_KEY = 'habit_tracker_data';
   const META_KEY = 'habit_tracker_meta';
@@ -684,8 +745,76 @@
     });
   }
 
+  // ====== Baby Banner ======
+  function calcPregnancyWeek() {
+    const lmp = parseDate(LMP_DATE);
+    const today = new Date();
+    const diffMs = today - lmp;
+    const totalDays = Math.floor(diffMs / 86400000);
+    const weeks = Math.floor(totalDays / 7);
+    const days = totalDays % 7;
+    return { weeks, days, totalDays };
+  }
+
+  function calcDaysUntilDue() {
+    const due = parseDate(DUE_DATE);
+    const today = new Date();
+    return Math.ceil((due - today) / 86400000);
+  }
+
+  function renderBabyBanner() {
+    const el = document.getElementById('babyBanner');
+    const { weeks, days } = calcPregnancyWeek();
+    const daysLeft = calcDaysUntilDue();
+    const progressPct = Math.min(100, Math.round((weeks / 40) * 100));
+
+    const weekData = BABY_WEEKS[weeks] || BABY_WEEKS[Math.min(weeks, 40)] || BABY_WEEKS[40];
+    const clampedWeek = Math.max(4, Math.min(weeks, 40));
+
+    // Find dad tip (closest week <= current)
+    let dadTip = '';
+    const tipKeys = Object.keys(BABY_DAD_TIPS).map(Number).sort((a, b) => b - a);
+    for (const k of tipKeys) {
+      if (clampedWeek >= k) { dadTip = BABY_DAD_TIPS[k]; break; }
+    }
+
+    if (weeks < 4) {
+      el.innerHTML = `
+        <div class="baby-top">
+          <div class="baby-emoji">🤰</div>
+          <div class="baby-info">
+            <div class="baby-week">임신 ${weeks}주 ${days}일</div>
+            <div class="baby-size">아직 아주 작은 생명이에요</div>
+            <div class="baby-dday">D-${daysLeft} | 출산예정일 12월 8일</div>
+          </div>
+        </div>
+        <div class="baby-progress-bar"><div class="baby-progress-fill" style="width:${progressPct}%"></div></div>
+        <div class="baby-progress-label"><span>임신</span><span>${progressPct}%</span><span>출산</span></div>
+      `;
+      return;
+    }
+
+    el.innerHTML = `
+      <div class="baby-top">
+        <div class="baby-emoji">${weekData.emoji}</div>
+        <div class="baby-info">
+          <div class="baby-week">임신 ${weeks}주 ${days}일</div>
+          <div class="baby-size">아기 크기: ${weekData.size} (${weekData.length}${weekData.weight !== '-' ? ', ' + weekData.weight : ''})</div>
+          <div class="baby-dday">D-${daysLeft} | 출산예정일 12월 8일</div>
+        </div>
+      </div>
+      <div class="baby-msg">
+        👶 ${weekData.dev}
+        ${dadTip ? '<br>👨 아빠 TIP: ' + dadTip : ''}
+      </div>
+      <div class="baby-progress-bar"><div class="baby-progress-fill" style="width:${progressPct}%"></div></div>
+      <div class="baby-progress-label"><span>임신</span><span>${progressPct}%</span><span>출산</span></div>
+    `;
+  }
+
   // ====== Init ======
   function init() {
+    renderBabyBanner();
     initTabs();
     initDateNav();
     updateHeader();
