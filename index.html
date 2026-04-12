@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <meta name="theme-color" content="#1a1a2e">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <title>Habit Tracker</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" type="image/png" href="icon-192.png">
+  <link rel="apple-touch-icon" href="icon-192.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="app">
+    <!-- Header -->
+    <header id="header">
+      <div class="header-top">
+        <h1>Habit Tracker</h1>
+        <div class="streak-badge" id="streakBadge">0</div>
+      </div>
+      <div class="identity-msg" id="identityMsg"></div>
+    </header>
+
+    <!-- Tabs -->
+    <nav class="tabs">
+      <button class="tab active" data-tab="health">건강습관</button>
+      <button class="tab" data-tab="routine">요일루틴</button>
+      <button class="tab" data-tab="dashboard">대시보드</button>
+    </nav>
+
+    <!-- Tab: Health Habits -->
+    <section id="tab-health" class="tab-content active">
+      <div class="date-nav">
+        <button id="prevDay" class="nav-btn">&lt;</button>
+        <span id="currentDate"></span>
+        <button id="nextDay" class="nav-btn">&gt;</button>
+      </div>
+      <div id="healthHabits" class="habit-list"></div>
+      <div class="daily-stats" id="healthStats"></div>
+    </section>
+
+    <!-- Tab: Routine -->
+    <section id="tab-routine" class="tab-content">
+      <div class="date-nav">
+        <span id="routineDay"></span>
+      </div>
+      <div id="routineHabits" class="habit-list"></div>
+      <div class="daily-stats" id="routineStats"></div>
+    </section>
+
+    <!-- Tab: Dashboard -->
+    <section id="tab-dashboard" class="tab-content">
+      <div class="dashboard">
+        <div class="card">
+          <h3>습관 강도</h3>
+          <div class="strength-meter" id="strengthMeter">
+            <div class="strength-fill" id="strengthFill"></div>
+            <span class="strength-text" id="strengthText">0%</span>
+          </div>
+          <p class="strength-label" id="strengthLabel"></p>
+        </div>
+
+        <div class="card">
+          <h3>히트맵</h3>
+          <div class="heatmap-container">
+            <div class="heatmap-months" id="heatmapMonths"></div>
+            <div class="heatmap" id="heatmap"></div>
+            <div class="heatmap-legend">
+              <span>적음</span>
+              <div class="legend-box" style="background:#1a1a2e"></div>
+              <div class="legend-box" style="background:#16213e"></div>
+              <div class="legend-box" style="background:#0f3460"></div>
+              <div class="legend-box" style="background:#4ecca3"></div>
+              <div class="legend-box" style="background:#00ff88"></div>
+              <span>많음</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>주간 달성률</h3>
+          <div class="weekly-chart" id="weeklyChart"></div>
+        </div>
+
+        <div class="card">
+          <h3>마일스톤</h3>
+          <div class="milestones" id="milestones"></div>
+        </div>
+
+        <div class="card">
+          <h3>정체성 투표</h3>
+          <div class="identity-votes" id="identityVotes"></div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script src="app.js"></script>
+  <script>if('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js');</script>
+</body>
+</html>
