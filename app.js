@@ -9,6 +9,7 @@
     { id: 'veggies', name: '채소 먼저 먹기', icon: '🥗', stack: '식사 시작 → 채소부터', identity: 'liver' },
     { id: 'sleep', name: '11시 전 취침', icon: '😴', stack: '양치 → 폰 내려놓기 → 침대', identity: 'skin' },
     { id: 'no_alcohol', name: '술 안 마신 날', icon: '🚫', stack: '술 생각 → 물 한 잔', identity: 'liver' },
+    { id: 'exercise', name: '운동 30분', icon: '🏃', stack: '퇴근 → 운동복 갈아입기 → 30분', identity: 'move' },
   ];
 
   const ROUTINES = {
@@ -59,6 +60,9 @@
     { id: 'move', label: '매일 움직이는 사람', class: 'move', routineIds: ['run', 'gym', 'golf', 'golf_or_run'] },
   ];
 
+  // Running goal
+  const MONTHLY_RUN_GOAL_KM = 100;
+
   // Identity-specific completion messages per habit
   const IDENTITY_FEEDBACK = {
     supplements: [
@@ -91,6 +95,13 @@
       '🚫 술 없는 하루 — 간세포가 회복 중입니다',
       '🚫 매일의 금주가 간경변을 예방합니다',
       '🚫 대단합니다! 이게 가장 어려운 습관인데 해냈어요',
+    ],
+    exercise: [
+      '🏃 매일 움직이는 사람으로 한 표!',
+      '🏃 30분 운동 완료! 몸과 마음이 감사합니다',
+      '🏃 아이를 위해 건강한 아빠가 되는 중입니다',
+      '🏃 운동은 기분을 바꾸는 가장 빠른 방법입니다',
+      '🏃 체력이 올라가면 연구 효율도 올라갑니다',
     ],
   };
 
@@ -492,6 +503,7 @@
   // ====== Render: Dashboard ======
   function renderDashboard() {
     renderStrength();
+    renderRunGoal();
     renderStreakInfo();
     renderHeatmap();
     renderWeeklyChart();
@@ -658,6 +670,72 @@
       dayData.reflection = el.querySelector('.reflection-input').value;
       saveData();
       showToast('회고 저장 완료 📝');
+    });
+  }
+
+  // ====== Monthly Running Goal ======
+  function renderRunGoal() {
+    const el = document.getElementById('runGoal');
+    if (!el) return;
+    const today = new Date();
+    const year = today.getFullYear();
+    const month = today.getMonth();
+    const daysInMonth = new Date(year, month + 1, 0).getDate();
+    const currentDay = today.getDate();
+    const monthStr = `${year}-${String(month+1).padStart(2,'0')}`;
+
+    // Get running data for this month
+    if (!meta.running) meta.running = {};
+    let totalKm = 0;
+    const runs = [];
+    for (let d = 1; d <= daysInMonth; d++) {
+      const ds = `${monthStr}-${String(d).padStart(2,'0')}`;
+      if (meta.running[ds]) {
+        totalKm += meta.running[ds];
+        runs.push({ date: ds, km: meta.running[ds] });
+      }
+    }
+
+    const pct = Math.min(100, Math.round(totalKm / MONTHLY_RUN_GOAL_KM * 100));
+    const remaining = Math.max(0, MONTHLY_RUN_GOAL_KM - totalKm);
+    const daysLeft = daysInMonth - currentDay;
+    const paceNeeded = daysLeft > 0 ? (remaining / (daysLeft / 3)).toFixed(1) : 0; // assuming 3 runs/week
+
+    let status = '';
+    if (pct >= 100) status = '🎉 목표 달성!';
+    else if (pct >= 70) status = '💪 좋은 페이스!';
+    else if (pct >= 40) status = '🏃 계속 가세요!';
+    else status = '🌱 시작이 반입니다';
+
+    el.innerHTML = `
+      <div class="run-summary">
+        <div class="run-big-number">${totalKm.toFixed(1)}<span class="run-unit">km</span></div>
+        <div class="run-goal-text">/ ${MONTHLY_RUN_GOAL_KM}km ${status}</div>
+      </div>
+      <div class="progress-bar"><div class="progress-fill" style="width:${pct}%;background:linear-gradient(90deg,#ff6b6b,#ffd93d,#4ecca3)"></div></div>
+      <div class="run-details">
+        <span>남은 거리: ${remaining.toFixed(1)}km</span>
+        <span>남은 일수: ${daysLeft}일</span>
+      </div>
+      ${remaining > 0 && daysLeft > 0 ? `<div class="run-pace">주 3회 기준 회당 ${paceNeeded}km 필요</div>` : ''}
+      <div class="run-input-row">
+        <input type="number" id="runKmInput" class="run-input" placeholder="오늘 달린 거리 (km)" step="0.1" min="0">
+        <button id="runKmBtn" class="run-btn">기록</button>
+      </div>
+      ${runs.length > 0 ? `<div class="run-log">${runs.slice(-7).map(r => `<span class="run-log-item">${r.date.slice(5)} ${r.km}km</span>`).join('')}</div>` : ''}
+    `;
+
+    document.getElementById('runKmBtn').addEventListener('click', () => {
+      const input = document.getElementById('runKmInput');
+      const km = parseFloat(input.value);
+      if (!km || km <= 0) return;
+      const todayKey = todayStr();
+      if (!meta.running) meta.running = {};
+      meta.running[todayKey] = (meta.running[todayKey] || 0) + km;
+      saveMeta();
+      input.value = '';
+      renderRunGoal();
+      showToast(`🏃 ${km}km 기록! 이번 달 ${(totalKm + km).toFixed(1)}/${MONTHLY_RUN_GOAL_KM}km`);
     });
   }
 
