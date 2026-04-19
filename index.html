@@ -249,6 +249,13 @@
         </div>
 
         <div class="settings-section">
+          <label class="settings-label">📱 QR 페어링</label>
+          <p class="hint">한 기기에서 토큰 입력 후 QR 만들고, 다른 기기 카메라로 스캔하면 자동 설정됩니다.</p>
+          <button class="btn-secondary" id="genQrBtn">QR 만들기</button>
+          <div id="qrDisplay" class="qr-display"></div>
+        </div>
+
+        <div class="settings-section">
           <label class="settings-label">🗑️ 데이터</label>
           <button class="btn-secondary" id="clearLocal">로컬 데이터 초기화</button>
         </div>
@@ -267,6 +274,7 @@
 
   </div>
 
+  <script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.min.js"></script>
   <script src="app.js"></script>
   <script>if('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js');</script>
 </body>

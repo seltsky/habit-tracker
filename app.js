@@ -230,6 +230,46 @@
     if (meta) meta.textContent = text;
   }
 
+  // ====== QR Pairing ======
+  function generatePairQR() {
+    const token = document.getElementById('ghToken').value.trim() || state.settings.ghToken;
+    const repo = document.getElementById('ghRepo').value.trim() || state.settings.ghRepo;
+    if (!token || !repo) {
+      showToast('먼저 토큰·repo 입력 후 QR 만들기');
+      return;
+    }
+    if (typeof qrcode === 'undefined') {
+      showToast('QR 라이브러리 로드 실패. 새로고침하세요.');
+      return;
+    }
+    const payload = btoa(JSON.stringify({ t: token, r: repo }));
+    const url = `${location.origin}${location.pathname}#sync=${payload}`;
+    const qr = qrcode(0, 'M');
+    qr.addData(url);
+    qr.make();
+    document.getElementById('qrDisplay').innerHTML = `
+      ${qr.createImgTag(5, 8)}
+      <p class="qr-hint">📷 다른 기기 카메라로 스캔하세요<br>(또는 길게 눌러 이미지 저장)</p>
+    `;
+  }
+
+  function checkUrlHashForSync() {
+    if (location.hash.startsWith('#sync=')) {
+      try {
+        const decoded = atob(location.hash.replace('#sync=', ''));
+        const { t, r } = JSON.parse(decoded);
+        state.settings.ghToken = t;
+        state.settings.ghRepo = r;
+        saveLocal('hq_settings', state.settings);
+        history.replaceState(null, '', location.pathname);
+        showToast('✅ QR 페어링 완료, 동기화 시작');
+        setTimeout(syncPull, 500);
+      } catch (e) {
+        showToast('❌ QR 페어링 실패: ' + e.message);
+      }
+    }
+  }
+
   // ====== Notifications ======
   async function requestNotifPerm() {
     if (!('Notification' in window)) { showToast('이 브라우저는 알림 미지원'); return; }
@@ -853,6 +893,7 @@
       saveLocal('hq_settings', state.settings);
       syncPull();
     });
+    document.getElementById('genQrBtn').addEventListener('click', generatePairQR);
     document.getElementById('clearLocal').addEventListener('click', () => {
       if (confirm('정말 모든 로컬 데이터를 초기화할까요?')) {
         const keep = state.settings;
@@ -865,6 +906,9 @@
 
   async function init() {
     await loadAll();
+    checkUrlHashForSync();
+    // Reload settings if hash applied
+    state.settings = Object.assign(state.settings, loadLocal('hq_settings', {}));
     setupTabs();
     setupSettings();
     render();
