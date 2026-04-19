@@ -11,7 +11,7 @@
     "recent_failure_pattern": ["time", "forgot"],
     "user_inbox": ["내일 단백질 챙기고 싶음"]
   },
-  "morning_message": "일요일이네요. 어제 60% 마무리하셨고 시간부족·잊음이 잦았습니다. 오늘은 짧고 굵게 5개로 묶었습니다. 교회 다녀오시고 가족 시간 챙기시면서 단백질도 하나 추가했어요.",
+  "morning_message": "일요일이네요. 어제 60% 마무리하셨고 시간부족·잊음이 잦았습니다. 오늘은 짧고 굵게 묶었습니다. 교회·가족·와이프 시간을 따로 추적하니 부담 없이 하나씩 체크하세요.",
   "quests": [
     {
       "id": "q-2026-04-19-01",
@@ -29,18 +29,44 @@
     {
       "id": "q-2026-04-19-02",
       "type": "daily",
-      "category": "routine",
+      "category": "church",
       "identity": "family",
-      "title": "교회 + 가족 시간",
-      "description": "예배 참석, 점심·오후 가족과 함께",
+      "title": "교회 예배 참석",
+      "description": "주일 예배 출석",
       "tier": "normal",
       "xp": 15,
-      "estimated_minutes": 240,
-      "tags": ["sunday", "family"],
-      "reasoning": "일요일 정기 루틴"
+      "estimated_minutes": 90,
+      "tags": ["sunday", "church"],
+      "reasoning": "일요일 정기 일정"
     },
     {
       "id": "q-2026-04-19-03",
+      "type": "daily",
+      "category": "family",
+      "identity": "family",
+      "title": "가족과 식사 또는 시간",
+      "description": "본가·처가 또는 가족과 점심·오후 시간",
+      "tier": "easy",
+      "xp": 10,
+      "estimated_minutes": 120,
+      "tags": ["family"],
+      "reasoning": "일요일 가족 시간 (와이프와는 별도 추적)"
+    },
+    {
+      "id": "q-2026-04-19-04",
+      "type": "main",
+      "category": "wife",
+      "identity": "family",
+      "title": "와이프 컨디션 체크 + 짧은 산책",
+      "description": "임신 6주차 — 가벼운 산책 20분, 메스꺼움·복통 확인",
+      "tier": "easy",
+      "xp": 20,
+      "estimated_minutes": 20,
+      "tags": ["wife", "pregnancy"],
+      "reasoning": "임신 초기 케어 — 가족시간과 별개"
+    },
+    {
+      "id": "q-2026-04-19-05",
       "type": "bonus",
       "category": "user_request",
       "identity": "liver",
@@ -53,7 +79,7 @@
       "reasoning": "어제 인박스 요청 반영"
     },
     {
-      "id": "q-2026-04-19-04",
+      "id": "q-2026-04-19-06",
       "type": "challenge",
       "category": "research",
       "identity": "researcher",
@@ -64,19 +90,6 @@
       "estimated_minutes": 30,
       "tags": ["evening"],
       "reasoning": "주간 회복 — 평일 부족분 보완"
-    },
-    {
-      "id": "q-2026-04-19-05",
-      "type": "main",
-      "category": "wife",
-      "identity": "family",
-      "title": "와이프 컨디션 체크 + 짧은 산책",
-      "description": "임신 6주차 — 가벼운 산책 20분, 메스꺼움·복통 확인",
-      "tier": "easy",
-      "xp": 20,
-      "estimated_minutes": 20,
-      "tags": ["family", "wife", "pregnancy"],
-      "reasoning": "임신 초기 케어, 응급 사인 모니터링 겸"
     }
   ],
   "weekly_boss": {
