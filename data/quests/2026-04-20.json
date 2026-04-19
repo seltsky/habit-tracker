@@ -1,0 +1,103 @@
+{
+  "date": "2026-04-20",
+  "weekday_kr": "월요일",
+  "generated_at": "2026-04-20T05:00:00+09:00",
+  "generator": "claude-opus-4-7",
+  "context": {
+    "weekday": 1,
+    "season": "2026-04",
+    "weather_summary": "맑음 12~24°C",
+    "yesterday_completion": 0.8,
+    "recent_failure_pattern": ["forgot"],
+    "user_inbox": []
+  },
+  "morning_message": "월요일 시작입니다. 어제 80% 잘 마무리하셨네요. 단백질 챙기는 게 자연스러워질 때까지 오늘도 유지합니다. 영어·달리기 다 들어가는 평일이라 분량은 평소와 동일합니다.",
+  "quests": [
+    {
+      "id": "q-2026-04-20-01",
+      "type": "daily",
+      "category": "health",
+      "identity": "liver",
+      "title": "영양제 + 물 + 채소 먼저",
+      "description": "기상 영양제 풀세트, 물 1.5L, 식사마다 채소부터",
+      "tier": "normal",
+      "xp": 25,
+      "estimated_minutes": 5,
+      "tags": ["all_day"],
+      "reasoning": "기본 건강 루틴 묶음 처리"
+    },
+    {
+      "id": "q-2026-04-20-02",
+      "type": "daily",
+      "category": "routine",
+      "identity": "researcher",
+      "title": "영어 (스픽) 10분",
+      "description": "스픽 앱 10분 또는 회화 1세션",
+      "tier": "easy",
+      "xp": 10,
+      "estimated_minutes": 10,
+      "tags": ["morning", "language"],
+      "reasoning": "월요일 정기 루틴"
+    },
+    {
+      "id": "q-2026-04-20-03",
+      "type": "daily",
+      "category": "routine",
+      "identity": "move",
+      "title": "달리기 5km",
+      "description": "퇴근 후 5km 또는 30분",
+      "tier": "elite",
+      "xp": 50,
+      "estimated_minutes": 35,
+      "tags": ["evening", "cardio"],
+      "reasoning": "월간 100km 목표 페이스 유지"
+    },
+    {
+      "id": "q-2026-04-20-04",
+      "type": "daily",
+      "category": "wife",
+      "identity": "family",
+      "title": "와이프와 시간",
+      "description": "저녁 식사 함께 또는 30분 대화",
+      "tier": "normal",
+      "xp": 20,
+      "estimated_minutes": 30,
+      "tags": ["evening"],
+      "reasoning": "월요일 정기 루틴"
+    },
+    {
+      "id": "q-2026-04-20-05",
+      "type": "challenge",
+      "category": "research",
+      "identity": "researcher",
+      "title": "연구 작업 1시간",
+      "description": "Dosimetry 논문 작성 또는 분석 1시간",
+      "tier": "elite",
+      "xp": 60,
+      "estimated_minutes": 60,
+      "tags": ["evening"],
+      "reasoning": "주중 핵심 연구 시간 확보"
+    },
+    {
+      "id": "q-2026-04-20-06",
+      "type": "bonus",
+      "category": "user_request",
+      "identity": "liver",
+      "title": "단백질 30g 유지",
+      "description": "어제 잘하셨음, 오늘도 끼니마다 단백질 추가",
+      "tier": "easy",
+      "xp": 10,
+      "estimated_minutes": 5,
+      "tags": ["nutrition"],
+      "reasoning": "어제 성공 → 습관화 단계로 이행"
+    }
+  ],
+  "weekly_boss": {
+    "id": "boss-2026-w17",
+    "title": "주 4회 운동 + 단백질 매일 + 술 0회",
+    "deadline": "2026-04-26",
+    "progress": 0.0,
+    "current": "월요일 시작",
+    "reward_xp": 250
+  }
+}

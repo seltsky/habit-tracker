@@ -1,0 +1,104 @@
+{
+  "date": "2026-04-21",
+  "weekday_kr": "화요일",
+  "generated_at": "2026-04-21T05:00:00+09:00",
+  "generator": "claude-opus-4-7",
+  "context": {
+    "weekday": 2,
+    "season": "2026-04",
+    "weather_summary": "흐림 13~22°C 오후 비 예보",
+    "yesterday_completion": 0.5,
+    "recent_failure_pattern": ["time", "condition"],
+    "user_inbox": ["내일 컨디션 안 좋아서 운동 패스하고 싶음"]
+  },
+  "morning_message": "어제 50%만 완료, 컨디션 사유로 운동·연구 빠지셨네요. 게다가 오늘 비 예보라 야외 활동 어렵습니다. 오늘은 회복 모드로 짰어요. 운동은 가벼운 스트레칭으로, 연구는 30분으로 줄였습니다. 무리하지 마시고 컨디션 회복이 우선입니다.",
+  "quests": [
+    {
+      "id": "q-2026-04-21-01",
+      "type": "daily",
+      "category": "health",
+      "identity": "liver",
+      "title": "영양제 + 물 + 채소",
+      "description": "기본 건강 루틴 — 컨디션 안 좋을수록 더 챙기기",
+      "tier": "normal",
+      "xp": 25,
+      "estimated_minutes": 5,
+      "tags": ["all_day"],
+      "reasoning": "기본 유지"
+    },
+    {
+      "id": "q-2026-04-21-02",
+      "type": "daily",
+      "category": "routine",
+      "identity": "researcher",
+      "title": "영어 (스픽) 5분",
+      "description": "평소 10분 → 5분으로 단축",
+      "tier": "easy",
+      "xp": 10,
+      "estimated_minutes": 5,
+      "tags": ["morning"],
+      "reasoning": "컨디션 사유 → 분량 절반 (적응형)"
+    },
+    {
+      "id": "q-2026-04-21-03",
+      "type": "challenge",
+      "category": "routine",
+      "identity": "move",
+      "title": "회복 스트레칭 15분 (운동 대체)",
+      "description": "달리기 대체 — 폼롤러·요가매트로 가벼운 스트레칭",
+      "tier": "easy",
+      "xp": 20,
+      "estimated_minutes": 15,
+      "tags": ["evening", "recovery"],
+      "reasoning": "사용자 요청 + 비 예보 + 컨디션 → 회복 퀘스트로 전환"
+    },
+    {
+      "id": "q-2026-04-21-04",
+      "type": "daily",
+      "category": "wife",
+      "identity": "family",
+      "title": "와이프와 저녁",
+      "description": "저녁 식사 함께",
+      "tier": "easy",
+      "xp": 15,
+      "estimated_minutes": 30,
+      "tags": ["evening"],
+      "reasoning": "화요일 정기 루틴"
+    },
+    {
+      "id": "q-2026-04-21-05",
+      "type": "challenge",
+      "category": "research",
+      "identity": "researcher",
+      "title": "연구 작업 30분 (축소)",
+      "description": "원래 1시간 → 30분으로 단축, 가볍게 자료 정리만",
+      "tier": "easy",
+      "xp": 25,
+      "estimated_minutes": 30,
+      "tags": ["evening"],
+      "reasoning": "컨디션 사유 → 분량 절반"
+    },
+    {
+      "id": "q-2026-04-21-06",
+      "type": "bonus",
+      "category": "self_care",
+      "identity": "liver",
+      "title": "11시 전 취침",
+      "description": "컨디션 회복엔 수면이 최우선",
+      "tier": "normal",
+      "xp": 30,
+      "estimated_minutes": 0,
+      "tags": ["sleep", "recovery"],
+      "reasoning": "회복 모드 — 수면 강조"
+    }
+  ],
+  "weekly_boss": {
+    "id": "boss-2026-w17",
+    "title": "주 4회 운동 + 단백질 매일 + 술 0회",
+    "deadline": "2026-04-26",
+    "progress": 0.15,
+    "current": "운동 1/4 (어제 패스), 단백질 1/2일",
+    "reward_xp": 250,
+    "note": "운동 부족분은 목·금에 보강 가능"
+  }
+}
