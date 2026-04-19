@@ -1,4 +1,4 @@
-/* Habit Quest v5 — Quest Mode App */
+/* Habit Quest v6 — Sync + Charts + Duo + Confetti + Push */
 (function () {
   'use strict';
 
@@ -49,93 +49,253 @@
     stretch: '스트레칭', meditation: '명상',
   };
 
+  // EDD: 2026-12-08 (사모님 임신)
+  const EDD = new Date('2026-12-08');
+  const LMP = new Date('2026-03-03');
+
   let state = {
     user: null,
     quest: null,
     log: null,
     inbox: { items: [] },
     pendingSkip: null,
+    settings: { theme: 'dark', ghToken: '', ghRepo: 'seltsky/habit-tracker', notif: false },
+    wifeLog: {},
+    lastModified: 0,
   };
 
+  // ====== Util ======
   function todayStr() {
     const d = new Date();
-    const y = d.getFullYear();
-    const m = String(d.getMonth() + 1).padStart(2, '0');
-    const day = String(d.getDate()).padStart(2, '0');
-    return `${y}-${m}-${day}`;
+    return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
   }
-
   function getLevelInfo(level) {
     return LEVEL_TITLES.find(t => level >= t.min && level <= t.max) || LEVEL_TITLES[0];
   }
-
-  function nextLevelXp(level) {
-    return 100 + (level * 25);
-  }
-
+  function nextLevelXp(level) { return 100 + (level * 25); }
   function fetchJson(path) {
     return fetch(path + '?t=' + Date.now()).then(r => r.ok ? r.json() : null).catch(() => null);
   }
-
-  function loadLocal(key, fallback) {
-    try { const v = localStorage.getItem(key); return v ? JSON.parse(v) : fallback; }
-    catch (e) { return fallback; }
+  function loadLocal(key, fb) {
+    try { const v = localStorage.getItem(key); return v ? JSON.parse(v) : fb; } catch { return fb; }
   }
-
-  function saveLocal(key, val) {
-    localStorage.setItem(key, JSON.stringify(val));
-  }
-
+  function saveLocal(key, val) { localStorage.setItem(key, JSON.stringify(val)); }
   function showToast(text) {
-    const toast = document.getElementById('xpToast');
-    toast.textContent = text;
-    toast.classList.add('show');
-    setTimeout(() => toast.classList.remove('show'), 2000);
+    const t = document.getElementById('xpToast');
+    t.textContent = text;
+    t.classList.add('show');
+    setTimeout(() => t.classList.remove('show'), 2000);
   }
 
+  // ====== Confetti ======
+  function fireConfetti() {
+    const canvas = document.getElementById('confettiCanvas');
+    const ctx = canvas.getContext('2d');
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    canvas.style.display = 'block';
+    const colors = ['#4ecca3','#ff9a3c','#a3e0ff','#ff6b6b','#b78aff','#ffd166'];
+    const pieces = [];
+    for (let i = 0; i < 120; i++) {
+      pieces.push({
+        x: canvas.width/2,
+        y: canvas.height/2,
+        vx: (Math.random()-0.5)*15,
+        vy: (Math.random()-1.5)*15,
+        color: colors[Math.floor(Math.random()*colors.length)],
+        size: 6 + Math.random()*6,
+        rot: Math.random()*Math.PI*2,
+        vrot: (Math.random()-0.5)*0.3,
+        life: 0,
+      });
+    }
+    let frames = 0;
+    function draw() {
+      ctx.clearRect(0,0,canvas.width,canvas.height);
+      pieces.forEach(p => {
+        p.x += p.vx; p.y += p.vy;
+        p.vy += 0.4;
+        p.rot += p.vrot;
+        p.life++;
+        ctx.save();
+        ctx.translate(p.x, p.y);
+        ctx.rotate(p.rot);
+        ctx.fillStyle = p.color;
+        ctx.globalAlpha = Math.max(0, 1 - p.life/100);
+        ctx.fillRect(-p.size/2, -p.size/2, p.size, p.size);
+        ctx.restore();
+      });
+      frames++;
+      if (frames < 100) requestAnimationFrame(draw);
+      else { canvas.style.display = 'none'; ctx.clearRect(0,0,canvas.width,canvas.height); }
+    }
+    draw();
+  }
+
+  // ====== Sync (GitHub API) ======
+  async function syncPush() {
+    if (!state.settings.ghToken || !state.settings.ghRepo) {
+      showToast('GitHub 토큰·repo 입력 필요');
+      return;
+    }
+    state.lastModified = Date.now();
+    const payload = {
+      lastModified: state.lastModified,
+      user: state.user,
+      logs: getAllLogs(),
+      inbox: state.inbox,
+      wifeLog: state.wifeLog,
+    };
+    const path = 'data/sync/state.json';
+    const url = `https://api.github.com/repos/${state.settings.ghRepo}/contents/${path}`;
+    let sha = null;
+    try {
+      const r = await fetch(url, { headers: { Authorization: `token ${state.settings.ghToken}` }});
+      if (r.ok) sha = (await r.json()).sha;
+    } catch {}
+    const content = btoa(unescape(encodeURIComponent(JSON.stringify(payload, null, 2))));
+    const body = { message: `sync: ${new Date().toISOString()}`, content };
+    if (sha) body.sha = sha;
+    const resp = await fetch(url, {
+      method: 'PUT',
+      headers: { Authorization: `token ${state.settings.ghToken}`, 'Content-Type': 'application/json' },
+      body: JSON.stringify(body),
+    });
+    if (resp.ok) {
+      saveLocal('hq_lastSync', state.lastModified);
+      updateSyncStatus('✅ 동기화 완료 ' + new Date().toLocaleTimeString());
+      saveLocal('hq_settings', state.settings);
+    } else {
+      const err = await resp.json().catch(() => ({}));
+      updateSyncStatus('❌ 실패: ' + (err.message || resp.status));
+    }
+  }
+
+  async function syncPull() {
+    if (!state.settings.ghToken || !state.settings.ghRepo) {
+      showToast('GitHub 토큰·repo 입력 필요');
+      return;
+    }
+    const path = 'data/sync/state.json';
+    const url = `https://api.github.com/repos/${state.settings.ghRepo}/contents/${path}`;
+    try {
+      const r = await fetch(url, { headers: { Authorization: `token ${state.settings.ghToken}` }});
+      if (!r.ok) {
+        updateSyncStatus('❌ 가져오기 실패: ' + r.status);
+        return;
+      }
+      const j = await r.json();
+      const decoded = JSON.parse(decodeURIComponent(escape(atob(j.content))));
+      const remoteLM = decoded.lastModified || 0;
+      const localLM = state.lastModified || 0;
+      if (remoteLM <= localLM) {
+        updateSyncStatus('ℹ️ 로컬이 최신 (서버 ' + new Date(remoteLM).toLocaleString() + ')');
+        return;
+      }
+      // Apply remote
+      state.user = decoded.user;
+      state.inbox = decoded.inbox;
+      state.wifeLog = decoded.wifeLog || {};
+      state.lastModified = remoteLM;
+      Object.entries(decoded.logs || {}).forEach(([k,v]) => saveLocal('hq_log_' + k, v));
+      // Reload today's log
+      state.log = loadLocal(`hq_log_${todayStr()}`, state.log);
+      saveLocal('hq_user', state.user);
+      saveLocal('hq_inbox', state.inbox);
+      saveLocal('hq_wifeLog', state.wifeLog);
+      saveLocal('hq_lastModified', remoteLM);
+      updateSyncStatus('✅ 가져오기 완료 ' + new Date(remoteLM).toLocaleString());
+      render();
+    } catch (e) {
+      updateSyncStatus('❌ 오류: ' + e.message);
+    }
+  }
+
+  function getAllLogs() {
+    const logs = {};
+    for (let i = 0; i < localStorage.length; i++) {
+      const key = localStorage.key(i);
+      if (key.startsWith('hq_log_')) {
+        const date = key.replace('hq_log_', '');
+        logs[date] = loadLocal(key, null);
+      }
+    }
+    return logs;
+  }
+
+  function updateSyncStatus(text) {
+    const el = document.getElementById('syncStatus');
+    if (el) el.textContent = text;
+    const meta = document.getElementById('syncMeta');
+    if (meta) meta.textContent = text;
+  }
+
+  // ====== Notifications ======
+  async function requestNotifPerm() {
+    if (!('Notification' in window)) { showToast('이 브라우저는 알림 미지원'); return; }
+    const p = await Notification.requestPermission();
+    state.settings.notif = (p === 'granted');
+    saveLocal('hq_settings', state.settings);
+    showToast(p === 'granted' ? '✅ 알림 켜짐' : '❌ 알림 거부됨');
+    if (p === 'granted') scheduleNotif();
+  }
+
+  function scheduleNotif() {
+    // 7시 알림 — 다음 7시까지의 시간 계산
+    if (!('Notification' in window) || Notification.permission !== 'granted') return;
+    const now = new Date();
+    const target = new Date();
+    target.setHours(7, 0, 0, 0);
+    if (target < now) target.setDate(target.getDate() + 1);
+    const ms = target - now;
+    setTimeout(() => {
+      new Notification('🎮 Habit Quest', {
+        body: '오늘의 퀘스트가 도착했습니다',
+        icon: 'icon-192.png',
+      });
+      scheduleNotif(); // recurse for tomorrow
+    }, ms);
+  }
+
+  // ====== Data Loading ======
   async function loadAll() {
     const today = todayStr();
-
     state.quest = await fetchJson(`data/quests/${today}.json`);
-    if (!state.quest) {
-      state.quest = await fetchJson('data/quests/2026-04-19.json');
-    }
+    if (!state.quest) state.quest = await fetchJson('data/quests/2026-04-19.json');
 
     state.user = loadLocal('hq_user', {
       name: '선생님',
       character_class: ['doctor', 'researcher', 'father-to-be'],
       started_at: today,
-      level: 1,
-      current_xp: 0,
-      total_xp_lifetime: 0,
+      level: 1, current_xp: 0, total_xp_lifetime: 0,
       stats: { stamina: 10, discipline: 10, focus: 10, wellness: 10, research: 10 },
-      streak_current: 0,
-      streak_longest: 0,
-      season: today.slice(0, 7),
-      season_progress: 0,
-      badges: [],
-      boss_record: { won: 0, lost: 0 },
-      lifetime_completed: 0,
-      total_quests_seen: 0,
+      streak_current: 0, streak_longest: 0,
+      season: today.slice(0, 7), season_progress: 0,
+      badges: [], boss_record: { won: 0, lost: 0 },
+      lifetime_completed: 0, total_quests_seen: 0,
     });
 
     state.log = loadLocal(`hq_log_${today}`, {
-      date: today,
-      completed: [],
-      skipped: [],
-      energy_score: null,
-      mood_score: null,
-      memo: '',
+      date: today, completed: [], skipped: [],
+      energy_score: null, mood_score: null, memo: '',
     });
 
     state.inbox = loadLocal('hq_inbox', { items: [] });
+    state.wifeLog = loadLocal('hq_wifeLog', {});
+    state.settings = Object.assign(state.settings, loadLocal('hq_settings', {}));
+    state.lastModified = loadLocal('hq_lastModified', 0);
+
+    document.body.dataset.theme = state.settings.theme || 'dark';
   }
 
+  // ====== Render ======
   function render() {
     renderHeader();
     renderQuests();
     renderDashboard();
+    renderDuo();
     renderInbox();
+    document.body.dataset.theme = state.settings.theme || 'dark';
   }
 
   function renderHeader() {
@@ -147,11 +307,22 @@
     document.getElementById('streakNum').textContent = u.streak_current;
     document.getElementById('levelLabel').textContent = li.label;
     const next = nextLevelXp(u.level);
-    const pct = Math.min(100, Math.round((u.current_xp / next) * 100));
-    document.getElementById('xpFill').style.width = pct + '%';
+    const xpPct = Math.min(100, Math.round((u.current_xp / next) * 100));
+    document.getElementById('xpFill').style.width = xpPct + '%';
     document.getElementById('xpText').textContent = `${u.current_xp} / ${next} XP`;
     document.getElementById('morningMessage').textContent =
-      state.quest?.morning_message || '오늘의 퀘스트를 불러오는 중...';
+      state.quest?.morning_message || '오늘의 퀘스트 로드 중...';
+
+    // Today's progress circle
+    const total = state.quest?.quests?.length || 0;
+    const done = state.log.completed.length;
+    const pct = total > 0 ? Math.round((done / total) * 100) : 0;
+    const circ = 2 * Math.PI * 34;
+    const fill = document.getElementById('cpFill');
+    fill.style.strokeDasharray = circ;
+    fill.style.strokeDashoffset = circ * (1 - pct/100);
+    document.getElementById('cpPct').textContent = pct + '%';
+    document.getElementById('cpFrac').textContent = `${done}/${total}`;
   }
 
   function renderQuests() {
@@ -161,11 +332,8 @@
       document.getElementById('bossCard').innerHTML = '';
       return;
     }
-
     const groups = { main: [], daily: [], bonus: [], challenge: [] };
-    state.quest.quests.forEach(q => {
-      (groups[q.type] || groups.daily).push(q);
-    });
+    state.quest.quests.forEach(q => (groups[q.type] || groups.daily).push(q));
 
     const groupTitles = { main: '메인 퀘스트', daily: '일일 퀘스트', bonus: '보너스', challenge: '도전' };
     let html = '';
@@ -177,21 +345,14 @@
     }
     container.innerHTML = html;
 
-    container.querySelectorAll('.btn-complete').forEach(btn => {
-      btn.addEventListener('click', () => completeQuest(btn.dataset.id));
-    });
-    container.querySelectorAll('.btn-skip').forEach(btn => {
-      btn.addEventListener('click', () => openSkipModal(btn.dataset.id));
-    });
-    container.querySelectorAll('.btn-undo').forEach(btn => {
-      btn.addEventListener('click', () => undoQuest(btn.dataset.id));
-    });
+    container.querySelectorAll('.btn-complete').forEach(b => b.addEventListener('click', () => completeQuest(b.dataset.id)));
+    container.querySelectorAll('.btn-skip').forEach(b => b.addEventListener('click', () => openSkipModal(b.dataset.id)));
+    container.querySelectorAll('.btn-undo').forEach(b => b.addEventListener('click', () => undoQuest(b.dataset.id)));
 
     const boss = state.quest.weekly_boss;
     if (boss) {
-      const bossEl = document.getElementById('bossCard');
       const pct = Math.round((boss.progress || 0) * 100);
-      bossEl.innerHTML = `
+      document.getElementById('bossCard').innerHTML = `
         <h3>👹 이번 주 보스</h3>
         <div class="boss-title">${boss.title}</div>
         ${boss.current ? `<div class="boss-current">${boss.current}</div>` : ''}
@@ -199,9 +360,7 @@
         <div class="boss-meta">${pct}% · 보상 ${boss.reward_xp} XP · 마감 ${boss.deadline}</div>
         ${boss.note ? `<div class="boss-note">💡 ${boss.note}</div>` : ''}
       `;
-    } else {
-      document.getElementById('bossCard').innerHTML = '';
-    }
+    } else document.getElementById('bossCard').innerHTML = '';
   }
 
   function renderQuestCard(q) {
@@ -231,7 +390,6 @@
         <button class="btn-skip" data-id="${q.id}">건너뜀</button>
       </div>`;
     }
-
     const dom = DOMAIN_LABELS[q.domain];
     const subLabel = SUBDOMAIN_LABELS[q.subdomain] || q.subdomain || '';
     const breadcrumbHtml = dom ? `
@@ -263,7 +421,6 @@
   function renderDashboard() {
     const u = state.user;
     const li = getLevelInfo(u.level);
-
     document.getElementById('characterClass').textContent = u.character_class.join(' / ');
     document.getElementById('characterLevel').textContent = `Lv.${u.level} — ${li.label}`;
     document.getElementById('characterQuote').textContent = `"${li.desc}"`;
@@ -276,6 +433,9 @@
       </div>
     `).join('');
     document.getElementById('statsList').innerHTML = statsHtml;
+
+    drawRadar();
+    drawReasonChart();
 
     const sp = u.season_progress || 0;
     document.getElementById('seasonInfo').innerHTML = `
@@ -305,14 +465,13 @@
 
     let recentHtml = '';
     for (let i = 6; i >= 0; i--) {
-      const d = new Date();
-      d.setDate(d.getDate() - i);
+      const d = new Date(); d.setDate(d.getDate() - i);
       const ds = d.toISOString().slice(0, 10);
       const log = loadLocal(`hq_log_${ds}`, null);
       const t = (log?.completed.length || 0) + (log?.skipped.length || 0);
       const r = t > 0 ? Math.round((log.completed.length / t) * 100) : 0;
       const day = ['일', '월', '화', '수', '목', '금', '토'][d.getDay()];
-      const color = r >= 80 ? '#4ecca3' : r >= 50 ? '#ff9a3c' : r > 0 ? '#ff4757' : '#1a1a2e';
+      const color = r >= 80 ? '#4ecca3' : r >= 50 ? '#ff9a3c' : r > 0 ? '#ff4757' : 'var(--bg-card-2)';
       recentHtml += `
         <div class="day-cell" title="${ds}: ${r}%">
           <div class="day-name">${day}</div>
@@ -322,6 +481,169 @@
       `;
     }
     document.getElementById('recentDays').innerHTML = recentHtml;
+  }
+
+  function drawRadar() {
+    const canvas = document.getElementById('radarCanvas');
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    const W = canvas.width, H = canvas.height;
+    ctx.clearRect(0, 0, W, H);
+    const cx = W/2, cy = H/2, R = 100;
+
+    // Calculate domain completion this week
+    const domains = ['exercise', 'health', 'relationship', 'faith', 'study', 'recovery'];
+    const counts = {}; const dones = {};
+    domains.forEach(d => { counts[d] = 0; dones[d] = 0; });
+    for (let i = 0; i < 7; i++) {
+      const d = new Date(); d.setDate(d.getDate() - i);
+      const ds = d.toISOString().slice(0, 10);
+      const log = loadLocal(`hq_log_${ds}`, null);
+      if (!log) continue;
+      // Need to fetch quest for that date, but for v1 use today's quest as baseline
+      const q = (i === 0 ? state.quest : null);
+      if (!q) continue;
+      q.quests.forEach(qq => {
+        if (counts[qq.domain] !== undefined) {
+          counts[qq.domain]++;
+          if (log.completed.includes(qq.id)) dones[qq.domain]++;
+        }
+      });
+    }
+
+    // Draw axes
+    const isDark = (state.settings.theme || 'dark') === 'dark';
+    ctx.strokeStyle = isDark ? '#2a2d4a' : '#d0d4e0';
+    ctx.lineWidth = 1;
+    for (let r = 1; r <= 4; r++) {
+      ctx.beginPath();
+      domains.forEach((_, i) => {
+        const angle = -Math.PI/2 + (Math.PI*2*i)/domains.length;
+        const x = cx + Math.cos(angle) * (R*r/4);
+        const y = cy + Math.sin(angle) * (R*r/4);
+        if (i === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
+      });
+      ctx.closePath();
+      ctx.stroke();
+    }
+    // Spokes
+    domains.forEach((_, i) => {
+      const angle = -Math.PI/2 + (Math.PI*2*i)/domains.length;
+      ctx.beginPath();
+      ctx.moveTo(cx, cy);
+      ctx.lineTo(cx + Math.cos(angle)*R, cy + Math.sin(angle)*R);
+      ctx.stroke();
+    });
+
+    // Labels
+    ctx.fillStyle = isDark ? '#9aa0b4' : '#6a7080';
+    ctx.font = '11px sans-serif';
+    ctx.textAlign = 'center';
+    domains.forEach((d, i) => {
+      const angle = -Math.PI/2 + (Math.PI*2*i)/domains.length;
+      const x = cx + Math.cos(angle) * (R+18);
+      const y = cy + Math.sin(angle) * (R+18) + 4;
+      ctx.fillText(DOMAIN_LABELS[d].name, x, y);
+    });
+
+    // Data polygon
+    ctx.fillStyle = 'rgba(78, 204, 163, 0.3)';
+    ctx.strokeStyle = '#4ecca3';
+    ctx.lineWidth = 2;
+    ctx.beginPath();
+    domains.forEach((d, i) => {
+      const v = counts[d] > 0 ? dones[d] / counts[d] : 0;
+      const angle = -Math.PI/2 + (Math.PI*2*i)/domains.length;
+      const x = cx + Math.cos(angle) * R * v;
+      const y = cy + Math.sin(angle) * R * v;
+      if (i === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
+    });
+    ctx.closePath();
+    ctx.fill();
+    ctx.stroke();
+  }
+
+  function drawReasonChart() {
+    const container = document.getElementById('reasonChart');
+    if (!container) return;
+    const counts = {};
+    Object.keys(REASON_LABELS).forEach(k => counts[k] = 0);
+    for (let i = 0; i < 7; i++) {
+      const d = new Date(); d.setDate(d.getDate() - i);
+      const ds = d.toISOString().slice(0, 10);
+      const log = loadLocal(`hq_log_${ds}`, null);
+      if (!log) continue;
+      log.skipped.forEach(s => { if (counts[s.reason_code] !== undefined) counts[s.reason_code]++; });
+    }
+    const max = Math.max(1, ...Object.values(counts));
+    const sorted = Object.entries(counts).filter(([,v]) => v > 0).sort((a,b) => b[1] - a[1]);
+    if (sorted.length === 0) {
+      container.innerHTML = '<div class="empty">이번 주 미실행 없음 ✨</div>';
+      return;
+    }
+    container.innerHTML = sorted.map(([k, v]) => `
+      <div class="reason-bar-row">
+        <span class="reason-label">${REASON_LABELS[k]}</span>
+        <div class="reason-bar"><div class="reason-fill" style="width:${(v/max)*100}%"></div></div>
+        <span class="reason-val">${v}</span>
+      </div>
+    `).join('');
+  }
+
+  // ====== Duo (Wife) ======
+  function renderDuo() {
+    const now = new Date();
+    const weeks = Math.floor((now - LMP) / (7*24*3600*1000));
+    const days = Math.floor((now - LMP) / (24*3600*1000));
+    const dWeeks = weeks; const dDays = days % 7;
+    const dDay = Math.ceil((EDD - now) / (24*3600*1000));
+    document.getElementById('duoWeek').textContent = `임신 ${dWeeks}주차 ${dDays}일`;
+    document.getElementById('duoEdd').textContent = `출산 예정 ${EDD.toISOString().slice(0,10)} (D-${dDay})`;
+
+    // Wife care quests (today's wife-tagged quests + extras)
+    const wifeQuests = (state.quest?.quests || []).filter(q => q.subdomain === 'wife');
+    let qHtml = wifeQuests.length ? wifeQuests.map(q => {
+      const isDone = state.log.completed.includes(q.id);
+      return `<div class="duo-quest ${isDone?'done':''}">
+        ${isDone ? '✅' : '⬜'} ${q.title}
+      </div>`;
+    }).join('') : '<div class="empty">오늘 와이프 케어 퀘스트 없음</div>';
+    qHtml += `
+      <div class="duo-quest-extra">추가 케어 활동 (선택)
+        <ul>
+          <li>엽산 챙겨드리기</li>
+          <li>입덧 음식 준비</li>
+          <li>편안한 자세 잡기</li>
+          <li>10분 안마</li>
+          <li>태교 음악·책 읽기</li>
+        </ul>
+      </div>
+    `;
+    document.getElementById('duoQuests').innerHTML = qHtml;
+
+    // Progress: 임신 진행도
+    const totalDays = (EDD - LMP) / (24*3600*1000);
+    const elapsed = (now - LMP) / (24*3600*1000);
+    const pct = Math.round((elapsed/totalDays)*100);
+    document.getElementById('duoProgress').innerHTML = `
+      <div class="season-bar"><div class="season-fill" style="width:${pct}%; background:linear-gradient(90deg,#ff6b6b,#ff9a3c)"></div></div>
+      <div style="margin-top:6px;font-size:13px">임신 진행도 ${pct}%</div>
+    `;
+
+    // Weekly challenge
+    document.getElementById('duoChallenge').innerHTML = `
+      <div class="duo-challenge-item">🚶 함께 산책 30분 × 4회</div>
+      <div class="duo-challenge-item">🥗 임산부 영양식 함께 1회</div>
+      <div class="duo-challenge-item">📖 태교책 30분 × 1회</div>
+    `;
+
+    // Wife memo restore
+    const todayWife = state.wifeLog[todayStr()] || {};
+    if (todayWife.condition !== undefined) {
+      document.getElementById('wifeCondition').value = todayWife.condition;
+      document.getElementById('wifeConditionVal').textContent = todayWife.condition;
+    }
+    if (todayWife.memo) document.getElementById('wifeMemo').value = todayWife.memo;
   }
 
   function renderInbox() {
@@ -338,24 +660,22 @@
     `).join('');
   }
 
+  // ====== Actions ======
   function completeQuest(id) {
     const q = state.quest.quests.find(x => x.id === id);
-    if (!q) return;
-    if (state.log.completed.includes(id)) return;
-
+    if (!q || state.log.completed.includes(id)) return;
     state.log.completed.push(id);
     state.log.skipped = state.log.skipped.filter(s => s.quest_id !== id);
-
     state.user.current_xp += q.xp;
     state.user.total_xp_lifetime += q.xp;
     state.user.lifetime_completed += 1;
-
     const statMap = {
       health: 'wellness', routine: 'discipline', research: 'research',
-      wife: 'wellness', user_request: 'discipline', self_care: 'stamina'
+      wife: 'wellness', user_request: 'discipline', self_care: 'stamina',
+      family: 'wellness', church: 'wellness'
     };
-    const statKey = statMap[q.category] || 'discipline';
-    state.user.stats[statKey] = Math.min(100, (state.user.stats[statKey] || 0) + 1);
+    const sk = statMap[q.category] || 'discipline';
+    state.user.stats[sk] = Math.min(100, (state.user.stats[sk] || 0) + 1);
 
     const need = nextLevelXp(state.user.level);
     if (state.user.current_xp >= need) {
@@ -367,6 +687,13 @@
       showToast(`+${q.xp} XP`);
     }
 
+    // Check if all complete → confetti
+    const total = state.quest.quests.length;
+    if (state.log.completed.length === total) {
+      setTimeout(fireConfetti, 200);
+      showToast('🎊 모든 퀘스트 완료! 대단합니다');
+    }
+
     persist();
     render();
   }
@@ -376,35 +703,28 @@
     if (!q) return;
     const wasDone = state.log.completed.includes(id);
     const wasSkipped = state.log.skipped.find(s => s.quest_id === id);
-
     if (wasDone) {
-      // Revert XP and stats
       state.log.completed = state.log.completed.filter(x => x !== id);
       state.user.current_xp -= q.xp;
       state.user.total_xp_lifetime -= q.xp;
       state.user.lifetime_completed -= 1;
-
       const statMap = {
         health: 'wellness', routine: 'discipline', research: 'research',
         wife: 'wellness', user_request: 'discipline', self_care: 'stamina',
         family: 'wellness', church: 'wellness'
       };
-      const statKey = statMap[q.category] || 'discipline';
-      state.user.stats[statKey] = Math.max(0, (state.user.stats[statKey] || 0) - 1);
-
-      // Handle level rollback if XP went negative
+      const sk = statMap[q.category] || 'discipline';
+      state.user.stats[sk] = Math.max(0, (state.user.stats[sk] || 0) - 1);
       while (state.user.current_xp < 0 && state.user.level > 1) {
         state.user.level -= 1;
         state.user.current_xp += nextLevelXp(state.user.level);
       }
       if (state.user.current_xp < 0) state.user.current_xp = 0;
-
       showToast(`↩️ 취소 (-${q.xp} XP)`);
     } else if (wasSkipped) {
       state.log.skipped = state.log.skipped.filter(s => s.quest_id !== id);
       showToast('↩️ 건너뜀 취소');
     }
-
     persist();
     render();
   }
@@ -425,15 +745,11 @@
 
   function saveSkip() {
     const reason = document.querySelector('input[name="reason"]:checked');
-    if (!reason) {
-      alert('사유를 선택해주세요');
-      return;
-    }
-    const memo = document.getElementById('reasonMemo').value;
+    if (!reason) { alert('사유를 선택해주세요'); return; }
     state.log.skipped.push({
       quest_id: state.pendingSkip,
       reason_code: reason.value,
-      reason_text: memo,
+      reason_text: document.getElementById('reasonMemo').value,
       skipped_at: new Date().toISOString(),
     });
     state.log.completed = state.log.completed.filter(id => id !== state.pendingSkip);
@@ -448,9 +764,7 @@
     state.inbox.items.unshift({
       id: 'in-' + Date.now(),
       added_at: new Date().toISOString(),
-      text: text,
-      applied_at: null,
-      applied_to: [],
+      text, applied_at: null, applied_to: [],
     });
     document.getElementById('inboxText').value = '';
     persist();
@@ -466,10 +780,28 @@
     showToast('회고 저장됨');
   }
 
+  function saveWifeMemo() {
+    const today = todayStr();
+    state.wifeLog[today] = {
+      condition: parseInt(document.getElementById('wifeCondition').value),
+      memo: document.getElementById('wifeMemo').value,
+      saved_at: new Date().toISOString(),
+    };
+    saveLocal('hq_wifeLog', state.wifeLog);
+    showToast('사모님 기록 저장됨');
+  }
+
   function persist() {
+    state.lastModified = Date.now();
     saveLocal('hq_user', state.user);
     saveLocal(`hq_log_${state.log.date}`, state.log);
     saveLocal('hq_inbox', state.inbox);
+    saveLocal('hq_lastModified', state.lastModified);
+    // Auto-sync if enabled (debounced)
+    if (state.settings.ghToken && state.settings.ghRepo) {
+      clearTimeout(window._syncTimer);
+      window._syncTimer = setTimeout(syncPush, 3000);
+    }
   }
 
   function setupTabs() {
@@ -480,15 +812,64 @@
         document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
         tab.classList.add('active');
         document.getElementById('tab-' + target).classList.add('active');
+        if (target === 'dashboard') { drawRadar(); drawReasonChart(); }
       });
+    });
+  }
+
+  function setupSettings() {
+    document.getElementById('settingsBtn').addEventListener('click', () => {
+      document.getElementById('settingsModal').classList.add('show');
+      document.getElementById('ghToken').value = state.settings.ghToken || '';
+      document.getElementById('ghRepo').value = state.settings.ghRepo || 'seltsky/habit-tracker';
+      document.querySelectorAll('.theme-btn').forEach(b => {
+        b.classList.toggle('active', b.dataset.theme === (state.settings.theme || 'dark'));
+      });
+    });
+    document.getElementById('settingsClose').addEventListener('click', () => {
+      state.settings.ghToken = document.getElementById('ghToken').value.trim();
+      state.settings.ghRepo = document.getElementById('ghRepo').value.trim();
+      saveLocal('hq_settings', state.settings);
+      document.getElementById('settingsModal').classList.remove('show');
+    });
+    document.querySelectorAll('.theme-btn').forEach(b => {
+      b.addEventListener('click', () => {
+        state.settings.theme = b.dataset.theme;
+        saveLocal('hq_settings', state.settings);
+        document.body.dataset.theme = b.dataset.theme;
+        document.querySelectorAll('.theme-btn').forEach(x => x.classList.toggle('active', x === b));
+      });
+    });
+    document.getElementById('enableNotif').addEventListener('click', requestNotifPerm);
+    document.getElementById('syncPushBtn').addEventListener('click', () => {
+      state.settings.ghToken = document.getElementById('ghToken').value.trim();
+      state.settings.ghRepo = document.getElementById('ghRepo').value.trim();
+      saveLocal('hq_settings', state.settings);
+      syncPush();
+    });
+    document.getElementById('syncPullBtn').addEventListener('click', () => {
+      state.settings.ghToken = document.getElementById('ghToken').value.trim();
+      state.settings.ghRepo = document.getElementById('ghRepo').value.trim();
+      saveLocal('hq_settings', state.settings);
+      syncPull();
+    });
+    document.getElementById('clearLocal').addEventListener('click', () => {
+      if (confirm('정말 모든 로컬 데이터를 초기화할까요?')) {
+        const keep = state.settings;
+        localStorage.clear();
+        saveLocal('hq_settings', keep);
+        location.reload();
+      }
     });
   }
 
   async function init() {
     await loadAll();
     setupTabs();
+    setupSettings();
     render();
 
+    // Modal events
     document.getElementById('modalCancel').addEventListener('click', closeSkipModal);
     document.getElementById('modalSave').addEventListener('click', saveSkip);
     document.getElementById('inboxAdd').addEventListener('click', addInboxItem);
@@ -499,17 +880,17 @@
     mr.addEventListener('input', () => document.getElementById('moodValue').textContent = mr.value);
     document.getElementById('reflectionSave').addEventListener('click', saveReflection);
 
-    if (state.log.energy_score) {
-      er.value = state.log.energy_score;
-      document.getElementById('energyValue').textContent = state.log.energy_score;
-    }
-    if (state.log.mood_score) {
-      mr.value = state.log.mood_score;
-      document.getElementById('moodValue').textContent = state.log.mood_score;
-    }
-    if (state.log.memo) {
-      document.getElementById('memoText').value = state.log.memo;
-    }
+    if (state.log.energy_score) { er.value = state.log.energy_score; document.getElementById('energyValue').textContent = state.log.energy_score; }
+    if (state.log.mood_score) { mr.value = state.log.mood_score; document.getElementById('moodValue').textContent = state.log.mood_score; }
+    if (state.log.memo) document.getElementById('memoText').value = state.log.memo;
+
+    const wc = document.getElementById('wifeCondition');
+    wc.addEventListener('input', () => document.getElementById('wifeConditionVal').textContent = wc.value);
+    document.getElementById('wifeSave').addEventListener('click', saveWifeMemo);
+
+    if (state.settings.notif) scheduleNotif();
+    // Auto-pull on startup if sync configured
+    if (state.settings.ghToken && state.settings.ghRepo) syncPull();
   }
 
   document.addEventListener('DOMContentLoaded', init);

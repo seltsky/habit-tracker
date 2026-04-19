@@ -12,7 +12,7 @@
   <link rel="apple-touch-icon" href="icon-192.png">
   <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body data-theme="dark">
   <div id="app">
 
     <!-- Header -->
@@ -23,17 +23,35 @@
           <span class="header-date" id="headerDate"></span>
         </div>
         <div class="header-stats">
+          <button class="icon-btn" id="settingsBtn" title="설정">⚙️</button>
           <div class="level-badge">Lv.<span id="levelNum">1</span></div>
           <div class="streak-badge">🔥<span id="streakNum">0</span></div>
         </div>
       </div>
-      <div class="level-info">
-        <div class="level-label" id="levelLabel">견습생</div>
-        <div class="xp-bar">
-          <div class="xp-fill" id="xpFill"></div>
-          <span class="xp-text" id="xpText">0 / 100 XP</span>
+
+      <div class="header-progress">
+        <!-- Circular today progress -->
+        <div class="circle-progress" id="circleProgress">
+          <svg viewBox="0 0 80 80">
+            <circle class="cp-bg" cx="40" cy="40" r="34"/>
+            <circle class="cp-fill" cx="40" cy="40" r="34" id="cpFill"/>
+          </svg>
+          <div class="cp-text">
+            <div class="cp-pct" id="cpPct">0%</div>
+            <div class="cp-frac" id="cpFrac">0/0</div>
+          </div>
+        </div>
+
+        <div class="level-info">
+          <div class="level-label" id="levelLabel">견습생</div>
+          <div class="xp-bar">
+            <div class="xp-fill" id="xpFill"></div>
+            <span class="xp-text" id="xpText">0 / 100 XP</span>
+          </div>
+          <div class="sync-status" id="syncStatus"></div>
         </div>
       </div>
+
       <div class="morning-message" id="morningMessage"></div>
     </header>
 
@@ -41,6 +59,7 @@
     <nav class="tabs">
       <button class="tab active" data-tab="quests">⚔️ 퀘스트</button>
       <button class="tab" data-tab="dashboard">📊 대시보드</button>
+      <button class="tab" data-tab="duo">👫 듀오</button>
       <button class="tab" data-tab="inbox">📥 인박스</button>
     </nav>
 
@@ -63,6 +82,18 @@
         <div class="card">
           <h3>📈 능력치</h3>
           <div class="stats-list" id="statsList"></div>
+        </div>
+
+        <div class="card">
+          <h3>🎯 도메인 균형 (이번 주)</h3>
+          <div class="radar-wrap">
+            <canvas id="radarCanvas" width="280" height="280"></canvas>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>📊 미실행 사유 (이번 주)</h3>
+          <div class="reason-chart" id="reasonChart"></div>
         </div>
 
         <div class="card">
@@ -93,6 +124,43 @@
         <div class="card">
           <h3>📅 최근 7일</h3>
           <div class="recent-days" id="recentDays"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tab: Duo (Wife) -->
+    <section id="tab-duo" class="tab-content">
+      <div class="duo-section">
+        <div class="card duo-header">
+          <h3>👫 사모님과 함께</h3>
+          <p class="duo-week" id="duoWeek">임신 6주차</p>
+          <p class="duo-edd" id="duoEdd">출산 예정 2026-12-08 (D-233)</p>
+        </div>
+
+        <div class="card">
+          <h3>🤰 오늘 사모님 케어 퀘스트</h3>
+          <div id="duoQuests"></div>
+        </div>
+
+        <div class="card">
+          <h3>📊 함께 진행도</h3>
+          <div id="duoProgress"></div>
+        </div>
+
+        <div class="card">
+          <h3>💌 이번 주 함께 챌린지</h3>
+          <div id="duoChallenge"></div>
+        </div>
+
+        <div class="card">
+          <h3>📝 사모님 컨디션 기록</h3>
+          <div class="score-row">
+            <label>오늘 컨디션</label>
+            <input type="range" min="1" max="10" value="5" id="wifeCondition">
+            <span id="wifeConditionVal">5</span>
+          </div>
+          <textarea id="wifeMemo" placeholder="입덧·통증·기분 등 한 줄 메모"></textarea>
+          <button class="btn-primary" id="wifeSave">저장</button>
         </div>
       </div>
     </section>
@@ -149,8 +217,53 @@
       </div>
     </div>
 
+    <!-- Modal: Settings -->
+    <div class="modal" id="settingsModal">
+      <div class="modal-content">
+        <h3>⚙️ 설정</h3>
+
+        <div class="settings-section">
+          <label class="settings-label">🌓 테마</label>
+          <div class="theme-toggle">
+            <button class="theme-btn" data-theme="dark">🌙 다크</button>
+            <button class="theme-btn" data-theme="light">☀️ 라이트</button>
+          </div>
+        </div>
+
+        <div class="settings-section">
+          <label class="settings-label">🔔 알림</label>
+          <button class="btn-secondary" id="enableNotif">알림 권한 요청</button>
+          <p class="hint">매일 오전 7시 새 퀘스트 알림을 받습니다 (브라우저 열려있을 때).</p>
+        </div>
+
+        <div class="settings-section">
+          <label class="settings-label">🔄 GitHub 동기화</label>
+          <p class="hint">폰 ↔ PC 동기화. <a href="https://github.com/settings/tokens/new?scopes=repo&description=Habit%20Quest%20Sync" target="_blank">PAT 발급</a> (repo 권한)</p>
+          <input type="password" id="ghToken" placeholder="ghp_..." autocomplete="off">
+          <input type="text" id="ghRepo" placeholder="seltsky/habit-tracker" value="seltsky/habit-tracker">
+          <div class="settings-actions">
+            <button class="btn-secondary" id="syncPullBtn">⬇️ 가져오기</button>
+            <button class="btn-primary" id="syncPushBtn">⬆️ 올리기</button>
+          </div>
+          <p class="hint" id="syncMeta"></p>
+        </div>
+
+        <div class="settings-section">
+          <label class="settings-label">🗑️ 데이터</label>
+          <button class="btn-secondary" id="clearLocal">로컬 데이터 초기화</button>
+        </div>
+
+        <div class="modal-actions">
+          <button class="btn-primary" id="settingsClose">닫기</button>
+        </div>
+      </div>
+    </div>
+
     <!-- XP Toast -->
     <div class="xp-toast" id="xpToast"></div>
+
+    <!-- Confetti -->
+    <canvas id="confettiCanvas"></canvas>
 
   </div>
 
