@@ -1,5 +1,5 @@
 {
-  "lastModified": 1776606088146,
+  "lastModified": 1776606099286,
   "user": {
     "name": "선생님",
     "character_class": [
@@ -9,13 +9,13 @@
     ],
     "started_at": "2026-04-19",
     "level": 1,
-    "current_xp": 0,
-    "total_xp_lifetime": 0,
+    "current_xp": 5,
+    "total_xp_lifetime": 5,
     "stats": {
       "stamina": 10,
-      "discipline": 10,
+      "discipline": 11,
       "focus": 10,
-      "wellness": 10,
+      "wellness": 9,
       "research": 10
     },
     "streak_current": 0,
@@ -35,18 +35,12 @@
       "date": "2026-04-19",
       "completed": [
         "q-2026-04-19-03",
-        "q-2026-04-19-04",
         "q-2026-04-19-06",
         "q-2026-04-19-01",
-        "q-2026-04-19-08"
+        "q-2026-04-19-08",
+        "q-2026-04-19-05"
       ],
       "skipped": [
-        {
-          "quest_id": "q-2026-04-19-05",
-          "reason_code": "time",
-          "reason_text": "",
-          "skipped_at": "2026-04-19T12:25:06.553Z"
-        },
         {
           "quest_id": "q-2026-04-19-09",
           "reason_code": "willpower",
