@@ -396,8 +396,9 @@
     const xpPct = Math.min(100, Math.round((u.current_xp / next) * 100));
     document.getElementById('xpFill').style.width = xpPct + '%';
     document.getElementById('xpText').textContent = `${u.current_xp} / ${next} XP`;
-    document.getElementById('morningMessage').textContent =
-      state.quest?.morning_message || '오늘의 퀘스트 로드 중...';
+    const mm = document.getElementById('morningMessage');
+    mm.textContent = state.quest?.morning_message || '오늘의 퀘스트 로드 중...';
+    mm.onclick = () => mm.classList.toggle('expanded');
 
     // Today's progress circle
     const total = state.quest?.quests?.length || 0;

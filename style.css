@@ -42,10 +42,10 @@ body {
 
 #app { max-width: 720px; margin: 0 auto; padding-bottom: 80px; }
 
-/* Header */
+/* Header — compact */
 #header {
   background: linear-gradient(180deg, var(--bg-card) 0%, var(--bg-card-2) 100%);
-  padding: 16px;
+  padding: 8px 12px;
   border-bottom: 1px solid var(--border);
   position: sticky;
   top: 0;
@@ -56,15 +56,15 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 12px;
+  margin-bottom: 8px;
 }
 
-.header-title h1 { font-size: 20px; font-weight: 700; }
-.header-date { font-size: 12px; color: var(--text-dim); margin-left: 4px; }
+.header-title h1 { font-size: 16px; font-weight: 700; display: inline; }
+.header-date { font-size: 11px; color: var(--text-dim); margin-left: 4px; }
 
 .header-stats {
   display: flex;
-  gap: 8px;
+  gap: 6px;
   align-items: center;
 }
 
@@ -72,39 +72,39 @@ body {
   background: var(--bg);
   border: 1px solid var(--border);
   color: var(--text);
-  padding: 4px 8px;
-  border-radius: 12px;
+  padding: 3px 7px;
+  border-radius: 10px;
   cursor: pointer;
-  font-size: 14px;
+  font-size: 12px;
 }
 
 .level-badge, .streak-badge {
   background: var(--bg);
-  padding: 4px 10px;
-  border-radius: 12px;
-  font-size: 13px;
+  padding: 3px 8px;
+  border-radius: 10px;
+  font-size: 12px;
   font-weight: 600;
   border: 1px solid var(--border);
 }
 .streak-badge { color: var(--warn); }
 .level-badge { color: var(--accent); }
 
-/* Header progress */
+/* Header progress — compact */
 .header-progress {
   display: flex;
-  gap: 14px;
+  gap: 10px;
   align-items: center;
-  margin-bottom: 8px;
+  margin-bottom: 4px;
 }
 
 .circle-progress {
   position: relative;
-  width: 80px;
-  height: 80px;
+  width: 56px;
+  height: 56px;
   flex-shrink: 0;
 }
 
-.circle-progress svg { width: 80px; height: 80px; transform: rotate(-90deg); }
+.circle-progress svg { width: 56px; height: 56px; transform: rotate(-90deg); }
 .cp-bg { fill: none; stroke: var(--bg); stroke-width: 6; }
 .cp-fill {
   fill: none;
@@ -122,24 +122,24 @@ body {
 }
 
 .cp-pct {
-  font-size: 18px;
+  font-size: 13px;
   font-weight: 700;
   color: var(--accent);
   line-height: 1;
 }
 
 .cp-frac {
-  font-size: 10px;
+  font-size: 9px;
   color: var(--text-dim);
 }
 
 .level-info { flex: 1; min-width: 0; }
-.level-label { font-size: 13px; color: var(--accent-2); margin-bottom: 4px; font-weight: 500; }
+.level-label { font-size: 11px; color: var(--accent-2); margin-bottom: 2px; font-weight: 500; }
 
 .xp-bar {
   background: var(--bg);
-  height: 16px;
-  border-radius: 8px;
+  height: 12px;
+  border-radius: 6px;
   position: relative;
   overflow: hidden;
   border: 1px solid var(--border);
@@ -148,7 +148,7 @@ body {
 .xp-fill {
   background: linear-gradient(90deg, var(--accent) 0%, var(--accent-2) 100%);
   height: 100%;
-  border-radius: 8px;
+  border-radius: 6px;
   transition: width 0.4s ease;
 }
 
@@ -156,27 +156,35 @@ body {
   position: absolute;
   top: 50%; left: 50%;
   transform: translate(-50%, -50%);
-  font-size: 10px;
+  font-size: 9px;
   font-weight: 600;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
   color: var(--text);
 }
 
 .sync-status {
-  font-size: 10px;
+  font-size: 9px;
   color: var(--text-dim);
-  margin-top: 4px;
+  margin-top: 2px;
 }
 
 .morning-message {
-  margin-top: 12px;
-  padding: 10px 12px;
+  margin-top: 6px;
+  padding: 6px 8px;
   background: rgba(78, 204, 163, 0.08);
   border-left: 3px solid var(--accent);
   border-radius: 4px;
-  font-size: 13px;
+  font-size: 11px;
   color: var(--text-dim);
-  line-height: 1.6;
+  line-height: 1.4;
+  max-height: 48px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: max-height 0.3s;
+}
+
+.morning-message.expanded {
+  max-height: 400px;
 }
 
 /* Tabs */
@@ -185,19 +193,19 @@ body {
   background: var(--bg-card);
   border-bottom: 1px solid var(--border);
   position: sticky;
-  top: 184px;
+  top: 122px;
   z-index: 9;
   overflow-x: auto;
 }
 
 .tab {
   flex: 1;
-  min-width: 80px;
-  padding: 12px 8px;
+  min-width: 70px;
+  padding: 8px 6px;
   background: none;
   border: none;
   color: var(--text-dim);
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 500;
   cursor: pointer;
   border-bottom: 2px solid transparent;
