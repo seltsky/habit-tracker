@@ -56,6 +56,7 @@
   let state = {
     user: null,
     quest: null,
+    external: null,
     log: null,
     inbox: { items: [] },
     pendingSkip: null,
@@ -303,6 +304,8 @@
     state.quest = await fetchJson(`data/quests/${today}.json`);
     if (!state.quest) state.quest = await fetchJson('data/quests/2026-04-19.json');
 
+    state.external = await fetchJson(`data/external/${today}.json`);
+
     state.user = loadLocal('hq_user', {
       name: '선생님',
       character_class: ['doctor', 'researcher', 'father-to-be'],
@@ -331,11 +334,54 @@
   // ====== Render ======
   function render() {
     renderHeader();
+    renderExternal();
     renderQuests();
     renderDashboard();
     renderDuo();
     renderInbox();
     document.body.dataset.theme = state.settings.theme || 'dark';
+  }
+
+  function renderExternal() {
+    const container = document.getElementById('externalSection');
+    if (!container) return;
+    const ext = state.external;
+    if (!ext) {
+      container.innerHTML = '';
+      return;
+    }
+    const events = ext.calendar || [];
+    const tasks = ext.tasks || [];
+    if (events.length === 0 && tasks.length === 0) {
+      container.innerHTML = '';
+      return;
+    }
+    let html = '<div class="external-section">';
+    if (events.length > 0) {
+      html += '<div class="ext-card"><h3>📅 오늘 일정 (Google)</h3>';
+      events.forEach(ev => {
+        const time = ev.all_day ? '종일' : new Date(ev.start).toLocaleTimeString('ko-KR', { hour:'2-digit', minute:'2-digit', hour12:false });
+        html += `<div class="ext-item">
+          <span class="ext-time">${time}</span>
+          <span class="ext-title">${ev.title}</span>
+          <span class="ext-cal">${ev.calendar}</span>
+        </div>`;
+      });
+      html += '</div>';
+    }
+    if (tasks.length > 0) {
+      html += '<div class="ext-card"><h3>📋 할 일 (Google Tasks)</h3>';
+      tasks.forEach(t => {
+        const due = t.due ? `<span class="ext-due">📌 ${new Date(t.due).toLocaleDateString('ko-KR')}</span>` : '';
+        html += `<div class="ext-item">
+          <span class="ext-title">${t.title}</span>
+          ${due}
+        </div>`;
+      });
+      html += '</div>';
+    }
+    html += '</div>';
+    container.innerHTML = html;
   }
 
   function renderHeader() {
