@@ -45,23 +45,34 @@ function jsonResponse(obj) {
 }
 
 function getCalendarEvents(dateStr) {
+  // KST 기준으로 날짜 경계 계산 (timezone-safe)
+  var TZ_OFFSET_HOURS = 9; // Asia/Seoul = UTC+9
+  var nowUtc = new Date();
+  var nowKstMs = nowUtc.getTime() + TZ_OFFSET_HOURS * 3600 * 1000;
+  var todayKst = new Date(nowKstMs);
+  // KST 기준 0시
+  todayKst.setUTCHours(0, 0, 0, 0);
+
   var start, end;
   if (dateStr === 'today') {
-    start = new Date();
-    start.setHours(0, 0, 0, 0);
+    start = todayKst;
   } else if (dateStr === 'tomorrow') {
-    start = new Date();
-    start.setDate(start.getDate() + 1);
-    start.setHours(0, 0, 0, 0);
+    start = new Date(todayKst.getTime() + 24 * 3600 * 1000);
   } else if (dateStr === 'week') {
-    start = new Date();
-    start.setHours(0, 0, 0, 0);
+    start = todayKst;
   } else {
-    start = new Date(dateStr + 'T00:00:00');
+    // YYYY-MM-DD 입력 → KST 기준 그날 0시
+    var parts = dateStr.split('-');
+    start = new Date(Date.UTC(+parts[0], +parts[1] - 1, +parts[2], 0, 0, 0));
   }
 
-  end = new Date(start);
-  end.setDate(end.getDate() + (dateStr === 'week' ? 7 : 1));
+  // KST 0시 → UTC 변환 (start는 UTC 기준 -9시간)
+  var startUtc = new Date(start.getTime() - TZ_OFFSET_HOURS * 3600 * 1000);
+  var days = (dateStr === 'week') ? 7 : 1;
+  var endUtc = new Date(startUtc.getTime() + days * 24 * 3600 * 1000);
+
+  start = startUtc;
+  end = endUtc;
 
   var calendars = CalendarApp.getAllCalendars();
   var events = [];
