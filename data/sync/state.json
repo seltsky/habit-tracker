@@ -1,5 +1,5 @@
 {
-  "lastModified": 1776606512422,
+  "lastModified": 1776606553752,
   "user": {
     "name": "선생님",
     "character_class": [
@@ -67,9 +67,9 @@
           "skipped_at": "2026-04-19T13:48:29.417Z"
         }
       ],
-      "energy_score": null,
-      "mood_score": null,
-      "memo": ""
+      "energy_score": 2,
+      "mood_score": 6,
+      "memo": "어제 가족모임 술먹어서 컨디션 안좋다"
     }
   },
   "inbox": {
