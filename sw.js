@@ -1,4 +1,4 @@
-const CACHE = 'habit-v1';
+const CACHE = 'habit-quest-v5';
 const ASSETS = ['./index.html', './style.css', './app.js', './manifest.json', './icon-192.png'];
 
 self.addEventListener('install', e => {
@@ -14,7 +14,11 @@ self.addEventListener('activate', e => {
 });
 
 self.addEventListener('fetch', e => {
-  e.respondWith(
-    caches.match(e.request).then(r => r || fetch(e.request))
-  );
+  // Network-first for data/ folder (always fresh quests)
+  if (e.request.url.includes('/data/')) {
+    e.respondWith(fetch(e.request).catch(() => caches.match(e.request)));
+    return;
+  }
+  // Cache-first for app shell
+  e.respondWith(caches.match(e.request).then(r => r || fetch(e.request)));
 });

@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-  <meta name="theme-color" content="#1a1a2e">
+  <meta name="theme-color" content="#0f0f1e">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <title>Habit Tracker</title>
+  <title>Habit Quest</title>
   <link rel="manifest" href="manifest.json">
   <link rel="icon" type="image/png" href="icon-192.png">
   <link rel="apple-touch-icon" href="icon-192.png">
@@ -14,118 +14,146 @@
 </head>
 <body>
   <div id="app">
-    <!-- Baby Banner -->
-    <div class="baby-banner" id="babyBanner"></div>
 
     <!-- Header -->
     <header id="header">
-      <div class="header-top">
-        <h1>Habit Tracker</h1>
-        <div class="streak-badge" id="streakBadge">0</div>
+      <div class="header-row">
+        <div class="header-title">
+          <h1>🎮 Habit Quest</h1>
+          <span class="header-date" id="headerDate"></span>
+        </div>
+        <div class="header-stats">
+          <div class="level-badge">Lv.<span id="levelNum">1</span></div>
+          <div class="streak-badge">🔥<span id="streakNum">0</span></div>
+        </div>
       </div>
-      <div class="identity-msg" id="identityMsg"></div>
+      <div class="level-info">
+        <div class="level-label" id="levelLabel">견습생</div>
+        <div class="xp-bar">
+          <div class="xp-fill" id="xpFill"></div>
+          <span class="xp-text" id="xpText">0 / 100 XP</span>
+        </div>
+      </div>
+      <div class="morning-message" id="morningMessage"></div>
     </header>
 
     <!-- Tabs -->
     <nav class="tabs">
-      <button class="tab active" data-tab="health">건강습관</button>
-      <button class="tab" data-tab="routine">요일루틴</button>
-      <button class="tab" data-tab="dashboard">대시보드</button>
+      <button class="tab active" data-tab="quests">⚔️ 퀘스트</button>
+      <button class="tab" data-tab="dashboard">📊 대시보드</button>
+      <button class="tab" data-tab="inbox">📥 인박스</button>
     </nav>
 
-    <!-- Tab: Health Habits -->
-    <section id="tab-health" class="tab-content active">
-      <div class="date-nav">
-        <button id="prevDay" class="nav-btn">&lt;</button>
-        <span id="currentDate"></span>
-        <button id="nextDay" class="nav-btn">&gt;</button>
-      </div>
-      <div id="healthHabits" class="habit-list"></div>
-      <div class="daily-stats" id="healthStats"></div>
-    </section>
-
-    <!-- Tab: Routine -->
-    <section id="tab-routine" class="tab-content">
-      <div class="date-nav">
-        <span id="routineDay"></span>
-      </div>
-      <div id="routineHabits" class="habit-list"></div>
-      <div class="daily-stats" id="routineStats"></div>
+    <!-- Tab: Quests -->
+    <section id="tab-quests" class="tab-content active">
+      <div id="questGroups"></div>
+      <div class="boss-card" id="bossCard"></div>
     </section>
 
     <!-- Tab: Dashboard -->
     <section id="tab-dashboard" class="tab-content">
       <div class="dashboard">
-        <div class="card">
-          <h3>습관 강도</h3>
-          <div class="strength-meter" id="strengthMeter">
-            <div class="strength-fill" id="strengthFill"></div>
-            <span class="strength-text" id="strengthText">0%</span>
-          </div>
-          <p class="strength-label" id="strengthLabel"></p>
+        <div class="card character-card">
+          <h3>🧑‍⚕️ 캐릭터</h3>
+          <div class="character-class" id="characterClass"></div>
+          <div class="character-level" id="characterLevel"></div>
+          <p class="character-quote" id="characterQuote"></p>
         </div>
 
         <div class="card">
-          <h3>히트맵</h3>
-          <div class="heatmap-container">
-            <div class="heatmap-months" id="heatmapMonths"></div>
-            <div class="heatmap" id="heatmap"></div>
-            <div class="heatmap-legend">
-              <span>적음</span>
-              <div class="legend-box" style="background:#1a1a2e"></div>
-              <div class="legend-box" style="background:#16213e"></div>
-              <div class="legend-box" style="background:#0f3460"></div>
-              <div class="legend-box" style="background:#4ecca3"></div>
-              <div class="legend-box" style="background:#00ff88"></div>
-              <span>많음</span>
-            </div>
-          </div>
+          <h3>📈 능력치</h3>
+          <div class="stats-list" id="statsList"></div>
         </div>
 
         <div class="card">
-          <h3>주간 달성률</h3>
-          <div class="weekly-chart" id="weeklyChart"></div>
+          <h3>🌙 이번 시즌</h3>
+          <div class="season-info" id="seasonInfo"></div>
         </div>
 
         <div class="card">
-          <h3>마일스톤</h3>
-          <div class="milestones" id="milestones"></div>
+          <h3>🔥 스트릭</h3>
+          <div class="streak-info" id="streakInfo"></div>
         </div>
 
         <div class="card">
-          <h3>정체성 투표</h3>
-          <div class="identity-votes" id="identityVotes"></div>
+          <h3>👹 보스전 전적</h3>
+          <div class="boss-record" id="bossRecord"></div>
         </div>
 
         <div class="card">
-          <h3>🏃 월간 달리기 목표</h3>
-          <div id="runGoal"></div>
+          <h3>🏅 최근 뱃지</h3>
+          <div class="badges-list" id="badgesList"></div>
         </div>
 
         <div class="card">
-          <h3>스트릭 현황</h3>
-          <div id="streakInfo"></div>
+          <h3>📊 누적 통계</h3>
+          <div class="lifetime-stats" id="lifetimeStats"></div>
         </div>
 
         <div class="card">
-          <h3>오늘의 기분</h3>
-          <div id="moodTracker"></div>
-        </div>
-
-        <div class="card">
-          <h3>습관 단계 (2분 규칙)</h3>
-          <div id="phaseProgress"></div>
-        </div>
-
-        <div class="card">
-          <h3>주간 회고</h3>
-          <div id="weeklyReflection"></div>
+          <h3>📅 최근 7일</h3>
+          <div class="recent-days" id="recentDays"></div>
         </div>
       </div>
     </section>
+
+    <!-- Tab: Inbox -->
+    <section id="tab-inbox" class="tab-content">
+      <div class="inbox-section">
+        <h3>📥 내일 추가하고 싶은 것</h3>
+        <p class="hint">자유롭게 적으세요. 내일 5시에 클로드가 읽고 퀘스트에 반영합니다.</p>
+        <textarea id="inboxText" placeholder="예: 다음주부터 매일 명상 5분 / 단백질 챙기고 싶음"></textarea>
+        <button id="inboxAdd" class="btn-primary">추가</button>
+
+        <h4>대기 중</h4>
+        <div id="inboxList"></div>
+      </div>
+
+      <div class="reflection-section">
+        <h3>🌙 오늘의 회고</h3>
+        <div class="score-row">
+          <label>컨디션 (1~10)</label>
+          <input type="range" min="1" max="10" value="5" id="energyScore">
+          <span id="energyValue">5</span>
+        </div>
+        <div class="score-row">
+          <label>기분 (1~10)</label>
+          <input type="range" min="1" max="10" value="5" id="moodScore">
+          <span id="moodValue">5</span>
+        </div>
+        <textarea id="memoText" placeholder="오늘 한 줄 메모"></textarea>
+        <button id="reflectionSave" class="btn-primary">저장</button>
+      </div>
+    </section>
+
+    <!-- Modal: Skip Reason -->
+    <div class="modal" id="skipModal">
+      <div class="modal-content">
+        <h3>⚠️ 왜 못 하셨나요?</h3>
+        <p class="modal-quest" id="modalQuestTitle"></p>
+        <div class="reason-options">
+          <label><input type="radio" name="reason" value="time"> 시간 부족</label>
+          <label><input type="radio" name="reason" value="condition"> 컨디션 안 좋음</label>
+          <label><input type="radio" name="reason" value="schedule"> 일정·약속</label>
+          <label><input type="radio" name="reason" value="forgot"> 잊어버림</label>
+          <label><input type="radio" name="reason" value="willpower"> 의지 부족</label>
+          <label><input type="radio" name="reason" value="weather"> 날씨</label>
+          <label><input type="radio" name="reason" value="emergency"> 응급/돌발</label>
+          <label><input type="radio" name="reason" value="other"> 기타</label>
+        </div>
+        <textarea id="reasonMemo" placeholder="한 줄 메모 (선택)"></textarea>
+        <div class="modal-actions">
+          <button class="btn-secondary" id="modalCancel">취소</button>
+          <button class="btn-primary" id="modalSave">저장</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- XP Toast -->
+    <div class="xp-toast" id="xpToast"></div>
+
   </div>
 
-  <script src="baby-icons.js"></script>
   <script src="app.js"></script>
   <script>if('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js');</script>
 </body>
