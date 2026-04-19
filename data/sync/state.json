@@ -1,5 +1,5 @@
 {
-  "lastModified": 1776606269367,
+  "lastModified": 1776606512422,
   "user": {
     "name": "선생님",
     "character_class": [
@@ -59,6 +59,12 @@
           "reason_code": "time",
           "reason_text": "",
           "skipped_at": "2026-04-19T13:41:40.383Z"
+        },
+        {
+          "quest_id": "q-2026-04-19-02",
+          "reason_code": "other",
+          "reason_text": "얼마마셨는지 모르겠다. 먹은거같긴한데",
+          "skipped_at": "2026-04-19T13:48:29.417Z"
         }
       ],
       "energy_score": null,
@@ -69,5 +75,11 @@
   "inbox": {
     "items": []
   },
-  "wifeLog": {}
+  "wifeLog": {
+    "2026-04-19": {
+      "condition": 5,
+      "memo": "속이 안좋다고 한다.",
+      "saved_at": "2026-04-19T13:45:12.445Z"
+    }
+  }
 }
