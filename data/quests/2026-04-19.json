@@ -104,19 +104,34 @@
       "reasoning": "일요일 가족 시간"
     },
     {
-      "id": "q-2026-04-19-07",
+      "id": "q-2026-04-19-07a",
       "type": "main",
       "domain": "relationship",
       "subdomain": "wife",
       "category": "wife",
       "identity": "family",
-      "title": "와이프 컨디션 체크 + 짧은 산책",
-      "description": "임신 6주차 — 가벼운 산책 20분, 메스꺼움·복통 확인",
+      "title": "와이프 컨디션 체크",
+      "description": "임신 6주차 — 메스꺼움·복통·기분 확인, 필요한 도움 묻기",
       "tier": "easy",
-      "xp": 20,
-      "estimated_minutes": 20,
+      "xp": 10,
+      "estimated_minutes": 5,
       "tags": ["wife", "pregnancy"],
-      "reasoning": "임신 초기 케어 — 가족시간과 별개 추적"
+      "reasoning": "임신 초기 매일 모니터링"
+    },
+    {
+      "id": "q-2026-04-19-07b",
+      "type": "daily",
+      "domain": "relationship",
+      "subdomain": "wife",
+      "category": "wife",
+      "identity": "family",
+      "title": "와이프와 함께 산책",
+      "description": "20분 가벼운 산책 (임산부 안전 강도)",
+      "tier": "easy",
+      "xp": 15,
+      "estimated_minutes": 20,
+      "tags": ["wife", "exercise"],
+      "reasoning": "임산부 산책 — 컨디션 체크와는 별도 추적"
     },
     {
       "id": "q-2026-04-19-08",
