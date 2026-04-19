@@ -283,7 +283,14 @@ body {
   padding: 10px 18px;
 }
 
+.quest-status-row {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
 .quest-status {
+  flex: 1;
   font-size: 13px;
   padding: 8px;
   text-align: center;
@@ -296,6 +303,21 @@ body {
 .quest-status.skip {
   background: rgba(154, 160, 180, 0.1);
   color: var(--text-dim);
+}
+
+.btn-undo {
+  background: var(--bg);
+  color: var(--text-dim);
+  border: 1px solid var(--border);
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.btn-undo:hover {
+  background: var(--bg-card-2);
+  color: var(--text);
 }
 
 /* Boss */

@@ -183,6 +183,9 @@
     container.querySelectorAll('.btn-skip').forEach(btn => {
       btn.addEventListener('click', () => openSkipModal(btn.dataset.id));
     });
+    container.querySelectorAll('.btn-undo').forEach(btn => {
+      btn.addEventListener('click', () => undoQuest(btn.dataset.id));
+    });
 
     const boss = state.quest.weekly_boss;
     if (boss) {
@@ -212,10 +215,16 @@
     const tags = q.tags ? q.tags.join(' ') : '';
     let actionsHtml;
     if (isDone) {
-      actionsHtml = '<div class="quest-status">✅ 완료</div>';
+      actionsHtml = `<div class="quest-status-row">
+        <div class="quest-status">✅ 완료</div>
+        <button class="btn-undo" data-id="${q.id}">↩️ 취소</button>
+      </div>`;
     } else if (skipObj) {
       const label = REASON_LABELS[skipObj.reason_code] || skipObj.reason_code;
-      actionsHtml = `<div class="quest-status skip">⏭️ 건너뜀 (${label})</div>`;
+      actionsHtml = `<div class="quest-status-row">
+        <div class="quest-status skip">⏭️ 건너뜀 (${label})</div>
+        <button class="btn-undo" data-id="${q.id}">↩️ 취소</button>
+      </div>`;
     } else {
       actionsHtml = `<div class="quest-actions">
         <button class="btn-complete" data-id="${q.id}">완료</button>
@@ -356,6 +365,44 @@
       showToast(`🎉 레벨업! Lv.${state.user.level} ${li.label}`);
     } else {
       showToast(`+${q.xp} XP`);
+    }
+
+    persist();
+    render();
+  }
+
+  function undoQuest(id) {
+    const q = state.quest.quests.find(x => x.id === id);
+    if (!q) return;
+    const wasDone = state.log.completed.includes(id);
+    const wasSkipped = state.log.skipped.find(s => s.quest_id === id);
+
+    if (wasDone) {
+      // Revert XP and stats
+      state.log.completed = state.log.completed.filter(x => x !== id);
+      state.user.current_xp -= q.xp;
+      state.user.total_xp_lifetime -= q.xp;
+      state.user.lifetime_completed -= 1;
+
+      const statMap = {
+        health: 'wellness', routine: 'discipline', research: 'research',
+        wife: 'wellness', user_request: 'discipline', self_care: 'stamina',
+        family: 'wellness', church: 'wellness'
+      };
+      const statKey = statMap[q.category] || 'discipline';
+      state.user.stats[statKey] = Math.max(0, (state.user.stats[statKey] || 0) - 1);
+
+      // Handle level rollback if XP went negative
+      while (state.user.current_xp < 0 && state.user.level > 1) {
+        state.user.level -= 1;
+        state.user.current_xp += nextLevelXp(state.user.level);
+      }
+      if (state.user.current_xp < 0) state.user.current_xp = 0;
+
+      showToast(`↩️ 취소 (-${q.xp} XP)`);
+    } else if (wasSkipped) {
+      state.log.skipped = state.log.skipped.filter(s => s.quest_id !== id);
+      showToast('↩️ 건너뜀 취소');
     }
 
     persist();
