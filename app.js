@@ -30,6 +30,25 @@
     wellness: '웰니스', research: '연구'
   };
 
+  const DOMAIN_LABELS = {
+    exercise: { icon: '🏋️', name: '운동', color: '#ff9a3c' },
+    health: { icon: '🩺', name: '건강', color: '#4ecca3' },
+    relationship: { icon: '❤️', name: '관계', color: '#ff6b6b' },
+    faith: { icon: '⛪', name: '신앙', color: '#b78aff' },
+    study: { icon: '📚', name: '학습', color: '#a3e0ff' },
+    recovery: { icon: '🌿', name: '회복', color: '#7be0a3' },
+  };
+
+  const SUBDOMAIN_LABELS = {
+    run: '달리기', gym: '헬스', golf: '골프',
+    supplements: '영양제', protein: '단백질', veggies: '채소',
+    water: '수분', no_alcohol: '절주', sleep: '수면',
+    wife: '와이프', family: '가족',
+    church: '교회',
+    english: '영어', research: '연구',
+    stretch: '스트레칭', meditation: '명상',
+  };
+
   let state = {
     user: null,
     quest: null,
@@ -204,8 +223,17 @@
       </div>`;
     }
 
+    const dom = DOMAIN_LABELS[q.domain];
+    const subLabel = SUBDOMAIN_LABELS[q.subdomain] || q.subdomain || '';
+    const breadcrumbHtml = dom ? `
+      <div class="quest-breadcrumb" style="color:${dom.color}">
+        ${dom.icon} ${dom.name}${subLabel ? ' → ' + subLabel : ''}
+      </div>
+    ` : '';
+
     return `
       <div class="quest-card ${statusClass}" style="border-left-color:${tierColor}">
+        ${breadcrumbHtml}
         <div class="quest-head">
           <div class="quest-title">${q.title}</div>
           <div class="quest-xp">+${q.xp}</div>

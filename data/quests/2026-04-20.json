@@ -11,24 +11,73 @@
     "recent_failure_pattern": ["forgot"],
     "user_inbox": []
   },
-  "morning_message": "월요일 시작입니다. 어제 80% 잘 마무리하셨네요. 단백질 챙기는 게 자연스러워질 때까지 오늘도 유지합니다. 영어·달리기 다 들어가는 평일이라 분량은 평소와 동일합니다.",
+  "morning_message": "월요일 시작입니다. 어제 80% 잘 마무리. 오늘은 평일 풀세트 — 영어·달리기·연구 모두 들어갑니다. 절주는 매일 핵심으로 유지.",
   "quests": [
     {
       "id": "q-2026-04-20-01",
       "type": "daily",
+      "domain": "health",
+      "subdomain": "supplements",
       "category": "health",
       "identity": "liver",
-      "title": "영양제 + 물 + 채소 먼저",
-      "description": "기상 영양제 풀세트, 물 1.5L, 식사마다 채소부터",
+      "title": "영양제 풀세트",
+      "description": "기상 후 우루사·비타민·양배추환·프로바이오틱스",
       "tier": "normal",
-      "xp": 25,
-      "estimated_minutes": 5,
-      "tags": ["all_day"],
-      "reasoning": "기본 건강 루틴 묶음 처리"
+      "xp": 15,
+      "estimated_minutes": 2,
+      "tags": ["morning"],
+      "reasoning": "기본 유지"
     },
     {
       "id": "q-2026-04-20-02",
       "type": "daily",
+      "domain": "health",
+      "subdomain": "water",
+      "category": "health",
+      "identity": "skin",
+      "title": "물 1.5L",
+      "description": "하루 동안 1.5L 이상",
+      "tier": "easy",
+      "xp": 10,
+      "estimated_minutes": 1,
+      "tags": ["all_day"],
+      "reasoning": "기본 유지"
+    },
+    {
+      "id": "q-2026-04-20-03",
+      "type": "daily",
+      "domain": "health",
+      "subdomain": "veggies",
+      "category": "health",
+      "identity": "liver",
+      "title": "채소 먼저 먹기",
+      "description": "끼니마다 채소부터 시작",
+      "tier": "easy",
+      "xp": 10,
+      "estimated_minutes": 0,
+      "tags": ["all_day"],
+      "reasoning": "혈당 스파이크 예방"
+    },
+    {
+      "id": "q-2026-04-20-04",
+      "type": "daily",
+      "domain": "health",
+      "subdomain": "no_alcohol",
+      "category": "health",
+      "identity": "liver",
+      "title": "절주 (술 0잔)",
+      "description": "월요일 = 절주 시작일",
+      "tier": "normal",
+      "xp": 25,
+      "estimated_minutes": 0,
+      "tags": ["all_day"],
+      "reasoning": "주중 핵심"
+    },
+    {
+      "id": "q-2026-04-20-05",
+      "type": "daily",
+      "domain": "study",
+      "subdomain": "english",
       "category": "routine",
       "identity": "researcher",
       "title": "영어 (스픽) 10분",
@@ -36,12 +85,14 @@
       "tier": "easy",
       "xp": 10,
       "estimated_minutes": 10,
-      "tags": ["morning", "language"],
+      "tags": ["morning"],
       "reasoning": "월요일 정기 루틴"
     },
     {
-      "id": "q-2026-04-20-03",
+      "id": "q-2026-04-20-06",
       "type": "daily",
+      "domain": "exercise",
+      "subdomain": "run",
       "category": "routine",
       "identity": "move",
       "title": "달리기 5km",
@@ -53,8 +104,10 @@
       "reasoning": "월간 100km 목표 페이스 유지"
     },
     {
-      "id": "q-2026-04-20-04",
+      "id": "q-2026-04-20-07",
       "type": "daily",
+      "domain": "relationship",
+      "subdomain": "wife",
       "category": "wife",
       "identity": "family",
       "title": "와이프와 시간",
@@ -66,8 +119,10 @@
       "reasoning": "월요일 정기 루틴"
     },
     {
-      "id": "q-2026-04-20-05",
+      "id": "q-2026-04-20-08",
       "type": "challenge",
+      "domain": "study",
+      "subdomain": "research",
       "category": "research",
       "identity": "researcher",
       "title": "연구 작업 1시간",
@@ -76,11 +131,13 @@
       "xp": 60,
       "estimated_minutes": 60,
       "tags": ["evening"],
-      "reasoning": "주중 핵심 연구 시간 확보"
+      "reasoning": "주중 핵심 연구 시간"
     },
     {
-      "id": "q-2026-04-20-06",
+      "id": "q-2026-04-20-09",
       "type": "bonus",
+      "domain": "health",
+      "subdomain": "protein",
       "category": "user_request",
       "identity": "liver",
       "title": "단백질 30g 유지",
@@ -89,12 +146,27 @@
       "xp": 10,
       "estimated_minutes": 5,
       "tags": ["nutrition"],
-      "reasoning": "어제 성공 → 습관화 단계로 이행"
+      "reasoning": "어제 성공 → 습관화 단계"
+    },
+    {
+      "id": "q-2026-04-20-10",
+      "type": "main",
+      "domain": "health",
+      "subdomain": "sleep",
+      "category": "health",
+      "identity": "skin",
+      "title": "11시 전 취침",
+      "description": "양치 → 폰 내려놓기 → 침대",
+      "tier": "normal",
+      "xp": 25,
+      "estimated_minutes": 0,
+      "tags": ["night"],
+      "reasoning": "수면 루틴 강화"
     }
   ],
   "weekly_boss": {
     "id": "boss-2026-w17",
-    "title": "주 4회 운동 + 단백질 매일 + 술 0회",
+    "title": "주 4회 운동 + 절주 7일 + 단백질 매일",
     "deadline": "2026-04-26",
     "progress": 0.0,
     "current": "월요일 시작",

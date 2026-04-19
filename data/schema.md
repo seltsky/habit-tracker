@@ -213,6 +213,66 @@ Lv 100   각성         (2년+, "습관이 곧 정체성이 된 자")
 
 XP 계산: `next_level_xp = 100 + (level * 25)` (선형 증가)
 
+## 7-A. 도메인 계층 (큰 그림)
+
+각 퀘스트는 `domain`(큰 영역) + `subdomain`(세부 카테고리) 두 단계로 분류.
+UI에서는 카드 상단에 `도메인 → 세부` breadcrumb으로 표시.
+
+### 도메인 정의
+
+```
+🏋️ 운동 (exercise)
+  ├─ 달리기 (run)
+  ├─ 헬스 (gym)
+  └─ 골프 (golf)
+
+🩺 건강 (health)
+  ├─ 영양제 (supplements)
+  ├─ 단백질 (protein)
+  ├─ 채소 (veggies)
+  ├─ 수분 (water)
+  ├─ 절주 (no_alcohol)
+  └─ 수면 (sleep)
+
+❤️ 관계 (relationship)
+  ├─ 와이프 (wife)
+  └─ 가족 (family)
+
+⛪ 신앙 (faith)
+  └─ 교회 (church)
+
+📚 학습 (study)
+  ├─ 영어 (english)
+  └─ 연구 (research)
+
+🌿 회복 (recovery)
+  ├─ 스트레칭 (stretch)
+  └─ 명상 (meditation)
+```
+
+### 도메인-정체성 매핑
+
+```
+운동       → 매일 움직이는 사람 (move)
+건강       → 간을 지키는 사람 (liver) + 깨끗한 피부 (skin)
+관계       → 좋은 남편·아빠 (family)
+신앙       → 좋은 남편·아빠 (family)
+학습       → 꾸준히 연구하는 의사 (researcher)
+회복       → 깨끗한 피부 (skin) + 간 (liver)
+```
+
+### Quest JSON 필드 추가
+
+```json
+{
+  "domain": "exercise",
+  "subdomain": "run",
+  ...
+}
+```
+
+UI 표시: `🏋️ 운동 → 달리기`
+
 ## 8. 퀘스트 설계 원칙 (중요)
 
 1. 단일 행동 원칙 — 한 퀘스트는 한 가지 행동만. "A + B" 묶음 금지.
