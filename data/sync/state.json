@@ -1,5 +1,5 @@
 {
-  "lastModified": 1776688860454,
+  "lastModified": 1776688899503,
   "user": {
     "name": "선생님",
     "character_class": [
@@ -113,7 +113,15 @@
     }
   },
   "inbox": {
-    "items": []
+    "items": [
+      {
+        "id": "in-1776688896502",
+        "added_at": "2026-04-20T12:41:36.502Z",
+        "text": "구글 캴린더 일정이 퀘스트로 추가되었으면 좋겠음",
+        "applied_at": null,
+        "applied_to": []
+      }
+    ]
   },
   "wifeLog": {
     "2026-04-19": {
