@@ -1,5 +1,5 @@
 {
-  "lastModified": 1776688899503,
+  "lastModified": 1776688916168,
   "user": {
     "name": "선생님",
     "character_class": [
@@ -67,9 +67,9 @@
           "skipped_at": "2026-04-20T12:40:57.453Z"
         }
       ],
-      "energy_score": null,
-      "mood_score": null,
-      "memo": ""
+      "energy_score": 3,
+      "mood_score": 5,
+      "memo": "잠을 못자서 졸리다"
     },
     "2026-04-19": {
       "date": "2026-04-19",
