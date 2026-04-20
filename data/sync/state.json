@@ -1,5 +1,5 @@
 {
-  "lastModified": 1776688916168,
+  "lastModified": 1776727289832,
   "user": {
     "name": "선생님",
     "character_class": [
@@ -9,13 +9,13 @@
     ],
     "started_at": "2026-04-19",
     "level": 2,
-    "current_xp": 10,
-    "total_xp_lifetime": 135,
+    "current_xp": 25,
+    "total_xp_lifetime": 150,
     "stats": {
       "stamina": 10,
       "discipline": 11,
       "focus": 10,
-      "wellness": 16,
+      "wellness": 17,
       "research": 10
     },
     "streak_current": 0,
@@ -27,7 +27,7 @@
       "won": 0,
       "lost": 0
     },
-    "lifetime_completed": 7,
+    "lifetime_completed": 8,
     "total_quests_seen": 0
   },
   "logs": {
@@ -70,6 +70,16 @@
       "energy_score": 3,
       "mood_score": 5,
       "memo": "잠을 못자서 졸리다"
+    },
+    "2026-04-21": {
+      "date": "2026-04-21",
+      "completed": [
+        "q-2026-04-21-01"
+      ],
+      "skipped": [],
+      "energy_score": null,
+      "mood_score": null,
+      "memo": ""
     },
     "2026-04-19": {
       "date": "2026-04-19",
@@ -118,7 +128,7 @@
         "id": "in-1776688896502",
         "added_at": "2026-04-20T12:41:36.502Z",
         "text": "구글 캴린더 일정이 퀘스트로 추가되었으면 좋겠음",
-        "applied_at": "2026-04-21T05:00:00+09:00",
+        "applied_at": null,
         "applied_to": []
       }
     ]
