@@ -1,0 +1,46 @@
+name: Fetch Google Calendar + Tasks
+
+on:
+  schedule:
+    # 매일 KST 04:50 (UTC 19:50 전날) — Claude 트리거 5시 전에 실행
+    - cron: '50 19 * * *'
+  workflow_dispatch:  # 수동 실행 가능
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Fetch external data from Apps Script
+        env:
+          APPS_SCRIPT_URL: ${{ secrets.APPS_SCRIPT_URL }}
+          APPS_SCRIPT_TOKEN: ${{ secrets.APPS_SCRIPT_TOKEN }}
+        run: |
+          set -e
+          DATE=$(TZ=Asia/Seoul date +%Y-%m-%d)
+          mkdir -p data/external
+          echo "🔄 Fetching $DATE..."
+          RESPONSE=$(curl -sL "${APPS_SCRIPT_URL}?action=both&date=${DATE}&token=${APPS_SCRIPT_TOKEN}")
+          echo "$RESPONSE" | python3 -c "import sys,json; json.load(sys.stdin)" || {
+            echo "❌ Invalid JSON response"; echo "$RESPONSE" | head -5; exit 1;
+          }
+          echo "$RESPONSE" | python3 -m json.tool > data/external/${DATE}.json
+          CAL_COUNT=$(python3 -c "import json; d=json.load(open('data/external/${DATE}.json')); print(len(d.get('calendar',[])))")
+          TASK_COUNT=$(python3 -c "import json; d=json.load(open('data/external/${DATE}.json')); print(len(d.get('tasks',[])))")
+          echo "✅ Saved: $CAL_COUNT calendar events, $TASK_COUNT tasks"
+
+      - name: Commit and push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/external/
+          if git diff --cached --quiet; then
+            echo "No changes to commit"
+          else
+            DATE=$(TZ=Asia/Seoul date +%Y-%m-%d)
+            git commit -m "external: fetch Google data for $DATE"
+            git push
+          fi
