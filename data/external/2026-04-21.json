@@ -1,0 +1,8 @@
+{
+  "date": "2026-04-21",
+  "fetched_at": "2026-04-21T05:00:00+09:00",
+  "status": "error",
+  "error": "외부 API 호스트 차단 — allowlist 미등록으로 Google Apps Script 미응답",
+  "calendar": null,
+  "tasks": null
+}
