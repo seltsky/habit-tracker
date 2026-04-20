@@ -1,5 +1,5 @@
 {
-  "lastModified": 1776688839110,
+  "lastModified": 1776688850468,
   "user": {
     "name": "선생님",
     "character_class": [
@@ -52,6 +52,12 @@
           "reason_code": "willpower",
           "reason_text": "",
           "skipped_at": "2026-04-20T12:40:36.110Z"
+        },
+        {
+          "quest_id": "q-2026-04-20-04",
+          "reason_code": "other",
+          "reason_text": "넘었는지모르겠음",
+          "skipped_at": "2026-04-20T12:40:47.467Z"
         }
       ],
       "energy_score": null,
