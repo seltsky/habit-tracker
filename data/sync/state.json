@@ -1,5 +1,5 @@
 {
-  "lastModified": 1776776566186,
+  "lastModified": 1776776590124,
   "user": {
     "name": "선생님",
     "character_class": [
@@ -89,6 +89,12 @@
           "reason_code": "other",
           "reason_text": "스픽구독을 안함",
           "skipped_at": "2026-04-21T13:02:43.185Z"
+        },
+        {
+          "quest_id": "q-2026-04-21-09",
+          "reason_code": "other",
+          "reason_text": "단기적 성취가 없어 ",
+          "skipped_at": "2026-04-21T13:03:07.123Z"
         }
       ],
       "energy_score": null,
