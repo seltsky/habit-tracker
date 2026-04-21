@@ -1,5 +1,5 @@
 {
-  "lastModified": 1776776590124,
+  "lastModified": 1776802883056,
   "user": {
     "name": "선생님",
     "character_class": [
@@ -70,6 +70,21 @@
       "energy_score": 3,
       "mood_score": 5,
       "memo": "잠을 못자서 졸리다"
+    },
+    "2026-04-22": {
+      "date": "2026-04-22",
+      "completed": [],
+      "skipped": [
+        {
+          "quest_id": "q-2026-04-22-03",
+          "reason_code": "other",
+          "reason_text": "회식",
+          "skipped_at": "2026-04-21T20:21:20.055Z"
+        }
+      ],
+      "energy_score": null,
+      "mood_score": null,
+      "memo": ""
     },
     "2026-04-21": {
       "date": "2026-04-21",
@@ -149,7 +164,9 @@
         "added_at": "2026-04-20T12:41:36.502Z",
         "text": "구글 캴린더 일정이 퀘스트로 추가되었으면 좋겠음",
         "applied_at": "2026-04-22T05:00:00+09:00",
-        "applied_to": ["q-2026-04-22-09"]
+        "applied_to": [
+          "q-2026-04-22-09"
+        ]
       }
     ]
   },
