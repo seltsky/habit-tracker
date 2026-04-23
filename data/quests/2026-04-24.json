@@ -2,18 +2,18 @@
   "date": "2026-04-24",
   "weekday_kr": "금요일",
   "generated_at": "2026-04-24T05:00:00+09:00",
-  "generator": "claude-opus-4-7",
+  "generator": "claude-sonnet-4-6",
   "context": {
     "weekday": 5,
     "season": "2026-04",
-    "weather_summary": "외부 API 미응답 — 4월 하순 서울, 금요일 저녁 외출하기 좋은 기온",
+    "weather_summary": "외부 API 미응답 — 4월 하순 서울, 저녁 나들이 적합한 날씨",
     "yesterday_completion": 0.909,
     "yesterday_completed_count": 10,
     "yesterday_total_count": 11,
     "yesterday_energy": null,
     "yesterday_mood": null,
-    "yesterday_memo": "",
-    "yesterday_note": "회식 다음날이었는데 10/11 완료 — 회복 모드가 잘 먹힘. 유일한 스킵은 스픽 결제 이슈 (구독 안 함)",
+    "yesterday_memo": "초음파 3시반 (부부캘린더)",
+    "yesterday_note": "회식 다음날임에도 10/11 완료 — 역대 최고. 유일 스킵은 스픽 결제 이슈",
     "wife_condition_yesterday": null,
     "wife_last_known": {
       "date": "2026-04-19",
@@ -21,16 +21,41 @@
       "memo": "속이 안좋다고 한다 (당시 6+1주차 입덧)"
     },
     "pregnancy_week": "7+3주차",
+    "d_day": "D-228",
+    "pregnancy_milestone": "어제(4/23) 초음파 3시반 — 7주차 첫 초음파, 심장 박동 확인 가능 시기",
     "recent_failure_pattern": ["other(결제)"],
     "skipped_detail": [
-      { "quest": "영어 스픽 5분", "reason": "other", "note": "스픽 구독 미가입 — 이틀째 동일 이슈, 오늘은 구독 불필요 루트로 완전 교체" }
+      {
+        "quest": "영어 스픽 5분",
+        "reason": "other",
+        "note": "결제를 안함 — 3일 연속 동일 이슈"
+      }
     ],
     "adaptation": [
-      "스픽 결제 이슈 2회 반복 → 오늘부터 '스픽' 언급 제거, 무료 루트(유튜브·Duolingo·ChatGPT 섀도잉) 기본값",
-      "어제 회식 다음날임에도 10/11 완료 → 오늘은 강도를 정상치로 소폭 복귀 (달리기 4km, 연구는 빼고 여유 확보)",
-      "금요일 저녁 = 와이프 데이트 루틴 → 오늘의 새로움(새 식당)을 데이트와 합쳐 하나의 경험으로 묶음",
-      "W17 절주 Day 2 — 금요일 술 유혹 방어선, 데이트로 대체 동기 부여",
-      "인박스 미처리 항목 없음 — 신규 반영 없음"
+      "스픽 결제 3회 반복 스킵 → '스픽' 단어 완전 제거, YouTube·Duolingo·ChatGPT 무료 루트 기본값 고정",
+      "어제 캘린더: 초음파 3시반 (부부캘린더) → 와이프 체크 퀘스트에 초음파 결과 공유·확인 포함, 7주차 심장 박동 확인 맥락",
+      "어제 10/11 완주 → 오늘 정상 강도 유지, 달리기 4km 정상 복귀",
+      "은평 회식 2026-04-27 (3일 후) → 절주 연속성 압박, 금요일 방어선 오늘이 관건",
+      "금요일 = 달리기 + 와이프 데이트 고정 루틴 정상 실행",
+      "회복 주간 테마 2일차 계속 (월요일까지 active)"
+    ],
+    "external_api_status": "차단됨 — 2026-04-23 외부 데이터 기반 반영",
+    "external_calendar_count": 1,
+    "external_calendar": [
+      {
+        "title": "초음파 3시반",
+        "calendar": "부부캘린더",
+        "date_kst": "2026-04-23 (어제)",
+        "impact": "임신 7주차 첫 초음파 완료 추정 → 오늘 와이프 체크 시 결과·감정 공유 필수. 심장 박동 처음 확인하는 감정적 이정표"
+      }
+    ],
+    "external_tasks_applied": [
+      {
+        "title": "은평 회식",
+        "due": "2026-04-27",
+        "days_remaining": 3,
+        "note": "월요일 회식 — W17 마감(일) 이후라 W17 영향 없음. 금·토·일 절주 유지가 핵심"
+      }
     ],
     "weekly_theme": {
       "id": "recovery",
@@ -38,13 +63,19 @@
       "focus": "수면·수분·절주 중심",
       "morning_tagline": "쌓인 피로를 비우는 주간입니다",
       "continued_from": "2026-04-23",
-      "note": "월요일 아니므로 active_theme_id 유지 — 4/22 회식 이후 설정된 recovery 주간 계속"
+      "xp_bonus": {
+        "sleep": 1.4,
+        "water": 1.2,
+        "no_alcohol": 1.2,
+        "supplements": 1.2
+      }
     },
     "novelty_selection": {
-      "category": "exploration_food",
-      "item": "새 식당 방문 (지도에서 별점 4.3 이상 랜덤)",
-      "last_used_date": null,
-      "rationale": "금요일 와이프 데이트 루틴 + 7+3주차 입덧 고려 식당 선택이 의미 있음. 어제 exploration_relation 사용 → 오늘은 food로 회전, 관계 카테고리와 자연스럽게 결합"
+      "category": "exploration_self",
+      "item": "오늘 감사한 것 3가지 적기",
+      "adaptation": "어제 초음파 마일스톤 맥락에 맞춰 '초음파 소감 포함 감사 3가지'로 구체화",
+      "last_category_used": "exploration_relation (2026-04-23)",
+      "rationale": "임신 관계 가중치 +30%이나 하루 간격 중복 방지 → self 카테고리. 첫 초음파 다음 날 감정 기록이 가장 적합한 타이밍"
     },
     "pregnancy": {
       "week": "7+3주차",
@@ -53,27 +84,21 @@
       "baby": "뇌·척수·팔다리 싹 형성",
       "mom": "입덧 피크 근접, 피로 심화",
       "dad_action": "집안일 비중 늘리기, 저녁 식사 함께",
-      "meaning": "큰 변화는 작게 쌓인다"
+      "meaning": "큰 변화는 작게 쌓인다",
+      "milestone_note": "어제 초음파로 심장 박동 확인 — 임신이 구체적 이미지로 전환되는 첫 날"
+    },
+    "w17_boss_status": {
+      "exercise": "확정 2/4 (화 달리기·목 가벼운 운동) → 오늘 달리기 4km로 3/4 목표, 토 골프로 4/4 마감 가능",
+      "no_alcohol": "리셋 후 Day 2 (4/23 Day 1 확인) → 금·토·일 3일 추가로 4/7 달성 가능",
+      "protein": "어제 달성 → 오늘 데이트 식당 메뉴 연결"
     },
     "mode": "normal",
-    "bonus_xp": {
-      "quest_id": "q-2026-04-24-05",
-      "xp_added": 20,
-      "template_used": "오늘 {quest}는 특별합니다 — +{xp} XP"
-    },
     "hidden_quest": null,
     "streak_milestone": null,
-    "w17_boss_status": {
-      "exercise": "추정 2/4 (화 달리기 3km + 목 가벼운 운동 20분) → 오늘 달리기로 3/4, 토 골프/달리기로 4/4 마감 가능",
-      "no_alcohol": "재시작 Day 2 (어제 절주 완료) — 남은 경로 4/7",
-      "protein": "어제 단백질 완료 → Day 1(post-reset) 이어가기"
-    },
-    "variation_note": "지난 7일 대비 표현 변주 체크 완료. 영양제 설명은 '복용' 나열식 → '기지개 후 한 알씩'으로 리듬 각도로 전환. 달리기는 거리·페이스 대신 '퇴근 직후 갈아입는 순간' 시간 프레임으로. 와이프 체크는 주차별 baby 발달(뇌·척수·팔다리 싹)을 포함시킴. 영어는 '스픽' 단어 완전 제거",
-    "user_inbox": [],
     "inbox_applied": 0,
-    "inbox_note": "미처리 인박스 항목 없음 (in-1776688896502는 2026-04-22에 applied 완료)"
+    "inbox_note": "처리할 인박스 항목 없음 (in-1776688896502는 2026-04-22에 이미 적용 완료)"
   },
-  "morning_message": "금요일이에요. 어제 회식 다음날 10/11 해내신 거 몸이 기억합니다 — 회복 주간 리듬이 잡혀가요. 아기는 지금 뇌·척수·팔다리 싹이 만들어지는 7+3주차(D-228), 집안일 한 가지 더 챙기시는 게 오늘의 dad_action입니다. 저녁엔 와이프와 새 식당 도전 — 데이트 + 오늘의 새로움을 하나로 묶었어요. 쌓인 피로를 비우는 주간, 술 한 잔 유혹은 그 자리에서 물로 바꾸시면 됩니다.",
+  "morning_message": "어제 초음파 잘 보셨나요? 심장 박동이 처음으로 화면에 나타나는 7주차 — 작지만 아주 큰 순간이었을 거예요. 오늘은 달리기로 W17 운동 3/4을 끊고, 저녁엔 그 감동을 와이프와 함께 나누세요 (D-228, 쌓인 피로를 비우는 주간). 금요일 술 한 잔 유혹은 오늘 데이트로 충분히 대체됩니다.",
   "quests": [
     {
       "id": "q-2026-04-24-01",
@@ -82,13 +107,13 @@
       "subdomain": "supplements",
       "category": "health",
       "identity": "liver",
-      "title": "영양제 — 기지개 후 한 알씩 ⭐",
-      "description": "일어나자마자 침대에서 기지개 30초 → 우루사부터 한 알씩 천천히. 서두르지 않기가 오늘의 포인트",
+      "title": "영양제 — 기지개 후 한 알씩",
+      "description": "우루사부터 순서대로 — 기상 후 물 한 모금과 함께. 어제 10/11 기세 그대로 오늘도 아침을 연다",
       "tier": "normal",
       "xp": 18,
       "estimated_minutes": 3,
       "tags": ["morning", "recovery"],
-      "reasoning": "회복 주간 supplements +20% 반영. 4일 연속 같은 표현을 써서 오늘은 '복용' 대신 '기지개 연결'로 리듬 재구성"
+      "reasoning": "recovery 주간 supplements xp +20% 적용 (15→18). 5일 연속 완주 기세 유지 — '기지개 연결' 표현 지속"
     },
     {
       "id": "q-2026-04-24-02",
@@ -97,13 +122,13 @@
       "subdomain": "water",
       "category": "health",
       "identity": "skin",
-      "title": "물 1.5L — 점심 전 절반 끝내기 ⭐",
-      "description": "오전에 750mL 먼저 비우기가 미션. 저녁 외식이니 식사 중 수분은 적을 확률 — 낮에 미리 채워두기",
+      "title": "물 1.5L — 오전에 절반 끝내기",
+      "description": "저녁 외식 전 750mL 오전 목표. 식사 중 수분 섭취가 줄어드니 낮에 미리 채워두기",
       "tier": "easy",
       "xp": 12,
       "estimated_minutes": 1,
       "tags": ["all_day", "recovery"],
-      "reasoning": "recovery water +20%. 금요일 외식 패턴 예측 → 오전 집중 수분 섭취로 설계"
+      "reasoning": "recovery 주간 water xp +20% 적용 (10→12). 금요일 외식 패턴 → 오전 집중 수분이 저녁 대비책"
     },
     {
       "id": "q-2026-04-24-03",
@@ -113,12 +138,12 @@
       "category": "health",
       "identity": "liver",
       "title": "절주 Day 2 — 금요일 방어선 ⭐ W17",
-      "description": "이번 주 가장 흔들릴 요일. 동료가 권하면 '임신 초기라 저도 절제 중이에요' 한 줄로 방어 가능. 술자리 잡혀도 탄산수·무알콜맥주로 전환",
+      "description": "이번 주 술 유혹 1순위 요일. 데이트 자리에서 탄산수·무알콜맥주로 전환 — 은평 회식(월요일)까지 3일 더 지키면 W17 4/7 확보",
       "tier": "normal",
       "xp": 30,
       "estimated_minutes": 0,
       "tags": ["all_day", "boss"],
-      "reasoning": "recovery no_alcohol +20%. 금요일은 주간 중 음주 유혹 1순위 — 어제 Day 1 재시작 성공했으니 오늘 관문을 넘으면 주말 흐름 붙음"
+      "reasoning": "recovery 주간 no_alcohol xp +20% 적용 (25→30). 금요일 방어선 + 은평 회식 3일 후 맥락 → 오늘이 연속성 핵심 관문"
     },
     {
       "id": "q-2026-04-24-04",
@@ -127,43 +152,43 @@
       "subdomain": "protein",
       "category": "health",
       "identity": "liver",
-      "title": "단백질 — 저녁 새 식당에서 확인",
-      "description": "오늘 저녁 데이트 식당 메뉴에서 단백질원 1개 의식적으로 선택 (스테이크·생선구이·두부요리 등). 점심은 계란 2개로 베이스 먼저",
+      "title": "단백질 — 데이트 식당 메뉴에서 하나",
+      "description": "저녁 식당 주문 시 단백질원 의식해서 선택 (생선구이·스테이크·두부요리 등). 점심엔 계란 2개로 베이스 먼저",
       "tier": "easy",
       "xp": 15,
       "estimated_minutes": 5,
       "tags": ["all_day", "boss"],
-      "reasoning": "novelty 식당 선택과 단백질을 한 행동으로 묶어 실행 마찰 감소. 단백질 단독으로 기억하기보다 데이트 메뉴 필터로 연결"
+      "reasoning": "데이트 저녁과 연결해 실행 마찰 최소화. 점심(계란) + 저녁(식당 선택) 두 번의 기회 제공"
     },
     {
       "id": "q-2026-04-24-05",
-      "type": "daily",
-      "domain": "study",
-      "subdomain": "english",
-      "category": "routine",
-      "identity": "researcher",
-      "title": "영어 5분 — 여행 주제 섀도잉",
-      "description": "유튜브·Duolingo·ChatGPT 음성 아무거나 — 오늘은 '여행'을 주제로. 출근길 지하철 한 정거장이면 끝. 오늘 이 퀘스트는 특별합니다 — +20 XP",
-      "tier": "easy",
-      "xp": 30,
-      "estimated_minutes": 5,
-      "tags": ["morning"],
-      "reasoning": "스픽 결제 2회 연속 스킵 → '스픽' 단어 자체를 제거하고 무료 도구로 완전 전환. 주제를 '여행'으로 고정해서 선택 부담도 제거. 랜덤 보너스 +20 XP 적용 (10 → 30)"
-    },
-    {
-      "id": "q-2026-04-24-06",
       "type": "main",
       "domain": "relationship",
       "subdomain": "wife",
       "category": "wife",
       "identity": "family",
-      "title": "와이프 컨디션 체크 (7+3주차)",
-      "description": "지금 아기 뇌·척수·팔다리 싹이 만들어지는 시기 — 입덧 피크 근접이라 피로 심화 구간. 아침에 '오늘 뭐 먹고 싶어?' 한 마디면 OK",
+      "title": "와이프 컨디션 + 초음파 이야기 (7+3주차)",
+      "description": "어제 초음파 결과를 아직 자세히 못 나눴다면 오늘 아침에 꼭. '아기 잘 보였어? 어떤 느낌이었어?' 한 마디로 시작. 입덧·피로 상태도 함께 확인",
       "tier": "easy",
-      "xp": 15,
+      "xp": 20,
+      "estimated_minutes": 10,
+      "tags": ["morning", "wife", "pregnancy", "milestone"],
+      "reasoning": "어제 캘린더: 초음파 3시반 (부부캘린더) — 7주차 심장 박동 확인 가능 시기, 아기를 처음 '보는' 감정적 경험. 오늘 아침 공유가 partner care의 핵심"
+    },
+    {
+      "id": "q-2026-04-24-06",
+      "type": "daily",
+      "domain": "study",
+      "subdomain": "english",
+      "category": "routine",
+      "identity": "researcher",
+      "title": "영어 5분 — 출근길 무료 루트",
+      "description": "Duolingo 1세션 또는 유튜브 영어 3분 영상 1편 — 스픽 없이 3일째. 출근길 지하철 한 정거장이면 끝",
+      "tier": "easy",
+      "xp": 10,
       "estimated_minutes": 5,
-      "tags": ["morning", "wife", "pregnancy"],
-      "reasoning": "주차별 baby 발달을 description에 직접 녹여 체크 자체에 의미 부여. 마지막 와이프 기록(4/19) 이후 닷새 — 오늘 데이트 전에 먼저 상태 파악"
+      "tags": ["morning"],
+      "reasoning": "스픽 결제 3회 반복 스킵 → 단어 자체 완전 제거. 무료 루트 기본값 고정 완료"
     },
     {
       "id": "q-2026-04-24-07",
@@ -172,13 +197,13 @@
       "subdomain": "run",
       "category": "routine",
       "identity": "move",
-      "title": "달리기 4km — 퇴근 직후 갈아입는 순간",
-      "description": "퇴근해서 옷 안 벗고 바로 러닝복으로 갈아입는 것이 최대 관문. 거리보다 타이밍 — 시작하면 4km는 25~28분이면 끝",
+      "title": "달리기 4km — 퇴근 직후 바꿔입기 ⭐ W17 운동 3/4",
+      "description": "퇴근 후 앉기 전에 러닝복으로 갈아입는 것이 최대 관문. 거리보다 '시작' — 4km는 25~28분이면 끝. 달리기 후 샤워하면 데이트 준비 자동 완료",
       "tier": "normal",
       "xp": 35,
       "estimated_minutes": 28,
       "tags": ["evening", "run", "boss"],
-      "reasoning": "W17 운동 2/4 → 오늘 3/4. 어제 회복 운동 성공으로 오늘은 정상 강도 복귀. 실행 실패 원인의 90%가 '퇴근 후 옷 갈아입기 전 앉음' → 타이밍을 설명에 명시"
+      "reasoning": "금요일 달리기 루틴 + W17 운동 2/4 → 3/4 목표. 어제 가벼운 운동 성공으로 오늘 정상 강도 복귀. '퇴근 즉시 갈아입기' 시작 마찰 포인트 명시"
     },
     {
       "id": "q-2026-04-24-08",
@@ -187,13 +212,13 @@
       "subdomain": "wife",
       "category": "wife",
       "identity": "family",
-      "title": "와이프 데이트 — 새 식당에서 저녁",
-      "description": "금요일 데이트 루틴 + 오늘의 새로움 결합. 식당 예약은 퇴근 전까지 완료, 입덧 고려해 냄새 강한 곳(곱창·추어탕 등)은 피하기",
+      "title": "와이프 데이트 — 초음파 다음 날 저녁",
+      "description": "금요일 데이트 루틴 + 어제 초음파 이후 첫 저녁. 거창하지 않아도 됨 — 둘이서 밥 한 끼가 전부. 입덧 심하면 집 배달도 OK. 어떤 형태든 '함께'가 답",
       "tier": "easy",
       "xp": 20,
       "estimated_minutes": 90,
       "tags": ["evening", "wife", "date"],
-      "reasoning": "금요일 고정 루틴(와이프 데이트)과 novelty(새 식당)를 하나로 묶어 실행력 2배. 집안일/저녁 식사 함께 = 7주차 dad_action 정확히 충족"
+      "reasoning": "7주차 dad_action = '저녁 식사 함께'. 어제 초음파 감정 공유가 자연스럽게 이어지는 시간. 입덧 고려해 외식 강요 없이 유연하게 설계"
     },
     {
       "id": "q-2026-04-24-09",
@@ -203,36 +228,36 @@
       "category": "health",
       "identity": "skin",
       "title": "11시 전 취침 — 금요일 방심 금지 ⭐",
-      "description": "데이트 귀가 후가 위험 구간. 폰 집어들면 자정 넘음 → 귀가 즉시 씻고 폰 충전기에 꽂아두기. 침대 옆이 아니라 거실에",
+      "description": "데이트 귀가 후 폰 집어들면 자정 넘음 → 귀가 즉시 씻고 폰 거실 충전기에 꽂기. 침대 옆이 아니라 거실에 두는 것이 핵심 동작",
       "tier": "normal",
       "xp": 42,
       "estimated_minutes": 0,
       "tags": ["night", "recovery"],
-      "reasoning": "recovery sleep +40%. 금요일은 '내일 주말이니까'로 취침 미루기 쉬운 요일 — 구체적 마찰 제거 동작(폰 거실 충전)을 설명에 박음"
+      "reasoning": "recovery 주간 sleep xp +40% 적용 (30→42). 금요일 '내일 주말이니까' 취침 지연 패턴 예방. 구체적 마찰 제거 동작(폰 거실 충전) 명시"
     },
     {
       "id": "q-2026-04-24-novelty",
       "type": "novelty",
-      "domain": "exploration",
-      "subdomain": "food",
+      "domain": "recovery",
+      "subdomain": "self",
       "category": "exploration",
       "identity": "family",
-      "title": "오늘의 새로움 — 새 식당 한 곳",
-      "description": "지도 앱에서 집·회사 반경 내 별점 4.3+ 중 아직 안 가본 한 곳 고르기. 혼자 결정하지 말고 와이프와 3곳 추려서 같이 픽 — 선택 과정도 데이트의 일부",
+      "title": "오늘의 새로움 — 초음파 소감 감사 일기 3줄",
+      "description": "어제 초음파 이후 감사한 것 3가지를 메모 앱에 적기 — 아기·와이프·나 각 한 줄씩. 잠들기 전 5분. 태교 일기의 첫 장이 될 수 있음",
       "tier": "easy",
-      "xp": 13,
-      "estimated_minutes": 10,
-      "tags": ["evening", "novelty", "explore", "wife"],
-      "reasoning": "금요일 + 7+3주차 와이프 입덧 맥락에서 '어떤 냄새·맛이 오늘 가능한지' 함께 고르는 과정 자체가 케어. 최근 14일 식당 novelty 미사용 → 중복 없음. 회복 테마라 novelty 별도 보너스는 없음(xp_range 10~15 중간값 13)"
+      "xp": 12,
+      "estimated_minutes": 5,
+      "tags": ["night", "novelty", "milestone", "pregnancy"],
+      "reasoning": "exploration_self '감사 3가지 적기'를 어제 초음파 마일스톤에 맞춰 구체화. 어제 exploration_relation 사용 → self 카테고리 전환 (14일 중복 방지). recovery 테마 하 novelty xp 보너스 없음, xp_range 10~15 중간값 12"
     }
   ],
   "weekly_boss": {
     "id": "boss-2026-w17",
     "title": "주 4회 운동 + 절주 7일 + 단백질 매일",
     "deadline": "2026-04-26",
-    "progress": 0.42,
-    "current": "운동 2/4 (화 달리기·목 가벼운 운동) → 오늘 달리기로 3/4, 토로 4/4 가능 | 절주 리셋 후 Day 2 → 남은 경로 4/7 유지 | 단백질 어제부터 이어가는 중",
+    "progress": 0.43,
+    "current": "운동 2/4 확정 → 오늘 달리기로 3/4 목표 | 절주 리셋 후 Day 2 (4/23 Day 1) → 금·토·일 3일 추가로 4/7 | 단백질 어제 달성 → 오늘 데이트 식당서 이어가기",
     "reward_xp": 250,
-    "note": "절주 7연속은 4/22 회식으로 이미 불가 — 남은 3일(금·토·일) 3일 연속으로 마감. 운동 4/4와 단백질 매일은 정상 경로로 회수 가능"
+    "note": "절주 7연속은 4/22 회식으로 불가 — 4/7(Apr 23~26) 달성으로 부분 보상 구조. 운동 4/4는 오늘 달리기(3/4) + 토요일 골프(4/4)로 마감 가능. 은평 회식(4/27 월)은 W18 범위, W17 영향 없음"
   }
 }

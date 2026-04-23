@@ -1,0 +1,28 @@
+{
+    "generated_at": "2026-04-24T05:00:00+09:00",
+    "fetch_status": "blocked",
+    "note": "외부 API 호출 차단됨 — 허용되지 않은 호스트. 전일(2026-04-23) 캘린더·태스크 데이터 기반으로 퀘스트 생성.",
+    "calendar": [],
+    "tasks": [],
+    "reference_from": "2026-04-23",
+    "known_from_yesterday": {
+        "calendar": [
+            {
+                "calendar": "부부캘린더",
+                "title": "초음파 3시반",
+                "date_kst": "2026-04-23",
+                "note": "전일(4/23) 이벤트 — 임신 첫 초음파. 오늘 아침 와이프 컨디션 체크 시 결과 공유·감정 확인 필수"
+            }
+        ],
+        "tasks": [
+            {
+                "title": "은평 회식",
+                "due": "2026-04-27",
+                "days_remaining_from_today": 3,
+                "note": "월요일 회식 — W17 마감(4/26 일) 다음날. 절주 연속성에 영향, 오늘~모레 방어선 중요"
+            },
+            { "title": "aortic variation", "due": "", "note": "진행 중 연구 — 금요일 연구 퀘스트 없음, 주말 선택 가능" },
+            { "title": "hepatic cyst", "due": "", "note": "진행 중 연구" }
+        ]
+    }
+}
