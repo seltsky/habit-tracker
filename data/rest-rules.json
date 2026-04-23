@@ -1,0 +1,51 @@
+{
+  "description": "번아웃 방지 + 완벽주의 덫 차단용 회복 모드 설계. 스트릭 안 깨지면서 부담 덜기.",
+  "last_updated": "2026-04-23",
+  "official_rest_day": {
+    "frequency": "월 1회",
+    "auto_select_rule": "매월 첫째 일요일 또는 에너지 평균 최저 주의 일요일",
+    "mode": "rest_day",
+    "behavior": {
+      "quests_count": 3,
+      "quests_allowed": ["물 1L", "영양제 (가벼운 세트)", "와이프 안부 1문장"],
+      "streak_protection": true,
+      "completion_counts_as_100": true,
+      "xp_fixed": 30,
+      "morning_message_tone": "오늘은 공식 휴식일입니다. 0%여도 스트릭 유지됩니다. 쉬는 것도 계획입니다."
+    }
+  },
+  "weekly_minimum_mode": {
+    "frequency": "주 1일 (기본 토요일 또는 선생님 지정)",
+    "mode": "minimum",
+    "trigger_conditions": [
+      "에너지 점수 3 이하 3일 연속",
+      "회식·응급 호출 등 예외 상황",
+      "사용자가 '오늘 미니멈'이라고 선언"
+    ],
+    "behavior": {
+      "quests_count": 3,
+      "quests_selection": "건강 3대 축만 (물·영양제·취침)",
+      "streak_protection": true,
+      "completion_threshold": "3/3 = 100%",
+      "xp_fixed": 50,
+      "morning_message_tone": "오늘은 미니멈 모드. 핵심 3개면 충분합니다. 완벽주의는 내일 다시."
+    }
+  },
+  "auto_recovery_mode": {
+    "trigger": "energy_score ≤ 3 for 3 consecutive days OR alcohol events ≥ 2 in 7 days",
+    "action": "자동으로 다음 주 테마를 recovery로 강제 설정 + 해당 주 전체 미니멈 모드 허용",
+    "notification": "텔레그램으로 '최근 컨디션을 보니 회복 주간 들어갑니다' 사전 공지",
+    "duration_days": 7
+  },
+  "skip_day_bank": {
+    "description": "월 2회 선사용 가능한 '스킵 쿠폰'. 미리 써두면 그날 스트릭 깨지지 않음",
+    "monthly_allowance": 2,
+    "usage_rule": "당일 또는 전날 선언. 사후 등록은 불가",
+    "persistence": "state.json에 remaining_skip_days 필드로 누적/소진 관리"
+  },
+  "philosophy": {
+    "principle": "회복은 중단이 아니라 설계된 휴식이다",
+    "anti_pattern": "100% 매일 달성 강박 → 한 번 놓치면 전체 포기로 이어지는 완벽주의의 덫",
+    "goal": "장기 지속 가능성 > 단기 성취율"
+  }
+}

@@ -54,9 +54,26 @@
       "item": "와이프에게 처음 해보는 질문 하나 (어릴 적 꿈·좋아하던 책 등)",
       "rationale": "임신 7+0주차 진입 + 어제 회식으로 혼자 있었던 와이프에 대한 보상 + 관계 카테고리 가중치 +30%"
     },
-    "variation_note": "첫 variation 적용 세션 — 기존 descriptions 유지한 상태로 novelty + theme 슬롯만 추가. 내일부터 description·reasoning 변주 본격 적용 예정"
+    "variation_note": "첫 variation 적용 세션 — 기존 descriptions 유지한 상태로 novelty + theme 슬롯만 추가. 내일부터 description·reasoning 변주 본격 적용 예정",
+    "pregnancy": {
+      "week": "7주차 (EDC 기준 약 7+2일, 마지막 기록 기준 약 6+5일)",
+      "d_day": "D-229",
+      "stage": "1st trimester",
+      "baby": "뇌·척수·팔다리 싹 형성",
+      "mom": "입덧 피크 근접, 피로 심화",
+      "dad_action": "집안일 비중 늘리기, 저녁 식사 함께",
+      "meaning": "큰 변화는 작게 쌓인다"
+    },
+    "mode": "normal",
+    "bonus_xp": null,
+    "hidden_quest": {
+      "title": "와이프 포옹 10초",
+      "xp": 30,
+      "note": "30% 확률 히트 — 오늘의 숨은 퀘스트"
+    },
+    "streak_milestone": null
   },
-  "morning_message": "어제 회식 고생하셨어요. 오늘은 회복 모드로 잡았습니다. 헬스는 가볍게, 물·단백질·영양제 먼저 챙기시고 저녁엔 와이프와 편한 시간 보내세요. 연구는 20분만, 파일 여는 것까지가 목표입니다. 오늘 술 안 마시면 W17 절주 다시 시작할 수 있어요.",
+  "morning_message": "어제 회식 고생하셨어요. 오늘은 회복 모드로 잡았습니다 — 쌓인 피로를 비우는 주간이에요. 헬스는 가볍게, 물·단백질·영양제 먼저. 아기는 지금 뇌·척수·팔다리 싹이 만들어지는 중이라, 와이프 입덧 챙기시는 게 오늘의 dad_action입니다 (D-229). 연구는 20분만 파일 여는 것까지, 술 0잔이면 W17 절주 Day 1 재시작 가능합니다. 큰 변화는 작게 쌓입니다.",
   "quests": [
     {
       "id": "q-2026-04-23-01",
@@ -222,6 +239,21 @@
       "estimated_minutes": 2,
       "tags": ["morning", "inbox"],
       "reasoning": "인박스 요청 '구글 캘린더 일정이 퀘스트로 추가되었으면 좋겠음' — API 연동 전 수동 placeholder로 반영"
+    },
+    {
+      "id": "q-2026-04-23-hidden",
+      "type": "hidden",
+      "domain": "relationship",
+      "subdomain": "wife",
+      "category": "bonus",
+      "identity": "family",
+      "title": "숨은 퀘스트 — 와이프 포옹 10초",
+      "description": "말없이 10초 이상 꼬옥. 회식 다음날이라 옥시토신 보너스, 와이프는 7주차 입덧·피로로 위로가 더 닿는 시기",
+      "tier": "easy",
+      "xp": 30,
+      "estimated_minutes": 1,
+      "tags": ["hidden", "wife", "pregnancy", "bonus"],
+      "reasoning": "30% 확률 숨은 퀘스트 슬롯 히트 — 도파민 변동 보상 시스템의 첫 적용 사례. 관계·임신 주차 맥락 맞춰 선정"
     },
     {
       "id": "q-2026-04-23-novelty",
