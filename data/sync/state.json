@@ -1,5 +1,5 @@
 {
-  "lastModified": 1776950008989,
+  "lastModified": 1776950013447,
   "user": {
     "name": "선생님",
     "character_class": [
@@ -8,12 +8,12 @@
       "father-to-be"
     ],
     "started_at": "2026-04-19",
-    "level": 3,
-    "current_xp": 155,
-    "total_xp_lifetime": 430,
+    "level": 4,
+    "current_xp": 5,
+    "total_xp_lifetime": 455,
     "stats": {
       "stamina": 10,
-      "discipline": 13,
+      "discipline": 14,
       "focus": 10,
       "wellness": 30,
       "research": 10
@@ -27,7 +27,7 @@
       "won": 0,
       "lost": 0
     },
-    "lifetime_completed": 23,
+    "lifetime_completed": 24,
     "total_quests_seen": 0
   },
   "logs": {
@@ -41,7 +41,8 @@
         "q-2026-04-23-04",
         "q-2026-04-23-02",
         "q-2026-04-23-01",
-        "q-2026-04-23-11"
+        "q-2026-04-23-11",
+        "q-2026-04-23-07"
       ],
       "skipped": [
         {
