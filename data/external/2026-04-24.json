@@ -1,28 +1,62 @@
 {
-    "generated_at": "2026-04-24T05:00:00+09:00",
-    "fetch_status": "blocked",
-    "note": "외부 API 호출 차단됨 — 허용되지 않은 호스트. 전일(2026-04-23) 캘린더·태스크 데이터 기반으로 퀘스트 생성.",
-    "calendar": [],
-    "tasks": [],
-    "reference_from": "2026-04-23",
-    "known_from_yesterday": {
-        "calendar": [
-            {
-                "calendar": "부부캘린더",
-                "title": "초음파 3시반",
-                "date_kst": "2026-04-23",
-                "note": "전일(4/23) 이벤트 — 임신 첫 초음파. 오늘 아침 와이프 컨디션 체크 시 결과 공유·감정 확인 필수"
-            }
-        ],
-        "tasks": [
-            {
-                "title": "은평 회식",
-                "due": "2026-04-27",
-                "days_remaining_from_today": 3,
-                "note": "월요일 회식 — W17 마감(4/26 일) 다음날. 절주 연속성에 영향, 오늘~모레 방어선 중요"
-            },
-            { "title": "aortic variation", "due": "", "note": "진행 중 연구 — 금요일 연구 퀘스트 없음, 주말 선택 가능" },
-            { "title": "hepatic cyst", "due": "", "note": "진행 중 연구" }
-        ]
-    }
+    "generated_at": "2026-04-23T20:40:15.649Z",
+    "calendar": [
+        {
+            "calendar": "calvarous@gmail.com",
+            "calendar_id": "calvarous@gmail.com",
+            "title": "\ub2f9\uc9c1",
+            "start": "2026-04-23T15:00:00.000Z",
+            "end": "2026-04-24T15:00:00.000Z",
+            "all_day": true,
+            "location": "",
+            "description": ""
+        }
+    ],
+    "tasks": [
+        {
+            "list_name": "My Tasks",
+            "list_id": "MDQ1ODE2NzUyMjUxMjQxODU4NjU6MDow",
+            "title": "\uc740\ud3c9 \ud68c\uc2dd",
+            "due": "2026-04-27T00:00:00.000Z",
+            "status": "needsAction",
+            "notes": "",
+            "updated": "2026-04-06T01:45:22.542Z"
+        },
+        {
+            "list_name": "My Tasks",
+            "list_id": "MDQ1ODE2NzUyMjUxMjQxODU4NjU6MDow",
+            "title": "\ubaa8\ub4e0 \uae00\ub8e8\ub97c \uc368\ub3c4 \uc5e0\ubcf4\ub85c \uccad\uad6c\uac00 \uac00\ub2a5\ud55c\uc9c0",
+            "due": "",
+            "status": "needsAction",
+            "notes": "",
+            "updated": "2026-03-18T07:02:22.862Z"
+        },
+        {
+            "list_name": "My Tasks",
+            "list_id": "MDQ1ODE2NzUyMjUxMjQxODU4NjU6MDow",
+            "title": "aport variation",
+            "due": "",
+            "status": "needsAction",
+            "notes": "",
+            "updated": "2026-02-24T08:49:00.667Z"
+        },
+        {
+            "list_name": "My Tasks",
+            "list_id": "MDQ1ODE2NzUyMjUxMjQxODU4NjU6MDow",
+            "title": "hepatic cyst",
+            "due": "",
+            "status": "needsAction",
+            "notes": "",
+            "updated": "2026-02-23T21:51:11.286Z"
+        },
+        {
+            "list_name": "My Tasks",
+            "list_id": "MDQ1ODE2NzUyMjUxMjQxODU4NjU6MDow",
+            "title": "\ud0c4\uc218\ud654\ubb3c\uc801\uac8c \uc88b\uc740\uc9c0\ubc29\uacfc\uc790\uc5f0\uc2dd",
+            "due": "",
+            "status": "needsAction",
+            "notes": "",
+            "updated": "2026-02-23T13:32:21.558Z"
+        }
+    ]
 }
