@@ -1,5 +1,5 @@
 {
-  "lastModified": 1776950000959,
+  "lastModified": 1776950008989,
   "user": {
     "name": "선생님",
     "character_class": [
@@ -43,7 +43,14 @@
         "q-2026-04-23-01",
         "q-2026-04-23-11"
       ],
-      "skipped": [],
+      "skipped": [
+        {
+          "quest_id": "q-2026-04-23-05",
+          "reason_code": "other",
+          "reason_text": "결제를 안함",
+          "skipped_at": "2026-04-23T13:13:25.988Z"
+        }
+      ],
       "energy_score": null,
       "mood_score": null,
       "memo": ""
