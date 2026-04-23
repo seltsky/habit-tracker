@@ -40,7 +40,21 @@
       "술 끊김 리셋 → 오늘부터 절주 재시작 (W17 남은 4일 4/7 가능)",
       "연구 20분 유지 — 회식 다음날이라 '파일 열기만' 2분 규칙 적용",
       "인박스 캘린더 요청 → 수동 placeholder로 실제 반영 (applied_to 채움)"
-    ]
+    ],
+    "weekly_theme": {
+      "id": "recovery",
+      "name": "회복 주간",
+      "focus": "수면·수분·절주 중심",
+      "morning_tagline": "쌓인 피로를 비우는 주간입니다",
+      "applied_at": "2026-04-23",
+      "reason": "4/22 회식 + 어제 에너지 미기록 + 임신 초기 와이프 컨디션 고려, adaptive_triggers에 따라 recovery 선택"
+    },
+    "novelty_selection": {
+      "category": "exploration_relation",
+      "item": "와이프에게 처음 해보는 질문 하나 (어릴 적 꿈·좋아하던 책 등)",
+      "rationale": "임신 7+0주차 진입 + 어제 회식으로 혼자 있었던 와이프에 대한 보상 + 관계 카테고리 가중치 +30%"
+    },
+    "variation_note": "첫 variation 적용 세션 — 기존 descriptions 유지한 상태로 novelty + theme 슬롯만 추가. 내일부터 description·reasoning 변주 본격 적용 예정"
   },
   "morning_message": "어제 회식 고생하셨어요. 오늘은 회복 모드로 잡았습니다. 헬스는 가볍게, 물·단백질·영양제 먼저 챙기시고 저녁엔 와이프와 편한 시간 보내세요. 연구는 20분만, 파일 여는 것까지가 목표입니다. 오늘 술 안 마시면 W17 절주 다시 시작할 수 있어요.",
   "quests": [
@@ -208,6 +222,21 @@
       "estimated_minutes": 2,
       "tags": ["morning", "inbox"],
       "reasoning": "인박스 요청 '구글 캘린더 일정이 퀘스트로 추가되었으면 좋겠음' — API 연동 전 수동 placeholder로 반영"
+    },
+    {
+      "id": "q-2026-04-23-novelty",
+      "type": "novelty",
+      "domain": "relationship",
+      "subdomain": "exploration",
+      "category": "exploration",
+      "identity": "family",
+      "title": "오늘의 새로움 — 와이프에게 처음 해보는 질문 ⭐",
+      "description": "어릴 적 꿈·좋아하던 책·가장 행복했던 여행 중 아직 안 물어본 것 1개를 골라 저녁 식사 중에 물어보기. 대답을 메모 앱에 한 줄로 남겨두면 나중에 태교 일기 소스로 활용 가능",
+      "tier": "easy",
+      "xp": 20,
+      "estimated_minutes": 10,
+      "tags": ["evening", "novelty", "wife", "explore"],
+      "reasoning": "관계 카테고리 xp +30% 보너스 (recovery 테마지만 novelty 슬롯은 별도 가중치). 회식으로 어제 비운 저녁 시간을 오늘 깊이로 채움 — 표면적 질문 말고 서로 새로 발견할 수 있는 각도"
     }
   ],
   "weekly_boss": {
