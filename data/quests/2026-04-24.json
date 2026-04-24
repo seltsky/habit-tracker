@@ -6,13 +6,13 @@
   "context": {
     "weekday": 5,
     "season": "2026-04",
-    "weather_summary": "외부 API 미응답 — 4월 하순 서울, 저녁 나들이 적합한 날씨",
+    "weather_summary": "외부 API 미응답 — 4월 하순 서울",
     "yesterday_completion": 0.909,
     "yesterday_completed_count": 10,
     "yesterday_total_count": 11,
     "yesterday_energy": null,
     "yesterday_mood": null,
-    "yesterday_memo": "초음파 3시반 (부부캘린더)",
+    "yesterday_memo": "",
     "yesterday_note": "회식 다음날임에도 10/11 완료 — 역대 최고. 유일 스킵은 스픽 결제 이슈",
     "wife_condition_yesterday": null,
     "wife_last_known": {
@@ -32,21 +32,23 @@
       }
     ],
     "adaptation": [
-      "스픽 결제 3회 반복 스킵 → '스픽' 단어 완전 제거, YouTube·Duolingo·ChatGPT 무료 루트 기본값 고정",
-      "어제 캘린더: 초음파 3시반 (부부캘린더) → 와이프 체크 퀘스트에 초음파 결과 공유·확인 포함, 7주차 심장 박동 확인 맥락",
-      "어제 10/11 완주 → 오늘 정상 강도 유지, 달리기 4km 정상 복귀",
-      "은평 회식 2026-04-27 (3일 후) → 절주 연속성 압박, 금요일 방어선 오늘이 관건",
-      "금요일 = 달리기 + 와이프 데이트 고정 루틴 정상 실행",
-      "회복 주간 테마 2일차 계속 (월요일까지 active)"
+      "스픽 결제 3회 반복 스킵 → 무료 루트(YouTube·Duolingo) 기본값 고정",
+      "캘린더: 당직 (금요일 전일) → 저녁 달리기 불가, 병원 이동으로 운동 대체",
+      "W17 달리기 3/4 오늘 불가 → 토요일 골프/달리기로 4/4 만회 계획",
+      "와이프 데이트: 당직 전 아침 또는 귀가 후 짧은 시간으로 유연 적용",
+      "당직 중 단백질: 병원 식사에서 단백질원 의식적 선택",
+      "은평 회식 4/27(3일 후) → 금·토·일 절주 유지가 W17 4/7 확보 관문",
+      "회복 주간 2일차 — 수면·수분·절주 강조 유지"
     ],
-    "external_api_status": "차단됨 — 2026-04-23 외부 데이터 기반 반영",
+    "external_api_status": "data/external/2026-04-24.json 로컬 캐시 반영 (5am 생성 시 누락 → 재실행으로 수정)",
     "external_calendar_count": 1,
     "external_calendar": [
       {
-        "title": "초음파 3시반",
-        "calendar": "부부캘린더",
-        "date_kst": "2026-04-23 (어제)",
-        "impact": "임신 7주차 첫 초음파 완료 추정 → 오늘 와이프 체크 시 결과·감정 공유 필수. 심장 박동 처음 확인하는 감정적 이정표"
+        "title": "당직",
+        "calendar": "calvarous@gmail.com",
+        "date_kst": "2026-04-24 (오늘, 전일)",
+        "all_day": true,
+        "impact": "금요일 전일 당직 — 저녁 달리기 불가. 달리기는 토요일 보완으로 W17 4/4 유지 가능. 와이프 저녁은 당직 일정에 따라 유연하게 대응"
       }
     ],
     "external_tasks_applied": [
@@ -54,7 +56,7 @@
         "title": "은평 회식",
         "due": "2026-04-27",
         "days_remaining": 3,
-        "note": "월요일 회식 — W17 마감(일) 이후라 W17 영향 없음. 금·토·일 절주 유지가 핵심"
+        "note": "월요일 회식 — W17 마감(일) 이후. 금·토·일 절주 유지 핵심"
       }
     ],
     "weekly_theme": {
@@ -72,10 +74,10 @@
     },
     "novelty_selection": {
       "category": "exploration_self",
-      "item": "오늘 감사한 것 3가지 적기",
-      "adaptation": "어제 초음파 마일스톤 맥락에 맞춰 '초음파 소감 포함 감사 3가지'로 구체화",
-      "last_category_used": "exploration_relation (2026-04-23)",
-      "rationale": "임신 관계 가중치 +30%이나 하루 간격 중복 방지 → self 카테고리. 첫 초음파 다음 날 감정 기록이 가장 적합한 타이밍"
+      "item": "당직 중 감사한 것 3가지 적기",
+      "adaptation": "초음파 소감 포함 — 당직 중 쉬는 시간 5분으로 충분",
+      "last_category_used": "exploration_self (2026-04-24 재사용, 당직 환경 적합)",
+      "rationale": "당직 환경에서도 실행 가능한 내면 활동. 초음파 마일스톤 맥락 유지"
     },
     "pregnancy": {
       "week": "7+3주차",
@@ -83,22 +85,22 @@
       "stage": "1st trimester",
       "baby": "뇌·척수·팔다리 싹 형성",
       "mom": "입덧 피크 근접, 피로 심화",
-      "dad_action": "집안일 비중 늘리기, 저녁 식사 함께",
+      "dad_action": "당직 중 와이프 문자 한 통 — '오늘 어때?' 한 마디가 충분",
       "meaning": "큰 변화는 작게 쌓인다",
-      "milestone_note": "어제 초음파로 심장 박동 확인 — 임신이 구체적 이미지로 전환되는 첫 날"
+      "milestone_note": "어제 초음파 심장 박동 확인 — 당직이어도 한 줄 감상 남기기"
     },
     "w17_boss_status": {
-      "exercise": "확정 2/4 (화 달리기·목 가벼운 운동) → 오늘 달리기 4km로 3/4 목표, 토 골프로 4/4 마감 가능",
-      "no_alcohol": "리셋 후 Day 2 (4/23 Day 1 확인) → 금·토·일 3일 추가로 4/7 달성 가능",
-      "protein": "어제 달성 → 오늘 데이트 식당 메뉴 연결"
+      "exercise": "확정 2/4 (화 달리기·목 가벼운 운동) → 오늘 달리기 당직 불가. 토요일 골프+달리기로 3/4→4/4 마감 계획",
+      "no_alcohol": "리셋 후 Day 2 (4/23 Day 1) → 당직 중 자연 달성 → 토·일로 4/7 목표",
+      "protein": "병원 식사에서 단백질원 의식 선택"
     },
     "mode": "normal",
     "hidden_quest": null,
     "streak_milestone": null,
     "inbox_applied": 0,
-    "inbox_note": "처리할 인박스 항목 없음 (in-1776688896502는 2026-04-22에 이미 적용 완료)"
+    "inbox_note": "미처리 인박스 항목 없음 (in-1776688896502는 2026-04-22에 applied 완료)"
   },
-  "morning_message": "어제 초음파 잘 보셨나요? 심장 박동이 처음으로 화면에 나타나는 7주차 — 작지만 아주 큰 순간이었을 거예요. 오늘은 달리기로 W17 운동 3/4을 끊고, 저녁엔 그 감동을 와이프와 함께 나누세요 (D-228, 쌓인 피로를 비우는 주간). 금요일 술 한 잔 유혹은 오늘 데이트로 충분히 대체됩니다.",
+  "morning_message": "오늘 당직이시네요 — 어제 초음파 감동을 뒤로하고 병원으로. 달리기는 내일 골프와 묶어서 보완하면 되고, 오늘은 영양제·물·절주 세 가지만 챙기면 당직도 완주입니다. 와이프에게 문자 한 통이면 오늘의 dad_action은 충분합니다 (D-228). 당직이어도 회복 주간은 쌓입니다.",
   "quests": [
     {
       "id": "q-2026-04-24-01",
@@ -108,12 +110,12 @@
       "category": "health",
       "identity": "liver",
       "title": "영양제 — 기지개 후 한 알씩",
-      "description": "우루사부터 순서대로 — 기상 후 물 한 모금과 함께. 어제 10/11 기세 그대로 오늘도 아침을 연다",
+      "description": "우루사부터 순서대로 — 기상 후 물 한 모금과 함께. 당직 출근 전에 완료하기",
       "tier": "normal",
       "xp": 18,
       "estimated_minutes": 3,
       "tags": ["morning", "recovery"],
-      "reasoning": "recovery 주간 supplements xp +20% 적용 (15→18). 5일 연속 완주 기세 유지 — '기지개 연결' 표현 지속"
+      "reasoning": "recovery 주간 supplements xp +20% 적용 (15→18). 당직 전 아침에 완료"
     },
     {
       "id": "q-2026-04-24-02",
@@ -122,13 +124,13 @@
       "subdomain": "water",
       "category": "health",
       "identity": "skin",
-      "title": "물 1.5L — 오전에 절반 끝내기",
-      "description": "저녁 외식 전 750mL 오전 목표. 식사 중 수분 섭취가 줄어드니 낮에 미리 채워두기",
+      "title": "물 1.5L — 병원 내 꾸준히",
+      "description": "당직 중에도 의무실·탕비실 물병 챙기기. 오전 750mL 목표. 환자 보느라 잊기 쉬우니 1시간마다 한 모금 의식적으로",
       "tier": "easy",
       "xp": 12,
       "estimated_minutes": 1,
       "tags": ["all_day", "recovery"],
-      "reasoning": "recovery 주간 water xp +20% 적용 (10→12). 금요일 외식 패턴 → 오전 집중 수분이 저녁 대비책"
+      "reasoning": "recovery water +20%. 당직 중 수분은 더 잊기 쉬움 — 병원 환경 맞게 설명 조정"
     },
     {
       "id": "q-2026-04-24-03",
@@ -137,13 +139,13 @@
       "subdomain": "no_alcohol",
       "category": "health",
       "identity": "liver",
-      "title": "절주 Day 2 — 금요일 방어선 ⭐ W17",
-      "description": "이번 주 술 유혹 1순위 요일. 데이트 자리에서 탄산수·무알콜맥주로 전환 — 은평 회식(월요일)까지 3일 더 지키면 W17 4/7 확보",
+      "title": "절주 Day 2 — 당직 중 자연 달성 ⭐ W17",
+      "description": "당직 환경이라 자연 달성 가능 — 오늘 통과하면 내일 Day 3으로. 은평 회식(월) 전 금·토·일 3일 더 지키면 W17 4/7 확보",
       "tier": "normal",
       "xp": 30,
       "estimated_minutes": 0,
       "tags": ["all_day", "boss"],
-      "reasoning": "recovery 주간 no_alcohol xp +20% 적용 (25→30). 금요일 방어선 + 은평 회식 3일 후 맥락 → 오늘이 연속성 핵심 관문"
+      "reasoning": "recovery no_alcohol +20% 적용. 당직 중 음주 기회 없음 → 부담 없이 달성. 맥락 업데이트"
     },
     {
       "id": "q-2026-04-24-04",
@@ -152,13 +154,13 @@
       "subdomain": "protein",
       "category": "health",
       "identity": "liver",
-      "title": "단백질 — 데이트 식당 메뉴에서 하나",
-      "description": "저녁 식당 주문 시 단백질원 의식해서 선택 (생선구이·스테이크·두부요리 등). 점심엔 계란 2개로 베이스 먼저",
+      "title": "단백질 — 병원 식사에서 하나",
+      "description": "병원 구내식당 또는 도시락 — 메뉴 고를 때 단백질원(계란·생선·닭·두부) 의식적으로 선택. 점심 한 번이면 충분",
       "tier": "easy",
       "xp": 15,
       "estimated_minutes": 5,
       "tags": ["all_day", "boss"],
-      "reasoning": "데이트 저녁과 연결해 실행 마찰 최소화. 점심(계란) + 저녁(식당 선택) 두 번의 기회 제공"
+      "reasoning": "당직 환경에서 단백질 선택 각도로 업데이트 — 실행 마찰 최소화"
     },
     {
       "id": "q-2026-04-24-05",
@@ -173,7 +175,7 @@
       "xp": 20,
       "estimated_minutes": 10,
       "tags": ["morning", "wife", "pregnancy", "milestone"],
-      "reasoning": "어제 캘린더: 초음파 3시반 (부부캘린더) — 7주차 심장 박동 확인 가능 시기, 아기를 처음 '보는' 감정적 경험. 오늘 아침 공유가 partner care의 핵심"
+      "reasoning": "어제 초음파 후 첫 아침 — 심장 박동 처음 확인한 날 다음 날. 당직 전 아침에 완료 가능"
     },
     {
       "id": "q-2026-04-24-06",
@@ -182,28 +184,28 @@
       "subdomain": "english",
       "category": "routine",
       "identity": "researcher",
-      "title": "영어 5분 — 출근길 무료 루트",
-      "description": "Duolingo 1세션 또는 유튜브 영어 3분 영상 1편 — 스픽 없이 3일째. 출근길 지하철 한 정거장이면 끝",
+      "title": "영어 5분 — 당직 대기 시간",
+      "description": "Duolingo 1세션 또는 유튜브 의학영어 3분 영상 — 당직 중 대기 시간에 휴대폰으로. 출퇴근 이동 중이면 더 자연스러움",
       "tier": "easy",
       "xp": 10,
       "estimated_minutes": 5,
-      "tags": ["morning"],
-      "reasoning": "스픽 결제 3회 반복 스킵 → 단어 자체 완전 제거. 무료 루트 기본값 고정 완료"
+      "tags": ["all_day", "study"],
+      "reasoning": "스픽 제거 후 무료 루트 3일째. 당직 대기 시간 활용 각도 추가"
     },
     {
       "id": "q-2026-04-24-07",
       "type": "daily",
       "domain": "exercise",
-      "subdomain": "run",
+      "subdomain": "gym",
       "category": "routine",
       "identity": "move",
-      "title": "달리기 4km — 퇴근 직후 바꿔입기 ⭐ W17 운동 3/4",
-      "description": "퇴근 후 앉기 전에 러닝복으로 갈아입는 것이 최대 관문. 거리보다 '시작' — 4km는 25~28분이면 끝. 달리기 후 샤워하면 데이트 준비 자동 완료",
-      "tier": "normal",
-      "xp": 35,
-      "estimated_minutes": 28,
-      "tags": ["evening", "run", "boss"],
-      "reasoning": "금요일 달리기 루틴 + W17 운동 2/4 → 3/4 목표. 어제 가벼운 운동 성공으로 오늘 정상 강도 복귀. '퇴근 즉시 갈아입기' 시작 마찰 포인트 명시"
+      "title": "당직 중 활동적 이동 — 계단·복도 속보 10분",
+      "description": "달리기는 당직으로 오늘 불가 → 대체: 병원 계단 5층 오르기 또는 복도 빠르게 걷기 10분. W17 운동 카운트는 내일(토) 골프/달리기로 3/4→4/4 마감. 오늘은 '움직임 유지'가 목표",
+      "tier": "easy",
+      "xp": 15,
+      "estimated_minutes": 10,
+      "tags": ["all_day", "adapted"],
+      "reasoning": "당직 캘린더 이벤트 반영 — 달리기(35분 xp:35)에서 병원 내 대체 활동(10분 xp:15)으로 조정. W17 운동 3/4은 토요일로 이연"
     },
     {
       "id": "q-2026-04-24-08",
@@ -212,13 +214,13 @@
       "subdomain": "wife",
       "category": "wife",
       "identity": "family",
-      "title": "와이프 데이트 — 초음파 다음 날 저녁",
-      "description": "금요일 데이트 루틴 + 어제 초음파 이후 첫 저녁. 거창하지 않아도 됨 — 둘이서 밥 한 끼가 전부. 입덧 심하면 집 배달도 OK. 어떤 형태든 '함께'가 답",
+      "title": "와이프 데이트 — 짧아도 괜찮아",
+      "description": "당직이라 긴 저녁은 어려울 수 있음 — 아침 커피 한 잔 같이 하기, 당직 중 전화 10분, 귀가 후 짧은 산책도 OK. '함께'의 형태는 오늘 상황에 맞게",
       "tier": "easy",
       "xp": 20,
-      "estimated_minutes": 90,
-      "tags": ["evening", "wife", "date"],
-      "reasoning": "7주차 dad_action = '저녁 식사 함께'. 어제 초음파 감정 공유가 자연스럽게 이어지는 시간. 입덧 고려해 외식 강요 없이 유연하게 설계"
+      "estimated_minutes": 30,
+      "tags": ["anytime", "wife", "date"],
+      "reasoning": "당직 환경에서 유연한 형태로 업데이트 — 저녁 외식 강요 없이 아침/전화/귀가 후도 인정"
     },
     {
       "id": "q-2026-04-24-09",
@@ -227,13 +229,13 @@
       "subdomain": "sleep",
       "category": "health",
       "identity": "skin",
-      "title": "11시 전 취침 — 금요일 방심 금지 ⭐",
-      "description": "데이트 귀가 후 폰 집어들면 자정 넘음 → 귀가 즉시 씻고 폰 거실 충전기에 꽂기. 침대 옆이 아니라 거실에 두는 것이 핵심 동작",
+      "title": "11시 취침 — 당직 후 귀가하면 바로 ⭐",
+      "description": "당직 마치고 귀가 즉시 씻고 침대로. 폰은 거실 충전기에 꽂고 들어오기 — 당직 피로가 있으니 오히려 더 잘 잠들 수 있는 날. 22:50 알람 설정",
       "tier": "normal",
       "xp": 42,
       "estimated_minutes": 0,
       "tags": ["night", "recovery"],
-      "reasoning": "recovery 주간 sleep xp +40% 적용 (30→42). 금요일 '내일 주말이니까' 취침 지연 패턴 예방. 구체적 마찰 제거 동작(폰 거실 충전) 명시"
+      "reasoning": "recovery sleep +40% 유지 (30→42). 당직 후 귀가 맥락으로 설명 업데이트 — 피로가 오히려 수면 도움"
     },
     {
       "id": "q-2026-04-24-novelty",
@@ -242,22 +244,22 @@
       "subdomain": "self",
       "category": "exploration",
       "identity": "family",
-      "title": "오늘의 새로움 — 초음파 소감 감사 일기 3줄",
-      "description": "어제 초음파 이후 감사한 것 3가지를 메모 앱에 적기 — 아기·와이프·나 각 한 줄씩. 잠들기 전 5분. 태교 일기의 첫 장이 될 수 있음",
+      "title": "오늘의 새로움 — 당직 중 감사 일기 3줄",
+      "description": "어제 초음파 이후 첫 당직 — 쉬는 시간 5분, 메모 앱에 감사한 것 3가지 (아기·와이프·나 각 한 줄씩). 잡무 많은 날일수록 이 5분이 하루를 정리해줌",
       "tier": "easy",
       "xp": 12,
       "estimated_minutes": 5,
-      "tags": ["night", "novelty", "milestone", "pregnancy"],
-      "reasoning": "exploration_self '감사 3가지 적기'를 어제 초음파 마일스톤에 맞춰 구체화. 어제 exploration_relation 사용 → self 카테고리 전환 (14일 중복 방지). recovery 테마 하 novelty xp 보너스 없음, xp_range 10~15 중간값 12"
+      "tags": ["all_day", "novelty", "milestone"],
+      "reasoning": "당직 환경에서 실행 가능한 self novelty. 초음파 마일스톤 맥락 유지. recovery 테마 xp 보너스 없음 (10~15 중간값 12)"
     }
   ],
   "weekly_boss": {
     "id": "boss-2026-w17",
     "title": "주 4회 운동 + 절주 7일 + 단백질 매일",
     "deadline": "2026-04-26",
-    "progress": 0.43,
-    "current": "운동 2/4 확정 → 오늘 달리기로 3/4 목표 | 절주 리셋 후 Day 2 (4/23 Day 1) → 금·토·일 3일 추가로 4/7 | 단백질 어제 달성 → 오늘 데이트 식당서 이어가기",
+    "progress": 0.40,
+    "current": "운동 2/4 → 오늘 달리기 당직 불가, 대체 활동(계단·속보) 유지 | 절주 Day 2 당직 자연 달성 중 | 단백질 병원 식사 선택",
     "reward_xp": 250,
-    "note": "절주 7연속은 4/22 회식으로 불가 — 4/7(Apr 23~26) 달성으로 부분 보상 구조. 운동 4/4는 오늘 달리기(3/4) + 토요일 골프(4/4)로 마감 가능. 은평 회식(4/27 월)은 W18 범위, W17 영향 없음"
+    "note": "달리기 오늘 스킵 — 토요일 골프+달리기로 3/4→4/4 마감 계획. 절주 7연속은 4/22 회식으로 이미 불가(4/7 부분 보상 경로). 당직 날 2/4 현상 유지도 W17 완주 범위 안"
   }
 }
