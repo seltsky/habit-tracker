@@ -1,5 +1,5 @@
 {
-  "lastModified": 1777104342598,
+  "lastModified": 1777122341494,
   "user": {
     "name": "선생님",
     "character_class": [
@@ -137,9 +137,9 @@
         "q-2026-04-25-hidden"
       ],
       "skipped": [],
-      "energy_score": null,
-      "mood_score": null,
-      "memo": ""
+      "energy_score": 7,
+      "mood_score": 5,
+      "memo": "애기보는건 힘들어"
     },
     "2026-04-21": {
       "date": "2026-04-21",
