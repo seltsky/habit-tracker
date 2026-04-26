@@ -1,5 +1,5 @@
 {
-  "lastModified": 1777122341494,
+  "lastModified": 1777193555058,
   "user": {
     "name": "선생님",
     "character_class": [
@@ -9,13 +9,13 @@
     ],
     "started_at": "2026-04-19",
     "level": 5,
-    "current_xp": 76,
-    "total_xp_lifetime": 726,
+    "current_xp": 119,
+    "total_xp_lifetime": 769,
     "stats": {
       "stamina": 10,
       "discipline": 18,
       "focus": 10,
-      "wellness": 38,
+      "wellness": 40,
       "research": 10
     },
     "streak_current": 0,
@@ -27,36 +27,10 @@
       "won": 0,
       "lost": 0
     },
-    "lifetime_completed": 36,
+    "lifetime_completed": 38,
     "total_quests_seen": 0
   },
   "logs": {
-    "2026-04-23": {
-      "date": "2026-04-23",
-      "completed": [
-        "q-2026-04-23-06",
-        "q-2026-04-23-08",
-        "q-2026-04-23-10",
-        "q-2026-04-23-03",
-        "q-2026-04-23-04",
-        "q-2026-04-23-02",
-        "q-2026-04-23-01",
-        "q-2026-04-23-11",
-        "q-2026-04-23-07",
-        "q-2026-04-23-novelty"
-      ],
-      "skipped": [
-        {
-          "quest_id": "q-2026-04-23-05",
-          "reason_code": "other",
-          "reason_text": "결제를 안함",
-          "skipped_at": "2026-04-23T13:13:25.988Z"
-        }
-      ],
-      "energy_score": null,
-      "mood_score": null,
-      "memo": ""
-    },
     "2026-04-20": {
       "date": "2026-04-20",
       "completed": [
@@ -112,65 +86,6 @@
       "mood_score": null,
       "memo": ""
     },
-    "2026-04-24": {
-      "date": "2026-04-24",
-      "completed": [
-        "q-2026-04-24-03",
-        "q-2026-04-24-05",
-        "q-2026-04-24-08",
-        "q-2026-04-24-01"
-      ],
-      "skipped": [],
-      "energy_score": null,
-      "mood_score": null,
-      "memo": ""
-    },
-    "2026-04-25": {
-      "date": "2026-04-25",
-      "completed": [
-        "q-2026-04-25-05",
-        "q-2026-04-25-07",
-        "q-2026-04-25-03",
-        "q-2026-04-25-04",
-        "q-2026-04-25-06",
-        "q-2026-04-25-novelty",
-        "q-2026-04-25-hidden"
-      ],
-      "skipped": [],
-      "energy_score": 7,
-      "mood_score": 5,
-      "memo": "애기보는건 힘들어"
-    },
-    "2026-04-21": {
-      "date": "2026-04-21",
-      "completed": [
-        "q-2026-04-21-01",
-        "q-2026-04-21-02",
-        "q-2026-04-21-06",
-        "q-2026-04-21-10",
-        "q-2026-04-21-03",
-        "q-2026-04-21-07",
-        "q-2026-04-21-08",
-        "q-2026-04-21-04"
-      ],
-      "skipped": [
-        {
-          "quest_id": "q-2026-04-21-05",
-          "reason_code": "other",
-          "reason_text": "스픽구독을 안함",
-          "skipped_at": "2026-04-21T13:02:43.185Z"
-        },
-        {
-          "quest_id": "q-2026-04-21-09",
-          "reason_code": "other",
-          "reason_text": "단기적 성취가 없어 ",
-          "skipped_at": "2026-04-21T13:03:07.123Z"
-        }
-      ],
-      "energy_score": null,
-      "mood_score": null,
-      "memo": ""
-    },
     "2026-04-19": {
       "date": "2026-04-19",
       "completed": [
@@ -210,6 +125,102 @@
       "energy_score": 2,
       "mood_score": 6,
       "memo": "어제 가족모임 술먹어서 컨디션 안좋다"
+    },
+    "2026-04-26": {
+      "date": "2026-04-26",
+      "completed": [
+        "q-2026-04-26-05",
+        "q-2026-04-26-06"
+      ],
+      "skipped": [],
+      "energy_score": null,
+      "mood_score": null,
+      "memo": ""
+    },
+    "2026-04-23": {
+      "date": "2026-04-23",
+      "completed": [
+        "q-2026-04-23-06",
+        "q-2026-04-23-08",
+        "q-2026-04-23-10",
+        "q-2026-04-23-03",
+        "q-2026-04-23-04",
+        "q-2026-04-23-02",
+        "q-2026-04-23-01",
+        "q-2026-04-23-11",
+        "q-2026-04-23-07",
+        "q-2026-04-23-novelty"
+      ],
+      "skipped": [
+        {
+          "quest_id": "q-2026-04-23-05",
+          "reason_code": "other",
+          "reason_text": "결제를 안함",
+          "skipped_at": "2026-04-23T13:13:25.988Z"
+        }
+      ],
+      "energy_score": null,
+      "mood_score": null,
+      "memo": ""
+    },
+    "2026-04-25": {
+      "date": "2026-04-25",
+      "completed": [
+        "q-2026-04-25-05",
+        "q-2026-04-25-07",
+        "q-2026-04-25-03",
+        "q-2026-04-25-04",
+        "q-2026-04-25-06",
+        "q-2026-04-25-novelty",
+        "q-2026-04-25-hidden"
+      ],
+      "skipped": [],
+      "energy_score": 7,
+      "mood_score": 5,
+      "memo": "애기보는건 힘들어"
+    },
+    "2026-04-24": {
+      "date": "2026-04-24",
+      "completed": [
+        "q-2026-04-24-03",
+        "q-2026-04-24-05",
+        "q-2026-04-24-08",
+        "q-2026-04-24-01"
+      ],
+      "skipped": [],
+      "energy_score": null,
+      "mood_score": null,
+      "memo": ""
+    },
+    "2026-04-21": {
+      "date": "2026-04-21",
+      "completed": [
+        "q-2026-04-21-01",
+        "q-2026-04-21-02",
+        "q-2026-04-21-06",
+        "q-2026-04-21-10",
+        "q-2026-04-21-03",
+        "q-2026-04-21-07",
+        "q-2026-04-21-08",
+        "q-2026-04-21-04"
+      ],
+      "skipped": [
+        {
+          "quest_id": "q-2026-04-21-05",
+          "reason_code": "other",
+          "reason_text": "스픽구독을 안함",
+          "skipped_at": "2026-04-21T13:02:43.185Z"
+        },
+        {
+          "quest_id": "q-2026-04-21-09",
+          "reason_code": "other",
+          "reason_text": "단기적 성취가 없어 ",
+          "skipped_at": "2026-04-21T13:03:07.123Z"
+        }
+      ],
+      "energy_score": null,
+      "mood_score": null,
+      "memo": ""
     }
   },
   "inbox": {
