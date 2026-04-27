@@ -1,5 +1,5 @@
 {
-  "lastModified": 1777299349636,
+  "lastModified": 1777299363428,
   "user": {
     "name": "선생님",
     "character_class": [
@@ -161,6 +161,12 @@
           "reason_code": "other",
           "reason_text": "그게 가능하니..?",
           "skipped_at": "2026-04-27T14:15:42.954Z"
+        },
+        {
+          "quest_id": "q-2026-04-27-05",
+          "reason_code": "other",
+          "reason_text": "듀오링고는 공짜인가요?",
+          "skipped_at": "2026-04-27T14:16:00.427Z"
         }
       ],
       "energy_score": null,
