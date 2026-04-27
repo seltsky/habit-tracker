@@ -1,5 +1,5 @@
 {
-  "lastModified": 1777299323429,
+  "lastModified": 1777299332352,
   "user": {
     "name": "선생님",
     "character_class": [
@@ -148,6 +148,12 @@
           "reason_code": "other",
           "reason_text": "회식",
           "skipped_at": "2026-04-27T12:56:05.961Z"
+        },
+        {
+          "quest_id": "q-2026-04-27-02",
+          "reason_code": "other",
+          "reason_text": "너무늦게 업데이트됨",
+          "skipped_at": "2026-04-27T14:15:29.351Z"
         }
       ],
       "energy_score": null,
