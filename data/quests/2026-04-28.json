@@ -1,0 +1,276 @@
+{
+  "date": "2026-04-28",
+  "weekday_kr": "화요일",
+  "generated_at": "2026-04-28T05:00:00+09:00",
+  "generator": "claude-opus-4-7",
+  "context": {
+    "weekday": 2,
+    "season": "2026-04",
+    "weather_summary": "외부 API 미응답 — 4월 마지막 화요일, 봄 후반 평일 기온대 추정",
+    "yesterday_completion": null,
+    "yesterday_completed_count": 2,
+    "yesterday_total_count": 12,
+    "yesterday_energy": null,
+    "yesterday_mood": null,
+    "yesterday_memo": "",
+    "yesterday_note": "어제(월) 은평 회식. 로그상 영양제(q-..-19-01)·와이프 체크(q-..-19-06) 매핑으로 2건 완료, 절주·물 회식 사유 스킵. energy/mood/memo 미기록 → 4일 누적(4/22·24·27 외 추가). 회식 다음날 모드로 설계",
+    "wife_condition_yesterday": null,
+    "wife_last_known": {
+      "date": "2026-04-26",
+      "condition": 9,
+      "memo": "기록 없음 (당시 7+5주차)"
+    },
+    "pregnancy_week": "8+0주차",
+    "recent_failure_pattern": [
+      "회식 후 절주·수분 동시 스킵",
+      "로그 메모 누락 누적"
+    ],
+    "skipped_detail": [
+      { "quest": "절주(W18 첫날)", "reason": "회식" },
+      { "quest": "물 1.5L 선충전", "reason": "회식" }
+    ],
+    "external_api_status": "외부 캘린더/Tasks 미반영 — 4/28 별도 일정 정보 없음, 평일 화요일 표준 슬롯 가정",
+    "external_calendar": [],
+    "adaptation": [
+      "회식 다음날 = 회복 우선 모드. 화요일 달리기 5km는 유지하되 페이스 자율(완주 우선)·트레드밀 옵션 명시",
+      "어제 W18 절주 첫날 회식 끼임 → 오늘부터 카운트 회수. '0잔'이 자연 달성되는 날(평일 화요일 + 회식 다음날) — 점수가 가장 잘 붙는 슬롯",
+      "8주차 진입 첫날 = 손가락·발가락 분화·장기 배치 본격화 + 입덧 최고조 단계. 어제 와이프 혼자 저녁 → 오늘 와이프 단독 저녁이 W18 보스 1/3 회수의 가장 빠른 길",
+      "auto_recovery 7일 윈도우 재계산: 4/22·4/27 회식 2회 = 임계 정확히 도달. 다만 W18 테마(relation)는 어제 W18 시작에 의도적으로 선택된 상태 → 미들위크 강제 전환은 회피, '회식 회복' 색채만 영양제·물·취침 퀘스트에 더해 흡수",
+      "스픽 결제 이슈 학습 5일째 — 무료 루트(Duolingo) 안착, 화요일은 점심 슬롯 1차 시도 (출근길은 회식 후 피로 우선)",
+      "와이프 컨디션 마지막 4/26 = 9점이지만 그 후 어제 입덧 + 혼자 저녁 + 8주차 전환 = 컨디션 변동 폭 큼. 데이터 갱신 우선",
+      "연구 슬롯은 어제 Paper Pilot 인프라 구축 완료 → 오늘은 인프라 위에 첫 콘텐츠(UAE reviewer comment MAJOR 1번 응답 초안)로 연결"
+    ],
+    "weekly_theme": {
+      "id": "relation",
+      "name": "관계 주간",
+      "focus": "와이프·가족·친구 중심",
+      "morning_tagline": "옆에 있는 사람들을 더 깊게 보는 주간입니다",
+      "selected_at": "2026-04-27",
+      "selected_reason": "월요일 W18 시작 시 선택. 오늘은 유지 (미드위크 변경 없음)",
+      "previous_theme": "recovery (2026-04-23 ~ 2026-04-26)",
+      "xp_bonus": {
+        "wife": 1.3,
+        "family": 1.3
+      },
+      "emphasized_quests": [
+        "와이프 체크",
+        "와이프와 저녁",
+        "가족 안부"
+      ]
+    },
+    "novelty_selection": {
+      "category": "exploration_media",
+      "item": "안 보던 장르의 영화/드라마 에피소드 1개",
+      "last_used_date": null,
+      "rationale": "최근 5일 novelty 회전: relation(4/23)→self(4/24·25)→research(4/26)→food(4/27)→오늘 media. 14일 내 media 미사용. 회식 다음날 저녁 = 무리 없는 활동 슬롯 + 와이프와 같이 보면 relation 주간 색깔 자연 흡수. 어제 food와 카테고리 겹침 없음"
+    },
+    "pregnancy": {
+      "week": "8+0주차",
+      "d_day": "D-224",
+      "stage": "1st trimester",
+      "baby": "손가락·발가락 분화, 장기 배치 본격화",
+      "mom": "입덧 최고조",
+      "dad_action": "메스꺼움 없는 음식 실험, 냄새 자극 최소화",
+      "meaning": "정교한 조립이 한창"
+    },
+    "mode": "normal",
+    "bonus_xp": {
+      "quest_id": "q-2026-04-28-06",
+      "xp_added": 20,
+      "template_used": "오늘의 행운 — 달리기 5km에 +20 XP 보너스"
+    },
+    "hidden_quest": null,
+    "streak_milestone": null,
+    "w18_boss_status": {
+      "exercise": "0/4 — 오늘 달리기 진행 시 1/4. 수(헬스)·목(헬스)·토(골프/달리기) 잔여",
+      "wife_solo_time": "0/3 — 어제 회식 공백 → 오늘 화요일 저녁이 첫 회수 슬롯. 화·수·목·금 중 3회 확보 필요",
+      "sleep": "0/5 — 어제 11:30 완화 시작, 오늘 11:00 정상화로 첫 카운트 가능"
+    },
+    "user_inbox": [],
+    "inbox_applied": 0,
+    "inbox_note": "미처리 인박스 항목 없음. state.json inbox 변경 없음",
+    "auto_recovery_trigger": {
+      "matched": true,
+      "reason": "지난 7일(4/22~4/28) 알코올 이벤트 정확히 2회(4/22·4/27 회식). energy ≤3 3일 연속은 미충족",
+      "action_taken": "테마 강제 전환은 미적용 — W18 relation은 어제(W18 시작일)에 의도적 선택됨. 대신 영양제·물·취침 퀘스트 description에 '회식 회복' 각도 직접 반영하여 회복 모드 색깔 흡수"
+    },
+    "variation_note": "지난 7일 대비 표현 변주 체크 완료. 영양제는 어제 '예방의약'에 이어 오늘 '회식 다음날 회복 부스트' — 시간축 한 칸 이동. 물은 '시계처럼 한 시간마다 200mL' 알람 각도 첫 시도. 절주는 '0잔이 가장 쉬운 날 = 회식 다음날' 역설 각도. 단백질은 '아침 계란부터 시작 — 회식 후 분해 보전' 각도. 영어는 점심 슬롯 1차 시도 (어제 출근길과 다른 위치). 와이프 체크는 8주차 첫날 baby 발달 (분화·배치) 직접 인용. 와이프와 저녁은 W18 보스 1/3 회수 + media novelty와 자연 결합. 연구는 어제 인프라 위에 첫 콘텐츠 한 단계 진입"
+  },
+  "morning_message": "화요일 — 어제 회식의 다음날입니다. 오늘은 와이프가 8+0주차에 들어가는 첫날, 손가락·발가락이 분화되고 장기가 자리 잡기 시작하는 정교한 조립의 한복판이에요(D-224). 어제 혼자 저녁을 보냈으니 오늘 저녁은 옆자리를 채우는 게 이번 주(관계 주간)의 첫 응답입니다. 옆에 있는 사람들을 더 깊게 보는 주간 — 메스꺼움 없는 음식·냄새 자극 최소화, 그게 오늘의 dad_action이에요. 회식 다음날이지만 절주는 오늘이 가장 쉬운 날이고(0잔 자연 달성), 11시 취침으로 W18 sleep 1/5도 회수해주세요.",
+  "quests": [
+    {
+      "id": "q-2026-04-28-01",
+      "type": "daily",
+      "domain": "health",
+      "subdomain": "supplements",
+      "category": "health",
+      "identity": "liver",
+      "title": "영양제 — 회식 다음날 회복 부스트",
+      "description": "어제 '예방'으로 깔아둔 위에 오늘은 '회복'을 한 층 더. 기상 후 우루사·비타민·양배추환·프로바이오틱스 기본 세트 + 점심 후 우루사 한 알 추가. 어제와 동일하게 두 번 복용하되, 오늘은 '아직 끝나지 않은 어제의 연장'으로 보세요",
+      "tier": "normal",
+      "xp": 15,
+      "estimated_minutes": 3,
+      "tags": ["morning", "recovery"],
+      "reasoning": "어제 회식 후 24시간이 간 회복 골든타임. 단순 '꾸준함' 각도가 아니라 '어제 액션의 마무리'로 연결 — 이틀에 걸친 한 동작으로 인식되면 빠짐 확률 떨어짐"
+    },
+    {
+      "id": "q-2026-04-28-02",
+      "type": "daily",
+      "domain": "health",
+      "subdomain": "water",
+      "category": "health",
+      "identity": "skin",
+      "title": "물 1.5L — 시계처럼, 한 시간마다 200mL",
+      "description": "회식 다음날은 양보다 분포. 한 번에 500mL 몰아 마시지 말고 매시 정각 200mL씩 — 폰 알람 8시·9시·10시·11시·14시·15시·16시·17시. 알코올 대사 산물(아세트알데히드) 신장 배출이 바로 이 분포에 의존. 평소보다 화장실 자주 가는 게 오늘의 정상 신호",
+      "tier": "easy",
+      "xp": 10,
+      "estimated_minutes": 1,
+      "tags": ["all_day", "recovery"],
+      "reasoning": "어제 '출발 전 선충전'과 정반대 각도 — 사후엔 분산이 핵심. 알람을 외부 장치(폰)에 위탁하면 의지력 소모 0. 의료적 근거(신장 청소율) 명확"
+    },
+    {
+      "id": "q-2026-04-28-03",
+      "type": "daily",
+      "domain": "health",
+      "subdomain": "no_alcohol",
+      "category": "health",
+      "identity": "liver",
+      "title": "절주 — W18 회수일, 0잔이 가장 쉬운 날",
+      "description": "역설적이지만 회식 다음날은 0잔이 가장 자연스러운 날입니다. 몸이 알아서 술을 거부해요. W18 절주 카운트는 어제 회식으로 첫날 부분 통과 → 오늘이 1/7 첫 정식 회수일. 평일 화요일 + 회식 직후 = 술 권유 자체가 거의 0",
+      "tier": "easy",
+      "xp": 25,
+      "estimated_minutes": 0,
+      "tags": ["all_day", "boss"],
+      "reasoning": "어제 '잔 수 절제' 부분 통과 구조와 오늘의 '0잔' 사이 자연 연결. 0잔이 가장 쉽게 달성되는 슬롯에 본격 카운트 시작 — 행동경제학적 시점 선정"
+    },
+    {
+      "id": "q-2026-04-28-04",
+      "type": "daily",
+      "domain": "health",
+      "subdomain": "protein",
+      "category": "health",
+      "identity": "liver",
+      "title": "단백질 — 아침 계란 2개부터, 회식 후 근손실 보전",
+      "description": "어제는 '먹는 순서' 각도였다면 오늘은 '시간 순서'. 알코올 대사가 단백질 분해를 가속하므로 회식 다음날 아침 단백질이 가장 효과 큰 시점. 계란 2개 = 12g 베이스 + 점심 닭가슴살 100g + 저녁 와이프와 함께라면 두부·생선 위주",
+      "tier": "easy",
+      "xp": 15,
+      "estimated_minutes": 5,
+      "tags": ["morning", "recovery"],
+      "reasoning": "회식 다음날 아침 단백질 = 근육·간 회복 동시. 와이프 입덧 메스꺼움 고려해 저녁 메뉴는 자극 적은 단백질로 가이드 (dad_action 직결)"
+    },
+    {
+      "id": "q-2026-04-28-05",
+      "type": "daily",
+      "domain": "study",
+      "subdomain": "english",
+      "category": "routine",
+      "identity": "researcher",
+      "title": "영어 5분 — 점심 식사 전 Duolingo",
+      "description": "어제는 출근길 한 정거장이었지만 회식 다음날 출근길은 피로 우선 → 오늘은 점심 식사 직전 5분으로 슬롯 이동. 메뉴 받기 전 대기 시간이 가장 마찰 적은 자투리. Duolingo 무료 루트 5일째",
+      "tier": "easy",
+      "xp": 10,
+      "estimated_minutes": 5,
+      "tags": ["lunch"],
+      "reasoning": "스픽 결제 이슈 학습 안정화 + 시간 슬롯은 컨디션 따라 이동 가능 구조. 점심 직전 = 위치(식당 앞) + 행동(대기) 모두 외부 트리거 — 의지력 0"
+    },
+    {
+      "id": "q-2026-04-28-06",
+      "type": "daily",
+      "domain": "exercise",
+      "subdomain": "run",
+      "category": "routine",
+      "identity": "move",
+      "title": "달리기 5km — 회식 다음날 가벼운 페이스 (오늘의 행운 — 달리기 5km에 +20 XP 보너스)",
+      "description": "화요일 = 달리기 루틴 정착 슬롯. 회식 다음날이라 페이스는 자율 — 평소 7분/km라면 오늘은 8분~8분30초도 OK. 트레드밀 옵션 가능, 야외라면 탄천 구간. '완주'가 목표지 '기록'이 목표 아님. 끝나고 와이프 저녁 자리 위해 19시 전 마무리",
+      "tier": "elite",
+      "xp": 70,
+      "estimated_minutes": 35,
+      "tags": ["evening", "cardio", "bonus"],
+      "reasoning": "랜덤 보너스 XP 25% 슬롯 히트 → 화요일 핵심 운동 퀘스트에 +20 XP. 회식 다음날 운동은 '하면 회복 가속, 안 하면 다음날 더 무거움' 의학적 근거 — 페이스 완화로 진입 장벽만 낮춤"
+    },
+    {
+      "id": "q-2026-04-28-07",
+      "type": "main",
+      "domain": "relationship",
+      "subdomain": "wife",
+      "category": "wife",
+      "identity": "family",
+      "title": "⭐ 와이프 컨디션 체크 — 8주차 첫날, 분화의 본격화",
+      "description": "오늘 8+0주차 = 손가락·발가락 분화 + 장기 배치 본격 시작. 입덧 최고조 단계로 의학 자료상 명시되어 있어요. 어제 회식 동안 혼자 저녁 + 8주차 전환 = 변동 폭이 가장 큰 시점. 아침에 '몸 어때?' + '오늘 뭐 먹을 수 있을 것 같아?' 두 질문 — 두 번째 질문이 저녁 메뉴 결정으로 자연 연결",
+      "tier": "easy",
+      "xp": 13,
+      "estimated_minutes": 10,
+      "tags": ["morning", "wife", "pregnancy"],
+      "reasoning": "relation 테마 wife +30% (10→13). 8주차 첫날은 의학적 발달 단계상 명확한 전환점 — 아침 메시지에 baby/mom 정보 직접 인용. 어제 4/27 '8주차 진입 직전' → 오늘 '8주차 첫날' 단계 한 칸 진행"
+    },
+    {
+      "id": "q-2026-04-28-08",
+      "type": "main",
+      "domain": "relationship",
+      "subdomain": "wife",
+      "category": "wife",
+      "identity": "family",
+      "title": "⭐ 와이프와 저녁 단독 시간 — W18 보스 1/3 회수",
+      "description": "어제 회식으로 빈자리가 됐던 저녁을 오늘로 회수. 메뉴는 아침 컨디션 체크에서 같이 정한 '메스꺼움 없는' 옵션 — 두부·생선·미음·차가운 과일 중. 식사 자체보다 '같이 앉아 있는 시간 30분'이 핵심. 폰 엎어두기. 끝나고 30분 안에 novelty 영상 1편으로 자연 연결 가능",
+      "tier": "normal",
+      "xp": 26,
+      "estimated_minutes": 60,
+      "tags": ["evening", "wife", "boss"],
+      "reasoning": "relation 테마 wife +30% (20→26). W18 보스 와이프 단독 시간 3회 중 첫 회수 — 화요일이 가장 일찍 잡을 수 있는 슬롯. 어제 4/27 '회식 중 문자' = 거리감 메우기 → 오늘 '같이 저녁' = 자리 메우기로 한 단계 진행"
+    },
+    {
+      "id": "q-2026-04-28-09",
+      "type": "main",
+      "domain": "study",
+      "subdomain": "research",
+      "category": "research",
+      "identity": "researcher",
+      "title": "연구 30분 — UAE reviewer MAJOR 1번 응답 초안",
+      "description": "어제 Paper Pilot 인프라 구축 완료 → 오늘은 인프라 위에 첫 콘텐츠. EJOGRB 재투고 reviewer comment MAJOR 4건 중 1번(가장 작은 분량 또는 가장 명확한 데이터 응답)부터 응답 초안 1쪽. 30분 타이머 + 뽀모도로 1세션. 어제 분류한 MAJOR 4 + MINOR 5 중 진입 장벽 가장 낮은 한 개 골라서",
+      "tier": "normal",
+      "xp": 30,
+      "estimated_minutes": 30,
+      "tags": ["evening", "study", "uae-resubmit"],
+      "reasoning": "어제 인프라 → 오늘 첫 응답 초안 = 도구 만든 다음 도구 사용으로 자연 진행. 30분 타이머 + 단일 comment 한정 = 범위 좁혀 시작 마찰 최소화"
+    },
+    {
+      "id": "q-2026-04-28-10",
+      "type": "daily",
+      "domain": "health",
+      "subdomain": "sleep",
+      "category": "health",
+      "identity": "skin",
+      "title": "11시 취침 — W18 sleep 1/5 정상화",
+      "description": "어제 11:30 완화에서 오늘 11:00로 정상 복귀. 회식 다음날 = 11시 침대가 가장 쉽게 지켜지는 날(피로 자연 유도). 22:30 폰 거실 충전기 → 22:45 양치 → 23:00 침대. W18 sleep 컴포넌트는 오늘 1/5 회수 + 화·수·목·금 중 3회 더하면 도달",
+      "tier": "normal",
+      "xp": 25,
+      "estimated_minutes": 0,
+      "tags": ["night"],
+      "reasoning": "어제 '회식 후 직행 11:30' → 오늘 '정상 복귀 11:00' 단계 한 칸 이동. 회식 다음날 자연 피로가 의지력 보조해 주는 구조 — 가장 쉽게 카운트 회수 가능"
+    },
+    {
+      "id": "q-2026-04-28-novelty",
+      "type": "novelty",
+      "domain": "exploration",
+      "subdomain": "media",
+      "category": "exploration",
+      "identity": "researcher",
+      "title": "⭐ 오늘의 새로움 — 안 보던 장르 영상 1편",
+      "description": "관계 주간 + 회식 다음날 = 무리 없는 활동 슬롯. 평소 안 보던 장르(다큐·시대극·자연·해외 시트콤 등) 영화 한 편 또는 드라마 1화. 와이프 저녁 후 30분~1시간 같이 보면 wife 시간과 자연 결합. 14일 내 media 카테고리 미사용",
+      "tier": "easy",
+      "xp": 13,
+      "estimated_minutes": 45,
+      "tags": ["evening", "novelty", "explore", "wife"],
+      "reasoning": "최근 5일 novelty: relation→self→self→research→food → 오늘 media. 14일 미사용 카테고리 + 회식 다음날 저녁 무리 없음 + 와이프 함께 가능 = 세 조건 동시 충족. xp_range 10~15 중간값 13"
+    }
+  ],
+  "weekly_boss": {
+    "id": "boss-2026-w18",
+    "title": "운동 4회 + 와이프 단독 시간 3회 + 11시 취침 5일",
+    "deadline": "2026-05-03",
+    "progress": 0.0,
+    "current": "오늘 달리기·와이프 저녁·11시 취침 모두 진행 시 운동 1/4 + 와이프 1/3 + 취침 1/5 = 보스 진행률 첫 도약 가능. 화·수·목·금 중 와이프 단독 저녁 2회 더 + 수·목 헬스 + 토 골프/달리기까지가 잔여",
+    "reward_xp": 250,
+    "note": "W18 = 관계 주간. 어제 0% → 오늘이 첫 진행률 도약일. 절주는 일일 퀘스트로만 유지 (보스 컴포넌트 제외 정책 W17→W18 그대로)"
+  }
+}
