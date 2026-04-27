@@ -101,8 +101,10 @@
     "default_order": ["strength", "relation", "research", "recovery", "exploration", "organize", "inspiration"]
   },
   "current_theme_state": {
-    "active_theme_id": null,
-    "week_start": null,
-    "note": "generator가 매주 월요일 자동 갱신. 적응형 트리거 우선 적용, 아니면 default_order 로테이션."
+    "active_theme_id": "relation",
+    "week_start": "2026-04-27",
+    "previous_theme_id": "recovery",
+    "previous_week_start": "2026-04-23",
+    "note": "W18 시작 (2026-04-27 ~ 05-03). 임신 8주차 진입 직전 + 와이프 컨디션 8일 미갱신 + 회식으로 저녁 부재 → adaptive 선택. 회복(W17) → 관계(W18) 자연스런 전환."
   }
 }
