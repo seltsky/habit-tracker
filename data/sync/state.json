@@ -1,5 +1,5 @@
 {
-  "lastModified": 1777205396624,
+  "lastModified": 1777248992507,
   "user": {
     "name": "선생님",
     "character_class": [
@@ -9,13 +9,13 @@
     ],
     "started_at": "2026-04-19",
     "level": 6,
-    "current_xp": 12,
-    "total_xp_lifetime": 887,
+    "current_xp": 22,
+    "total_xp_lifetime": 897,
     "stats": {
       "stamina": 10,
       "discipline": 20,
       "focus": 10,
-      "wellness": 45,
+      "wellness": 46,
       "research": 10
     },
     "streak_current": 0,
@@ -27,7 +27,7 @@
       "won": 0,
       "lost": 0
     },
-    "lifetime_completed": 45,
+    "lifetime_completed": 46,
     "total_quests_seen": 0
   },
   "logs": {
@@ -125,6 +125,16 @@
       "energy_score": 2,
       "mood_score": 6,
       "memo": "어제 가족모임 술먹어서 컨디션 안좋다"
+    },
+    "2026-04-27": {
+      "date": "2026-04-27",
+      "completed": [
+        "q-2026-04-19-06"
+      ],
+      "skipped": [],
+      "energy_score": null,
+      "mood_score": null,
+      "memo": ""
     },
     "2026-04-26": {
       "date": "2026-04-26",
