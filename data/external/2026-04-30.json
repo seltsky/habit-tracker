@@ -1,0 +1,36 @@
+{
+  "generated_at": "2026-04-29T20:07:40Z",
+  "kst_date": "2026-04-30",
+  "error": "external_api_blocked",
+  "note": "Apps Script URL이 sandbox allowlist에 미포함으로 차단됨. 캘린더·Tasks 데이터 없음.",
+  "calendar": [],
+  "tasks": [
+    {
+      "list_name": "My Tasks",
+      "title": "모든 글루를 써도 엠보로 청구가 가능한지",
+      "due": null,
+      "status": "needsAction",
+      "notes": "",
+      "updated": "2026-03-18T07:02:22.542Z",
+      "source": "cached_2026-04-26"
+    },
+    {
+      "list_name": "My Tasks",
+      "title": "aport variation",
+      "due": null,
+      "status": "needsAction",
+      "notes": "",
+      "updated": "2026-02-24T08:49:00.667Z",
+      "source": "cached_2026-04-26"
+    },
+    {
+      "list_name": "My Tasks",
+      "title": "hepatic cyst",
+      "due": null,
+      "status": "needsAction",
+      "notes": "",
+      "updated": "2026-02-23T21:45:00.000Z",
+      "source": "cached_2026-04-26"
+    }
+  ]
+}
