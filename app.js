@@ -86,9 +86,13 @@
     saveLocal('hq_habit_history', state.habitHistory);
   }
   function addDays(dateStr, n) {
-    const d = new Date(dateStr + 'T00:00:00');
-    d.setDate(d.getDate() + n);
-    return d.toISOString().slice(0, 10);
+    const [y, m, d] = dateStr.split('-').map(Number);
+    const base = new Date(y, m - 1, d);
+    base.setDate(base.getDate() + n);
+    const yy = base.getFullYear();
+    const mm = String(base.getMonth() + 1).padStart(2, '0');
+    const dd = String(base.getDate()).padStart(2, '0');
+    return `${yy}-${mm}-${dd}`;
   }
   function habitStats(habitId) {
     const dates = (state.habitHistory[habitId] || []).slice().sort();
@@ -127,14 +131,18 @@
     };
   }
 
-  // Pick 2-3 daily-quest entries that don't overlap with cores → "오늘의 추천".
-  function pickExtras(maxCount = 3) {
+  // Pick today-only quests that don't overlap with the user's cores.
+  function pickExtras(maxCount = 5) {
     if (!state.quest || !Array.isArray(state.quest.quests)) return [];
     const coreIds = new Set(state.coreHabits.map(h => h.id));
-    const list = state.quest.quests.filter(q => {
-      const mapped = SUBDOMAIN_TO_CORE[q.subdomain];
-      return !mapped || !coreIds.has(mapped);
-    });
+    const order = { main: 0, novelty: 1, hidden: 2, bonus: 3, challenge: 4, daily: 5 };
+    const list = state.quest.quests
+      .filter(q => {
+        const mapped = SUBDOMAIN_TO_CORE[q.subdomain];
+        return !mapped || !coreIds.has(mapped);
+      })
+      .slice()
+      .sort((a, b) => (order[a.type] ?? 9) - (order[b.type] ?? 9));
     return list.slice(0, maxCount);
   }
 
@@ -541,9 +549,9 @@
     state.coreHabits.forEach(h => html += renderCoreRow(h));
     html += `</div></div>`;
 
-    const extras = pickExtras(3);
+    const extras = pickExtras(5);
     if (extras.length > 0) {
-      html += `<div class="habit-list-section"><div class="habit-list-label">오늘의 추천</div><div class="habit-list">`;
+      html += `<div class="habit-list-section"><div class="habit-list-label">오늘만</div><div class="habit-list">`;
       extras.forEach(q => html += renderExtraRow(q));
       html += `</div></div>`;
     }
@@ -603,6 +611,13 @@
     const stats = habitStats(h.id);
     const statusClass = isDone ? 'done' : '';
     const name = (h.name || '').replace(/</g, '&lt;');
+    let metaHtml = '';
+    if (stats.total === 0) {
+      metaHtml = `<span class="row-rate">기록 없음 · 탭하여 시작</span>`;
+    } else {
+      const streak = stats.current > 0 ? `<span class="row-streak">🔥 ${stats.current}일</span>` : '';
+      metaHtml = `${streak}<span class="row-rate">30일 ${stats.rate30}%</span>`;
+    }
     return `
       <div class="habit-row ${statusClass}" data-id="${h.id}" data-kind="core">
         <button class="row-check" aria-label="완료 토글">
@@ -610,10 +625,7 @@
         </button>
         <div class="row-body">
           <div class="row-title">${name}</div>
-          <div class="row-meta">
-            <span class="row-streak">🔥 ${stats.current}일</span>
-            <span class="row-rate">${stats.rate30}% (30일)</span>
-          </div>
+          <div class="row-meta">${metaHtml}</div>
         </div>
         <button class="row-more" aria-label="더보기">⋯</button>
       </div>
