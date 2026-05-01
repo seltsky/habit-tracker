@@ -1,4 +1,4 @@
-const CACHE = 'habit-quest-v10-labels';
+const CACHE = 'habit-quest-v11-rows';
 const ASSETS = ['./index.html', './style.css', './app.js', './manifest.json', './icon-192.png'];
 
 self.addEventListener('install', e => {

@@ -456,41 +456,28 @@
 
     const groupTitles = { main: '메인 퀘스트', daily: '일일 퀘스트', bonus: '보너스', challenge: '도전' };
     let html = '';
-    // Streaks-inspired flat grid; group title shown only as small label
     for (const type of ['main', 'daily', 'bonus', 'challenge']) {
       if (groups[type].length === 0) continue;
-      html += `<div class="habit-grid-section"><div class="habit-grid-label">${groupTitles[type]}</div><div class="habit-grid">`;
+      html += `<div class="habit-list-section"><div class="habit-list-label">${groupTitles[type]}</div><div class="habit-list">`;
       groups[type].forEach(q => html += renderQuestCard(q));
       html += `</div></div>`;
     }
     container.innerHTML = html;
 
-    // Tile click: tap to toggle done; long-press / right-click to open skip modal
-    container.querySelectorAll('.habit-tile').forEach(tile => {
-      const id = tile.dataset.id;
-      let pressTimer = null;
-      const startPress = () => {
-        pressTimer = setTimeout(() => {
-          pressTimer = null;
-          openSkipModal(id);
-        }, 600);
-      };
-      const endPress = () => {
-        if (pressTimer) {
-          clearTimeout(pressTimer);
-          pressTimer = null;
-          // Short tap: toggle done
-          const done = tile.classList.contains('done');
-          if (done) undoQuest(id);
-          else completeQuest(id);
-        }
-      };
-      tile.addEventListener('mousedown', startPress);
-      tile.addEventListener('touchstart', startPress, { passive: true });
-      tile.addEventListener('mouseup', endPress);
-      tile.addEventListener('touchend', endPress);
-      tile.addEventListener('mouseleave', () => { if (pressTimer) { clearTimeout(pressTimer); pressTimer = null; } });
-      tile.addEventListener('contextmenu', e => { e.preventDefault(); openSkipModal(id); });
+    container.querySelectorAll('.habit-row').forEach(row => {
+      const id = row.dataset.id;
+      const check = row.querySelector('.row-check');
+      const more = row.querySelector('.row-more');
+      check.addEventListener('click', e => {
+        e.stopPropagation();
+        const done = row.classList.contains('done');
+        if (done) undoQuest(id);
+        else completeQuest(id);
+      });
+      more.addEventListener('click', e => {
+        e.stopPropagation();
+        openSkipModal(id);
+      });
     });
 
     const boss = state.quest.weekly_boss;
@@ -508,7 +495,6 @@
   }
 
   function renderQuestCard(q) {
-    // Streaks-inspired minimal tile: icon + short name (+ done state).
     const isDone = state.log.completed.includes(q.id);
     const skipObj = state.log.skipped.find(s => s.quest_id === q.id);
     let statusClass = '';
@@ -516,16 +502,21 @@
     else if (skipObj) statusClass = 'skipped';
 
     const icon = tileIcon(q);
-    const name = tileShortName(q);
     const isBoss = (q.tags || []).includes('boss');
+    const title = (q.title || '').replace(/</g, '&lt;');
+    const xp = q.xp ? `<span class="row-xp">+${q.xp} XP</span>` : '';
+    const bossTag = isBoss ? '<span class="row-tag boss-tag">★ 보스</span>' : '';
 
     return `
-      <div class="habit-tile ${statusClass} ${isBoss ? 'boss' : ''}" data-id="${q.id}" title="${(q.title||'').replace(/"/g,'&quot;')}">
-        <div class="tile-circle">
-          <span class="tile-icon">${icon}</span>
+      <div class="habit-row ${statusClass} ${isBoss ? 'boss' : ''}" data-id="${q.id}">
+        <button class="row-check" aria-label="완료 토글">
+          <span class="row-icon">${icon}</span>
+        </button>
+        <div class="row-body">
+          <div class="row-title">${title}</div>
+          <div class="row-meta">${bossTag}${xp}</div>
         </div>
-        <div class="tile-name">${name}</div>
-        ${isBoss ? '<div class="tile-pin">★</div>' : ''}
+        <button class="row-more" aria-label="건너뛰기 메뉴">⋯</button>
       </div>
     `;
   }

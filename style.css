@@ -230,101 +230,123 @@ nav.tabs {
   margin: 14px 0 8px;
 }
 
-/* ===== Habit tiles (Streaks-inspired grid) =============== */
-.habit-grid-section { margin-bottom: 24px; }
-.habit-grid-label {
+/* ===== Habit list (row-based) ============================ */
+.habit-list-section { margin-bottom: 22px; }
+.habit-list-label {
   font-size: 11px;
   font-weight: 700;
   letter-spacing: 0.12em;
   color: var(--text-dim);
   text-transform: uppercase;
   padding: 0 4px;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
 }
-.habit-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 10px;
-}
-
-.habit-tile {
-  position: relative;
+.habit-list {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
   gap: 8px;
-  padding: 14px 6px;
-  background: transparent;
-  border: none;
-  border-radius: 14px;
-  cursor: pointer;
-  user-select: none;
-  -webkit-user-select: none;
-  -webkit-tap-highlight-color: transparent;
-  transition: transform 0.1s;
 }
-.habit-tile:active { transform: scale(0.96); }
 
-.tile-circle {
-  width: 64px; height: 64px;
-  border-radius: 50%;
+.habit-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 8px 10px 10px;
   background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  transition: background 0.2s, border-color 0.2s;
+}
+.habit-row.done {
+  background: var(--bg-subtle);
+  border-color: var(--border);
+}
+
+.row-check {
+  flex-shrink: 0;
+  width: 48px; height: 48px;
+  border-radius: 50%;
+  background: var(--bg-subtle);
   border: 2px solid var(--border);
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: background 0.25s, border-color 0.25s, transform 0.25s;
+  cursor: pointer;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+  transition: background 0.2s, border-color 0.2s, transform 0.1s, box-shadow 0.2s;
 }
-.tile-icon {
-  font-size: 28px;
+.row-check:active { transform: scale(0.92); }
+.row-icon {
+  font-size: 22px;
   line-height: 1;
-  filter: grayscale(0.15);
-  transition: filter 0.25s;
+  filter: grayscale(0.1);
+  transition: filter 0.2s;
 }
-.tile-name {
-  font-size: 12px;
-  font-weight: 600;
-  color: var(--text-mid);
-  text-align: center;
-  letter-spacing: -0.01em;
-  line-height: 1.25;
-  max-width: 88px;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  word-break: keep-all;
-  min-height: 30px;
-}
-
-/* Done state — filled circle with accent */
-.habit-tile.done .tile-circle {
+.habit-row.done .row-check {
   background: var(--accent);
   border-color: var(--accent);
-  box-shadow: 0 4px 12px rgba(255,138,0,0.25);
+  box-shadow: 0 4px 12px rgba(255,138,0,0.22);
 }
-.habit-tile.done .tile-icon { filter: brightness(0) invert(1) grayscale(0); }
-.habit-tile.done .tile-name { color: var(--text); }
-
-/* Skipped state */
-.habit-tile.skipped .tile-circle {
-  background: var(--bg-subtle);
-  border-color: var(--border);
+.habit-row.done .row-icon { filter: brightness(0) invert(1); }
+.habit-row.skipped .row-check {
   border-style: dashed;
+  opacity: 0.55;
 }
-.habit-tile.skipped .tile-icon { filter: grayscale(1); opacity: 0.4; }
-.habit-tile.skipped .tile-name { color: var(--text-dim); text-decoration: line-through; }
 
-/* Boss tile — small star pin */
-.habit-tile.boss .tile-circle { border-color: var(--accent); }
-.tile-pin {
-  position: absolute;
-  top: 6px; right: 12px;
-  font-size: 13px;
-  color: var(--accent);
-  pointer-events: none;
+.row-body {
+  flex: 1;
+  min-width: 0;
 }
+.row-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text);
+  line-height: 1.35;
+  word-break: keep-all;
+  letter-spacing: -0.01em;
+}
+.habit-row.done .row-title { color: var(--text-mid); text-decoration: line-through; }
+.habit-row.skipped .row-title { color: var(--text-dim); text-decoration: line-through; }
+
+.row-meta {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  margin-top: 3px;
+  font-size: 11px;
+  color: var(--text-dim);
+}
+.row-xp { font-weight: 600; }
+.row-tag {
+  display: inline-block;
+  padding: 1px 7px;
+  border-radius: 999px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+.boss-tag {
+  background: rgba(255,138,0,0.12);
+  color: var(--accent);
+}
+
+.row-more {
+  flex-shrink: 0;
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  background: transparent;
+  border: none;
+  color: var(--text-dim);
+  font-size: 20px;
+  line-height: 1;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition: background 0.15s, color 0.15s;
+}
+.row-more:active { background: var(--bg-subtle); color: var(--text); }
+
+.habit-row.boss { border-color: var(--accent); }
 
 /* Boss card */
 .boss-card {
