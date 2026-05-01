@@ -1,5 +1,5 @@
 {
-  "lastModified": 1777642358024,
+  "lastModified": 1777642646024,
   "user": {
     "name": "선생님",
     "character_class": [
@@ -9,13 +9,13 @@
     ],
     "started_at": "2026-04-19",
     "level": 7,
-    "current_xp": 221,
-    "total_xp_lifetime": 1346,
+    "current_xp": 237,
+    "total_xp_lifetime": 1362,
     "stats": {
       "stamina": 10,
       "discipline": 23,
       "focus": 10,
-      "wellness": 62,
+      "wellness": 63,
       "research": 11
     },
     "streak_current": 0,
@@ -27,7 +27,7 @@
       "won": 0,
       "lost": 0
     },
-    "lifetime_completed": 66,
+    "lifetime_completed": 67,
     "total_quests_seen": 0
   },
   "logs": {
@@ -337,8 +337,9 @@
     "2026-05-01": {
       "date": "2026-05-01",
       "completed": [
+        "q-2026-05-01-04",
         "q-2026-05-01-novelty",
-        "q-2026-05-01-04"
+        "q-2026-05-01-09"
       ],
       "skipped": [],
       "energy_score": null,
