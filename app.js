@@ -65,25 +65,103 @@
     const dom = DOMAIN_LABELS[q.domain];
     return dom ? dom.icon : '✨';
   }
-  function tileShortName(q) {
-    // Use subdomain label if it exists and looks compact; otherwise clean the title.
-    const sub = SUBDOMAIN_LABELS[q.subdomain];
-    if (sub && sub.length <= 6) return sub;
-    // Strip decorative emojis and bracketed/parenthetical parts; keep main phrase.
-    let s = (q.title || '')
-      .replace(/[⚔️📜✨🏆⭐🩺🏋️❤️⛪📚🌿💬🎲]/g, '')
-      .replace(/\(.*?\)/g, '')
-      .replace(/\[.*?\]/g, '')
-      .replace(/[—\-–]/g, ' ')
-      .trim();
-    // Keep up to ~12 chars including spaces; ellipsis if longer.
-    if (s.length > 12) s = s.slice(0, 11) + '…';
-    return s || (sub || '퀘스트');
+  function splitTitle(title) {
+    const t = (title || '').replace(/^[⚔️📜✨🏆⭐]+\s*/, '');
+    const m = t.split(/\s*[—–-]\s+/);
+    return { action: (m[0] || t).trim(), tagline: (m[1] || '').trim() };
+  }
+
+  // ====== Core habits & history helpers ======
+  function isCoreDoneToday(habitId) {
+    const h = state.habitHistory[habitId] || [];
+    return h.includes(todayStr());
+  }
+  function toggleCoreDone(habitId) {
+    const today = todayStr();
+    const h = state.habitHistory[habitId] || [];
+    const idx = h.indexOf(today);
+    if (idx >= 0) h.splice(idx, 1);
+    else h.push(today);
+    state.habitHistory[habitId] = h;
+    saveLocal('hq_habit_history', state.habitHistory);
+  }
+  function addDays(dateStr, n) {
+    const d = new Date(dateStr + 'T00:00:00');
+    d.setDate(d.getDate() + n);
+    return d.toISOString().slice(0, 10);
+  }
+  function habitStats(habitId) {
+    const dates = (state.habitHistory[habitId] || []).slice().sort();
+    const set = new Set(dates);
+    const today = todayStr();
+    // last 30 days dot grid
+    const grid = [];
+    let cur30 = 0;
+    for (let i = 29; i >= 0; i--) {
+      const ds = addDays(today, -i);
+      const done = set.has(ds);
+      if (done) cur30++;
+      grid.push({ date: ds, done });
+    }
+    // current streak (allow today to be incomplete — count from yesterday)
+    let cur = 0;
+    let cursor = set.has(today) ? today : addDays(today, -1);
+    while (set.has(cursor)) {
+      cur++;
+      cursor = addDays(cursor, -1);
+    }
+    // longest streak
+    let longest = 0, run = 0, prev = null;
+    for (const ds of dates) {
+      if (prev && addDays(prev, 1) === ds) run++;
+      else run = 1;
+      if (run > longest) longest = run;
+      prev = ds;
+    }
+    return {
+      grid,
+      current: cur,
+      longest,
+      rate30: Math.round(cur30 / 30 * 100),
+      total: dates.length,
+    };
+  }
+
+  // Pick 2-3 daily-quest entries that don't overlap with cores → "오늘의 추천".
+  function pickExtras(maxCount = 3) {
+    if (!state.quest || !Array.isArray(state.quest.quests)) return [];
+    const coreIds = new Set(state.coreHabits.map(h => h.id));
+    const list = state.quest.quests.filter(q => {
+      const mapped = SUBDOMAIN_TO_CORE[q.subdomain];
+      return !mapped || !coreIds.has(mapped);
+    });
+    return list.slice(0, maxCount);
   }
 
   // EDD: 2026-12-08 (사모님 임신)
   const EDD = new Date('2026-12-08');
   const LMP = new Date('2026-03-03');
+
+  const DEFAULT_CORE_HABITS = [
+    { id: 'water',        name: '물 1.5L',    icon: '💧' },
+    { id: 'supplements',  name: '영양제',     icon: '💊' },
+    { id: 'no_alcohol',   name: '절주',       icon: '🚫' },
+    { id: 'sleep',        name: '수면 7시간', icon: '😴' },
+    { id: 'exercise',     name: '운동',       icon: '🏃' },
+    { id: 'english',      name: '영어',       icon: '🇬🇧' },
+    { id: 'research',     name: '연구',       icon: '🔬' },
+  ];
+
+  // Map a quest's subdomain to a core habit id (so today's daily file feeds the cores).
+  const SUBDOMAIN_TO_CORE = {
+    water: 'water',
+    supplements: 'supplements',
+    no_alcohol: 'no_alcohol',
+    sleep: 'sleep',
+    run: 'exercise', gym: 'exercise', golf: 'exercise',
+    english: 'english',
+    research: 'research',
+  };
 
   let state = {
     user: null,
@@ -94,6 +172,9 @@
     pendingSkip: null,
     settings: { theme: 'dark', ghToken: '', ghRepo: 'seltsky/habit-tracker', notif: false },
     wifeLog: {},
+    coreHabits: [],
+    habitHistory: {},   // { habit_id: ['YYYY-MM-DD', ...] }
+    pendingSkipKind: null,  // 'core' | 'extra'
     lastModified: 0,
   };
 
@@ -358,6 +439,8 @@
     state.inbox = loadLocal('hq_inbox', { items: [] });
     state.wifeLog = loadLocal('hq_wifeLog', {});
     state.settings = Object.assign(state.settings, loadLocal('hq_settings', {}));
+    state.coreHabits = loadLocal('hq_core_habits', JSON.parse(JSON.stringify(DEFAULT_CORE_HABITS)));
+    state.habitHistory = loadLocal('hq_habit_history', {});
     state.lastModified = loadLocal('hq_lastModified', 0);
 
     document.body.dataset.theme = state.settings.theme || 'dark';
@@ -446,37 +529,58 @@
 
   function renderQuests() {
     const container = document.getElementById('questGroups');
-    if (!state.quest) {
-      container.innerHTML = '<div class="empty">오늘의 퀘스트가 아직 없습니다.<br>매일 5시에 자동 생성됩니다.</div>';
-      document.getElementById('bossCard').innerHTML = '';
-      return;
+    if (!state.coreHabits || state.coreHabits.length === 0) {
+      state.coreHabits = JSON.parse(JSON.stringify(DEFAULT_CORE_HABITS));
+      saveLocal('hq_core_habits', state.coreHabits);
     }
-    const groups = { main: [], daily: [], bonus: [], challenge: [] };
-    state.quest.quests.forEach(q => (groups[q.type] || groups.daily).push(q));
 
-    const groupTitles = { main: '메인 퀘스트', daily: '일일 퀘스트', bonus: '보너스', challenge: '도전' };
     let html = '';
-    for (const type of ['main', 'daily', 'bonus', 'challenge']) {
-      if (groups[type].length === 0) continue;
-      html += `<div class="habit-list-section"><div class="habit-list-label">${groupTitles[type]}</div><div class="habit-list">`;
-      groups[type].forEach(q => html += renderQuestCard(q));
+    html += `<div class="habit-list-section">`;
+    html += `<div class="habit-list-label">코어 습관 (${state.coreHabits.length})<button class="add-core-btn" id="addCoreBtn">＋ 항목 추가</button></div>`;
+    html += `<div class="habit-list">`;
+    state.coreHabits.forEach(h => html += renderCoreRow(h));
+    html += `</div></div>`;
+
+    const extras = pickExtras(3);
+    if (extras.length > 0) {
+      html += `<div class="habit-list-section"><div class="habit-list-label">오늘의 추천</div><div class="habit-list">`;
+      extras.forEach(q => html += renderExtraRow(q));
       html += `</div></div>`;
     }
     container.innerHTML = html;
 
+    const addBtn = document.getElementById('addCoreBtn');
+    if (addBtn) addBtn.addEventListener('click', e => { e.stopPropagation(); addCoreHabitFlow(); });
+
     container.querySelectorAll('.habit-row').forEach(row => {
       const id = row.dataset.id;
+      const kind = row.dataset.kind;
       const check = row.querySelector('.row-check');
       const more = row.querySelector('.row-more');
+      const body = row.querySelector('.row-body');
+
       check.addEventListener('click', e => {
         e.stopPropagation();
-        const done = row.classList.contains('done');
-        if (done) undoQuest(id);
-        else completeQuest(id);
+        if (kind === 'core') {
+          toggleCoreDone(id);
+          render();
+        } else {
+          const done = row.classList.contains('done');
+          if (done) undoQuest(id);
+          else completeQuest(id);
+        }
       });
       more.addEventListener('click', e => {
         e.stopPropagation();
-        openSkipModal(id);
+        if (kind === 'core') openCoreMenu(id);
+        else openSkipModal(id);
+      });
+      body.addEventListener('click', e => {
+        e.stopPropagation();
+        const panel = row.nextElementSibling;
+        if (panel && panel.classList.contains('row-stats-panel')) {
+          panel.classList.toggle('open');
+        }
       });
     });
 
@@ -494,31 +598,115 @@
     } else document.getElementById('bossCard').innerHTML = '';
   }
 
-  function renderQuestCard(q) {
+  function renderCoreRow(h) {
+    const isDone = isCoreDoneToday(h.id);
+    const stats = habitStats(h.id);
+    const statusClass = isDone ? 'done' : '';
+    const name = (h.name || '').replace(/</g, '&lt;');
+    return `
+      <div class="habit-row ${statusClass}" data-id="${h.id}" data-kind="core">
+        <button class="row-check" aria-label="완료 토글">
+          <span class="row-icon">${h.icon || '✨'}</span>
+        </button>
+        <div class="row-body">
+          <div class="row-title">${name}</div>
+          <div class="row-meta">
+            <span class="row-streak">🔥 ${stats.current}일</span>
+            <span class="row-rate">${stats.rate30}% (30일)</span>
+          </div>
+        </div>
+        <button class="row-more" aria-label="더보기">⋯</button>
+      </div>
+      ${renderStatsPanel(h.id, stats)}
+    `;
+  }
+
+  function renderExtraRow(q) {
     const isDone = state.log.completed.includes(q.id);
     const skipObj = state.log.skipped.find(s => s.quest_id === q.id);
-    let statusClass = '';
-    if (isDone) statusClass = 'done';
-    else if (skipObj) statusClass = 'skipped';
-
+    const statusClass = isDone ? 'done' : (skipObj ? 'skipped' : '');
     const icon = tileIcon(q);
-    const isBoss = (q.tags || []).includes('boss');
-    const title = (q.title || '').replace(/</g, '&lt;');
-    const xp = q.xp ? `<span class="row-xp">+${q.xp} XP</span>` : '';
-    const bossTag = isBoss ? '<span class="row-tag boss-tag">★ 보스</span>' : '';
-
+    const { action, tagline } = splitTitle(q.title);
+    const safeAction = action.replace(/</g, '&lt;');
+    const safeTag = tagline.replace(/</g, '&lt;');
+    const desc = (q.description || '').replace(/</g, '&lt;');
     return `
-      <div class="habit-row ${statusClass} ${isBoss ? 'boss' : ''}" data-id="${q.id}">
+      <div class="habit-row ${statusClass} extra" data-id="${q.id}" data-kind="extra">
         <button class="row-check" aria-label="완료 토글">
           <span class="row-icon">${icon}</span>
         </button>
         <div class="row-body">
-          <div class="row-title">${title}</div>
-          <div class="row-meta">${bossTag}${xp}</div>
+          <div class="row-title">${safeAction}</div>
+          ${safeTag ? `<div class="row-tagline">${safeTag}</div>` : ''}
         </div>
-        <button class="row-more" aria-label="건너뛰기 메뉴">⋯</button>
+        <button class="row-more" aria-label="건너뛰기">⋯</button>
+      </div>
+      ${desc ? `<div class="row-stats-panel"><div class="extra-desc">${desc}</div></div>` : ''}
+    `;
+  }
+
+  function renderStatsPanel(habitId, stats) {
+    const dots = stats.grid.map(d =>
+      `<span class="stat-dot ${d.done ? 'on' : ''}" title="${d.date}"></span>`
+    ).join('');
+    return `
+      <div class="row-stats-panel" data-habit-id="${habitId}">
+        <div class="stats-numbers">
+          <div class="stat-block">
+            <div class="stat-num">${stats.current}</div>
+            <div class="stat-lbl">현재 스트릭</div>
+          </div>
+          <div class="stat-block">
+            <div class="stat-num">${stats.longest}</div>
+            <div class="stat-lbl">최장</div>
+          </div>
+          <div class="stat-block">
+            <div class="stat-num">${stats.rate30}%</div>
+            <div class="stat-lbl">30일 완료율</div>
+          </div>
+          <div class="stat-block">
+            <div class="stat-num">${stats.total}</div>
+            <div class="stat-lbl">총 완료</div>
+          </div>
+        </div>
+        <div class="stats-grid">${dots}</div>
+        <div class="stats-grid-legend">최근 30일 (왼쪽 → 오른쪽 = 과거 → 오늘)</div>
       </div>
     `;
+  }
+
+  function openCoreMenu(habitId) {
+    const h = state.coreHabits.find(x => x.id === habitId);
+    if (!h) return;
+    const choice = prompt(`${h.name}\n\n1: 항목 이름 변경\n2: 아이콘 변경\n3: 항목 삭제\n0: 취소\n\n번호 입력:`);
+    if (!choice) return;
+    if (choice === '1') {
+      const name = prompt('새 이름:', h.name);
+      if (name && name.trim()) { h.name = name.trim(); saveLocal('hq_core_habits', state.coreHabits); render(); }
+    } else if (choice === '2') {
+      const icon = prompt('새 아이콘 (이모지 1자):', h.icon);
+      if (icon && icon.trim()) { h.icon = icon.trim(); saveLocal('hq_core_habits', state.coreHabits); render(); }
+    } else if (choice === '3') {
+      if (confirm(`정말 "${h.name}" 항목을 삭제할까요? 통계 기록도 같이 사라집니다.`)) {
+        state.coreHabits = state.coreHabits.filter(x => x.id !== habitId);
+        delete state.habitHistory[habitId];
+        saveLocal('hq_core_habits', state.coreHabits);
+        saveLocal('hq_habit_history', state.habitHistory);
+        render();
+      }
+    }
+  }
+
+  function addCoreHabitFlow() {
+    const name = prompt('새 코어 습관 이름:');
+    if (!name || !name.trim()) return;
+    const icon = prompt('아이콘 (이모지):', '✨') || '✨';
+    const baseId = name.trim().toLowerCase().replace(/[^a-z0-9가-힣]/g, '_').slice(0, 20) || 'h';
+    let id = baseId, n = 1;
+    while (state.coreHabits.some(h => h.id === id)) { id = baseId + '_' + (++n); }
+    state.coreHabits.push({ id, name: name.trim(), icon: icon.trim() });
+    saveLocal('hq_core_habits', state.coreHabits);
+    render();
   }
 
   function renderDashboard() {
