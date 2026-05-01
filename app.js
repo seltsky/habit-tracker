@@ -638,18 +638,25 @@
     const skipObj = state.log.skipped.find(s => s.quest_id === q.id);
     const statusClass = isDone ? 'done' : (skipObj ? 'skipped' : '');
     const icon = tileIcon(q);
-    const { action } = splitTitle(q.title);
+    const { action, tagline } = splitTitle(q.title);
     const safeAction = action.replace(/</g, '&lt;');
+    const desc = (q.description || '').replace(/</g, '&lt;');
+    const safeTag = tagline ? tagline.replace(/</g, '&lt;') : '';
+    const fullBlocks = [];
+    if (safeTag) fullBlocks.push(`<div class="extra-tagline">${safeTag}</div>`);
+    if (desc) fullBlocks.push(`<div class="extra-desc">${desc}</div>`);
+    const hasMore = fullBlocks.length > 0;
     return `
-      <div class="habit-row ${statusClass} extra" data-id="${q.id}" data-kind="extra">
+      <div class="habit-row ${statusClass} extra ${hasMore ? 'expandable' : ''}" data-id="${q.id}" data-kind="extra">
         <button class="row-check" aria-label="완료 토글">
           <span class="row-icon">${icon}</span>
         </button>
         <div class="row-body">
-          <div class="row-title">${safeAction}</div>
+          <div class="row-title">${safeAction}${hasMore ? '<span class="row-chevron">▾</span>' : ''}</div>
         </div>
         <button class="row-more" aria-label="건너뛰기">⋯</button>
       </div>
+      ${hasMore ? `<div class="row-stats-panel">${fullBlocks.join('')}</div>` : ''}
     `;
   }
 

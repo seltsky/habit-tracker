@@ -875,3 +875,25 @@ input[type="range"]::-webkit-slider-thumb {
 
 /* Extra rows: lighter visual weight than core */
 .habit-row.extra { background: var(--bg-subtle); }
+
+/* Extras expand: tagline + description */
+.extra-tagline {
+  font-size: 13px;
+  color: var(--text-mid);
+  margin-bottom: 8px;
+  font-weight: 600;
+  word-break: keep-all;
+}
+.row-chevron {
+  display: inline-block;
+  margin-left: 6px;
+  font-size: 11px;
+  color: var(--text-dim);
+  transition: transform 0.2s;
+}
+.habit-row.extra .row-body { cursor: pointer; }
+.habit-row.extra + .row-stats-panel.open ~ .habit-row.extra .row-chevron,
+.habit-row.extra:has(+ .row-stats-panel.open) .row-chevron {
+  transform: rotate(180deg);
+  color: var(--accent);
+}
