@@ -71,6 +71,18 @@
     return { action: (m[0] || t).trim(), tagline: (m[1] || '').trim() };
   }
 
+  // Trim AI-generated descriptions to one short, natural sentence.
+  function shortDesc(text) {
+    if (!text) return '';
+    const s = text.trim().replace(/\s+/g, ' ');
+    // Take up to first sentence terminator (.!? or em-dash).
+    const m = s.match(/^[^.!?。]{0,130}([.!?。]|—|–|\s\-\s)?/);
+    let first = (m ? m[0] : s).trim();
+    first = first.replace(/[—–\-.,!?]\s*$/, '');
+    if (first.length > 110) first = first.slice(0, 107) + '…';
+    return first;
+  }
+
   // ====== Core habits & history helpers ======
   function isCoreDoneToday(habitId) {
     const h = state.habitHistory[habitId] || [];
@@ -638,14 +650,10 @@
     const skipObj = state.log.skipped.find(s => s.quest_id === q.id);
     const statusClass = isDone ? 'done' : (skipObj ? 'skipped' : '');
     const icon = tileIcon(q);
-    const { action, tagline } = splitTitle(q.title);
+    const { action } = splitTitle(q.title);
     const safeAction = action.replace(/</g, '&lt;');
-    const desc = (q.description || '').replace(/</g, '&lt;');
-    const safeTag = tagline ? tagline.replace(/</g, '&lt;') : '';
-    const fullBlocks = [];
-    if (safeTag) fullBlocks.push(`<div class="extra-tagline">${safeTag}</div>`);
-    if (desc) fullBlocks.push(`<div class="extra-desc">${desc}</div>`);
-    const hasMore = fullBlocks.length > 0;
+    const blurb = shortDesc(q.description).replace(/</g, '&lt;');
+    const hasMore = blurb.length > 0;
     return `
       <div class="habit-row ${statusClass} extra ${hasMore ? 'expandable' : ''}" data-id="${q.id}" data-kind="extra">
         <button class="row-check" aria-label="완료 토글">
@@ -656,7 +664,7 @@
         </div>
         <button class="row-more" aria-label="건너뛰기">⋯</button>
       </div>
-      ${hasMore ? `<div class="row-stats-panel">${fullBlocks.join('')}</div>` : ''}
+      ${hasMore ? `<div class="row-stats-panel"><div class="extra-desc">${blurb}</div></div>` : ''}
     `;
   }
 
