@@ -277,6 +277,14 @@
 
   <script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.min.js"></script>
   <script src="app.js"></script>
-  <script>if('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js');</script>
+  <script>
+    // Service worker temporarily disabled to clear stale caches.
+    // The kill-switch sw.js will unregister itself on activation.
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.getRegistrations().then(regs => {
+        regs.forEach(r => r.unregister());
+      });
+    }
+  </script>
 </body>
 </html>
