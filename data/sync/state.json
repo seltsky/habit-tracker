@@ -1,5 +1,5 @@
 {
-  "lastModified": 1777642864024,
+  "lastModified": 1777645496837,
   "user": {
     "name": "선생님",
     "character_class": [
@@ -9,13 +9,13 @@
     ],
     "started_at": "2026-04-19",
     "level": 7,
-    "current_xp": 222,
-    "total_xp_lifetime": 1347,
+    "current_xp": 189,
+    "total_xp_lifetime": 1314,
     "stats": {
       "stamina": 10,
-      "discipline": 23,
+      "discipline": 22,
       "focus": 10,
-      "wellness": 62,
+      "wellness": 61,
       "research": 11
     },
     "streak_current": 0,
@@ -27,7 +27,7 @@
       "won": 0,
       "lost": 0
     },
-    "lifetime_completed": 66,
+    "lifetime_completed": 64,
     "total_quests_seen": 0
   },
   "logs": {
@@ -129,46 +129,6 @@
       "mood_score": null,
       "memo": ""
     },
-    "2026-04-19": {
-      "date": "2026-04-19",
-      "completed": [
-        "q-2026-04-19-03",
-        "q-2026-04-19-06",
-        "q-2026-04-19-01",
-        "q-2026-04-19-08",
-        "q-2026-04-19-05",
-        "q-2026-04-19-10"
-      ],
-      "skipped": [
-        {
-          "quest_id": "q-2026-04-19-09",
-          "reason_code": "willpower",
-          "reason_text": "",
-          "skipped_at": "2026-04-19T12:25:28.312Z"
-        },
-        {
-          "quest_id": "q-2026-04-19-07",
-          "reason_code": "condition",
-          "reason_text": "",
-          "skipped_at": "2026-04-19T13:41:25.145Z"
-        },
-        {
-          "quest_id": "q-2026-04-19-04",
-          "reason_code": "time",
-          "reason_text": "",
-          "skipped_at": "2026-04-19T13:41:40.383Z"
-        },
-        {
-          "quest_id": "q-2026-04-19-02",
-          "reason_code": "other",
-          "reason_text": "얼마마셨는지 모르겠다. 먹은거같긴한데",
-          "skipped_at": "2026-04-19T13:48:29.417Z"
-        }
-      ],
-      "energy_score": 2,
-      "mood_score": 6,
-      "memo": "어제 가족모임 술먹어서 컨디션 안좋다"
-    },
     "2026-04-27": {
       "date": "2026-04-27",
       "completed": [
@@ -234,6 +194,46 @@
       "energy_score": null,
       "mood_score": null,
       "memo": ""
+    },
+    "2026-04-19": {
+      "date": "2026-04-19",
+      "completed": [
+        "q-2026-04-19-03",
+        "q-2026-04-19-06",
+        "q-2026-04-19-01",
+        "q-2026-04-19-08",
+        "q-2026-04-19-05",
+        "q-2026-04-19-10"
+      ],
+      "skipped": [
+        {
+          "quest_id": "q-2026-04-19-09",
+          "reason_code": "willpower",
+          "reason_text": "",
+          "skipped_at": "2026-04-19T12:25:28.312Z"
+        },
+        {
+          "quest_id": "q-2026-04-19-07",
+          "reason_code": "condition",
+          "reason_text": "",
+          "skipped_at": "2026-04-19T13:41:25.145Z"
+        },
+        {
+          "quest_id": "q-2026-04-19-04",
+          "reason_code": "time",
+          "reason_text": "",
+          "skipped_at": "2026-04-19T13:41:40.383Z"
+        },
+        {
+          "quest_id": "q-2026-04-19-02",
+          "reason_code": "other",
+          "reason_text": "얼마마셨는지 모르겠다. 먹은거같긴한데",
+          "skipped_at": "2026-04-19T13:48:29.417Z"
+        }
+      ],
+      "energy_score": 2,
+      "mood_score": 6,
+      "memo": "어제 가족모임 술먹어서 컨디션 안좋다"
     },
     "2026-04-28": {
       "date": "2026-04-28",
@@ -336,10 +336,7 @@
     },
     "2026-05-01": {
       "date": "2026-05-01",
-      "completed": [
-        "q-2026-05-01-novelty",
-        "q-2026-05-01-09"
-      ],
+      "completed": [],
       "skipped": [],
       "energy_score": null,
       "mood_score": null,
