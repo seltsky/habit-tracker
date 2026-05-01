@@ -8,7 +8,10 @@
     "season": "2026-04",
     "weather_summary": "외부 API 미응답 — 맑음 예상 (4월 중순)",
     "yesterday_completion": 0.6,
-    "recent_failure_pattern": ["time", "forgot"],
+    "recent_failure_pattern": [
+      "time",
+      "forgot"
+    ],
     "user_inbox": [],
     "inbox_status": "state.json 없음 — 인박스 항목 미적용",
     "external_calendar_count": 0,
@@ -20,9 +23,9 @@
         "action": "context 메모만 — D-8, 오늘 퀘스트 제외"
       }
     ],
-    "weekly_boss_closing_note": "W16 마지막 날 — 오늘 절주·산책·취침 3가지 완료 시 보스 클리어 (62.5% → 100%)"
+    "weekly_boss_closing_note": "마지막 날 — 오늘 절주·산책·취침 3가지 완료 시 보스 클리어 (62.5% → 100%)"
   },
-  "morning_message": "W16 주간 보스 마감일입니다. 오늘 산책·절주·취침만 지키면 보스 클리어! 교회 다녀오시고, 임신 6주차 와이프 컨디션 꼭 챙겨드리세요. 할 수 있습니다.",
+  "morning_message": "주간 보스 마감일입니다. 오늘 산책·절주·취침만 지키면 보스 클리어! 교회 다녀오시고, 임신 6주차 와이프 컨디션 꼭 챙겨드리세요. 할 수 있습니다.",
   "quests": [
     {
       "id": "q-2026-04-19-01",
@@ -36,7 +39,9 @@
       "tier": "normal",
       "xp": 15,
       "estimated_minutes": 2,
-      "tags": ["morning"],
+      "tags": [
+        "morning"
+      ],
       "reasoning": "기상 즉시 루틴 — 잊음 패턴 예방: 물컵 옆에 미리 세팅"
     },
     {
@@ -51,7 +56,9 @@
       "tier": "easy",
       "xp": 10,
       "estimated_minutes": 1,
-      "tags": ["all_day"],
+      "tags": [
+        "all_day"
+      ],
       "reasoning": "기본 수분 유지 — 임산부 옆에서 같이 챙기면 더 자연스러움"
     },
     {
@@ -61,13 +68,16 @@
       "subdomain": "no_alcohol",
       "category": "health",
       "identity": "liver",
-      "title": "절주 (술 0잔) ⭐ W16 보스",
+      "title": "절주 (술 0잔) ⭐ 보스",
       "description": "오늘 하루 술 안 마시기",
       "tier": "normal",
       "xp": 25,
       "estimated_minutes": 0,
-      "tags": ["all_day", "boss"],
-      "reasoning": "W16 보스 절주 7일/7 마지막 — 오늘 달성 시 7일 완성. 간 회복에 직결"
+      "tags": [
+        "all_day",
+        "boss"
+      ],
+      "reasoning": "보스 절주 7일/7 마지막 — 오늘 달성 시 7일 완성. 간 회복에 직결"
     },
     {
       "id": "q-2026-04-19-04",
@@ -81,7 +91,10 @@
       "tier": "normal",
       "xp": 15,
       "estimated_minutes": 90,
-      "tags": ["sunday", "morning"],
+      "tags": [
+        "sunday",
+        "morning"
+      ],
       "reasoning": "일요일 정기 일정 — 교회는 family 카테고리와 분리"
     },
     {
@@ -91,13 +104,17 @@
       "subdomain": "stretch",
       "category": "routine",
       "identity": "move",
-      "title": "가벼운 산책 30분 ⭐ W16 보스",
+      "title": "가벼운 산책 30분 ⭐ 보스",
       "description": "일요일 회복 산책 — 공원 또는 동네 30분 보행",
       "tier": "easy",
       "xp": 20,
       "estimated_minutes": 30,
-      "tags": ["afternoon", "recovery", "boss"],
-      "reasoning": "W16 보스 운동 4회/4 마지막 — 산책으로 카운트 가능. 일요일 회복 강도 유지"
+      "tags": [
+        "afternoon",
+        "recovery",
+        "boss"
+      ],
+      "reasoning": "보스 운동 4회/4 마지막 — 산책으로 카운트 가능. 일요일 회복 강도 유지"
     },
     {
       "id": "q-2026-04-19-06",
@@ -111,7 +128,11 @@
       "tier": "easy",
       "xp": 10,
       "estimated_minutes": 5,
-      "tags": ["morning", "wife", "pregnancy"],
+      "tags": [
+        "morning",
+        "wife",
+        "pregnancy"
+      ],
       "reasoning": "임신 초기 매일 모니터링 — 5분이면 충분, 잊으면 안 되는 항목"
     },
     {
@@ -126,7 +147,11 @@
       "tier": "easy",
       "xp": 15,
       "estimated_minutes": 20,
-      "tags": ["afternoon", "wife", "pregnancy"],
+      "tags": [
+        "afternoon",
+        "wife",
+        "pregnancy"
+      ],
       "reasoning": "컨디션 체크와 별도 추적 — 임신 6주차 운동 권장"
     },
     {
@@ -141,7 +166,10 @@
       "tier": "easy",
       "xp": 10,
       "estimated_minutes": 60,
-      "tags": ["afternoon", "family"],
+      "tags": [
+        "afternoon",
+        "family"
+      ],
       "reasoning": "일요일 가족 시간 — wife 카테고리와 분리하여 독립 추적"
     },
     {
@@ -156,7 +184,9 @@
       "tier": "normal",
       "xp": 25,
       "estimated_minutes": 30,
-      "tags": ["evening"],
+      "tags": [
+        "evening"
+      ],
       "reasoning": "주말이지만 매일 연구 유지 — Tasks에 hepatic cyst·aport variation 있음. 시간부족 패턴 → 30분으로 조정"
     },
     {
@@ -166,13 +196,16 @@
       "subdomain": "sleep",
       "category": "health",
       "identity": "skin",
-      "title": "11시 전 취침 ⭐ W16 보스",
+      "title": "11시 전 취침 ⭐ 보스",
       "description": "22:50 양치 → 폰 내려놓기 → 침대 입실",
       "tier": "normal",
       "xp": 30,
       "estimated_minutes": 0,
-      "tags": ["night", "boss"],
-      "reasoning": "W16 보스 취침 5일/5 마지막 — 오늘 완료 시 보스 100% 클리어. 잊음 방지: 22:50 알림 권장"
+      "tags": [
+        "night",
+        "boss"
+      ],
+      "reasoning": "보스 취침 5일/5 마지막 — 오늘 완료 시 보스 100% 클리어. 잊음 방지: 22:50 알림 권장"
     }
   ],
   "weekly_boss": {
@@ -182,6 +215,6 @@
     "progress": 0.625,
     "current": "운동 3/4 → 오늘 산책으로 완료 가능 | 절주 6/7 → 오늘 절주로 완료 | 취침 4/5 → 오늘 취침으로 완료",
     "reward_xp": 200,
-    "closing_note": "오늘(일요일) 세 퀘스트 모두 달성 시 W16 보스 클리어 — 200 XP 획득"
+    "closing_note": "오늘(일요일) 세 퀘스트 모두 달성 시 보스 클리어 — 200 XP 획득"
   }
 }

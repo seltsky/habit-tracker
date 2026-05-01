@@ -48,13 +48,15 @@
       "memo": "애기보는건 힘들어",
       "memo_note": "현규네 쪽동반모임에서 남의 아기 보고 복잡한 감정 — 임신 7+4주차 예비아빠로서 자연스러운 반응. 저녁에 와이프와 나눌 이야기"
     },
-    "recent_failure_pattern": ["어제 로그 미기록"],
+    "recent_failure_pattern": [
+      "어제 로그 미기록"
+    ],
     "skipped_detail": [],
     "adaptation": [
       "어제(당직) 실제 40% 확인 — 영양제·절주·와이프 케어 4건 유지. 회복 주간 흐름 이음",
       "현규네 쪽동반모임(오늘 전일) → 와이프 점심 시간·단백질·절주 자연 달성. 모임 자리에서도 절주(03) 완료 — 인상적",
-      "골프/달리기(06) 완료 → W17 운동 4/4 ✓ DONE. 체력 지출 감안해 스트레칭(08) 저녁 전 권장",
-      "은평 회식 D-2 (4/27 월) — 절주 Day 3 오늘 통과. 내일 Day 4 → W17 4/7 부분 보상 확보 후 월요일 임하기",
+      "골프/달리기(06) 완료 → 운동 4/4 ✓ DONE. 체력 지출 감안해 스트레칭(08) 저녁 전 권장",
+      "은평 회식 D-2 (4/27 월) — 절주 Day 3 오늘 통과. 내일 Day 4 → 4/7 부분 보상 확보 후 월요일 임하기",
       "애기보는건 힘들어 → 예비아빠 감정 정상. 저녁 와이프와 이야기 나누면 부부 유대 강화 + 감정 소화 동시"
     ],
     "external_api_status": "data/external/2026-04-25.json 로컬 파일 반영",
@@ -73,7 +75,7 @@
         "title": "은평 회식",
         "due": "2026-04-27",
         "days_remaining": 2,
-        "note": "2일 후 월요일 회식 — W18 시작일 첫 관문. 내일(일) 절주 Day 4 통과로 W17 4/7 확보 후 임하기. 별도 도전 퀘스트 없이 내일 절주 퀘스트로 커버"
+        "note": "2일 후 월요일 회식 — 시작일 첫 관문. 내일(일) 절주 Day 4 통과로 4/7 확보 후 임하기. 별도 도전 퀘스트 없이 내일 절주 퀘스트로 커버"
       }
     ],
     "weekly_theme": {
@@ -106,7 +108,7 @@
       "meaning": "큰 변화는 작게 쌓인다"
     },
     "w17_boss_status": {
-      "exercise": "4/4 ✓ DONE — q-2026-04-25-06 완료 (골프/달리기). 오늘로 W17 운동 보스 컴포넌트 마감",
+      "exercise": "4/4 ✓ DONE — q-2026-04-25-06 완료 (골프/달리기). 오늘로 운동 보스 컴포넌트 마감",
       "no_alcohol": "Day 3 통과 (4/23·24·25 연속) — 현규네 모임에서도 절주 유지 인상적. 내일(일) Day 4 통과 시 4/7 부분 보상 확정",
       "protein": "Day 3 통과 (q-2026-04-25-04 완료) — 매일 유지 중"
     },
@@ -122,7 +124,7 @@
     "inbox_applied": 0,
     "inbox_note": "미처리 인박스 항목 없음 (in-1776688896502는 2026-04-22에 applied 완료)"
   },
-  "morning_message": "현규네 쪽동반모임이 있는 토요일이에요. 운동 먼저 끝내고 모임에서 와이프와 점심·오후 한 블록 — 절주 유지하면 W17 운동 4/4도 오늘 잠급니다. '애기보는건 힘들어'라는 감정이 들 수 있어요 — 임신 7+4주차 예비아빠로서 남의 아기를 보면 복잡한 게 당연합니다. 저녁에 와이프에게 그 이야기 꺼내보시면 어떨까요. 큰 변화는 작게 쌓입니다 (D-227).",
+  "morning_message": "현규네 쪽동반모임이 있는 토요일이에요. 운동 먼저 끝내고 모임에서 와이프와 점심·오후 한 블록 — 절주 유지하면 운동 4/4도 오늘 잠급니다. '애기보는건 힘들어'라는 감정이 들 수 있어요 — 임신 7+4주차 예비아빠로서 남의 아기를 보면 복잡한 게 당연합니다. 저녁에 와이프에게 그 이야기 꺼내보시면 어떨까요. 큰 변화는 작게 쌓입니다 (D-227).",
   "quests": [
     {
       "id": "q-2026-04-25-01",
@@ -136,7 +138,10 @@
       "tier": "normal",
       "xp": 18,
       "estimated_minutes": 3,
-      "tags": ["morning", "recovery"],
+      "tags": [
+        "morning",
+        "recovery"
+      ],
       "reasoning": "회복 주간 supplements +20% 반영 (15→18). 모임 전 아침에 완료 가능한 슬롯"
     },
     {
@@ -151,7 +156,10 @@
       "tier": "easy",
       "xp": 12,
       "estimated_minutes": 1,
-      "tags": ["all_day", "recovery"],
+      "tags": [
+        "all_day",
+        "recovery"
+      ],
       "reasoning": "recovery water +20%. 주말 사회적 자리 = 수분 잊기 쉬운 패턴 → 환경 디자인으로 보완"
     },
     {
@@ -161,12 +169,15 @@
       "subdomain": "no_alcohol",
       "category": "health",
       "identity": "liver",
-      "title": "절주 Day 3 — 주말 저녁 관문 ⭐ W17",
+      "title": "절주 Day 3 — 주말 저녁 관문 ⭐ 주간",
       "description": "이번 주 가장 위험한 슬롯 = 토요일 저녁 혼자 거실 시간. '한 캔만'이 가장 흔한 시작 — 미리 무알콜맥주나 탄산수 한 캔 냉장고 앞쪽에 배치해두기. 현규네 모임에서도 지켰으니 오늘 하루 완주",
       "tier": "normal",
       "xp": 30,
       "estimated_minutes": 0,
-      "tags": ["all_day", "boss"],
+      "tags": [
+        "all_day",
+        "boss"
+      ],
       "reasoning": "recovery no_alcohol +20%. 현규네 쪽동반모임 사회적 자리 관문 통과 — 오늘 막으면 4/7 내일 확보 가능"
     },
     {
@@ -181,7 +192,10 @@
       "tier": "easy",
       "xp": 15,
       "estimated_minutes": 5,
-      "tags": ["all_day", "boss"],
+      "tags": [
+        "all_day",
+        "boss"
+      ],
       "reasoning": "오늘 운동 퀘스트와 시간적으로 결합. 운동 후 흡수 창구 활용 — 생리학적 근거로 동기 강화"
     },
     {
@@ -196,7 +210,11 @@
       "tier": "easy",
       "xp": 15,
       "estimated_minutes": 5,
-      "tags": ["morning", "wife", "pregnancy"],
+      "tags": [
+        "morning",
+        "wife",
+        "pregnancy"
+      ],
       "reasoning": "주차별 baby 발달 + 마지막 체크 후 6일 경과. 단순 안부 넘어 데이터 수집 단계. 아기 관련 감정 공유 슬롯으로도 활용 가능"
     },
     {
@@ -206,13 +224,17 @@
       "subdomain": "golf",
       "category": "routine",
       "identity": "move",
-      "title": "골프 라운드 또는 달리기 6km — W17 운동 4/4",
-      "description": "1순위: 골프 라운드(예약 가능 시). 2순위: 기흥호수공원 또는 탄천 6km 달리기 — 어제 4km 페이스에서 +2km만 얹으면 끝. 둘 중 무엇이든 끝내면 W17 운동 보스 컴포넌트 4/4 마감",
+      "title": "골프 라운드 또는 달리기 6km — 운동 4/4",
+      "description": "1순위: 골프 라운드(예약 가능 시). 2순위: 기흥호수공원 또는 탄천 6km 달리기 — 어제 4km 페이스에서 +2km만 얹으면 끝. 둘 중 무엇이든 끝내면 운동 보스 컴포넌트 4/4 마감",
       "tier": "elite",
       "xp": 55,
       "estimated_minutes": 60,
-      "tags": ["morning", "exercise", "boss"],
-      "reasoning": "토요일 = 골프/달리기 루틴. W17 운동 3/4 → 오늘 4/4로 보스 1축 마감. 1·2순위로 날씨/예약 변수 흡수"
+      "tags": [
+        "morning",
+        "exercise",
+        "boss"
+      ],
+      "reasoning": "토요일 = 골프/달리기 루틴. 운동 3/4 → 오늘 4/4로 보스 1축 마감. 1·2순위로 날씨/예약 변수 흡수"
     },
     {
       "id": "q-2026-04-25-07",
@@ -226,7 +248,10 @@
       "tier": "easy",
       "xp": 20,
       "estimated_minutes": 90,
-      "tags": ["afternoon", "wife"],
+      "tags": [
+        "afternoon",
+        "wife"
+      ],
       "reasoning": "토요일 와이프 루틴 — 모임 자리가 자연스러운 달성 경로. 입덧 피크 케어가 가장 자연스러운 형태"
     },
     {
@@ -241,7 +266,10 @@
       "tier": "easy",
       "xp": 12,
       "estimated_minutes": 10,
-      "tags": ["morning", "recovery"],
+      "tags": [
+        "morning",
+        "recovery"
+      ],
       "reasoning": "회복 테마와 운동 퀘스트의 다리. 토요일 시간 여유로 가능 — 다음 주 운동 회복력에 직접 기여"
     },
     {
@@ -256,7 +284,10 @@
       "tier": "normal",
       "xp": 35,
       "estimated_minutes": 0,
-      "tags": ["night", "recovery"],
+      "tags": [
+        "night",
+        "recovery"
+      ],
       "reasoning": "recovery sleep +40% (25→35). 주말은 취침 변동성 가장 큼 — 기준선 흔들리면 회복 주간 효과 휘발"
     },
     {
@@ -267,12 +298,15 @@
       "category": "exploration",
       "identity": "researcher",
       "title": "어제 로그 회수 — 한 줄이라도",
-      "description": "어제(4/24) 에너지·무드 점수·메모가 비어있음. 완료 체크는 됐으나 에너지·무드 숫자만이라도 — 메모는 비워도 됨. 당직 피로도 회고 한 줄 있으면 내일 W18 테마 결정에 도움",
+      "description": "어제(4/24) 에너지·무드 점수·메모가 비어있음. 완료 체크는 됐으나 에너지·무드 숫자만이라도 — 메모는 비워도 됨. 당직 피로도 회고 한 줄 있으면 내일 테마 결정에 도움",
       "tier": "easy",
       "xp": 8,
       "estimated_minutes": 3,
-      "tags": ["morning", "admin"],
-      "reasoning": "에너지·무드 미기록 회수. 8 XP로 작게 — W17 정산·W18 테마 입력 둘 다에 직접 영향"
+      "tags": [
+        "morning",
+        "admin"
+      ],
+      "reasoning": "에너지·무드 미기록 회수. 8 XP로 작게 — 정산·테마 입력 둘 다에 직접 영향"
     },
     {
       "id": "q-2026-04-25-novelty",
@@ -286,7 +320,11 @@
       "tier": "easy",
       "xp": 13,
       "estimated_minutes": 10,
-      "tags": ["all_day", "novelty", "explore"],
+      "tags": [
+        "all_day",
+        "novelty",
+        "explore"
+      ],
       "reasoning": "토요일 야외(현규네 모임) 동선과 자연 결합. 결과물이 와이프와 공유 가능 → 관계 가산점 간접 확보"
     },
     {
@@ -301,7 +339,11 @@
       "tier": "easy",
       "xp": 15,
       "estimated_minutes": 5,
-      "tags": ["hidden", "body", "mood"],
+      "tags": [
+        "hidden",
+        "body",
+        "mood"
+      ],
       "reasoning": "30% 확률 숨은 퀘스트 슬롯 히트 — 토요일 야외 활동과 자연스럽게 결합"
     }
   ],
@@ -312,6 +354,6 @@
     "progress": 0.75,
     "current": "운동 4/4 ✓ DONE (오늘 완료!) | 절주 Day 3 통과 → 내일(일) Day 4 = 4/7 부분 보상 확정 가능 | 단백질 매일 Day 3 통과",
     "reward_xp": 250,
-    "note": "운동 4/4 오늘 마감! 절주 7연속은 4/22 회식으로 이미 불가 — 4/7 부분 보상 구조. 내일 일요일 절주만 지키면 W17 안정권 마감. 은평 회식(4/27 월)은 W18 첫날 관문으로 넘어감"
+    "note": "운동 4/4 오늘 마감! 절주 7연속은 4/22 회식으로 이미 불가 — 4/7 부분 보상 구조. 내일 일요일 절주만 지키면 안정권 마감. 은평 회식(4/27 월)은 첫날 관문으로 넘어감"
   }
 }

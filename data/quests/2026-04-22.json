@@ -7,7 +7,7 @@
     "weekday": 3,
     "season": "2026-04",
     "weather_summary": "4월 하순 서울 평균 12~21°C",
-    "yesterday_completion": 0.80,
+    "yesterday_completion": 0.8,
     "yesterday_completed_count": 8,
     "yesterday_total_count": 10,
     "yesterday_energy": null,
@@ -20,17 +20,28 @@
       "memo": "속이 안좋다고 한다 (임신 6+4주차 입덧)"
     },
     "pregnancy_week": "6+4주차",
-    "recent_failure_pattern": ["other", "other"],
+    "recent_failure_pattern": [
+      "other",
+      "other"
+    ],
     "skipped_detail": [
-      { "quest": "영어 스픽 5분", "reason": "other", "note": "스픽 구독을 안함" },
-      { "quest": "연구 작업 20분", "reason": "other", "note": "단기적 성취가 없어" }
+      {
+        "quest": "영어 스픽 5분",
+        "reason": "other",
+        "note": "스픽 구독을 안함"
+      },
+      {
+        "quest": "연구 작업 20분",
+        "reason": "other",
+        "note": "단기적 성취가 없어"
+      }
     ],
     "adaptation": [
       "영어 '스픽 구독 없음' → YouTube 또는 Duolingo 10분으로 변경 (구독 불필요)",
       "연구 '단기 성취 없어' → 'aortic variation 참고문헌 5편 리스트 완성' 명확한 완료 기준 설정",
-      "용상 회식 (오늘 저녁) → 절주 W17 Day 3 스킵 불가피. 헬스는 오전/점심으로 이동 필수",
+      "용상 회식 (오늘 저녁) → 절주 Day 3 스킵 불가피. 헬스는 오전/점심으로 이동 필수",
       "회식 날 단백질: 고기류 회식 메뉴로 충분히 카운트 가능 — 단백질 퀘스트 유지",
-      "절주 7일 W17 보스 컴포넌트: Day 3 회식으로 7연속 달성 불가 → 운동·단백질 계속 추적"
+      "절주 7일 보스 컴포넌트: Day 3 회식으로 7연속 달성 불가 → 운동·단백질 계속 추적"
     ],
     "external_api_status": "성공 — 2026-04-22 데이터 반영",
     "external_calendar_count": 1,
@@ -47,7 +58,7 @@
         "title": "은평 회식",
         "due": "2026-04-27",
         "days_remaining": 5,
-        "note": "다음 월요일(W18) 회식 — 이번 주 보스(~4/26) 범위 외, 영향 없음"
+        "note": "다음 월요일(주간) 회식 — 이번 주 보스(~4/26) 범위 외, 영향 없음"
       },
       {
         "title": "aortic variation",
@@ -58,7 +69,7 @@
     "inbox_applied": 1,
     "inbox_note": "캘린더 퀘스트 요청(in-1776688896502) — 용상 회식 캘린더 이벤트 반영 완료, applied_at 기록"
   },
-  "morning_message": "오늘 용상 회식이 있으시네요, 즐거운 자리 되세요! 헬스는 저녁 대신 오전이나 점심에 미리 해두시면 W17 운동 2/4가 확보됩니다. 회식 고기류로 단백질도 챙겨지니 그 퀘스트는 자동 달성 가능해요.",
+  "morning_message": "오늘 용상 회식이 있으시네요, 즐거운 자리 되세요! 헬스는 저녁 대신 오전이나 점심에 미리 해두시면 운동 2/4가 확보됩니다. 회식 고기류로 단백질도 챙겨지니 그 퀘스트는 자동 달성 가능해요.",
   "quests": [
     {
       "id": "q-2026-04-22-01",
@@ -72,7 +83,9 @@
       "tier": "normal",
       "xp": 15,
       "estimated_minutes": 2,
-      "tags": ["morning"],
+      "tags": [
+        "morning"
+      ],
       "reasoning": "기상 즉시 루틴 — 회식 날도 아침 루틴은 흔들리지 않게 유지"
     },
     {
@@ -87,7 +100,9 @@
       "tier": "easy",
       "xp": 10,
       "estimated_minutes": 1,
-      "tags": ["all_day"],
+      "tags": [
+        "all_day"
+      ],
       "reasoning": "회식 전 수분 충분히 — 음주 시 탈수 완화. 헬스 전후 1컵씩 추가 권장"
     },
     {
@@ -97,13 +112,16 @@
       "subdomain": "no_alcohol",
       "category": "health",
       "identity": "liver",
-      "title": "절주 — W17 Day 3 (용상 회식)",
+      "title": "절주 — Day 3 (용상 회식)",
       "description": "오늘은 용상 회식으로 음주 예정 — 부득이한 자리. 1~2잔 절제가 가능하면 시도, 불가시 스킵 처리",
       "tier": "normal",
       "xp": 25,
       "estimated_minutes": 0,
-      "tags": ["all_day", "boss"],
-      "reasoning": "W17 절주 7일 보스 Day 3 — 회식으로 연속 달성 불가. 이번 주 절주 보스 컴포넌트 종료, 다음 주 재도전"
+      "tags": [
+        "all_day",
+        "boss"
+      ],
+      "reasoning": "절주 7일 보스 Day 3 — 회식으로 연속 달성 불가. 이번 주 절주 보스 컴포넌트 종료, 다음 주 재도전"
     },
     {
       "id": "q-2026-04-22-04",
@@ -112,13 +130,16 @@
       "subdomain": "protein",
       "category": "health",
       "identity": "liver",
-      "title": "단백질 챙기기 ⭐ W17 Day 3",
+      "title": "단백질 챙기기 ⭐ Day 3",
       "description": "점심 또는 회식 메뉴에서 단백질 확인 — 삼겹살·소고기·닭갈비 등 고기류 OK. 기준: 30g 이상",
       "tier": "easy",
       "xp": 15,
       "estimated_minutes": 5,
-      "tags": ["all_day", "boss"],
-      "reasoning": "회식 자리 고기류로 단백질 자동 달성 가능 — W17 단백질 2/7. 계란 2개=12g, 삼겹살 150g=27g"
+      "tags": [
+        "all_day",
+        "boss"
+      ],
+      "reasoning": "회식 자리 고기류로 단백질 자동 달성 가능 — 단백질 2/7. 계란 2개=12g, 삼겹살 150g=27g"
     },
     {
       "id": "q-2026-04-22-05",
@@ -132,7 +153,11 @@
       "tier": "easy",
       "xp": 10,
       "estimated_minutes": 5,
-      "tags": ["morning", "wife", "pregnancy"],
+      "tags": [
+        "morning",
+        "wife",
+        "pregnancy"
+      ],
       "reasoning": "마지막 기록(04-19) 입덧 5점 — 임신 6~8주 입덧 피크. 매일 체크 필수, 회식 전 아침에"
     },
     {
@@ -147,7 +172,9 @@
       "tier": "easy",
       "xp": 10,
       "estimated_minutes": 10,
-      "tags": ["morning"],
+      "tags": [
+        "morning"
+      ],
       "reasoning": "'스픽 구독 없음' 스킵 → 구독 불필요한 무료 대안 지속. 회식 전 가벼운 루틴 유지"
     },
     {
@@ -157,13 +184,17 @@
       "subdomain": "gym",
       "category": "routine",
       "identity": "move",
-      "title": "헬스 50분 ⭐ W17 운동 2/4 — 오전·점심 이동",
+      "title": "헬스 50분 ⭐ 운동 2/4 — 오전·점심 이동",
       "description": "수요일 헬스 — 저녁 회식 전 오전 또는 점심시간 활용. 상체·전신 루틴 50분",
       "tier": "normal",
       "xp": 40,
       "estimated_minutes": 50,
-      "tags": ["morning", "gym", "boss"],
-      "reasoning": "용상 회식으로 저녁 헬스 불가 → 오전·점심 타임으로 이동. W17 운동 2/4 오늘 반드시 확보"
+      "tags": [
+        "morning",
+        "gym",
+        "boss"
+      ],
+      "reasoning": "용상 회식으로 저녁 헬스 불가 → 오전·점심 타임으로 이동. 운동 2/4 오늘 반드시 확보"
     },
     {
       "id": "q-2026-04-22-08",
@@ -177,7 +208,10 @@
       "tier": "easy",
       "xp": 10,
       "estimated_minutes": 2,
-      "tags": ["evening", "wife"],
+      "tags": [
+        "evening",
+        "wife"
+      ],
       "reasoning": "회식 날 아내 케어 — 임신 중 남편 위치·귀가 시간 파악이 심리적 안정감. 저녁 대화 대신 문자 연결"
     },
     {
@@ -192,7 +226,9 @@
       "tier": "normal",
       "xp": 25,
       "estimated_minutes": 25,
-      "tags": ["morning"],
+      "tags": [
+        "morning"
+      ],
       "reasoning": "'단기 성취 없어' 패턴 대응 → '5편 리스트 완성'이라는 명확한 완료 기준. Google Tasks aortic variation 연계. 회식 전 오전에 집중"
     },
     {
@@ -207,7 +243,9 @@
       "tier": "easy",
       "xp": 20,
       "estimated_minutes": 0,
-      "tags": ["night"],
+      "tags": [
+        "night"
+      ],
       "reasoning": "회식 날 취침 기준 11시→11시 30분 완화 — 무리하지 않되 자정은 넘기지 않기. 음주 후 빠른 수면이 간 회복에 유리"
     }
   ],
@@ -218,6 +256,6 @@
     "progress": 0.22,
     "current": "운동 1/4 (오늘 헬스로 2/4 목표) | 절주 2/7 → 회식으로 Day 3 스킵, 7연속 달성 불가 | 단백질 1/7 (오늘 2/7 목표)",
     "reward_xp": 250,
-    "note": "절주 7일 보스 컴포넌트: 용상 회식(Apr 22)으로 Day 3 스킵 — 이번 주 절주 7연속 달성 불가. 운동 4/4·단백질 계속 추적. 경로: 오늘 헬스(2/4) → Fri 달리기(3/4) → Sat 골프(4/4). 은평 회식(Apr 27)은 W18 범위"
+    "note": "절주 7일 보스 컴포넌트: 용상 회식(Apr 22)으로 Day 3 스킵 — 이번 주 절주 7연속 달성 불가. 운동 4/4·단백질 계속 추적. 경로: 오늘 헬스(2/4) → Fri 달리기(3/4) → Sat 골프(4/4). 은평 회식(Apr 27)은 범위"
   }
 }

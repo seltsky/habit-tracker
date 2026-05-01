@@ -1,5 +1,5 @@
 {
-  "description": "오늘의 새로움 퀘스트용 풀. 매일 1개 카테고리 선택 후 구체 항목으로 변주. 중복 출현은 14일 간격 권장.",
+  "description": "오늘의 새로움 풀. 매일 카테고리 하나에서 항목 하나가 뽑힙니다.",
   "last_updated": "2026-04-23",
   "categories": {
     "exploration_walk": {

@@ -49,6 +49,38 @@
     stretch: '스트레칭', meditation: '명상',
   };
 
+  // Tile icon per subdomain (fallback to domain icon)
+  const SUBDOMAIN_ICONS = {
+    run: '🏃', gym: '💪', golf: '⛳',
+    supplements: '💊', protein: '🥩', veggies: '🥬',
+    water: '💧', no_alcohol: '🚫', sleep: '😴',
+    wife: '💑', family: '👨‍👩‍👧',
+    church: '⛪',
+    english: '🇬🇧', research: '🔬',
+    stretch: '🧘', meditation: '🕯️',
+  };
+  function tileIcon(q) {
+    if (q.icon) return q.icon;
+    if (q.subdomain && SUBDOMAIN_ICONS[q.subdomain]) return SUBDOMAIN_ICONS[q.subdomain];
+    const dom = DOMAIN_LABELS[q.domain];
+    return dom ? dom.icon : '✨';
+  }
+  function tileShortName(q) {
+    // Use subdomain label if it exists and looks compact; otherwise clean the title.
+    const sub = SUBDOMAIN_LABELS[q.subdomain];
+    if (sub && sub.length <= 6) return sub;
+    // Strip decorative emojis and bracketed/parenthetical parts; keep main phrase.
+    let s = (q.title || '')
+      .replace(/[⚔️📜✨🏆⭐🩺🏋️❤️⛪📚🌿💬🎲]/g, '')
+      .replace(/\(.*?\)/g, '')
+      .replace(/\[.*?\]/g, '')
+      .replace(/[—\-–]/g, ' ')
+      .trim();
+    // Keep up to ~12 chars including spaces; ellipsis if longer.
+    if (s.length > 12) s = s.slice(0, 11) + '…';
+    return s || (sub || '퀘스트');
+  }
+
   // EDD: 2026-12-08 (사모님 임신)
   const EDD = new Date('2026-12-08');
   const LMP = new Date('2026-03-03');
@@ -424,17 +456,42 @@
 
     const groupTitles = { main: '메인 퀘스트', daily: '일일 퀘스트', bonus: '보너스', challenge: '도전' };
     let html = '';
+    // Streaks-inspired flat grid; group title shown only as small label
     for (const type of ['main', 'daily', 'bonus', 'challenge']) {
       if (groups[type].length === 0) continue;
-      html += `<div class="quest-group"><h3>${TYPE_ICONS[type]} ${groupTitles[type]}</h3>`;
+      html += `<div class="habit-grid-section"><div class="habit-grid-label">${groupTitles[type]}</div><div class="habit-grid">`;
       groups[type].forEach(q => html += renderQuestCard(q));
-      html += `</div>`;
+      html += `</div></div>`;
     }
     container.innerHTML = html;
 
-    container.querySelectorAll('.btn-complete').forEach(b => b.addEventListener('click', () => completeQuest(b.dataset.id)));
-    container.querySelectorAll('.btn-skip').forEach(b => b.addEventListener('click', () => openSkipModal(b.dataset.id)));
-    container.querySelectorAll('.btn-undo').forEach(b => b.addEventListener('click', () => undoQuest(b.dataset.id)));
+    // Tile click: tap to toggle done; long-press / right-click to open skip modal
+    container.querySelectorAll('.habit-tile').forEach(tile => {
+      const id = tile.dataset.id;
+      let pressTimer = null;
+      const startPress = () => {
+        pressTimer = setTimeout(() => {
+          pressTimer = null;
+          openSkipModal(id);
+        }, 600);
+      };
+      const endPress = () => {
+        if (pressTimer) {
+          clearTimeout(pressTimer);
+          pressTimer = null;
+          // Short tap: toggle done
+          const done = tile.classList.contains('done');
+          if (done) undoQuest(id);
+          else completeQuest(id);
+        }
+      };
+      tile.addEventListener('mousedown', startPress);
+      tile.addEventListener('touchstart', startPress, { passive: true });
+      tile.addEventListener('mouseup', endPress);
+      tile.addEventListener('touchend', endPress);
+      tile.addEventListener('mouseleave', () => { if (pressTimer) { clearTimeout(pressTimer); pressTimer = null; } });
+      tile.addEventListener('contextmenu', e => { e.preventDefault(); openSkipModal(id); });
+    });
 
     const boss = state.quest.weekly_boss;
     if (boss) {
@@ -451,56 +508,24 @@
   }
 
   function renderQuestCard(q) {
+    // Streaks-inspired minimal tile: icon + short name (+ done state).
     const isDone = state.log.completed.includes(q.id);
     const skipObj = state.log.skipped.find(s => s.quest_id === q.id);
-    const tierColor = TIER_COLORS[q.tier] || '#4ecca3';
     let statusClass = '';
     if (isDone) statusClass = 'done';
     else if (skipObj) statusClass = 'skipped';
 
-    const tags = q.tags ? q.tags.join(' ') : '';
-    let actionsHtml;
-    if (isDone) {
-      actionsHtml = `<div class="quest-status-row">
-        <div class="quest-status">✅ 완료</div>
-        <button class="btn-undo" data-id="${q.id}">↩️ 취소</button>
-      </div>`;
-    } else if (skipObj) {
-      const label = REASON_LABELS[skipObj.reason_code] || skipObj.reason_code;
-      actionsHtml = `<div class="quest-status-row">
-        <div class="quest-status skip">⏭️ 건너뜀 (${label})</div>
-        <button class="btn-undo" data-id="${q.id}">↩️ 취소</button>
-      </div>`;
-    } else {
-      actionsHtml = `<div class="quest-actions">
-        <button class="btn-complete" data-id="${q.id}">완료</button>
-        <button class="btn-skip" data-id="${q.id}">건너뜀</button>
-      </div>`;
-    }
-    const dom = DOMAIN_LABELS[q.domain];
-    const subLabel = SUBDOMAIN_LABELS[q.subdomain] || q.subdomain || '';
-    const breadcrumbHtml = dom ? `
-      <div class="quest-breadcrumb" style="color:${dom.color}">
-        ${dom.icon} ${dom.name}${subLabel ? ' → ' + subLabel : ''}
-      </div>
-    ` : '';
+    const icon = tileIcon(q);
+    const name = tileShortName(q);
+    const isBoss = (q.tags || []).includes('boss');
 
     return `
-      <div class="quest-card ${statusClass}" style="border-left-color:${tierColor}">
-        ${breadcrumbHtml}
-        <div class="quest-head">
-          <div class="quest-title">${q.title}</div>
-          <div class="quest-xp">+${q.xp}</div>
+      <div class="habit-tile ${statusClass} ${isBoss ? 'boss' : ''}" data-id="${q.id}" title="${(q.title||'').replace(/"/g,'&quot;')}">
+        <div class="tile-circle">
+          <span class="tile-icon">${icon}</span>
         </div>
-        <div class="quest-desc">${q.description}</div>
-        <div class="quest-meta">
-          <span class="tier" style="color:${tierColor}">${q.tier}</span>
-          <span>·</span>
-          <span>${q.estimated_minutes}분</span>
-          ${tags ? `<span>·</span><span>${tags}</span>` : ''}
-        </div>
-        ${q.reasoning ? `<div class="quest-reason">💭 ${q.reasoning}</div>` : ''}
-        ${actionsHtml}
+        <div class="tile-name">${name}</div>
+        ${isBoss ? '<div class="tile-pin">★</div>' : ''}
       </div>
     `;
   }

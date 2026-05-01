@@ -1,5 +1,5 @@
 {
-  "description": "번아웃 방지 + 완벽주의 덫 차단용 회복 모드 설계. 스트릭 안 깨지면서 부담 덜기.",
+  "description": "지칠 때 부드럽게 쉬어가는 모드들. 스트릭은 그대로 두면서 부담만 덜어요.",
   "last_updated": "2026-04-23",
   "official_rest_day": {
     "frequency": "월 1회",
@@ -11,7 +11,7 @@
       "streak_protection": true,
       "completion_counts_as_100": true,
       "xp_fixed": 30,
-      "morning_message_tone": "오늘은 공식 휴식일입니다. 0%여도 스트릭 유지됩니다. 쉬는 것도 계획입니다."
+      "morning_message_tone": "오늘은 쉬는 날이에요. 아무것도 안 해도 스트릭은 유지됩니다."
     }
   },
   "weekly_minimum_mode": {
@@ -28,7 +28,7 @@
       "streak_protection": true,
       "completion_threshold": "3/3 = 100%",
       "xp_fixed": 50,
-      "morning_message_tone": "오늘은 미니멈 모드. 핵심 3개면 충분합니다. 완벽주의는 내일 다시."
+      "morning_message_tone": "오늘은 가볍게. 3개만 해도 충분해요."
     }
   },
   "auto_recovery_mode": {
@@ -38,14 +38,14 @@
     "duration_days": 7
   },
   "skip_day_bank": {
-    "description": "월 2회 선사용 가능한 '스킵 쿠폰'. 미리 써두면 그날 스트릭 깨지지 않음",
+    "description": "월 2회 쓸 수 있는 스킵 쿠폰. 미리 써두면 그날은 스트릭이 안 끊겨요.",
     "monthly_allowance": 2,
     "usage_rule": "당일 또는 전날 선언. 사후 등록은 불가",
     "persistence": "state.json에 remaining_skip_days 필드로 누적/소진 관리"
   },
   "philosophy": {
-    "principle": "회복은 중단이 아니라 설계된 휴식이다",
-    "anti_pattern": "100% 매일 달성 강박 → 한 번 놓치면 전체 포기로 이어지는 완벽주의의 덫",
-    "goal": "장기 지속 가능성 > 단기 성취율"
+    "principle": "쉬는 것도 계획의 일부예요",
+    "anti_pattern": "매일 100%에 집착하면 한 번 놓쳤을 때 다 포기하게 됩니다",
+    "goal": "오래 가는 게 단번에 잘하는 것보다 중요해요"
   }
 }

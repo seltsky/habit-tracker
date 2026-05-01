@@ -1,9 +1,9 @@
 {
-  "description": "변동 보상 풀. 도파민 예측 불가능성을 유지해 장기 동기 감소 방지. 랜덤 확률 기반으로 매일 0~2개 적용.",
+  "description": "랜덤하게 등장하는 보너스 풀. 매일 0~2개가 깜짝 추가됩니다.",
   "last_updated": "2026-04-23",
   "random_bonus_xp": {
     "trigger_probability": 0.25,
-    "description": "생성 시 25% 확률로 '오늘의 행운' 발령. 임의 퀘스트 1개에 +10~30 XP",
+    "description": "25% 확률로 오늘의 행운 발동. 임의 퀘스트 하나에 +10~30 XP",
     "xp_range": [10, 30],
     "notification_templates": [
       "오늘의 행운 — {quest}에 +{xp} XP 보너스",
@@ -15,77 +15,77 @@
   },
   "hidden_quests": {
     "trigger_probability": 0.30,
-    "description": "생성 시 30% 확률로 '숨은 퀘스트' 1개 추가. 일반 리스트에 없던 항목, 작지만 예상 밖의 보상",
+    "description": "30% 확률로 숨은 퀘스트 하나 등장. 작지만 예상 밖의 보상.",
     "items": [
       {
-        "title": "깜짝 감사 — 가까운 사람에게 메시지",
-        "description": "가족·친구·동료 1명에게 '요즘 고맙다' 메시지 3줄",
+        "title": "감사 메시지 한 통",
+        "description": "가족·친구·동료 한 명에게 짧게 '고맙다'",
         "xp": 25,
         "tags": ["hidden", "relation", "gratitude"]
       },
       {
-        "title": "발견 — 처음 보는 단어 1개",
-        "description": "오늘 읽은 글·논문·책에서 처음 본 단어 하나 사전 찾아보기",
+        "title": "처음 본 단어",
+        "description": "오늘 읽은 글에서 처음 본 단어 하나 사전 찾아보기",
         "xp": 15,
         "tags": ["hidden", "curiosity"]
       },
       {
         "title": "1분 명상",
-        "description": "눈 감고 호흡만 세기 60초. 언제든 가능",
+        "description": "눈 감고 호흡 세기 60초",
         "xp": 15,
         "tags": ["hidden", "mindfulness"]
       },
       {
         "title": "사진 한 장",
-        "description": "오늘 하루 중 마음 끌린 장면 사진 1장. 설명 한 줄 붙여 저장",
+        "description": "오늘 마음 끌린 장면 한 컷 + 한 줄 메모",
         "xp": 20,
         "tags": ["hidden", "creative"]
       },
       {
         "title": "5분 스트레칭",
-        "description": "목·어깨·허리 집중. 유튜브에서 아무 영상 따라하기",
+        "description": "목·어깨·허리 풀어주기",
         "xp": 20,
         "tags": ["hidden", "body"]
       },
       {
-        "title": "와이프 포옹 10초",
-        "description": "말없이 10초 이상 꼬옥 — 옥시토신 분비 확인된 습관",
+        "title": "사모님 10초 포옹",
+        "description": "말없이 10초",
         "xp": 30,
         "tags": ["hidden", "wife", "pregnancy"]
       },
       {
         "title": "햇빛 5분",
-        "description": "창가·옥상·밖에서 5분 햇볕. 비타민D + 세로토닌",
+        "description": "창가·옥상·밖, 어디든 5분",
         "xp": 15,
         "tags": ["hidden", "body", "mood"]
       },
       {
-        "title": "과거 일기 1편",
-        "description": "옵시디언·일기앱에서 랜덤 과거 기록 1개 다시 읽기",
+        "title": "옛 일기 한 편",
+        "description": "랜덤 과거 기록 하나 다시 읽기",
         "xp": 15,
         "tags": ["hidden", "reflection"]
       },
       {
         "title": "청소 90초",
-        "description": "눈에 거슬리던 작은 구역 하나. 책상 한 귀퉁이면 충분",
+        "description": "거슬리던 작은 구역 하나만",
         "xp": 15,
         "tags": ["hidden", "organize"]
       },
       {
-        "title": "오래된 메모 정리",
-        "description": "인박스·노트앱에서 오래된 메모 3개 처리 (삭제·아카이브·실행)",
+        "title": "메모 정리",
+        "description": "오래된 메모 3개 비우기 (삭제·정리·실행)",
         "xp": 20,
         "tags": ["hidden", "organize"]
       },
       {
-        "title": "감사 리스트 3줄",
-        "description": "오늘 고마웠던 것 3가지. 구체적으로, 형식 자유",
+        "title": "감사 3줄",
+        "description": "오늘 고마웠던 것 3가지",
         "xp": 20,
         "tags": ["hidden", "gratitude"]
       },
       {
-        "title": "좋아하는 음악 1곡 집중해서",
-        "description": "이어폰으로 한 곡 처음부터 끝까지 멀티태스킹 없이 듣기",
+        "title": "음악 한 곡 집중",
+        "description": "이어폰으로 한 곡, 다른 거 안 하고 끝까지",
         "xp": 15,
         "tags": ["hidden", "media", "presence"]
       }

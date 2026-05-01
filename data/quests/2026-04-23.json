@@ -13,7 +13,9 @@
     "yesterday_energy": null,
     "yesterday_mood": null,
     "yesterday_memo": "회식 (술자리)",
-    "missing_quest_days": ["2026-04-22"],
+    "missing_quest_days": [
+      "2026-04-22"
+    ],
     "wife_condition_yesterday": null,
     "wife_last_known": {
       "date": "2026-04-19",
@@ -22,9 +24,13 @@
     },
     "pregnancy_week": "7+0주차",
     "recent_event": "2026-04-22 회식 — 숙취/피로/수면부족 가능성 높음 (당일 토마토 해장 질문 이력)",
-    "user_inbox": ["구글 캘린더 일정이 퀘스트로 추가되었으면 좋겠음"],
+    "user_inbox": [
+      "구글 캘린더 일정이 퀘스트로 추가되었으면 좋겠음"
+    ],
     "inbox_applied": 1,
-    "inbox_applied_to": ["q-2026-04-23-11"],
+    "inbox_applied_to": [
+      "q-2026-04-23-11"
+    ],
     "inbox_note": "캘린더 퀘스트 요청 — 외부 API 연동 전이라 수동 입력 placeholder 퀘스트로 반영. API 연결 완료 시 자동 생성으로 전환 예정",
     "external_calendar_count": 0,
     "external_tasks_applied": [],
@@ -37,7 +43,7 @@
     "adaptation": [
       "회식 다음날 → 헬스 강도 대폭 낮춤 (45분 고강도 → 가벼운 걷기 or 스트레칭 20분)",
       "숙취 회복 우선 → 수분·전해질·단백질 강조, 간 부담 항목(우루사 등) 우선 복용",
-      "술 끊김 리셋 → 오늘부터 절주 재시작 (W17 남은 4일 4/7 가능)",
+      "술 끊김 리셋 → 오늘부터 절주 재시작 (남은 4일 4/7 가능)",
       "연구 20분 유지 — 회식 다음날이라 '파일 열기만' 2분 규칙 적용",
       "인박스 캘린더 요청 → 수동 placeholder로 실제 반영 (applied_to 채움)"
     ],
@@ -73,7 +79,7 @@
     },
     "streak_milestone": null
   },
-  "morning_message": "어제 회식 고생하셨어요. 오늘은 회복 모드로 잡았습니다 — 쌓인 피로를 비우는 주간이에요. 헬스는 가볍게, 물·단백질·영양제 먼저. 아기는 지금 뇌·척수·팔다리 싹이 만들어지는 중이라, 와이프 입덧 챙기시는 게 오늘의 dad_action입니다 (D-229). 연구는 20분만 파일 여는 것까지, 술 0잔이면 W17 절주 Day 1 재시작 가능합니다. 큰 변화는 작게 쌓입니다.",
+  "morning_message": "어제 회식 고생하셨어요. 오늘은 회복 모드로 잡았습니다 — 쌓인 피로를 비우는 주간이에요. 헬스는 가볍게, 물·단백질·영양제 먼저. 아기는 지금 뇌·척수·팔다리 싹이 만들어지는 중이라, 와이프 입덧 챙기시는 게 오늘의 dad_action입니다 (D-229). 연구는 20분만 파일 여는 것까지, 술 0잔이면 절주 Day 1 재시작 가능합니다. 큰 변화는 작게 쌓입니다.",
   "quests": [
     {
       "id": "q-2026-04-23-01",
@@ -87,7 +93,10 @@
       "tier": "normal",
       "xp": 20,
       "estimated_minutes": 2,
-      "tags": ["morning", "recovery"],
+      "tags": [
+        "morning",
+        "recovery"
+      ],
       "reasoning": "회식 후 간 부담 최소화 — 우루사 복용 타이밍 놓치지 말기"
     },
     {
@@ -102,7 +111,10 @@
       "tier": "normal",
       "xp": 15,
       "estimated_minutes": 1,
-      "tags": ["all_day", "recovery"],
+      "tags": [
+        "all_day",
+        "recovery"
+      ],
       "reasoning": "알코올 이뇨 후 탈수 회복 — 수분 공급이 두통·피로 회복에 직접 기여"
     },
     {
@@ -112,12 +124,15 @@
       "subdomain": "no_alcohol",
       "category": "health",
       "identity": "liver",
-      "title": "절주 재시작 (술 0잔) ⭐ W17",
-      "description": "오늘 하루 술 0잔 — W17 절주 Day 1 재시작",
+      "title": "절주 재시작 (술 0잔) ⭐ 주간",
+      "description": "오늘 하루 술 0잔 — 절주 Day 1 재시작",
       "tier": "normal",
       "xp": 25,
       "estimated_minutes": 0,
-      "tags": ["all_day", "boss"],
+      "tags": [
+        "all_day",
+        "boss"
+      ],
       "reasoning": "4/22 회식으로 절주 카운트 끊김 → 오늘부터 재시작. 남은 4일 4/7 가능"
     },
     {
@@ -127,12 +142,15 @@
       "subdomain": "protein",
       "category": "health",
       "identity": "liver",
-      "title": "단백질 챙기기 ⭐ W17",
+      "title": "단백질 챙기기 ⭐ 주간",
       "description": "점심·저녁에 닭·두부·계란·그릭요거트 중 1개씩 — 술 다음날 근손실 방지",
       "tier": "easy",
       "xp": 15,
       "estimated_minutes": 5,
-      "tags": ["all_day", "boss"],
+      "tags": [
+        "all_day",
+        "boss"
+      ],
       "reasoning": "알코올 대사 시 근단백 분해 촉진 → 단백질 보충으로 회복 가속"
     },
     {
@@ -147,7 +165,9 @@
       "tier": "easy",
       "xp": 10,
       "estimated_minutes": 5,
-      "tags": ["morning"],
+      "tags": [
+        "morning"
+      ],
       "reasoning": "회식 다음날이라 5분 유지 — 스트릭 끊지 않기가 목표"
     },
     {
@@ -162,7 +182,11 @@
       "tier": "easy",
       "xp": 15,
       "estimated_minutes": 5,
-      "tags": ["morning", "wife", "pregnancy"],
+      "tags": [
+        "morning",
+        "wife",
+        "pregnancy"
+      ],
       "reasoning": "어제 회식으로 와이프 혼자 저녁 — 오늘 먼저 컨디션 묻고 관심 표현"
     },
     {
@@ -172,13 +196,18 @@
       "subdomain": "gym",
       "category": "routine",
       "identity": "move",
-      "title": "가벼운 운동 20분 (헬스 대체) ⭐ W17",
+      "title": "가벼운 운동 20분 (헬스 대체) ⭐ 주간",
       "description": "목요일 헬스 대신 — 걷기/스트레칭/자전거 유산소 20분, 무리 금지. 컨디션 괜찮으면 머신 가벼운 무게 3종만",
       "tier": "easy",
       "xp": 25,
       "estimated_minutes": 20,
-      "tags": ["evening", "gym", "boss", "adapted"],
-      "reasoning": "회식 다음날 강도 낮춤 — 완주가 목표. W17 운동 카운트는 올라감"
+      "tags": [
+        "evening",
+        "gym",
+        "boss",
+        "adapted"
+      ],
+      "reasoning": "회식 다음날 강도 낮춤 — 완주가 목표. 운동 카운트는 올라감"
     },
     {
       "id": "q-2026-04-23-08",
@@ -192,7 +221,10 @@
       "tier": "easy",
       "xp": 15,
       "estimated_minutes": 30,
-      "tags": ["evening", "wife"],
+      "tags": [
+        "evening",
+        "wife"
+      ],
       "reasoning": "회식으로 어제 저녁 부재 → 오늘 보완"
     },
     {
@@ -207,7 +239,9 @@
       "tier": "easy",
       "xp": 20,
       "estimated_minutes": 20,
-      "tags": ["evening"],
+      "tags": [
+        "evening"
+      ],
       "reasoning": "회식 다음날 의지력 낮음 → 2분 규칙 적용, 시작 자체가 목표"
     },
     {
@@ -222,7 +256,10 @@
       "tier": "normal",
       "xp": 35,
       "estimated_minutes": 0,
-      "tags": ["night", "recovery"],
+      "tags": [
+        "night",
+        "recovery"
+      ],
       "reasoning": "알코올은 REM 수면 저하 → 양이 부족하면 피로 누적. 오늘 수면이 내일 컨디션 결정"
     },
     {
@@ -237,7 +274,10 @@
       "tier": "easy",
       "xp": 5,
       "estimated_minutes": 2,
-      "tags": ["morning", "inbox"],
+      "tags": [
+        "morning",
+        "inbox"
+      ],
       "reasoning": "인박스 요청 '구글 캘린더 일정이 퀘스트로 추가되었으면 좋겠음' — API 연동 전 수동 placeholder로 반영"
     },
     {
@@ -252,7 +292,12 @@
       "tier": "easy",
       "xp": 30,
       "estimated_minutes": 1,
-      "tags": ["hidden", "wife", "pregnancy", "bonus"],
+      "tags": [
+        "hidden",
+        "wife",
+        "pregnancy",
+        "bonus"
+      ],
       "reasoning": "30% 확률 숨은 퀘스트 슬롯 히트 — 도파민 변동 보상 시스템의 첫 적용 사례. 관계·임신 주차 맥락 맞춰 선정"
     },
     {
@@ -267,7 +312,12 @@
       "tier": "easy",
       "xp": 20,
       "estimated_minutes": 10,
-      "tags": ["evening", "novelty", "wife", "explore"],
+      "tags": [
+        "evening",
+        "novelty",
+        "wife",
+        "explore"
+      ],
       "reasoning": "관계 카테고리 xp +30% 보너스 (recovery 테마지만 novelty 슬롯은 별도 가중치). 회식으로 어제 비운 저녁 시간을 오늘 깊이로 채움 — 표면적 질문 말고 서로 새로 발견할 수 있는 각도"
     }
   ],
