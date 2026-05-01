@@ -638,10 +638,8 @@
     const skipObj = state.log.skipped.find(s => s.quest_id === q.id);
     const statusClass = isDone ? 'done' : (skipObj ? 'skipped' : '');
     const icon = tileIcon(q);
-    const { action, tagline } = splitTitle(q.title);
+    const { action } = splitTitle(q.title);
     const safeAction = action.replace(/</g, '&lt;');
-    const safeTag = tagline.replace(/</g, '&lt;');
-    const desc = (q.description || '').replace(/</g, '&lt;');
     return `
       <div class="habit-row ${statusClass} extra" data-id="${q.id}" data-kind="extra">
         <button class="row-check" aria-label="완료 토글">
@@ -649,11 +647,9 @@
         </button>
         <div class="row-body">
           <div class="row-title">${safeAction}</div>
-          ${safeTag ? `<div class="row-tagline">${safeTag}</div>` : ''}
         </div>
         <button class="row-more" aria-label="건너뛰기">⋯</button>
       </div>
-      ${desc ? `<div class="row-stats-panel"><div class="extra-desc">${desc}</div></div>` : ''}
     `;
   }
 
