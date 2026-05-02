@@ -1,0 +1,358 @@
+{
+  "date": "2026-05-03",
+  "weekday_kr": "일요일",
+  "generated_at": "2026-05-03T05:00:00+09:00",
+  "generator": "claude-opus-4-7",
+  "context": {
+    "weekday": 0,
+    "season": "2026-05",
+    "weather_summary": "외부 API 미응답 — 5월 첫 일요일, 봄 끝에서 초여름 길목. 야외 활동(교회 이동·가족 외출) 무난",
+    "yesterday_completion": null,
+    "yesterday_completed_count": 0,
+    "yesterday_total_count": 11,
+    "yesterday_energy": null,
+    "yesterday_mood": null,
+    "yesterday_memo": "",
+    "yesterday_note": "어제(토 5/2) 로그상 완료/스킵 0건. energy/mood/memo 모두 비어있음. 토요일 표준 슬롯(골프·달리기·와이프 산책·11시 취침·영어·novelty 등 11개) 모두 미체크 — 실제 수행 여부 불확실. 4/22·4/24·4/27·4/28·4/29·4/30·5/1·5/2 빈칸 시리즈 8일째 갱신",
+    "wife_condition_yesterday": null,
+    "wife_last_known": {
+      "date": "2026-04-26",
+      "condition": 9,
+      "memo": "기록 없음 (당시 7+5주차)"
+    },
+    "pregnancy_week": "8+5주차",
+    "recent_failure_pattern": [
+      "어제 데이트 다음날 와이프 산책 슬롯이 보스 와이프 컴포넌트 마감 슬롯이었으나 미로그. 보스 진행률 산정 데드라인 당일에도 추정값",
+      "어제 골프/달리기 운동 슬롯 미로그. W18 운동 컴포넌트 마감 여부 불확실",
+      "어제 11시 취침 미로그 — 사흘 도미노 두 번째 골 진입 여부 불확실. 오늘 11시 취침은 데드라인 당일 마지막 슬롯"
+    ],
+    "skipped_detail": [],
+    "external_api_status": "외부 캘린더/Tasks 미반영 — 5/3 별도 일정 정보 없음, 일요일 표준 슬롯(교회+가족+연구+주간계획) 가정",
+    "external_calendar": [],
+    "adaptation": [
+      "일요일 = 교회+가족+연구+주간계획 루틴. 4/26(지난 일요일)도 같은 구조였고 11퀘스트 + novelty 처리 — 오늘도 동일 골격에 W18 보스 마감 + W19 새 테마 후보 슬롯 추가",
+      "오늘은 매월 첫째 일요일 = official_rest_day 후보지만 ① W18 보스 데드라인(취침 마지막 슬롯) ② 일요일 루틴이 가장 빡빡 ③ 어제 5/2 미니멈 모드 트리거 신호 없음(지난 7일 알코올 1회·energy ≤3 3일 연속 미충족) — normal 모드로 진행. 다음달 첫째 일요일(6/7) 또는 컨디션 신호 떨어지는 주의 일요일에 rest_day 적용",
+      "8+5주차 = 8주차의 마지막 이틀 중 첫째날. 9주차(태아 단계 진입) 직전 = 배아→태아 경계 데이터 슬롯. 입덧 최고조 막바지 후반 — 어제 산책 후 컨디션이 더 가벼워졌는지/그대로인지가 9주차 진입 dad_action(7주차 dad_action에서 9주차 dad_action으로) 결정의 직전 입력값",
+      "W18 보스 데드라인 당일. 운동·와이프 컴포넌트는 어제 슬롯에서 결판났을 가능성 높고, 오늘은 11시 취침 1슬롯만 명시적 잔여. 보스 결과 정산 + W19 새 테마 후보 추리는 주간계획 슬롯에서 동시 처리",
+      "5/4(월) = W19 시작. 오늘 주간계획 슬롯에서 다음 테마 후보를 1~2개 미리 추려두면 내일 아침 알림 시 즉시 결정 가능. recovery 트리거 미충족 + 임신 8→9주차 경계라 relation 연장 또는 strength 전환이 자연 후보",
+      "Duolingo 무료 루트 10일째이지만 일요일 루틴엔 영어 슬롯 부재(4/26도 동일). 7일 노출 끊김 회피하려면 평일에 안착시킨 출근길·트레드밀·점심 슬롯이 평일 5일에 충분 — 오늘은 의도적 휴식",
+      "어제 로그 미회수 8일째. 오늘 주간계획 슬롯에 4/27~5/2 일괄 로그 회수 직접 포함 — W18 정확 정산을 위해서도 필수"
+    ],
+    "weekly_theme": {
+      "id": "relation",
+      "name": "관계 주간",
+      "focus": "와이프·가족·친구 중심",
+      "morning_tagline": "옆에 있는 사람들을 더 깊게 보는 주간입니다",
+      "selected_at": "2026-04-27",
+      "selected_reason": "월요일 시작 시 선택(4/27). 오늘은 day 7 = 마지막 날 — 유지(월요일 아님). 내일 5/4 월요일에 새 테마 재선택",
+      "previous_theme": "recovery (2026-04-23 ~ 2026-04-26)",
+      "xp_bonus": {
+        "wife": 1.3,
+        "family": 1.3
+      },
+      "emphasized_quests": [
+        "와이프 체크",
+        "와이프와 저녁",
+        "가족 안부"
+      ]
+    },
+    "novelty_selection": {
+      "category": "exploration_research",
+      "item": "PubMed 트렌딩 키워드 1개로 5분 검색",
+      "last_used_date": "2026-04-26",
+      "rationale": "최근 10일 novelty 회전: relation(4/23)→self(4/24·25)→research(4/26)→food(4/27)→media(4/28)→learn(4/29)→walk(4/30)→relation(5/1)→self(5/2)→오늘 research. 4/26 이후 7일 — 일요일 = 연구일 가중치 +20% 슬롯 + 14일 권장 간격엔 미치나 다른 카테고리 모두 더 가까움. 4/26은 '다른 분야 연구자 블로그 1개' = 외연 confirm → 오늘은 'PubMed 트렌딩 키워드 검색' = 본인 분야 안에서 새 결을 보는 다른 sub-axis. xp_range 10~15 중간값 13(탐험 테마 아니므로 보너스 미적용)"
+    },
+    "pregnancy": {
+      "week": "8+5주차",
+      "d_day": "D-219",
+      "stage": "1st trimester",
+      "baby": "손가락·발가락 분화·장기 배치 (8주차 마지막 이틀 중 첫째날, 9주차 태아 단계 진입 직전)",
+      "mom": "입덧 최고조의 막바지 — 8주차 끝 무렵 안정화 신호가 보일 수 있는 시점, 어제 산책 후 컨디션 변화 관찰 슬롯",
+      "dad_action": "메스꺼움 없는 음식 실험, 냄새 자극 최소화",
+      "meaning": "정교한 조립이 한창 — 9주차 경계가 이틀 앞"
+    },
+    "mode": "normal",
+    "rest_day_check": "매월 첫째 일요일이지만 W18 보스 데드라인 + 일요일 루틴(교회+가족+연구+주간계획) + 미니멈 트리거 미충족으로 normal 모드 적용. 다음 후보는 6/7(다음달 첫째 일요일) 또는 컨디션 저점 일요일",
+    "bonus_xp": {
+      "quest_id": "q-2026-05-03-11",
+      "xp_added": 20,
+      "template_used": "오늘 {quest}는 특별합니다 — +{xp} XP"
+    },
+    "hidden_quest": {
+      "title": "감사 3줄",
+      "xp": 20
+    },
+    "streak_milestone": null,
+    "w18_boss_status": {
+      "exercise": "?/4 — 5/2 골프/달리기 미로그 누적. 보수 가정 1~3/4. 운동 컴포넌트는 어제로 사실상 마감 슬롯 종료, 오늘 별도 운동 퀘스트 미배치(일요일 표준 + 데드라인 당일 컨디션 보호)",
+      "wife_solo_time": "?/3 — 5/2 산책 미로그 누적. 보수 가정 1~3/3. 와이프 컴포넌트도 어제로 사실상 마감 슬롯 종료, 오늘은 와이프 저녁 동석으로 회복 슬롯 추가 가능",
+      "sleep": "?/5 — 5/2 11시 취침 미로그 누적. 보수 가정 1~3/5. 오늘이 데드라인 당일 마지막 명시 잔여 슬롯 = 수행 시 +1, 미수행 시 컴포넌트 미달 확정",
+      "alcohol_no": "일일 퀘스트로만 유지(보스 컴포넌트 제외). 지난 7일 1회(4/27 회식)로 자체 카운트 양호"
+    },
+    "user_inbox": [],
+    "inbox_applied": 0,
+    "inbox_note": "미처리 인박스 항목 없음(in-1776688896502는 2026-04-22 적용 완료). state.json inbox 변경 없음",
+    "auto_recovery_trigger": {
+      "matched": false,
+      "reason": "지난 7일(2026-04-27~05-03) 알코올 이벤트 1회(4/27 회식). ≥2 미달. energy ≤3 3일 연속 미충족(최근 점수 4/26: 7, 그 외 미기록)",
+      "action_taken": "정상 모드 유지, relation 테마 마지막 날 유지"
+    },
+    "variation_note": "지난 7일 대비 표현 변주 체크 완료. 영양제: 평일 시간 다리(5/1) → 주말 anchor 유지(5/2) → 오늘 '예배 시간이 알람 — 교회 가기 전 첫 동작'으로 외부 일정이 트리거가 되는 슬롯 각도. 물: 컷오프(5/1) → 운동 분배(5/2) → 오늘 '교회→집→가족 자리 옮길 때마다 한 모금'으로 자리이동 트리거 각도. 절주: 동행(5/1) → 패턴 교체(5/2) → 오늘 '한 주 마무리 — 0이 자연스러운 자리에서의 0' 마무리 각도. 단백질: 외식 첫 주문(5/1) → 두 끼 분리(5/2) → 오늘 '교회 후 점심 한 끼에 와이프와 함께 — 입덧 메뉴 동조 + 본인 단백질 한 점' 동조-동시 각도. 영어: 5/2 침대 슬롯 검증 후 일요일 의도적 휴식(7일 노출은 평일 5일로 확보). 와이프 체크: 단계 경계(5/2) → 오늘 '어제 산책 후 첫 아침 — 가벼워졌는지/그대로인지' 사후 비교 각도. 와이프 시간: 산책(5/2) → 오늘 와이프와 저녁 동석으로 동시간 형태 변경. 11시 취침: 의지력 시험(5/2) → 오늘 '데드라인 당일 마지막 잔여 슬롯 — 수행 시 보스 마감 1요소' 데드라인 각도. 가족 안부는 5/1 두 번째 닻 → 오늘 가족 점심·오후 시간으로 형태 전환(전화 → 동석). 연구는 4/26 일요일 가벼운 정리 → 오늘 5/2~5/3 W19 직전 = 데이터 회수 + 다음 주 진입점 정리 각도"
+  },
+  "morning_message": "일요일 아침입니다. 어제 산책을 함께 했다면 오늘 와이프가 더 가벼워졌는지 그대로인지가 8주차 끝과 9주차(태아 단계) 시작의 경계 데이터예요(D-219, 8+5주차). 입덧 최고조의 막바지에서 안정화 신호가 보일 수 있는 며칠 — 메스꺼움 없는 음식과 냄새 자극 최소화는 오늘도 그대로입니다. 옆에 있는 사람들을 더 깊게 보는 주간의 마지막 날이에요. 교회·가족 점심·와이프와 저녁 — 같은 시간 안에 세 사람을 따로따로 보는 하루로 짰습니다. W18 보스 데드라인 당일이라 11시 취침이 명시 잔여 슬롯의 마지막이고, 주간계획 슬롯에서 4/27~5/2 로그 회수와 W19 새 테마 후보 추리기가 같이 들어갑니다.",
+  "quests": [
+    {
+      "id": "q-2026-05-03-01",
+      "type": "daily",
+      "domain": "health",
+      "subdomain": "supplements",
+      "category": "health",
+      "identity": "liver",
+      "title": "영양제 — 예배 시간이 알람",
+      "description": "일요일 아침은 평일처럼 회진 알람이 없는 대신 예배 시간이 외부 알람 역할. 교회 출발 30분 전 = 영양제 슬롯으로 고정. 우루사·비타민·양배추환·프로바이오틱스 + 물 한 잔, 점심 후 우루사 1알은 가족 점심 자리에서.",
+      "tier": "normal",
+      "xp": 15,
+      "estimated_minutes": 3,
+      "tags": [
+        "morning",
+        "pre_church"
+      ],
+      "reasoning": "주말 anchor 유지(5/2)에서 한 발 옆으로 — 외부 일정(예배 시간)이 트리거가 되는 새 슬롯 각도. 일요일은 출근 알람이 없어 자유시간 가장 큰 날 중 하나라, 외부 시각이 anchor 역할 하는 구조"
+    },
+    {
+      "id": "q-2026-05-03-02",
+      "type": "daily",
+      "domain": "health",
+      "subdomain": "water",
+      "category": "health",
+      "identity": "skin",
+      "title": "물 1.5L — 자리 옮길 때마다 한 모금",
+      "description": "오늘은 집 → 교회 → 식당(가족 점심) → 집 → 외출(있으면) → 집으로 자리 이동이 잦은 날. 도착할 때마다 컵부터 채우고 한 모금 — 자리 이동 자체가 메트로놈. 이동 5번이면 1L 가까이 자연 누적, 저녁에 500mL만 더 보충.",
+      "tier": "easy",
+      "xp": 10,
+      "estimated_minutes": 1,
+      "tags": [
+        "all_day",
+        "location_paced"
+      ],
+      "reasoning": "동선(4/30)→컷오프(5/1)→운동 분배(5/2)→오늘 자리 이동 트리거. 6일 연속 다른 nudge 메커니즘 — 일요일은 외부 사건(이동)이 운동보다 더 자주 발생해 분배 단위가 더 잘게"
+    },
+    {
+      "id": "q-2026-05-03-03",
+      "type": "daily",
+      "domain": "health",
+      "subdomain": "no_alcohol",
+      "category": "health",
+      "identity": "liver",
+      "title": "절주 — 한 주 마무리, 0이 자연스러운 자리",
+      "description": "관계 주간 마지막 날. 오늘은 회식·외부 권유 슬롯 자체가 거의 없는 일요일이라 0잔이 노력 없이 가능한 자리. 의지력 쓸 일이 없는 날일수록 그 자리에 자연스레 자리 잡는다는 감각만 한 번 의식. 무알콜 한 잔도 굳이 안 들어도 됨.",
+      "tier": "easy",
+      "xp": 25,
+      "estimated_minutes": 0,
+      "tags": [
+        "all_day",
+        "week_close"
+      ],
+      "reasoning": "미래 저금(4/30)→동행(5/1)→패턴 교체(5/2)→오늘 한 주 마무리. 절주 동기가 외부 자극 없는 자리에서 자연스럽게 자리 잡는 감각으로 수렴 — 의지력보다 환경의 결과. 보스 컴포넌트 외이지만 일일 퀘스트 유지"
+    },
+    {
+      "id": "q-2026-05-03-04",
+      "type": "daily",
+      "domain": "health",
+      "subdomain": "protein",
+      "category": "health",
+      "identity": "liver",
+      "title": "단백질 — 가족 점심 한 끼에 와이프 동조 + 본인 한 점",
+      "description": "교회 후 가족 점심이 메인 끼니. 와이프 입덧 메뉴(두부·생선·죽 등) 한 그릇 같이 시키되, 본인 메뉴는 단백질 한 점 추가(닭·계란·고기 작은 1인분). 한 식탁에서 메스꺼움 없는 옵션 동조 + 본인 회복 단백질이 같이 작동.",
+      "tier": "easy",
+      "xp": 15,
+      "estimated_minutes": 5,
+      "tags": [
+        "lunch",
+        "family_meal"
+      ],
+      "reasoning": "가정 식탁 분리(4/30)→외식 첫 주문(5/1)→두 끼 분리(5/2)→오늘 동조-동시. 어제는 두 끼 분리였다면 오늘은 한 끼 안에서 동조와 본인 회복을 동시에 — 가족 점심이라는 슬롯 특성에 맞춘 구조"
+    },
+    {
+      "id": "q-2026-05-03-05",
+      "type": "main",
+      "domain": "relationship",
+      "subdomain": "wife",
+      "category": "wife",
+      "identity": "family",
+      "title": "⭐ 와이프 컨디션 체크 — 어제 산책 후 첫 아침",
+      "description": "8+5주차. 손가락·발가락 분화·장기 배치는 같은 단계지만 9주차(태아 단계) 진입까지 이틀. 어제 산책을 함께 했다면 오늘 일어났을 때 더 가벼워졌는지/그대로인지 직접 비교 가능. 4/26 마지막 기록(9점) 이후 7일 공백, 입덧 안정화 신호 후보 데이터.",
+      "tier": "easy",
+      "xp": 13,
+      "estimated_minutes": 10,
+      "tags": [
+        "morning",
+        "wife",
+        "pregnancy",
+        "post_walk"
+      ],
+      "reasoning": "relation 테마 wife +30% (10→13). 패턴(4/30)→의사결정(5/1)→단계 경계(5/2)→오늘 사후 비교. 어제 활동이 와이프 컨디션에 어떤 영향을 줬는지 데이터 회수 = 다음 주 dad_action 전환(8주차 dad_action에서 9주차 'NIPT 일정 확인 지원 + 사진 남기기'로) 결정 입력"
+    },
+    {
+      "id": "q-2026-05-03-06",
+      "type": "main",
+      "domain": "faith",
+      "subdomain": "church",
+      "category": "church",
+      "identity": "family",
+      "title": "교회 예배 참석",
+      "description": "주일 예배 참석. 폰 무음, 설교 한 대목만 메모 한 줄 남기기 — 나중에 한 주 돌아볼 때 기억 단서.",
+      "tier": "normal",
+      "xp": 25,
+      "estimated_minutes": 90,
+      "tags": [
+        "morning",
+        "church"
+      ],
+      "reasoning": "일요일 표준 슬롯. 4/26 동일 퀘스트 — 표현·구성 유지하되 메모 한 줄 단서는 오늘 추가(주간계획 슬롯에서 한 주 돌아볼 때 활용)"
+    },
+    {
+      "id": "q-2026-05-03-07",
+      "type": "main",
+      "domain": "relationship",
+      "subdomain": "family",
+      "category": "family",
+      "identity": "family",
+      "title": "⭐ 가족 점심·오후 시간",
+      "description": "교회 후 본가 또는 처가에서 가족 점심. 와이프 입덧 메뉴 같이 시키고, 부모님께 임신 8주차 후반 컨디션 짧게만 공유. 식후 1시간 정도 거실 시간 — 짧게 자리 지키기.",
+      "tier": "normal",
+      "xp": 33,
+      "estimated_minutes": 120,
+      "tags": [
+        "afternoon",
+        "family",
+        "lunch"
+      ],
+      "reasoning": "relation 테마 family +30% (25→33). 5/1 가족 안부(전화) → 오늘 동석으로 형태 전환. 임신 8+5주차 = 양가에 컨디션 공유 자연 슬롯, 9주차 진입 직전 데이터를 가족과 공유하는 첫 슬롯"
+    },
+    {
+      "id": "q-2026-05-03-08",
+      "type": "main",
+      "domain": "relationship",
+      "subdomain": "wife",
+      "category": "wife",
+      "identity": "family",
+      "title": "⭐ 와이프와 저녁 동석",
+      "description": "외부 일정 마치고 집에 돌아와 둘이 저녁. 메뉴는 와이프 컨디션에 맞춰 가벼운 옵션. 폰 멀리 두고 오늘 하루 인상 한 줄씩 주고받기 — 길게 안 해도 됨, 한 식탁에 같이 앉아 있는 30분.",
+      "tier": "easy",
+      "xp": 39,
+      "estimated_minutes": 45,
+      "tags": [
+        "evening",
+        "wife",
+        "dinner"
+      ],
+      "reasoning": "relation 테마 wife +30% (30→39). 어제 산책(가벼운 회복) → 오늘 저녁 동석(정적 동시간). 같은 와이프 단독 시간의 형태가 활동→정착으로 — 임신 8주차 후반 저녁 동석은 산모 휴식과도 자연 매칭"
+    },
+    {
+      "id": "q-2026-05-03-09",
+      "type": "main",
+      "domain": "study",
+      "subdomain": "research",
+      "category": "research",
+      "identity": "researcher",
+      "title": "연구 30분 — 5/2까지의 정리 + W19 진입점",
+      "description": "지난 한 주 연구 진행분(있다면 UAE 응답 초안·있는 자료) 30분 정리. 새 작업 들어가지 말고, 어디까지 왔는지·다음 한 칸이 무엇인지만 노트 한 페이지로. 내일 5/4 월요일 책상 앉을 때 진입점이 명확하면 첫 30분 마찰 0.",
+      "tier": "normal",
+      "xp": 25,
+      "estimated_minutes": 30,
+      "tags": [
+        "evening",
+        "research",
+        "weekly_close"
+      ],
+      "reasoning": "4/26 일요일 가벼운 정리 → 오늘은 W19 진입점 명시 추가. 일요일 = 다음 주 시작점 만드는 슬롯, 'AAR(After Action Review)'보다 'NAP(Next Action Point)' 각도가 월요일 마찰을 더 줄임"
+    },
+    {
+      "id": "q-2026-05-03-10",
+      "type": "challenge",
+      "domain": "study",
+      "subdomain": "research",
+      "category": "routine",
+      "identity": "researcher",
+      "title": "주간계획 — W18 정산 + W19 새 테마 후보 + 4/27~5/2 로그 회수",
+      "description": "세 가지를 한 슬롯에서 처리(15분). ① 4/27~5/2 PWA 로그 일괄 회수 — 운동·취침·와이프 슬롯 실제 수행 여부 체크 ② W18 보스 컴포넌트 정확 정산(운동 ?/4·와이프 ?/3·취침 ?/5) ③ W19(5/4~5/10) 테마 후보 1~2개 — relation 연장 vs strength(8→9주차 안정화 신호 시 본인 운동 강화) 비교, 내일 아침 알림 시 즉시 결정.",
+      "tier": "normal",
+      "xp": 30,
+      "estimated_minutes": 15,
+      "tags": [
+        "evening",
+        "weekly_planning",
+        "log_recovery"
+      ],
+      "reasoning": "4/26 주간계획(회복 효과 자가진단 + 테마 후보) 구조 유지하되 로그 회수 8일치 누적 회수가 핵심 추가. W18 정확 정산이 W19 테마 결정의 입력값 — 미루면 5/4 월요일 새 테마 진입이 흐려짐"
+    },
+    {
+      "id": "q-2026-05-03-11",
+      "type": "daily",
+      "domain": "health",
+      "subdomain": "sleep",
+      "category": "health",
+      "identity": "skin",
+      "title": "11시 취침 — W18 보스 데드라인 당일 마지막 슬롯",
+      "description": "오늘 {quest}는 특별합니다 — +20 XP 보너스. W18 보스의 명시적 잔여 슬롯이 11시 취침 1개. 22:30 폰 거실 → 22:45 양치 → 23:00 침대. 데드라인 당일이라 이 한 슬롯이 보스 취침 컴포넌트 마지막 +1 — 수행 시 데드라인 직전 부분 회수 확정, 미수행 시 컴포넌트 미달.",
+      "tier": "normal",
+      "xp": 45,
+      "estimated_minutes": 0,
+      "tags": [
+        "night",
+        "boss",
+        "deadline_day",
+        "lucky_bonus"
+      ],
+      "reasoning": "사흘 도미노 첫 골(5/1)→의지력 시험(5/2)→오늘 데드라인 당일. 11시 취침의 동기가 '내일 데이트 보존'·'유혹 시험'에서 '보스 마지막 회수'로 — 외부 보상이 가장 가까운 날. 25 base + bonus_xp 20 = 45. 보너스 적용 이유: 보스 데드라인 당일 명시 잔여 슬롯이라 도파민 변동 보상이 가장 의미 있는 슬롯"
+    },
+    {
+      "id": "q-2026-05-03-novelty",
+      "type": "novelty",
+      "domain": "exploration",
+      "subdomain": "research",
+      "category": "exploration",
+      "identity": "researcher",
+      "title": "오늘의 새로움 — PubMed 트렌딩 키워드 5분 검색",
+      "description": "PubMed 메인의 'trending' 키워드 또는 본인 분야 외 핫토픽 한 단어 골라 5분 검색. 초록 1개만 끝까지 읽고 한 줄 메모 — 다음 연구 슬롯에서 떠올릴 단서. 4/26은 다른 분야 연구자 블로그였으니 오늘은 PubMed 안에서 평소 안 보는 결.",
+      "tier": "easy",
+      "xp": 13,
+      "estimated_minutes": 5,
+      "tags": [
+        "novelty",
+        "explore",
+        "research"
+      ],
+      "reasoning": "최근 10일 novelty 회전 후 research 카테고리 회귀(4/26 이후 7일). 일요일 = 연구일 가중치 +20% 슬롯과 자연 매칭. 4/26 외부 블로그(외연 confirm) → 오늘 PubMed 트렌딩(본인 분야 안 다른 결) = 같은 research 안에서 다른 sub-axis. xp_range 10~15 중간값 13(탐험 테마 아니므로 보너스 미적용)"
+    },
+    {
+      "id": "q-2026-05-03-hidden",
+      "type": "hidden",
+      "domain": "recovery",
+      "subdomain": "meditation",
+      "category": "bonus",
+      "identity": "skin",
+      "title": "숨은 퀘스트 — 감사 3줄",
+      "description": "오늘 고마웠던 것 3가지를 짧게 적기. 사람·일·풍경 무엇이든. 자기 전 침대에서 1분.",
+      "tier": "easy",
+      "xp": 20,
+      "estimated_minutes": 1,
+      "tags": [
+        "hidden",
+        "gratitude",
+        "evening"
+      ],
+      "reasoning": "30% 확률 발동. 최근 14일 hidden(5/1 옛 일기·4/30 1분 명상·4/29 사진 한 장·4/27 5분 스트레칭) 중복 회피. 관계 주간 마지막 날 + 주간계획 슬롯과 자연 매칭(한 주 정산의 정서적 짝)"
+    }
+  ],
+  "weekly_boss": {
+    "id": "boss-2026-w18",
+    "title": "운동 4회 + 와이프 단독 시간 3회 + 11시 취침 5일",
+    "deadline": "2026-05-03",
+    "progress": null,
+    "current": "데드라인 당일. 4/27~5/2 로그 미기록 8일째로 진행률 산정 흐림 — 보수 가정 시 운동 1~3/4 + 와이프 1~3/3 + 취침 1~3/5. 오늘 11시 취침 수행 시 취침 컴포넌트 +1, 운동·와이프 컴포넌트는 어제(5/2) 슬롯에서 결판. 정확 정산은 오늘 저녁 주간계획 슬롯의 4/27~5/2 일괄 로그 회수 후 가능",
+    "reward_xp": 250,
+    "note": "= 관계 주간 = 마지막 날. 절주는 일일 퀘스트로만 유지(보스 컴포넌트 제외). 데드라인 당일에도 진행률 추정 — 주간계획 슬롯의 로그 회수가 정확 정산의 유일한 길. W19는 5/4 월요일 시작, 새 테마는 주간계획 슬롯에서 후보 추리기"
+  }
+}
