@@ -1,0 +1,293 @@
+{
+  "date": "2026-05-04",
+  "weekday_kr": "월요일",
+  "generated_at": "2026-05-04T05:23:00+09:00",
+  "generator": "claude-sonnet-4-6",
+  "context": {
+    "weekday": 1,
+    "season": "2026-05",
+    "weather_summary": "외부 API 성공 — 5월 첫 주 월요일, 초여름 길목. 야외 활동 적정",
+    "yesterday_completion": 0.23,
+    "yesterday_completed_count": 3,
+    "yesterday_total_count": 13,
+    "yesterday_energy": null,
+    "yesterday_mood": null,
+    "yesterday_memo": "",
+    "yesterday_note": "어제(일 5/3) 교회·가족점심·와이프저녁 3개 완료(23%). 영양제·물·절주·단백질·연구·취침·주간계획·novelty·hidden 전량 미체크 — 관계 퀘스트만 선택적 달성 패턴 지속. W18 보스 마감일이었으나 취침 마지막 슬롯 미완 추정",
+    "wife_condition_yesterday": null,
+    "wife_last_known": {
+      "date": "2026-04-26",
+      "condition": 9,
+      "memo": "기록 없음 (7+5주차)"
+    },
+    "pregnancy_week": "9+0주차",
+    "recent_failure_pattern": [
+      "health·study 퀘스트 체계적 skip — 관계 퀘스트만 달성 (5/3: 3/13, 5/2: 3/11, 5/1: 5/12)",
+      "11시 취침 5/3 미완 — W18 보스 취침 컴포넌트 마지막 슬롯 놓침 추정",
+      "Duolingo 출근길 슬롯 평일 안착 확인, 주말·일요일 미실행 패턴"
+    ],
+    "skipped_detail": [],
+    "external_api_status": "캘린더 2건·Tasks 5건 반영",
+    "external_calendar": [
+      {
+        "title": "은평",
+        "all_day": true,
+        "note": "하루 일정 — 은평 방문(병원·가족·기타). 헬스 타이밍 귀가 후로 조정 또는 은평 인근 헬스장 대안"
+      },
+      {
+        "title": "박사초독 과제",
+        "all_day": true,
+        "note": "오늘 마감 — 박사 과정 초독 과제. challenge 퀘스트로 반영"
+      }
+    ],
+    "external_tasks_summary": "TIPS·aport variation·hepatic cyst·글루 청구 질문·탄수화물 식단 — 모두 마감일 없음. 오늘 challenge 퀘스트는 캘린더 기반 박사초독으로 대체",
+    "adaptation": [
+      "어제 health/study 전량 skip → 각 health 퀘스트 설명을 한 문장 행동 트리거로 압축",
+      "은평 하루 일정 → 헬스 귀가 후 저녁 슬롯으로 고정. 이동 중 Duolingo·영양제 출발 전 처리 권장",
+      "박사초독 과제 오늘 마감 → challenge 퀘스트로 추가. 연구 30분 대신 박사초독 집중 슬롯으로 대체",
+      "9+0주차 진입 = 배아→태아 공식 전환일. 와이프 컨디션 체크가 9주차 첫 데이터 슬롯",
+      "W18 보스 마감(어제). W19 시작 오늘 — 새 보스·새 테마(집중 주간) 함께 시작",
+      "streak_current = 0 → 오늘 퀘스트 완료 시 +1 재시작",
+      "영어: 출근길 Duolingo 무료 5분 (11일째). 은평 이동 중 슬롯으로 활용 가능"
+    ],
+    "weekly_theme": {
+      "id": "focus",
+      "name": "집중 주간",
+      "focus": "연구·헬스 루틴 재건, 9주차 전환 안정화",
+      "morning_tagline": "한 가지에 집중하면 나머지도 따라옵니다",
+      "selected_at": "2026-05-04",
+      "selected_reason": "W19 시작 월요일 신규 선택. 최근 2주 relation·recovery 테마 후 — 9주차 진입 + 완료율 저조 + streak 0 리셋 = 루틴 재건 집중. relation 연장보다 focus(연구+헬스 루틴 재안착)가 W19 컨텍스트에 더 맞음",
+      "previous_theme": "relation (2026-04-27 ~ 2026-05-03)",
+      "xp_bonus": {
+        "research": 1.2,
+        "exercise": 1.2
+      },
+      "emphasized_quests": [
+        "헬스",
+        "박사초독 과제",
+        "11시 취침"
+      ]
+    },
+    "novelty_selection": {
+      "category": "food",
+      "item": "9주차 입덧 완화 레시피 1개 검색",
+      "last_used_date": "2026-04-27",
+      "rationale": "최근 novelty: relation(5/1)→self(5/2)→research(5/3)→오늘 food. food 4/27 이후 7일 이상. 9주차 진입 + 입덧 막바지 = 아빠가 새 메뉴를 찾아두는 행동이 최적 타이밍"
+    },
+    "pregnancy": {
+      "week": "9+0주차",
+      "d_day": "D-218",
+      "stage": "1st trimester — 태아(fetus) 단계 공식 진입",
+      "baby": "모든 주요 기관 형성 완료 시작, 손톱·귀 형성, 길이 약 2.3cm (포도 한 알)",
+      "mom": "입덧 최고조의 막바지 — 9주차부터 서서히 안정화 시작 가능",
+      "dad_action": "NIPT 일정 확인 지원, 태아 사진 남기기 (9주차 dad_action)",
+      "meaning": "배아에서 태아로 — 오늘이 그 전환의 첫 날"
+    },
+    "mode": "normal",
+    "w18_boss_result": "마감(5/3). 취침 마지막 슬롯 미완 추정. 정확한 결산은 로그 회수 후 가능. W19 새 보스 오늘부터 시작",
+    "user_inbox": [],
+    "inbox_applied": 0,
+    "inbox_note": "미처리 인박스 항목 없음. in-1776688896502는 2026-04-22 적용 완료. state.json inbox 변경 없음",
+    "auto_recovery_trigger": {
+      "matched": false,
+      "reason": "지난 7일 알코올 이벤트 0~1회. energy ≤3 3일 연속 미충족. 정상 모드 유지",
+      "action_taken": "normal 모드 유지, focus 테마 신규 시작"
+    }
+  },
+  "morning_message": "월요일 아침입니다. 오늘부터 9주차 — 배아에서 태아로, 공식 전환일이에요(D-218). 오늘 캘린더에 은평 일정과 박사초독 과제 마감이 있습니다. 이동 중 Duolingo, 돌아와서 헬스·박사초독 순서로 짰습니다. 스트릭이 0에서 다시 시작하는 날 — 한 퀘스트씩.",
+  "quests": [
+    {
+      "id": "q-2026-05-04-01",
+      "type": "daily",
+      "domain": "health",
+      "subdomain": "supplements",
+      "category": "health",
+      "identity": "liver",
+      "title": "영양제 — 은평 출발 전",
+      "description": "은평 이동 전 2분. 우루사·비타민·양배추환·프로바이오틱스 + 물 한 잔. 점심 후 우루사 1알은 은평에서 식사 후.",
+      "tier": "easy",
+      "xp": 15,
+      "estimated_minutes": 2,
+      "tags": ["morning", "anchor", "pre_travel"],
+      "reasoning": "어제(일) 영양제 미완료 → 월요일 복귀. 은평 출발 전이라는 외부 시간 제약이 '지금 바로' 동작 트리거로 작동 — 이동이 알람 역할"
+    },
+    {
+      "id": "q-2026-05-04-02",
+      "type": "daily",
+      "domain": "health",
+      "subdomain": "water",
+      "category": "health",
+      "identity": "skin",
+      "title": "물 1.5L — 이동·은평·귀가 3분할",
+      "description": "이동 중 500mL → 은평 도착 후 점심 시 500mL → 귀가 후 저녁 500mL. 자리 이동이 메트로놈.",
+      "tier": "easy",
+      "xp": 10,
+      "estimated_minutes": 1,
+      "tags": ["all_day", "travel_paced"],
+      "reasoning": "어제 '자리 이동 트리거' 구조를 오늘 은평 이동 동선에 그대로 이식. 집→은평→귀가 3이동이 자연 분배 기준"
+    },
+    {
+      "id": "q-2026-05-04-03",
+      "type": "daily",
+      "domain": "health",
+      "subdomain": "no_alcohol",
+      "category": "health",
+      "identity": "liver",
+      "title": "절주 — 월요일, 퇴근하면 끝",
+      "description": "월요일 저녁은 외부 권유·모임이 가장 적은 자리. 아무것도 안 해도 0잔. 9주차 첫날 수동적 달성.",
+      "tier": "easy",
+      "xp": 25,
+      "estimated_minutes": 0,
+      "tags": ["all_day", "passive_win"],
+      "reasoning": "어제 '한 주 마무리 0잔' → 오늘 '새 주 시작, 월요일 = 외부 자극 최소'. 절주의 레이어가 주 마무리에서 새 주 개시로 자연 순환"
+    },
+    {
+      "id": "q-2026-05-04-04",
+      "type": "daily",
+      "domain": "health",
+      "subdomain": "protein",
+      "category": "health",
+      "identity": "liver",
+      "title": "단백질 — 점심 한 끼 집중",
+      "description": "은평에서 점심. 닭가슴살·계란·고기 소 1인분 중 하나. 한 끼에 집중, 저녁 와이프 합류 시 동조 옵션은 열어두기.",
+      "tier": "easy",
+      "xp": 15,
+      "estimated_minutes": 5,
+      "tags": ["lunch"],
+      "reasoning": "어제 동조-동시(한 끼 안에 입덧 메뉴 + 본인 단백질) → 오늘 평일 이동 중 점심이니 본인 단백질 독립 슬롯으로 분리"
+    },
+    {
+      "id": "q-2026-05-04-05",
+      "type": "main",
+      "domain": "relationship",
+      "subdomain": "wife",
+      "category": "wife",
+      "identity": "family",
+      "title": "⭐ 와이프 컨디션 체크 — 9주차 0일",
+      "description": "오늘부터 태아 단계 공식 진입(D-218). 아기는 포도 한 알, 손톱·귀 형성 시작. 입덧이 서서히 안정화될 수 있는 주 — 오늘 어떤지 물어보기. 4/26(9점) 이후 8일 공백, 9주차 첫 데이터.",
+      "tier": "easy",
+      "xp": 15,
+      "estimated_minutes": 10,
+      "tags": ["morning", "wife", "pregnancy", "milestone"],
+      "reasoning": "8+5주차 마지막(5/3) → 9+0주차 시작(오늘). 태아 단계 전환이라는 임신 최초의 단계 경계 — 오늘 체크가 9주차 dad_action(NIPT 일정 확인 지원) 첫 진입점이자 안정화 신호 첫 관찰 슬롯"
+    },
+    {
+      "id": "q-2026-05-04-06",
+      "type": "main",
+      "domain": "exercise",
+      "subdomain": "gym",
+      "category": "routine",
+      "identity": "move",
+      "title": "헬스 — 귀가 후 W19 첫 운동",
+      "description": "은평 일정 마치고 귀가 후 헬스장. 가슴·어깨 또는 전신 1시간. 은평 인근 헬스장 대안도 가능 — 어느 쪽이든 '나간다'가 80%.",
+      "tier": "elite",
+      "xp": 60,
+      "estimated_minutes": 60,
+      "tags": ["evening", "gym", "focus_week", "boss"],
+      "reasoning": "focus 테마 +20% (50→60). 은평 일정으로 귀가 후 슬롯으로 이동. W19 보스(헬스 2회) 첫 카운트. 5/2 이후 첫 운동 복귀"
+    },
+    {
+      "id": "q-2026-05-04-07",
+      "type": "daily",
+      "domain": "study",
+      "subdomain": "english",
+      "category": "routine",
+      "identity": "researcher",
+      "title": "영어 5분 — 은평 이동 중 Duolingo (11일째)",
+      "description": "버스·지하철 타는 순간 Duolingo 앱 켜기. 은평 이동 시간이 오늘 출근길 평행 슬롯. 무료 루트 11일째.",
+      "tier": "easy",
+      "xp": 10,
+      "estimated_minutes": 5,
+      "tags": ["morning", "commute", "travel"],
+      "reasoning": "평일 출근길 슬롯 구조를 은평 이동 시간으로 유지. 이동 자체가 강제 자유시간 = 마찰 0인 Duolingo 최적 슬롯"
+    },
+    {
+      "id": "q-2026-05-04-08",
+      "type": "challenge",
+      "domain": "study",
+      "subdomain": "research",
+      "category": "research",
+      "identity": "researcher",
+      "title": "🎯 박사초독 과제 — 오늘 마감",
+      "description": "캘린더 마감일 당일. 박사 과정 초독 과제 완료. 귀가 후 헬스 전 or 헬스 후 저녁 슬롯 — 어느 쪽이든 오늘 안에. 제출이 있으면 제출까지.",
+      "tier": "normal",
+      "xp": 36,
+      "estimated_minutes": 60,
+      "tags": ["evening", "research", "deadline", "focus_week", "boss"],
+      "reasoning": "focus 테마 +20% (30→36). 캘린더 마감일 당일 = challenge 타입. 연구 30분 일반 슬롯보다 박사초독 마감이 우선. aport variation·hepatic cyst는 내일 이후 슬롯으로 이월"
+    },
+    {
+      "id": "q-2026-05-04-09",
+      "type": "main",
+      "domain": "relationship",
+      "subdomain": "wife",
+      "category": "wife",
+      "identity": "family",
+      "title": "와이프와 저녁 — 9주차 첫날 한 식탁",
+      "description": "귀가 후 함께 저녁. 메뉴는 와이프 컨디션에 맞춰 가벼운 것으로. 폰 없이 30분. 9주차가 시작된 날을 함께 마무리.",
+      "tier": "easy",
+      "xp": 20,
+      "estimated_minutes": 30,
+      "tags": ["evening", "wife", "dinner"],
+      "reasoning": "어제(일) 저녁 동석의 평일 버전. 헬스·박사초독 후 귀가 시 와이프 9주차 첫날 컨디션 두 번째 관찰 슬롯 — 아침 체크(q-05)와 저녁 한 식탁(q-09)이 같은 날 두 번 데이터"
+    },
+    {
+      "id": "q-2026-05-04-10",
+      "type": "daily",
+      "domain": "health",
+      "subdomain": "sleep",
+      "category": "health",
+      "identity": "skin",
+      "title": "11시 취침 — 0에서 1로",
+      "description": "22:30 폰 거실 → 22:45 양치 → 23:00 침대. 스트릭 재시작 첫 날. 오늘이 새 연속의 Day 1.",
+      "tier": "normal",
+      "xp": 25,
+      "estimated_minutes": 0,
+      "tags": ["night", "streak_start", "boss"],
+      "reasoning": "streak_current = 0 → 오늘 완료 시 +1. 은평+헬스+박사초독 세 슬롯이 있는 날이라 취침 타이밍 관리가 중요. W19 보스(취침 4일) 첫 카운트"
+    },
+    {
+      "id": "q-2026-05-04-novelty",
+      "type": "novelty",
+      "domain": "exploration",
+      "subdomain": "food",
+      "category": "exploration",
+      "identity": "liver",
+      "title": "오늘의 새로움 — 9주차 입덧 완화 레시피 1개",
+      "description": "생강차·레몬수·감자전·단호박죽 등 아직 시도하지 않은 메뉴 1가지 검색 (5분). 내일 저녁 시도할 후보로 저장.",
+      "tier": "easy",
+      "xp": 12,
+      "estimated_minutes": 5,
+      "tags": ["novelty", "explore", "food", "pregnancy"],
+      "reasoning": "최근 novelty: relation(5/1)→self(5/2)→research(5/3)→오늘 food. 4/27 이후 7일 이상. 9주차 진입 + 입덧 막바지 = 아빠가 새 메뉴를 찾아두는 타이밍. xp 12"
+    },
+    {
+      "id": "q-2026-05-04-hidden",
+      "type": "hidden",
+      "domain": "relationship",
+      "subdomain": "wife",
+      "category": "bonus",
+      "identity": "family",
+      "title": "숨은 퀘스트 — 아기에게 메모 한 줄",
+      "description": "9주차 진입 기념. 오늘 날짜와 함께 아기에게 짧은 메모 한 줄 — 폰 메모장이든 종이든. 태아가 된 첫 날을 아빠 시각으로 기록.",
+      "tier": "easy",
+      "xp": 20,
+      "estimated_minutes": 2,
+      "tags": ["hidden", "milestone", "pregnancy"],
+      "reasoning": "9주차 전환이라는 임신 최초의 단계 경계 = hidden quest 자연 발동. 최근 hidden: 감사 3줄(5/3)·옛 일기(5/1)·1분 명상(4/30)·사진(4/29) — 기록·창작 각도 회귀. 오늘은 '아기에게 텍스트 메모' = milestone 기록"
+    }
+  ],
+  "weekly_boss": {
+    "id": "boss-2026-w19",
+    "title": "헬스 2회 + 연구(박사초독 포함) 4회 + 11시 취침 4일",
+    "deadline": "2026-05-10",
+    "progress": 0,
+    "components": {
+      "gym": { "target": 2, "done": 0, "note": "월+수 예정" },
+      "research": { "target": 4, "done": 0, "note": "월(박사초독)·화·수·목 예정" },
+      "sleep_11": { "target": 4, "done": 0, "note": "월~목 4일 기준" }
+    },
+    "reward_xp": 200,
+    "note": "W19 집중 주간. W18 대비 목표치 현실화. 와이프 퀘스트는 daily로 유지(보스 컴포넌트 미포함). 오늘 박사초독 마감 = W19 연구 첫 카운트"
+  }
+}
