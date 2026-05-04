@@ -1,0 +1,336 @@
+{
+  "date": "2026-05-05",
+  "weekday_kr": "화요일",
+  "generated_at": "2026-05-05T05:00:00+09:00",
+  "generator": "claude-opus-4-7",
+  "context": {
+    "weekday": 2,
+    "season": "2026-05",
+    "weather_summary": "외부 API 미응답 — 어린이날 공휴일이지만 본인은 평상 근무 가정. 봄 끝자락, 야외 달리기 무난한 기온대로 추정",
+    "yesterday_completion": null,
+    "yesterday_completed_count": 0,
+    "yesterday_total_count": 10,
+    "yesterday_energy": null,
+    "yesterday_mood": null,
+    "yesterday_memo": "",
+    "yesterday_note": "어제(월 5/4) 로그 미기록. W19 첫날 단백질·11시 취침·영양제·물·절주·영어·와이프 체크·와이프 저녁·연구·novelty 10건 모두 미체크 — 실제 수행 여부 불확실. 4/22·4/24·4/27~5/4 빈칸 시리즈 10일째 갱신",
+    "wife_condition_yesterday": null,
+    "wife_last_known": {
+      "date": "2026-04-26",
+      "condition": 9,
+      "memo": "기록 없음 (당시 7+5주차)"
+    },
+    "pregnancy_week": "9+0주차",
+    "recent_failure_pattern": [
+      "PWA 로그 회수가 10일째 누적 — 어제 단백질·11시 취침이 W19 보스 첫 카운트였는데 수행 여부 불확실",
+      "지난주 영어 평일 노출은 일부만 로그됨 — 출근길 슬롯 정착 여부 확인 필요"
+    ],
+    "skipped_detail": [],
+    "external_api_status": "외부 캘린더/Tasks 미반영 — 5/5 어린이날 공휴일이지만 본인 일정 정보 없음, 화요일 표준(영어+달리기+와이프+연구) 가정",
+    "external_calendar": [],
+    "adaptation": [
+      "화요일 = 영어+달리기+와이프+연구 표준. 어제 월요일은 운동 없는 영어+쉬기였으니 오늘이 본인 운동 첫 회. 보스 운동 컴포넌트 3회의 첫 카운트가 시작되는 날",
+      "오늘은 어린이날 공휴일이지만 의료직 특성상 평상 근무 가능성 — 외부 일정 정보가 없어 평일 화요일 표준으로 짜되, 만약 휴일 모드면 달리기 시간이 더 자유로워지는 정도",
+      "9+0주차 = 8주차 마지막 어제를 넘어 오늘부터 태아(fetus) 단계 첫날. 9주차 dad_action이 '메스꺼움 없는 음식·냄새 자극 최소화'에서 '산모 사진 남기기 — 나중 회상용'으로 전환되는 첫 적용일",
+      "어제 와이프 컨디션 체크가 8주차 마지막 데이터였다면 오늘 체크는 9주차 첫 데이터 — 입덧 안정화 신호가 보이는지 비교할 첫 기준점",
+      "auto_recovery 트리거 미충족(지난 7일 알코올 0~1회·energy ≤3 3일 연속 미충족) → 정상 모드 진행. 어제 5/4도 normal이었고 오늘도 normal",
+      "오늘은 매월 첫째 일요일 아니므로 official_rest_day 대상 아님. weekly_minimum 트리거도 미충족",
+      "화요일 = 출근길 영어 슬롯의 평일 두 번째 노출. 어제 잡았다면 오늘이 페이스 굳어지는 날 — 시간대를 점심 직전으로 살짝 옮겨보는 시도",
+      "근력 주간이라 단백질·달리기 둘 다 강조. 단백질을 달리기 직후 30분 안에 배치하면 운동 회복과 단백질 슬롯이 한 동작으로 묶임"
+    ],
+    "weekly_theme": {
+      "id": "strength",
+      "name": "근력 주간",
+      "focus": "단백질·운동 중심",
+      "morning_tagline": "몸이 기억하는 습관을 쌓는 주간입니다",
+      "selected_at": "2026-05-04",
+      "selected_reason": "월요일(5/4) 새 주 시작 시 선택된 테마 유지. 오늘은 day 2 = 화요일이라 재선택 없음. 다음 재선택은 5/11 월요일",
+      "previous_theme": "relation (2026-04-27 ~ 05-03)",
+      "xp_bonus": {
+        "protein": 1.3,
+        "gym": 1.3,
+        "run": 1.2
+      },
+      "emphasized_quests": [
+        "단백질",
+        "헬스",
+        "달리기"
+      ]
+    },
+    "novelty_selection": {
+      "category": "exploration_food",
+      "item": "올리브영·이마트에서 새로운 건강 간식 1개",
+      "last_used_date": "2026-04-27",
+      "rationale": "최근 14일 새로움 카테고리: walk(5/4)·research(5/3)·self(5/2)·relation(5/1)·walk(4/30)·learn(4/29)·media(4/28)·food(4/27). food는 8일째 — 가장 오래된 카테고리. 근력 주간 단백질·운동 강조와 자연 매칭(건강 간식 = 단백질 보충 후보). xp 13(food xp_range 10~15 중간값, strength 테마는 food 보너스 없음)"
+    },
+    "pregnancy": {
+      "week": "9+0주차",
+      "d_day": "D-217",
+      "stage": "1st trimester",
+      "baby": "태아(fetus) 단계 진입 — 어제까지 배아였던 단계가 오늘부터 태아 단계 첫날",
+      "mom": "체중 변동·피부 변화 시작 가능, 입덧 안정화 신호가 보이기 시작할 수도 있는 시점",
+      "dad_action": "산모 사진 남기기 — 나중 회상용 (9주차 첫날부터 적용)",
+      "meaning": "배아에서 태아로 — 경계를 넘는 주"
+    },
+    "mode": "normal",
+    "rest_day_check": "화요일이라 official_rest_day 대상 아님. 미니멈 트리거 미충족. normal 모드",
+    "bonus_xp": {
+      "quest_id": "q-2026-05-05-06",
+      "xp_added": 20,
+      "template_used": "오늘의 행운 — {quest}에 +{xp} XP 보너스"
+    },
+    "hidden_quest": {
+      "title": "사모님 10초 포옹",
+      "xp": 30
+    },
+    "streak_milestone": null,
+    "w19_boss_status": {
+      "id": "boss-2026-w19",
+      "title": "단백질 5일 + 11시 취침 5일 + 본인 운동 3회",
+      "deadline": "2026-05-10",
+      "components": "단백질·취침은 평일 5일, 본인 운동은 화·수·목·토 중 3회",
+      "today_contribution": "단백질 +1 (어제 포함 시 2/5) + 11시 취침 +1 (어제 포함 시 2/5) + 본인 운동 1/3 시작 — 화요일 달리기가 운동 컴포넌트 첫 카운트"
+    },
+    "user_inbox": [],
+    "inbox_applied": 0,
+    "inbox_note": "미처리 인박스 항목 없음(in-1776688896502는 2026-04-22 적용 완료). state.json inbox 변경 없음",
+    "auto_recovery_trigger": {
+      "matched": false,
+      "reason": "지난 7일(2026-04-29~05-05) 알코올 이벤트 0~1회. energy ≤3 3일 연속 미충족(최근 점수 4/26: 7, 그 외 미기록)",
+      "action_taken": "정상 모드 + strength 테마 유지"
+    },
+    "variation_note": "지난 7일 표현 변주 체크 완료. 영양제: 어제 출근 가방 메기 전 → 오늘은 회진 도는 사이 짧은 자리에서로 시간대 전환. 물: 어제 책상 큰 컵 → 오늘 달리기가 있는 날이라 운동 시간 기준 분배. 절주: 어제 한 주 시작 0 → 오늘 이틀째 0이 자연스러워지는 날. 단백질: 어제 점심 한 끼 → 오늘 달리기 직후 회복 단백질로 운동과 결합. 영어: 어제 출근 지하철 → 오늘 점심 먹기 전 5분으로 시간대 이동. 와이프 체크: 어제 9주차 진입 직전 → 오늘 9주차 첫날(태아 단계 첫 데이터). 와이프 저녁: 어제 평일 동석 → 오늘 옆에 앉아 부탁 한 가지 들어주기로 형태 전환. 연구: 어제 적어둔 다음 한 칸 → 오늘 그 한 칸 실제 진행. 11시 취침: 어제 새 주 첫날 페이스 → 오늘 이틀째 굳어지는 날. 새로움: 5/4 다른 동네 카페 → 오늘 올리브영 새 건강 간식으로 카테고리 자체 전환"
+  },
+  "morning_message": "화요일 아침입니다. 오늘부터 와이프는 9주차 — 어제까지 배아였던 단계가 오늘부터 태아 단계 첫날이에요(D-217). 입덧이 조금씩 안정되기 시작하는 산모도 있어 어제와 비교해 컨디션이 어떤지 한 번 물어봐 주세요. 9주차 아빠 할 일 하나 — 산모 사진 한 컷 남기기, 오늘부터 적용입니다. 이번 주는 근력 주간이고, 화요일은 본인 운동 첫 회 — 달리기에 +20 XP 행운 보너스를 깔아뒀습니다. 몸이 기억하는 습관을 쌓는 주간이에요.",
+  "quests": [
+    {
+      "id": "q-2026-05-05-01",
+      "type": "daily",
+      "domain": "health",
+      "subdomain": "supplements",
+      "category": "health",
+      "identity": "liver",
+      "title": "영양제 — 회진 도는 사이 짧은 자리에서",
+      "description": "어제는 출근 가방 메기 전이었다면 오늘은 회진 한 바퀴 끝나고 책상 돌아왔을 때. 우루사·비타민·양배추환·프로바이오틱스 + 물 한 컵, 1분이면 끝. 오전 첫 빈자리에 끼워두기.",
+      "tier": "normal",
+      "xp": 15,
+      "estimated_minutes": 3,
+      "tags": [
+        "morning",
+        "office"
+      ],
+      "reasoning": "5/4 출근 직전 시간대를 5/5 회진 사이 빈자리로 한 칸 이동. 평일 첫 회진 후 책상 자리는 평소 메모 정리 시간이라 마찰이 적음"
+    },
+    {
+      "id": "q-2026-05-05-02",
+      "type": "daily",
+      "domain": "health",
+      "subdomain": "water",
+      "category": "health",
+      "identity": "skin",
+      "title": "물 1.5L — 오늘은 달리기 기준으로 분배",
+      "description": "낮 동안 1L는 평소처럼, 저녁 달리기 30분 전에 500mL를 한 번에 채워두면 운동 중 부족하지 않아요. 운동 후 추가 500mL는 자연스럽게 마시게 됩니다.",
+      "tier": "easy",
+      "xp": 10,
+      "estimated_minutes": 1,
+      "tags": [
+        "all_day",
+        "exercise_paced"
+      ],
+      "reasoning": "5/4 책상 큰 컵 1회 채우기는 정적 환경 nudge였고, 오늘은 달리기가 있는 날이라 운동 시간이 분배 기준. 같은 1.5L의 분배 메커니즘만 다르게"
+    },
+    {
+      "id": "q-2026-05-05-03",
+      "type": "daily",
+      "domain": "health",
+      "subdomain": "no_alcohol",
+      "category": "health",
+      "identity": "liver",
+      "title": "이틀째 0잔",
+      "description": "월요일에 이어 화요일도 0잔. 두 날 이어지면 한 주 페이스가 자연스럽게 잡힙니다. 화요일 회식 권유 들어와도 '이번 주는 운동 주간이라' 한 마디면 충분.",
+      "tier": "easy",
+      "xp": 25,
+      "estimated_minutes": 0,
+      "tags": [
+        "all_day",
+        "week_pace"
+      ],
+      "reasoning": "5/4 한 주 시작 0 → 5/5 이틀째 연속. 의지력보다 연속의 자연스러움으로 동기 전환. 회식 거절 핑계도 근력 주간이라는 이번 주 컨텍스트에서 자연 발화 가능"
+    },
+    {
+      "id": "q-2026-05-05-04",
+      "type": "main",
+      "domain": "health",
+      "subdomain": "protein",
+      "category": "health",
+      "identity": "liver",
+      "title": "⭐ 단백질 — 달리기 직후 30분 안에",
+      "description": "⭐ 운동 직후 30분은 단백질 흡수가 가장 효율적인 시간이에요. 닭가슴살 100g·계란 3개·그릭요거트·프로틴 셰이크 중 하나를 출근 전에 미리 준비해두면, 달리기 마치고 샤워 전에 먹어두는 흐름이 자연스럽습니다.",
+      "tier": "normal",
+      "xp": 33,
+      "estimated_minutes": 5,
+      "tags": [
+        "evening",
+        "post_run"
+      ],
+      "reasoning": "근력 주간 단백질 강조 + 화요일 달리기와 결합 = 운동 회복 + 단백질 슬롯 한 동작 묶음. 5/4 점심 한 끼 묵직하게 → 5/5 운동 직후 회복 단백질로 형태 전환. 25 base × 1.3(테마) = 33"
+    },
+    {
+      "id": "q-2026-05-05-05",
+      "type": "daily",
+      "domain": "study",
+      "subdomain": "english",
+      "category": "study",
+      "identity": "researcher",
+      "title": "영어 5분 — 점심 먹기 전",
+      "description": "Duolingo 또는 스픽 5분. 점심 식당 들어가기 직전이나 진료실 빈 시간 한 번. 어제 출근길에서 했다면 오늘은 점심 직전으로 시간대를 살짝 옮겨봐도 좋아요.",
+      "tier": "easy",
+      "xp": 20,
+      "estimated_minutes": 5,
+      "tags": [
+        "noon",
+        "english"
+      ],
+      "reasoning": "5/4 출근길 한 정거장 → 5/5 점심 직전. 식사 알람이 시간 트리거 역할, 출근길과 다른 집중 환경. 근력 주간이지만 영어는 별도 보너스 없음(strength bonus는 protein·gym·run)"
+    },
+    {
+      "id": "q-2026-05-05-06",
+      "type": "main",
+      "domain": "exercise",
+      "subdomain": "run",
+      "category": "exercise",
+      "identity": "move",
+      "title": "⭐ 달리기 30분 또는 5km",
+      "description": "⭐ 오늘의 행운 — 달리기에 +20 XP 보너스. 퇴근 후 트레드밀 30분 또는 공원 5km. 화요일 운동은 이번 주 본인 운동 3회 중 첫 회 — 들어가기만 하면 자동입니다.",
+      "tier": "elite",
+      "xp": 80,
+      "estimated_minutes": 35,
+      "tags": [
+        "evening",
+        "cardio",
+        "lucky_bonus"
+      ],
+      "reasoning": "근력 주간 달리기 강조 + 화요일 표준 + 본인 운동 첫 회. 50 base × 1.2(테마) = 60 + 보너스 20 = 80. 보너스 적용 이유: 첫 운동 회수 슬롯이 한 주 운동 페이스를 결정하기 때문"
+    },
+    {
+      "id": "q-2026-05-05-07",
+      "type": "main",
+      "domain": "relationship",
+      "subdomain": "wife",
+      "category": "wife",
+      "identity": "family",
+      "title": "와이프 컨디션 체크 — 9주차 첫날",
+      "description": "오늘부터 태아(fetus) 단계 첫날. 8주차까지가 정교한 조립이었다면 9주차부터는 본격 성장기예요. 입덧이 조금씩 안정되기 시작하는 산모도 있어요. 아침에 어제와 비교해 컨디션이 어떤지 짧게 물어봐 주세요.",
+      "tier": "easy",
+      "xp": 10,
+      "estimated_minutes": 10,
+      "tags": [
+        "morning",
+        "wife",
+        "pregnancy"
+      ],
+      "reasoning": "5/4는 9주차 진입 직전 마지막 8주차 데이터, 5/5는 9주차 첫 데이터. 단계 전환 첫날이라 dad_action도 '냄새 자극 최소화'에서 '산모 사진 남기기'로 전환. relation 테마 종료라 보너스 미적용"
+    },
+    {
+      "id": "q-2026-05-05-08",
+      "type": "main",
+      "domain": "relationship",
+      "subdomain": "wife",
+      "category": "wife",
+      "identity": "family",
+      "title": "와이프 옆에 앉아 부탁 한 가지 들어주기",
+      "description": "퇴근 후 식탁이나 소파에서 옆에 앉기 + '뭐 필요한 거 있어?' 한 번 물어보고 작은 부탁 하나 그 자리에서 처리하기 — 물 한 잔, 베개 위치, 간식 한 그릇 같은. 어제는 동석이 목적이었다면 오늘은 작은 도움 하나가 목적.",
+      "tier": "easy",
+      "xp": 30,
+      "estimated_minutes": 30,
+      "tags": [
+        "evening",
+        "wife"
+      ],
+      "reasoning": "5/4 평일 저녁 동석 → 5/5 같이 있는 시간 안에 작은 도움 하나 추가. 9주차 진입 첫날 = 체중·피부 변화 시작 시점이라 작은 부탁 하나가 산모 입장에서 더 의미 있음"
+    },
+    {
+      "id": "q-2026-05-05-09",
+      "type": "main",
+      "domain": "study",
+      "subdomain": "research",
+      "category": "research",
+      "identity": "researcher",
+      "title": "연구 30분 — 일요일에 정리해둔 그 한 칸",
+      "description": "5/3 일요일에 정리한 진입점에서 30분만. 새 주제 열지 말고 그 자리 한 칸 진행 — Dosimetry 자료 보강이든 UAE 응답 초안 한 줄이든. 화요일은 표준 연구일이라 30분이 부담 없음.",
+      "tier": "normal",
+      "xp": 30,
+      "estimated_minutes": 30,
+      "tags": [
+        "evening",
+        "research"
+      ],
+      "reasoning": "5/4 어제 적어둔 다음 한 칸 → 5/5 그 한 칸 실제 진행. 화요일 = 표준 연구일이라 일요일 진입점 명시 효과가 가장 잘 발현되는 날. 근력 주간 보너스는 research 미적용"
+    },
+    {
+      "id": "q-2026-05-05-10",
+      "type": "daily",
+      "domain": "health",
+      "subdomain": "sleep",
+      "category": "health",
+      "identity": "skin",
+      "title": "11시 취침 — 이틀째 페이스 굳히는 날",
+      "description": "월요일에 한 번 잡았다면 화요일이 페이스가 굳어지는 날이에요. 22:30 폰 거실 → 22:45 양치 → 23:00 침대. 달리기가 있어 잠도 더 잘 옵니다.",
+      "tier": "normal",
+      "xp": 25,
+      "estimated_minutes": 0,
+      "tags": [
+        "night",
+        "week_pace"
+      ],
+      "reasoning": "5/4 새 주 첫날 페이스 → 5/5 이틀째 굳어지는 날. 보스 취침 컴포넌트 +1(어제 포함 시 2/5). 화요일 달리기 후 자연 졸림이 11시 취침 진입 마찰을 낮춤"
+    },
+    {
+      "id": "q-2026-05-05-novelty",
+      "type": "novelty",
+      "domain": "exploration",
+      "subdomain": "food",
+      "category": "exploration",
+      "identity": "liver",
+      "title": "오늘의 새로움 — 올리브영·이마트에서 새 건강 간식 1개",
+      "description": "퇴근길 또는 점심에 올리브영이나 이마트 들러 평소 안 사던 건강 간식 한 가지 골라보기. 단백질바·견과류 믹스·그릭요거트 신제품 같은. 이번 주 단백질 보충 후보로도 자연 연결됩니다.",
+      "tier": "easy",
+      "xp": 13,
+      "estimated_minutes": 10,
+      "tags": [
+        "novelty",
+        "explore",
+        "food"
+      ],
+      "reasoning": "최근 14일 새로움 중 food 카테고리가 가장 오래됨(4/27 이후 8일). 근력 주간 단백질 강조와 자연 매칭 — 새로 산 간식이 단백질 옵션 후보가 되면 한 주 강조점과 연결. xp_range 10~15 중간값 13(strength 테마는 food 보너스 없음)"
+    },
+    {
+      "id": "q-2026-05-05-hidden",
+      "type": "hidden",
+      "domain": "relationship",
+      "subdomain": "wife",
+      "category": "bonus",
+      "identity": "family",
+      "title": "숨은 퀘스트 — 사모님 10초 포옹",
+      "description": "말없이 10초. 9주차 첫날 태아 단계 진입을 사진보다 먼저 몸으로 환영하기.",
+      "tier": "easy",
+      "xp": 30,
+      "estimated_minutes": 1,
+      "tags": [
+        "hidden",
+        "wife",
+        "pregnancy"
+      ],
+      "reasoning": "30% 확률 발동. 최근 14일 hidden(5/3 감사 3줄·5/1 옛 일기·4/30 1분 명상·4/29 사진 한 장·4/27 5분 스트레칭) 중복 회피. 9주차 진입 첫날 + 9주차 dad_action(산모 사진)과 자연 매칭되는 신체 접촉"
+    }
+  ],
+  "weekly_boss": {
+    "id": "boss-2026-w19",
+    "title": "단백질 5일 + 11시 취침 5일 + 본인 운동 3회",
+    "deadline": "2026-05-10",
+    "progress": null,
+    "current": "W19 둘째 날. 5/4 로그 미기록으로 정확 정산 보류 — 단백질 ?/5(어제 수행 시 1/5, 오늘 +1 시 2/5), 취침 ?/5(어제 수행 시 1/5, 오늘 +1 시 2/5), 본인 운동 0/3 → 오늘 달리기 +1로 1/3 시작",
+    "reward_xp": 250,
+    "note": "= 근력 주간. 단백질·취침 평일 5일, 운동은 화·수·목·토 중 3회. 절주는 일일 퀘스트로만 유지(보스 컴포넌트 외). 5/4 로그 회수되면 정확 정산 가능"
+  }
+}
