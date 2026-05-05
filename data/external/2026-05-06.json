@@ -1,0 +1,51 @@
+{
+  "generated_at": "2026-05-06T05:03:00+09:00",
+  "api_status": "미응답 — Apps Script 호스트 접근 불가. 5/5 기준 최신 외부 데이터 활용",
+  "calendar": [
+    {
+      "note": "5/5 데이터 참조: 용상 당직 종료(5/5 15:00 UTC = 5/6 00:00 KST). 5/6 별도 일정 확인 불가"
+    }
+  ],
+  "tasks": [
+    {
+      "list_name": "My Tasks",
+      "title": "TIPS",
+      "due": "",
+      "status": "needsAction",
+      "notes": "",
+      "updated": "2026-04-27T21:49:36.644Z"
+    },
+    {
+      "list_name": "My Tasks",
+      "title": "모든 글루를 써도 엠보로 청구가 가능한지",
+      "due": "",
+      "status": "needsAction",
+      "notes": "",
+      "updated": "2026-03-18T07:02:22.862Z"
+    },
+    {
+      "list_name": "My Tasks",
+      "title": "aport variation",
+      "due": "",
+      "status": "needsAction",
+      "notes": "",
+      "updated": "2026-02-24T08:49:00.667Z"
+    },
+    {
+      "list_name": "My Tasks",
+      "title": "hepatic cyst",
+      "due": "",
+      "status": "needsAction",
+      "notes": "",
+      "updated": "2026-02-23T21:51:11.262Z"
+    },
+    {
+      "list_name": "My Tasks",
+      "title": "탄수화물에 좋은지방과자연식",
+      "due": "",
+      "status": "needsAction",
+      "notes": "",
+      "updated": "2026-02-23T13:32:21.568Z"
+    }
+  ]
+}
