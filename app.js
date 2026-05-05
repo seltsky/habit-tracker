@@ -435,7 +435,26 @@
   async function loadAll() {
     const today = todayStr();
     state.quest = await fetchJson(`data/quests/${today}.json`);
-    if (!state.quest) state.quest = await fetchJson('data/quests/2026-04-19.json');
+    // 오늘 파일이 없으면, 가장 가까운 과거 같은 요일 파일을 fallback으로 사용 (요일별 루틴 일치 유지)
+    // 최대 56일(=8주) 거슬러 올라가며 시도
+    if (!state.quest) {
+      const todayDate = new Date();
+      for (let i = 7; i <= 56; i += 7) {
+        const d = new Date(todayDate); d.setDate(d.getDate() - i);
+        const ds = `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
+        const f = await fetchJson(`data/quests/${ds}.json`);
+        if (f) { state.quest = f; break; }
+      }
+      // 같은 요일 파일도 못 찾으면 최후 수단으로 가장 최근 1-7일 시도
+      if (!state.quest) {
+        for (let i = 1; i <= 7; i++) {
+          const d = new Date(todayDate); d.setDate(d.getDate() - i);
+          const ds = `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
+          const f = await fetchJson(`data/quests/${ds}.json`);
+          if (f) { state.quest = f; break; }
+        }
+      }
+    }
 
     state.external = await fetchJson(`data/external/${today}.json`);
 
