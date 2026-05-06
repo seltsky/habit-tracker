@@ -1,0 +1,7 @@
+{
+    "generated_at": "2026-05-07T05:05:52.000Z",
+    "status": "api_error",
+    "error": "Host not in allowlist — Apps Script URL blocked by sandbox policy",
+    "calendar": [],
+    "tasks": []
+}
