@@ -1,9 +1,72 @@
 {
-  "date": "2026-05-08",
-  "fetched_at": "2026-05-08T05:07:13+09:00",
-  "api_status": "blocked",
-  "api_error": "Host not in allowlist — external Google Apps Script URL unreachable from this environment",
-  "calendar": [],
-  "tasks": [],
-  "note": "외부 API 미응답. 캘린더·Tasks 정보 없음. 평일 금요일 표준 구성 가정."
+    "generated_at": "2026-05-07T20:51:03.652Z",
+    "calendar": [
+        {
+            "calendar": "\ub300\ud55c\ubbfc\uad6d\uc758 \ud734\uc77c",
+            "calendar_id": "ko.south_korea#holiday@group.v.calendar.google.com",
+            "title": "\uc5b4\ubc84\uc774\ub0a0",
+            "start": "2026-05-07T15:00:00.000Z",
+            "end": "2026-05-08T15:00:00.000Z",
+            "all_day": true,
+            "location": "",
+            "description": "\uae30\ub150\uc77c\n\uae30\ub150\uc77c\uc744 \uc228\uae30\ub824\uba74 Google Calendar \uc124\uc815 > \ub300\ud55c\ubbfc\uad6d\uc758 \ud734\uc77c \uce98\ub9b0\ub354\ub85c \uc774\ub3d9\ud558\uc138\uc694."
+        },
+        {
+            "calendar": "calvarous@gmail.com",
+            "calendar_id": "calvarous@gmail.com",
+            "title": "\ub2f9\uc9c1",
+            "start": "2026-05-07T15:00:00.000Z",
+            "end": "2026-05-08T15:00:00.000Z",
+            "all_day": true,
+            "location": "",
+            "description": ""
+        }
+    ],
+    "tasks": [
+        {
+            "list_name": "My Tasks",
+            "list_id": "MDQ1ODE2NzUyMjUxMjQxODU4NjU6MDow",
+            "title": "TIPS",
+            "due": "",
+            "status": "needsAction",
+            "notes": "",
+            "updated": "2026-04-27T21:49:36.644Z"
+        },
+        {
+            "list_name": "My Tasks",
+            "list_id": "MDQ1ODE2NzUyMjUxMjQxODU4NjU6MDow",
+            "title": "\ubaa8\ub4e0 \uae00\ub8e8\ub97c \uc368\ub3c4 \uc5e0\ubcf4\ub85c \uccad\uad6c\uac00 \uac00\ub2a5\ud55c\uc9c0",
+            "due": "",
+            "status": "needsAction",
+            "notes": "",
+            "updated": "2026-03-18T07:02:22.862Z"
+        },
+        {
+            "list_name": "My Tasks",
+            "list_id": "MDQ1ODE2NzUyMjUxMjQxODU4NjU6MDow",
+            "title": "aport variation",
+            "due": "",
+            "status": "needsAction",
+            "notes": "",
+            "updated": "2026-02-24T08:49:00.667Z"
+        },
+        {
+            "list_name": "My Tasks",
+            "list_id": "MDQ1ODE2NzUyMjUxMjQxODU4NjU6MDow",
+            "title": "hepatic cyst",
+            "due": "",
+            "status": "needsAction",
+            "notes": "",
+            "updated": "2026-02-23T21:51:11.286Z"
+        },
+        {
+            "list_name": "My Tasks",
+            "list_id": "MDQ1ODE2NzUyMjUxMjQxODU4NjU6MDow",
+            "title": "\ud0c4\uc218\ud654\ubb3c\uc801\uac8c \uc88b\uc740\uc9c0\ubc29\uacfc\uc790\uc5f0\uc2dd",
+            "due": "",
+            "status": "needsAction",
+            "notes": "",
+            "updated": "2026-02-23T13:32:21.558Z"
+        }
+    ]
 }
