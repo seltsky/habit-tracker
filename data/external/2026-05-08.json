@@ -1,0 +1,9 @@
+{
+  "date": "2026-05-08",
+  "fetched_at": "2026-05-08T05:07:13+09:00",
+  "api_status": "blocked",
+  "api_error": "Host not in allowlist — external Google Apps Script URL unreachable from this environment",
+  "calendar": [],
+  "tasks": [],
+  "note": "외부 API 미응답. 캘린더·Tasks 정보 없음. 평일 금요일 표준 구성 가정."
+}
