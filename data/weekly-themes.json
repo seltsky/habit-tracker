@@ -1,6 +1,6 @@
 {
   "description": "이 주에 어디에 더 마음을 쓸지 정하는 테마. 매주 월요일에 바뀌고, 핵심 습관은 그대로 강조점만 살짝 달라집니다.",
-  "last_updated": "2026-05-04",
+  "last_updated": "2026-05-11",
   "rotation_mode": "adaptive",
   "themes": [
     {
@@ -101,10 +101,10 @@
     "default_order": ["strength", "relation", "research", "recovery", "exploration", "organize", "inspiration"]
   },
   "current_theme_state": {
-    "active_theme_id": "strength",
-    "week_start": "2026-05-04",
-    "previous_theme_id": "relation",
-    "previous_week_start": "2026-04-27",
-    "note": "이번 주(2026-05-04 ~ 05-10)는 근력 주간. 임신 9주차 진입과 입덧 안정화 가능 시점에 맞춰 본인 회복(단백질·운동)으로 강조점을 이동했어요."
+    "active_theme_id": "research",
+    "week_start": "2026-05-11",
+    "previous_theme_id": "strength",
+    "previous_week_start": "2026-05-04",
+    "note": "이번 주(2026-05-11 ~ 05-17)는 연구 주간. 지난주 strength로 단백질·운동 패턴이 자리 잡은 흐름 위에서 평일 영어·연구 슬롯 회복으로 강조점을 옮겼어요."
   }
 }
