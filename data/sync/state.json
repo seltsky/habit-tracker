@@ -1,5 +1,5 @@
 {
-  "lastModified": 1778546094518,
+  "lastModified": 1778591609323,
   "user": {
     "name": "선생님",
     "character_class": [
@@ -9,13 +9,13 @@
     ],
     "started_at": "2026-04-19",
     "level": 9,
-    "current_xp": 184,
-    "total_xp_lifetime": 1884,
+    "current_xp": 209,
+    "total_xp_lifetime": 1909,
     "stats": {
       "stamina": 10,
       "discipline": 27,
       "focus": 10,
-      "wellness": 80,
+      "wellness": 81,
       "research": 11
     },
     "streak_current": 0,
@@ -27,10 +27,23 @@
       "won": 0,
       "lost": 0
     },
-    "lifetime_completed": 88,
+    "lifetime_completed": 89,
     "total_quests_seen": 0
   },
   "logs": {
+    "2026-05-09": {
+      "date": "2026-05-09",
+      "completed": [
+        "q-2026-05-09-04",
+        "q-2026-05-09-06",
+        "q-2026-05-09-07",
+        "q-2026-05-09-hidden"
+      ],
+      "skipped": [],
+      "energy_score": null,
+      "mood_score": null,
+      "memo": ""
+    },
     "2026-04-20": {
       "date": "2026-04-20",
       "completed": [
@@ -86,19 +99,6 @@
       "mood_score": null,
       "memo": ""
     },
-    "2026-05-09": {
-      "date": "2026-05-09",
-      "completed": [
-        "q-2026-05-09-04",
-        "q-2026-05-09-06",
-        "q-2026-05-09-07",
-        "q-2026-05-09-hidden"
-      ],
-      "skipped": [],
-      "energy_score": null,
-      "mood_score": null,
-      "memo": ""
-    },
     "2026-04-30": {
       "date": "2026-04-30",
       "completed": [
@@ -141,6 +141,46 @@
       "energy_score": null,
       "mood_score": null,
       "memo": ""
+    },
+    "2026-04-19": {
+      "date": "2026-04-19",
+      "completed": [
+        "q-2026-04-19-03",
+        "q-2026-04-19-06",
+        "q-2026-04-19-01",
+        "q-2026-04-19-08",
+        "q-2026-04-19-05",
+        "q-2026-04-19-10"
+      ],
+      "skipped": [
+        {
+          "quest_id": "q-2026-04-19-09",
+          "reason_code": "willpower",
+          "reason_text": "",
+          "skipped_at": "2026-04-19T12:25:28.312Z"
+        },
+        {
+          "quest_id": "q-2026-04-19-07",
+          "reason_code": "condition",
+          "reason_text": "",
+          "skipped_at": "2026-04-19T13:41:25.145Z"
+        },
+        {
+          "quest_id": "q-2026-04-19-04",
+          "reason_code": "time",
+          "reason_text": "",
+          "skipped_at": "2026-04-19T13:41:40.383Z"
+        },
+        {
+          "quest_id": "q-2026-04-19-02",
+          "reason_code": "other",
+          "reason_text": "얼마마셨는지 모르겠다. 먹은거같긴한데",
+          "skipped_at": "2026-04-19T13:48:29.417Z"
+        }
+      ],
+      "energy_score": 2,
+      "mood_score": 6,
+      "memo": "어제 가족모임 술먹어서 컨디션 안좋다"
     },
     "2026-04-27": {
       "date": "2026-04-27",
@@ -207,46 +247,6 @@
       "energy_score": null,
       "mood_score": null,
       "memo": ""
-    },
-    "2026-04-19": {
-      "date": "2026-04-19",
-      "completed": [
-        "q-2026-04-19-03",
-        "q-2026-04-19-06",
-        "q-2026-04-19-01",
-        "q-2026-04-19-08",
-        "q-2026-04-19-05",
-        "q-2026-04-19-10"
-      ],
-      "skipped": [
-        {
-          "quest_id": "q-2026-04-19-09",
-          "reason_code": "willpower",
-          "reason_text": "",
-          "skipped_at": "2026-04-19T12:25:28.312Z"
-        },
-        {
-          "quest_id": "q-2026-04-19-07",
-          "reason_code": "condition",
-          "reason_text": "",
-          "skipped_at": "2026-04-19T13:41:25.145Z"
-        },
-        {
-          "quest_id": "q-2026-04-19-04",
-          "reason_code": "time",
-          "reason_text": "",
-          "skipped_at": "2026-04-19T13:41:40.383Z"
-        },
-        {
-          "quest_id": "q-2026-04-19-02",
-          "reason_code": "other",
-          "reason_text": "얼마마셨는지 모르겠다. 먹은거같긴한데",
-          "skipped_at": "2026-04-19T13:48:29.417Z"
-        }
-      ],
-      "energy_score": 2,
-      "mood_score": 6,
-      "memo": "어제 가족모임 술먹어서 컨디션 안좋다"
     },
     "2026-04-28": {
       "date": "2026-04-28",
@@ -363,7 +363,8 @@
       "date": "2026-05-12",
       "completed": [
         "q-2026-05-12-07",
-        "q-2026-05-12-novelty"
+        "q-2026-05-12-novelty",
+        "q-2026-05-12-04"
       ],
       "skipped": [],
       "energy_score": null,
