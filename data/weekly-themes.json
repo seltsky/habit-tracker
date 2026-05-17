@@ -101,10 +101,10 @@
     "default_order": ["strength", "relation", "research", "recovery", "exploration", "organize", "inspiration"]
   },
   "current_theme_state": {
-    "active_theme_id": "research",
-    "week_start": "2026-05-11",
-    "previous_theme_id": "strength",
-    "previous_week_start": "2026-05-04",
-    "note": "이번 주(2026-05-11 ~ 05-17)는 연구 주간. 지난주 strength로 단백질·운동 패턴이 자리 잡은 흐름 위에서 평일 영어·연구 슬롯 회복으로 강조점을 옮겼어요."
+    "active_theme_id": "relation",
+    "week_start": "2026-05-18",
+    "previous_theme_id": "research",
+    "previous_week_start": "2026-05-11",
+    "note": "이번 주(2026-05-18 ~ 05-24)는 관계 주간. 와이프 11주차(1분기 후반 마지막 고비) 진입 + 5/14 스승의날 이후 가족·동료 안부가 끊겨 있던 흐름을 보고 strength·organize 후보 대신 relation 채택. 와이프·가족 자리에 강조점을 둔 한 주."
   }
 }
