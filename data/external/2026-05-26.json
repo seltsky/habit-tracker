@@ -1,0 +1,9 @@
+{
+  "fetched_at": "2026-05-26T05:03:05+09:00",
+  "date": "2026-05-26",
+  "status": "api_blocked",
+  "error": "Host not in allowlist",
+  "calendar": [],
+  "tasks": [],
+  "note": "Google Apps Script 외부 API 접근이 네트워크 정책으로 차단됨. 마지막 정상 수신: 2026-05-21분. 캘린더·Tasks 신규 데이터 없음. Tasks 7건(TARE·RECUR·TIPS·글루·aport·hepatic cyst·탄수화물) 모두 마감일 없음 — 도전 퀘스트 미추가. 화요일 표준 루틴 기반 퀘스트 생성."
+}
