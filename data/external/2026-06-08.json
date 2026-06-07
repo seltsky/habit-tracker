@@ -1,0 +1,58 @@
+{
+  "generated_at": "2026-06-08T05:02:36+09:00",
+  "fetch_status": "error_403",
+  "fetch_note": "외부 Apps Script API 403 Forbidden — 네트워크 허용 목록 외 도메인. 2026-06-05.json(generated_at: 2026-06-04T21:18:45.055Z) 기준 마지막 데이터 재사용.",
+  "calendar": [],
+  "calendar_note": "마지막 확인(6/4) 기준 6/8 해당 일정 없음. 6/4-6/5 당직 이벤트 이후 신규 일정 미확인.",
+  "tasks": [
+    {
+      "list_name": "My Tasks",
+      "title": "3cm 이상 TARE 치료효과",
+      "due": "",
+      "status": "needsAction",
+      "updated": "2026-05-07T22:38:08.099Z"
+    },
+    {
+      "list_name": "My Tasks",
+      "title": "TARE 후 안으로 RECUR",
+      "due": "",
+      "status": "needsAction",
+      "updated": "2026-05-07T22:37:30.877Z"
+    },
+    {
+      "list_name": "My Tasks",
+      "title": "TIPS",
+      "due": "",
+      "status": "needsAction",
+      "updated": "2026-04-27T21:49:36.644Z"
+    },
+    {
+      "list_name": "My Tasks",
+      "title": "모든 글루를 써도 엠보로 청구가 가능한지",
+      "due": "",
+      "status": "needsAction",
+      "updated": "2026-03-18T07:02:22.862Z"
+    },
+    {
+      "list_name": "My Tasks",
+      "title": "aport variation",
+      "due": "",
+      "status": "needsAction",
+      "updated": "2026-02-24T08:49:00.667Z"
+    },
+    {
+      "list_name": "My Tasks",
+      "title": "hepatic cyst",
+      "due": "",
+      "status": "needsAction",
+      "updated": "2026-02-23T21:51:11.686Z"
+    },
+    {
+      "list_name": "My Tasks",
+      "title": "탄수화물적게 좋은지방과자연식",
+      "due": "",
+      "status": "needsAction",
+      "updated": "2026-02-23T13:32:21.558Z"
+    }
+  ]
+}
