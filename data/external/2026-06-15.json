@@ -1,0 +1,8 @@
+{
+  "fetched_at": "2026-06-15T05:03:21+09:00",
+  "date_requested": "2026-06-15",
+  "status": "error",
+  "error": "Host not in allowlist: script.google.com — 네트워크 정책에 의해 외부 API 차단됨",
+  "calendar": [],
+  "tasks": []
+}
