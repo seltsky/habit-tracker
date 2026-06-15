@@ -1,0 +1,8 @@
+{
+  "fetched_at": "2026-06-16T05:04:00+09:00",
+  "status": "error",
+  "error": "Host not in allowlist: script.google.com — 네트워크 정책으로 외부 API 접근 불가",
+  "calendar": [],
+  "tasks": [],
+  "note": "egress 설정에 script.google.com 추가 필요. 오늘 퀘스트는 이전 데이터(6/15 external 기준) + 요일별 기본 루틴으로 생성됨."
+}
