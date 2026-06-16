@@ -1,0 +1,8 @@
+{
+  "fetched_at": "2026-06-17T05:00:00+09:00",
+  "status": "api_unavailable",
+  "error": "Host not in allowlist: script.google.com",
+  "note": "원격 실행 환경의 네트워크 정책에 의해 script.google.com 차단. 캘린더·Tasks 데이터 없음.",
+  "calendar": [],
+  "tasks": []
+}
