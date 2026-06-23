@@ -1,0 +1,8 @@
+{
+  "fetched_at": "2026-06-24T05:00:00+09:00",
+  "status": "error",
+  "error": "curl exit code 56 — network unavailable (proxy/firewall block, consistent with recent sessions)",
+  "calendar": [],
+  "tasks": [],
+  "note": "외부 API(script.google.com) 네트워크 차단으로 호출 불가. 캘린더·Tasks 데이터 없음."
+}
