@@ -1,0 +1,8 @@
+{
+  "generated_at": "2026-06-28T05:02:53+09:00",
+  "fetch_status": "error",
+  "error_code": 56,
+  "error_message": "curl exit code 56 (network error) — Apps Script 응답 없음. 캘린더·Tasks 데이터 수신 실패.",
+  "calendar": [],
+  "tasks": []
+}
