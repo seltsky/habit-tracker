@@ -1,0 +1,9 @@
+{
+  "generated_at": "2026-07-07T05:05:00+09:00",
+  "status": "fetch_failed",
+  "error": "proxy_403",
+  "note": "프록시 정책 차단(HTTP 403). 외부 데이터 fetch 실패. 가장 최신 외부 파일 data/external/2026-07-06.json(2026-07-05T20:41Z 수집) 참조. 캘린더 2건(은평·박사초독 과제) 모두 7/6 KST 전용 일정이라 오늘(7/7) 해당 없음. Tasks 7건 모두 due 없음.",
+  "source_file": "data/external/2026-07-06.json",
+  "calendar": [],
+  "tasks": []
+}
